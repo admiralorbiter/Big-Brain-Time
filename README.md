@@ -74,48 +74,48 @@ The documents can be read linearly, but the package is designed for repeated pas
 
 ### Pass 1 — Orient to the proof of concept
 
-1. `00_DESIGN_STUDIO_CHARTER.md`
-2. `01_CURRENT_PRODUCT_AND_PROOF_OF_CONCEPT.md`
-3. `02_PRODUCT_THESIS_AND_CAPABILITY_MODEL.md`
+1. [`00_DESIGN_STUDIO_CHARTER.md`](00_DESIGN_STUDIO_CHARTER.md)
+2. [`01_CURRENT_PRODUCT_AND_PROOF_OF_CONCEPT.md`](01_CURRENT_PRODUCT_AND_PROOF_OF_CONCEPT.md)
+3. [`02_PRODUCT_THESIS_AND_CAPABILITY_MODEL.md`](02_PRODUCT_THESIS_AND_CAPABILITY_MODEL.md)
 
 **Output:** a one-page statement of what Big Brain Time is trying to make possible and which current capabilities should be preserved.
 
 ### Pass 2 — Understand the whole system
 
-4. `03_SYSTEM_LANDSCAPE_AND_ARCHITECTURE.md`
-5. `04_SUBSYSTEM_ATLAS.md`
-6. `12_DIAGRAM_ATLAS.md`
+4. [`03_SYSTEM_LANDSCAPE_AND_ARCHITECTURE.md`](03_SYSTEM_LANDSCAPE_AND_ARCHITECTURE.md)
+5. [`04_SUBSYSTEM_ATLAS.md`](04_SUBSYSTEM_ATLAS.md)
+6. [`12_DIAGRAM_ATLAS.md`](12_DIAGRAM_ATLAS.md)
 
 **Output:** mark each subsystem as `core`, `capability pack`, `adapter`, `external authority`, `derived`, or `not yet justified`.
 
 ### Pass 3 — Study the cognitive model
 
-7. `05_COGNITIVE_AND_MEMORY_MODEL.md`
-8. `06_SYNTHESIS_CONSOLIDATION_AND_FORGETTING.md`
+7. [`05_COGNITIVE_AND_MEMORY_MODEL.md`](05_COGNITIVE_AND_MEMORY_MODEL.md)
+8. [`06_SYNTHESIS_CONSOLIDATION_AND_FORGETTING.md`](06_SYNTHESIS_CONSOLIDATION_AND_FORGETTING.md)
 
 **Output:** work through three real memories, one changing belief, one preference, one decision, and one scenario using the proposed object model.
 
 ### Pass 4 — Preserve alternatives
 
-9. `07_DESIGN_TENSIONS_AND_OPTION_SPACES.md`
-10. `08_RESEARCH_AGENDA_AND_EVIDENCE_MAP.md`
+9. [`07_DESIGN_TENSIONS_AND_OPTION_SPACES.md`](07_DESIGN_TENSIONS_AND_OPTION_SPACES.md)
+10. [`08_RESEARCH_AGENDA_AND_EVIDENCE_MAP.md`](08_RESEARCH_AGENDA_AND_EVIDENCE_MAP.md)
 
 **Output:** select no more than three design questions for deeper research or prototype work.
 
 ### Pass 5 — Establish the design method
 
-11. `09_PRODUCT_DESIGN_METHOD_AND_GOVERNANCE.md`
-12. `11_EXPERIMENT_PORTFOLIO_AND_DECISION_GATES.md`
-13. the templates in `templates/`
+11. [`09_PRODUCT_DESIGN_METHOD_AND_GOVERNANCE.md`](09_PRODUCT_DESIGN_METHOD_AND_GOVERNANCE.md)
+12. [`11_EXPERIMENT_PORTFOLIO_AND_DECISION_GATES.md`](11_EXPERIMENT_PORTFOLIO_AND_DECISION_GATES.md)
+13. the templates in [`templates/`](templates/)
 
 **Output:** create one complete design-question packet and one experiment card before writing new production code.
 
 ### Pass 6 — Think beyond the personal prototype
 
-14. `10_GENERALIZATION_AND_PRODUCTIZATION.md`
-15. `13_DESIGN_WORKBOOK.md`
-16. `14_GLOSSARY.md`
-17. `SOURCES_AND_TRACEABILITY.md`
+14. [`10_GENERALIZATION_AND_PRODUCTIZATION.md`](10_GENERALIZATION_AND_PRODUCTIZATION.md)
+15. [`13_DESIGN_WORKBOOK.md`](13_DESIGN_WORKBOOK.md)
+16. [`14_GLOSSARY.md`](14_GLOSSARY.md)
+17. [`SOURCES_AND_TRACEABILITY.md`](SOURCES_AND_TRACEABILITY.md)
 
 **Output:** distinguish the universal kernel from Jonathan’s profile and choose the smallest reusable product surface worth testing.
 
@@ -144,22 +144,22 @@ No session is required to end in a decision. An explicit unresolved question is 
 
 | Document | Primary question |
 |---|---|
-| `00_DESIGN_STUDIO_CHARTER.md` | How should this design phase operate? |
-| `01_CURRENT_PRODUCT_AND_PROOF_OF_CONCEPT.md` | What exists now, and how mature is it? |
-| `02_PRODUCT_THESIS_AND_CAPABILITY_MODEL.md` | What product is being designed? |
-| `03_SYSTEM_LANDSCAPE_AND_ARCHITECTURE.md` | What are the system boundaries and major layers? |
-| `04_SUBSYSTEM_ATLAS.md` | What does each subsystem do, depend on, and risk? |
-| `05_COGNITIVE_AND_MEMORY_MODEL.md` | What kinds of memory and mental objects must be represented? |
-| `06_SYNTHESIS_CONSOLIDATION_AND_FORGETTING.md` | When and how may information be compressed or removed? |
-| `07_DESIGN_TENSIONS_AND_OPTION_SPACES.md` | Which choices should remain open, and how can they be compared? |
-| `08_RESEARCH_AGENDA_AND_EVIDENCE_MAP.md` | Which research threads can materially change the design? |
-| `09_PRODUCT_DESIGN_METHOD_AND_GOVERNANCE.md` | How are questions converted into evidence-backed decisions? |
-| `10_GENERALIZATION_AND_PRODUCTIZATION.md` | How can a personal prototype become a reusable platform? |
-| `11_EXPERIMENT_PORTFOLIO_AND_DECISION_GATES.md` | Which probes should be run, in what order, with what stop rules? |
-| `12_DIAGRAM_ATLAS.md` | How can the product and subsystems be inspected visually? |
-| `13_DESIGN_WORKBOOK.md` | What should Jonathan fill out while studying the system? |
-| `14_GLOSSARY.md` | What does the package mean by its recurring terms? |
-| `SOURCES_AND_TRACEABILITY.md` | Which ideas came from the current system, prior blueprint, research, or new proposals? |
+| [`00_DESIGN_STUDIO_CHARTER.md`](00_DESIGN_STUDIO_CHARTER.md) | How should this design phase operate? |
+| [`01_CURRENT_PRODUCT_AND_PROOF_OF_CONCEPT.md`](01_CURRENT_PRODUCT_AND_PROOF_OF_CONCEPT.md) | What exists now, and how mature is it? |
+| [`02_PRODUCT_THESIS_AND_CAPABILITY_MODEL.md`](02_PRODUCT_THESIS_AND_CAPABILITY_MODEL.md) | What product is being designed? |
+| [`03_SYSTEM_LANDSCAPE_AND_ARCHITECTURE.md`](03_SYSTEM_LANDSCAPE_AND_ARCHITECTURE.md) | What are the system boundaries and major layers? |
+| [`04_SUBSYSTEM_ATLAS.md`](04_SUBSYSTEM_ATLAS.md) | What does each subsystem do, depend on, and risk? |
+| [`05_COGNITIVE_AND_MEMORY_MODEL.md`](05_COGNITIVE_AND_MEMORY_MODEL.md) | What kinds of memory and mental objects must be represented? |
+| [`06_SYNTHESIS_CONSOLIDATION_AND_FORGETTING.md`](06_SYNTHESIS_CONSOLIDATION_AND_FORGETTING.md) | When and how may information be compressed or removed? |
+| [`07_DESIGN_TENSIONS_AND_OPTION_SPACES.md`](07_DESIGN_TENSIONS_AND_OPTION_SPACES.md) | Which choices should remain open, and how can they be compared? |
+| [`08_RESEARCH_AGENDA_AND_EVIDENCE_MAP.md`](08_RESEARCH_AGENDA_AND_EVIDENCE_MAP.md) | Which research threads can materially change the design? |
+| [`09_PRODUCT_DESIGN_METHOD_AND_GOVERNANCE.md`](09_PRODUCT_DESIGN_METHOD_AND_GOVERNANCE.md) | How are questions converted into evidence-backed decisions? |
+| [`10_GENERALIZATION_AND_PRODUCTIZATION.md`](10_GENERALIZATION_AND_PRODUCTIZATION.md) | How can a personal prototype become a reusable platform? |
+| [`11_EXPERIMENT_PORTFOLIO_AND_DECISION_GATES.md`](11_EXPERIMENT_PORTFOLIO_AND_DECISION_GATES.md) | Which probes should be run, in what order, with what stop rules? |
+| [`12_DIAGRAM_ATLAS.md`](12_DIAGRAM_ATLAS.md) | How can the product and subsystems be inspected visually? |
+| [`13_DESIGN_WORKBOOK.md`](13_DESIGN_WORKBOOK.md) | What should Jonathan fill out while studying the system? |
+| [`14_GLOSSARY.md`](14_GLOSSARY.md) | What does the package mean by its recurring terms? |
+| [`SOURCES_AND_TRACEABILITY.md`](SOURCES_AND_TRACEABILITY.md) | Which ideas came from the current system, prior blueprint, research, or new proposals? |
 
 ## Evidence labels
 
@@ -214,4 +214,4 @@ big-brain-time-design-studio/
 
 ## First action
 
-Read `00_DESIGN_STUDIO_CHARTER.md`, then spend one session on the “keep, question, retire” worksheet at the end of `01_CURRENT_PRODUCT_AND_PROOF_OF_CONCEPT.md`. Do not begin with the roadmap. The next build should emerge from the design risk that matters most, not from the next numbered sprint.
+Read [`00_DESIGN_STUDIO_CHARTER.md`](00_DESIGN_STUDIO_CHARTER.md), then spend one session on the “keep, question, retire” worksheet at the end of [`01_CURRENT_PRODUCT_AND_PROOF_OF_CONCEPT.md`](01_CURRENT_PRODUCT_AND_PROOF_OF_CONCEPT.md). Do not begin with the roadmap. The next build should emerge from the design risk that matters most, not from the next numbered sprint.

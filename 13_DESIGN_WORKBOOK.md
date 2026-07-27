@@ -349,7 +349,7 @@ For each case choose the desired verb and explain why.
 
 # Session 8 — Design tension and QOC
 
-Choose two tensions from `07_DESIGN_TENSIONS_AND_OPTION_SPACES.md`.
+Choose two tensions from [`07_DESIGN_TENSIONS_AND_OPTION_SPACES.md`](07_DESIGN_TENSIONS_AND_OPTION_SPACES.md).
 
 ## QOC 1
 
