@@ -1,0 +1,27 @@
+digraph G {
+
+graph [bgcolor="white", pad="0.28", nodesep="0.42", ranksep="0.58", fontname="Arial", fontsize="10", labelloc="t"];
+node [shape=box, style="rounded,filled", fillcolor="#F7F8FC", color="#52606D", penwidth="1.1", fontname="Arial", fontsize="10", margin="0.12,0.08"];
+edge [color="#66788A", penwidth="1.1", arrowsize="0.72", fontname="Arial", fontsize="9"];
+
+label="Action Firewall and Graduated Autonomy";
+rankdir=LR;
+IDEA [label="Model/user action proposal"];
+TYPE [label="Typed action graph
+closed schemas"];
+RISK [label="Policy evaluation
+domain • target • risk • privacy"];
+SIM [label="Dry run / simulation
+preconditions • affected resources"];
+CONF [label="Required confirmation", fillcolor="#FFF4D6"];
+EXEC [label="Scoped executor"];
+VER [label="Postcondition verification"];
+AUD [label="Audit / rollback / trust repair", fillcolor="#EAF7EE"];
+DENY [label="Deny or return to proposal", fillcolor="#FCE8E6"];
+IDEA -> TYPE -> RISK;
+RISK -> SIM [label="allowed"];
+RISK -> DENY [label="not allowed"];
+SIM -> CONF -> EXEC -> VER -> AUD;
+VER -> AUD [label="success"];
+VER -> DENY [label="mismatch / rollback"];
+}

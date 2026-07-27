@@ -1,0 +1,25 @@
+digraph G {
+
+graph [bgcolor="white", pad="0.28", nodesep="0.42", ranksep="0.58", fontname="Arial", fontsize="10", labelloc="t"];
+node [shape=box, style="rounded,filled", fillcolor="#F7F8FC", color="#52606D", penwidth="1.1", fontname="Arial", fontsize="10", margin="0.12,0.08"];
+edge [color="#66788A", penwidth="1.1", arrowsize="0.72", fontname="Arial", fontsize="9"];
+
+label="Trusted Answer Pipeline";
+rankdir=LR;
+Q [label="Question"];
+PLAN [label="Query plan
+mode • time • authority • privacy"];
+R [label="Retrieve candidates
+exact • lexical • structural • semantic"];
+T [label="Temporal / authority resolution"];
+C [label="Conflict and gap scan"];
+P [label="Context contract
+sources • omissions • budget"];
+M [label="Model synthesis", fillcolor="#E8F1FF"];
+V [label="Claim / citation verifier"];
+O [label="Answer • partial • conflict • abstention", fillcolor="#EAF7EE"];
+Q -> PLAN -> R -> T -> C -> P -> M -> V -> O;
+V -> O [label="supported"];
+V -> P [label="repair context", style=dashed];
+C -> O [label="deterministic abstention/conflict", style=dashed];
+}

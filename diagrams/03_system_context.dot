@@ -1,0 +1,30 @@
+digraph G {
+
+graph [bgcolor="white", pad="0.28", nodesep="0.42", ranksep="0.58", fontname="Arial", fontsize="10", labelloc="t"];
+node [shape=box, style="rounded,filled", fillcolor="#F7F8FC", color="#52606D", penwidth="1.1", fontname="Arial", fontsize="10", margin="0.12,0.08"];
+edge [color="#66788A", penwidth="1.1", arrowsize="0.72", fontname="Arial", fontsize="9"];
+
+label="System Context: What Big Brain Time Is Responsible For";
+rankdir=LR;
+U [label="Jonathan
+owner and final authority", shape=ellipse, fillcolor="#FFF4D6"];
+BBT [label="Big Brain Time
+local capability and memory platform", fillcolor="#EAF7EE", penwidth="2"];
+AI [label="Replaceable AI models
+reasoning services", fillcolor="#E8F1FF"];
+CAL [label="Calendar / Email / GitHub
+external authorities", fillcolor="#FCE8E6"];
+FILES [label="Files, webpages, conversations
+untrusted evidence", fillcolor="#FCE8E6"];
+BACK [label="Independent backup
+and recovery target", fillcolor="#F3E8FF"];
+U -> BBT [label="questions, corrections, approvals"];
+BBT -> U [label="context, plans, evidence, proposals"];
+BBT -> AI [label="bounded context contract"];
+AI -> BBT [label="draft output, never authority"];
+CAL -> BBT [label="references / selected evidence"];
+BBT -> CAL [label="drafts or scoped actions", style=dashed];
+FILES -> BBT [label="ingestion"];
+BBT -> BACK [label="verified snapshots"];
+BACK -> BBT [label="restore proof"];
+}

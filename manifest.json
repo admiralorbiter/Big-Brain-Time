@@ -1,0 +1,541 @@
+{
+  "package": "Big Brain Time Design Studio",
+  "prepared": "2026-07-27",
+  "file_count_excluding_manifest": 89,
+  "files": [
+    {
+      "path": "00_DESIGN_STUDIO_CHARTER.md",
+      "bytes": 13335,
+      "sha256": "c6ae891442e1922d2c836e10c7a8e1b63bf55748c145423fd70d1401d2ff85a3",
+      "lines": 292
+    },
+    {
+      "path": "01_CURRENT_PRODUCT_AND_PROOF_OF_CONCEPT.md",
+      "bytes": 17093,
+      "sha256": "ee15385fb53c383cdf1366c8b05e3d26676f7c5b564b6ee7492eb43c6da0e073",
+      "lines": 281
+    },
+    {
+      "path": "02_PRODUCT_THESIS_AND_CAPABILITY_MODEL.md",
+      "bytes": 16741,
+      "sha256": "c78eab09ad3f09188cb1ffb02e4fabae3a4d9de028c1eba87dded4eb6517d78e",
+      "lines": 358
+    },
+    {
+      "path": "03_SYSTEM_LANDSCAPE_AND_ARCHITECTURE.md",
+      "bytes": 15583,
+      "sha256": "968a7a828bbf1a6f295cd07bb5679bb370384abb4cf9415c7346ebf0b9008196",
+      "lines": 396
+    },
+    {
+      "path": "04_SUBSYSTEM_ATLAS.md",
+      "bytes": 31492,
+      "sha256": "2a6729daf0a47702b2828fb03b8e5d13ce7b8f922cec976ceded5ba0fd8f3c00",
+      "lines": 893
+    },
+    {
+      "path": "05_COGNITIVE_AND_MEMORY_MODEL.md",
+      "bytes": 21222,
+      "sha256": "2189e4cc2a4151f096d6e1489fbe3f3346994a1da45902ac3637ac431a9eb6df",
+      "lines": 526
+    },
+    {
+      "path": "06_SYNTHESIS_CONSOLIDATION_AND_FORGETTING.md",
+      "bytes": 18849,
+      "sha256": "d62c8f72e521e080b338a6cdac830d92b62b173eca47f71b7ddf9aac8615459e",
+      "lines": 506
+    },
+    {
+      "path": "07_DESIGN_TENSIONS_AND_OPTION_SPACES.md",
+      "bytes": 17601,
+      "sha256": "90911202a1fbffa382350a2af5442f36d9d9d3461c9512ebc9868cee793a2fef",
+      "lines": 617
+    },
+    {
+      "path": "08_RESEARCH_AGENDA_AND_EVIDENCE_MAP.md",
+      "bytes": 21465,
+      "sha256": "4a55fd7590b2da0e4c5495d7d4684d8c8854f777a427e5d38352d1ecfb0a1d20",
+      "lines": 646
+    },
+    {
+      "path": "09_PRODUCT_DESIGN_METHOD_AND_GOVERNANCE.md",
+      "bytes": 15311,
+      "sha256": "19d5e777a9ed46c12a36d5b8b3046600a9f5ae3cfbb60eeb72e14ac64f74757d",
+      "lines": 560
+    },
+    {
+      "path": "10_GENERALIZATION_AND_PRODUCTIZATION.md",
+      "bytes": 15809,
+      "sha256": "8041a3161e860658bf6f46b388b7b944145695fc15b0813c3c299fb6716aa74a",
+      "lines": 504
+    },
+    {
+      "path": "11_EXPERIMENT_PORTFOLIO_AND_DECISION_GATES.md",
+      "bytes": 18624,
+      "sha256": "e75dddd2b734df4e639db1f8ffb99ece69560801c1e1b16dae624ca3b8b3a136",
+      "lines": 707
+    },
+    {
+      "path": "12_DIAGRAM_ATLAS.md",
+      "bytes": 10108,
+      "sha256": "4f5480caf307da2efdc04649d09fd731492553ef60d349fd932cd43cb091c4b3",
+      "lines": 316
+    },
+    {
+      "path": "13_DESIGN_WORKBOOK.md",
+      "bytes": 11803,
+      "sha256": "b95f2067767ba4233d3cd46b6d8cdf155365ead07acd093ad7be1bdbaf1de491",
+      "lines": 572
+    },
+    {
+      "path": "14_GLOSSARY.md",
+      "bytes": 18366,
+      "sha256": "00529c3ccb3a532bb9a02e3770e6c2eb16a2bc6577706443eb361119c3f24131",
+      "lines": 313
+    },
+    {
+      "path": "BIG_BRAIN_TIME_DESIGN_STUDIO.html",
+      "bytes": 671976,
+      "sha256": "40bfcca46a6ae36f147d32eff37896dfee8fdb3f0c621fbef127c35a29425054",
+      "lines": 14887
+    },
+    {
+      "path": "BIG_BRAIN_TIME_DESIGN_STUDIO.md",
+      "bytes": 292020,
+      "sha256": "ffe464a99d46c657ffaf8a4b97f4d670864ad4aebf563ca86ba6d5092306de21",
+      "lines": 8047
+    },
+    {
+      "path": "PACKAGE_MANIFEST.md",
+      "bytes": 8614,
+      "sha256": "bf00facf153e0facfc45423c0d158d1d3677e80b843f1a5f690dd6358fbd967d",
+      "lines": 134
+    },
+    {
+      "path": "README.md",
+      "bytes": 10973,
+      "sha256": "b6f6c640150fbcffab508e472a73debaa8d4bc284d288bfc424989a357eabfaf",
+      "lines": 203
+    },
+    {
+      "path": "SOURCES_AND_TRACEABILITY.md",
+      "bytes": 17027,
+      "sha256": "48b35f0d9d413c13de3a13439e0e5b6ec0b35e738b1193be717d14a8dfa20af2",
+      "lines": 278
+    },
+    {
+      "path": "diagrams/01_joint_cognitive_system.dot",
+      "bytes": 1308,
+      "sha256": "a186cb3dcc44afd14cf6a71f6781f866e83b4c8ce0fd5a3823b350b829438630",
+      "lines": 30
+    },
+    {
+      "path": "diagrams/01_joint_cognitive_system.svg",
+      "bytes": 9016,
+      "sha256": "7f2d4eb88d5985bc6449077e0e5cb6cfdb92b381daadcb50faa44efc088e5fc2",
+      "lines": 126
+    },
+    {
+      "path": "diagrams/02_product_kernel.dot",
+      "bytes": 1454,
+      "sha256": "fd317f7cae51469e5c1224b87c3609fce1c67347cb5db31f2fa0f4764863ca53",
+      "lines": 27
+    },
+    {
+      "path": "diagrams/02_product_kernel.svg",
+      "bytes": 11274,
+      "sha256": "e99cd9cd088475db5fb84784d789f90186daa005f0476fe5b16a8de583102896",
+      "lines": 158
+    },
+    {
+      "path": "diagrams/03_system_context.dot",
+      "bytes": 1389,
+      "sha256": "8579b0a3a2c1b0970c3c9eee715a626d21dd3f4e38138be90f937c95c3d7f6af",
+      "lines": 30
+    },
+    {
+      "path": "diagrams/03_system_context.svg",
+      "bytes": 8751,
+      "sha256": "caac0f91be432381cd79558ad78a8b4bb5257757e9f54603d2b55aa32f174b96",
+      "lines": 119
+    },
+    {
+      "path": "diagrams/04_container_architecture.dot",
+      "bytes": 1628,
+      "sha256": "8194ceb2a068ae34b12245700a00eb1b5689da154e954535a8918fec99365512",
+      "lines": 27
+    },
+    {
+      "path": "diagrams/04_container_architecture.svg",
+      "bytes": 15562,
+      "sha256": "2d399806c2d9fefcf0c75ede01fb82524944c4d47fea55dc00408bf1251390c1",
+      "lines": 224
+    },
+    {
+      "path": "diagrams/05_authority_and_trust_planes.dot",
+      "bytes": 1684,
+      "sha256": "92893053561214d023aae52ea54a84ad783f73296f879b0e07268a350101246a",
+      "lines": 29
+    },
+    {
+      "path": "diagrams/05_authority_and_trust_planes.svg",
+      "bytes": 13568,
+      "sha256": "dd6f180bd423fc15907cc87358005c96f55bc9cb89b60bda3b98ad6b75519410",
+      "lines": 194
+    },
+    {
+      "path": "diagrams/06_subsystem_landscape.dot",
+      "bytes": 1693,
+      "sha256": "fecdc6a481a6284a75255047554bbd1caccf254acc0a1369e0b97f8947534da6",
+      "lines": 25
+    },
+    {
+      "path": "diagrams/06_subsystem_landscape.svg",
+      "bytes": 17740,
+      "sha256": "a86d32d463ce07edd923d9c6101ff31808cb0b2d17b7e86e8ca94bf11a260dce",
+      "lines": 246
+    },
+    {
+      "path": "diagrams/07_capture_to_memory.dot",
+      "bytes": 1217,
+      "sha256": "d460cf24412e49530027b5cb46167fae3b776e0f187cfabf01f66bcfe0128365",
+      "lines": 27
+    },
+    {
+      "path": "diagrams/07_capture_to_memory.svg",
+      "bytes": 8579,
+      "sha256": "9346858d0aecfd2d78153bf345d805eb6a89f081d13649480e79ab2ca0f7b129",
+      "lines": 125
+    },
+    {
+      "path": "diagrams/08_trusted_answer_pipeline.dot",
+      "bytes": 1083,
+      "sha256": "44ce3d3e316c3fdd4d4d192b45e0252496b99070c1e8719a32a50a8d4bd1163a",
+      "lines": 25
+    },
+    {
+      "path": "diagrams/08_trusted_answer_pipeline.svg",
+      "bytes": 9082,
+      "sha256": "69f6322ce3c45b131ea16897a5db8363d1e39e19727ee2325e6cd0bfdf9345a0",
+      "lines": 140
+    },
+    {
+      "path": "diagrams/09_memory_consolidation.dot",
+      "bytes": 1091,
+      "sha256": "70e2439ff3ff539ab9d91f4f9ccd544a0a0728504256f8360ffc9c20a2c9c788",
+      "lines": 25
+    },
+    {
+      "path": "diagrams/09_memory_consolidation.svg",
+      "bytes": 7574,
+      "sha256": "ace24aa2c7b8f062b5b7c8b7cc03cafedffc5f0068eb292a1fd88d57a1d0e540",
+      "lines": 112
+    },
+    {
+      "path": "diagrams/10_reentry_loop.dot",
+      "bytes": 952,
+      "sha256": "f8404864982c70c510a029d8905f4c87462f812839ee9089551a667f8707fd62",
+      "lines": 22
+    },
+    {
+      "path": "diagrams/10_reentry_loop.svg",
+      "bytes": 7337,
+      "sha256": "9b9923e137e60b488ddf130a1039a8f481708bd76347a68fcbe1c3f60b98f402",
+      "lines": 110
+    },
+    {
+      "path": "diagrams/11_change_propagation.dot",
+      "bytes": 1060,
+      "sha256": "ba8ca7dbe6e8bfb86bbe447f5ecb822e7a078b8614e017a5b8b43cf4c5c3695a",
+      "lines": 25
+    },
+    {
+      "path": "diagrams/11_change_propagation.svg",
+      "bytes": 8434,
+      "sha256": "df70ea22927dfd2eaec8e608c3b5b167cbf7ef9a6f55f9dd995f5fee9bf87a22",
+      "lines": 128
+    },
+    {
+      "path": "diagrams/12_action_firewall.dot",
+      "bytes": 1131,
+      "sha256": "4cb8b3f8f837a0e6686902dc9a351333aaae021e501c558544c0bc99e0aae4b9",
+      "lines": 27
+    },
+    {
+      "path": "diagrams/12_action_firewall.svg",
+      "bytes": 9121,
+      "sha256": "52629aaf19e53691c60846b4bb19942ab54caa8a290b572eff0ee04cf40aad8f",
+      "lines": 135
+    },
+    {
+      "path": "diagrams/13_lifecycle_and_purge.dot",
+      "bytes": 1119,
+      "sha256": "f4f5d0869c3ebbaac929afc5cdb3b88549dbfd8739dfe4931eee274941ecb9ee",
+      "lines": 23
+    },
+    {
+      "path": "diagrams/13_lifecycle_and_purge.svg",
+      "bytes": 8365,
+      "sha256": "c9e84188dfe521a840b2f809014431019eaa7b95dce6f8dce72307a162d233b5",
+      "lines": 126
+    },
+    {
+      "path": "diagrams/14_design_spiral.dot",
+      "bytes": 852,
+      "sha256": "714b54ad4871038fe11a36d78eed099ef809491b8863f6190a2993452e6dfe51",
+      "lines": 18
+    },
+    {
+      "path": "diagrams/14_design_spiral.svg",
+      "bytes": 8194,
+      "sha256": "b9201678735be819f9acb2649082a8bc7346f8cc3f80ddb8fb611549dea0810c",
+      "lines": 110
+    },
+    {
+      "path": "diagrams/15_productization_layers.dot",
+      "bytes": 1174,
+      "sha256": "b2eb27cde2016d2cdf6a330351d72a2b024e0f188ced6575f9cf17109322d040",
+      "lines": 24
+    },
+    {
+      "path": "diagrams/15_productization_layers.svg",
+      "bytes": 7191,
+      "sha256": "3044a83d0a8cc2420f14d8cc2c84ccf2a2258cb6d996e269742c24e6afbeea16",
+      "lines": 100
+    },
+    {
+      "path": "diagrams/16_evaluation_flywheel.dot",
+      "bytes": 1008,
+      "sha256": "eeba059e8161d410a93c62bb5827804621479b74eee6adf1b78970edd3318a77",
+      "lines": 22
+    },
+    {
+      "path": "diagrams/16_evaluation_flywheel.svg",
+      "bytes": 8364,
+      "sha256": "81721d7aba5f59231256be03b14ea87d977d1350e772ca00a7d4c5a28ec1e4b7",
+      "lines": 125
+    },
+    {
+      "path": "diagrams/17_epistemic_object_model.dot",
+      "bytes": 1301,
+      "sha256": "777b65a70c1227a0c3fe64c6055255e05e73dd740c0dbecaeb30fa9d61074fba",
+      "lines": 27
+    },
+    {
+      "path": "diagrams/17_epistemic_object_model.svg",
+      "bytes": 8867,
+      "sha256": "a15f479eaa58ea60f6b3456f9df285187d17f81be7a0768fe5ae26ff518858be",
+      "lines": 114
+    },
+    {
+      "path": "diagrams/18_multi_resolution_memory.dot",
+      "bytes": 1119,
+      "sha256": "7e98d7590b81c49ea990b11b66b4fe326526e1d879faddfa650569b204d8f221",
+      "lines": 24
+    },
+    {
+      "path": "diagrams/18_multi_resolution_memory.svg",
+      "bytes": 7135,
+      "sha256": "9435602ae3914fbd5b0a6bd325f05927b2c48f107b8a91ca2729e143b5118567",
+      "lines": 100
+    },
+    {
+      "path": "diagrams/19_qoc_design_space.dot",
+      "bytes": 1325,
+      "sha256": "bdb1b7044eb05c3a5e087e11feb3b1869c48309ac73bd6b1923913af1df5a027",
+      "lines": 29
+    },
+    {
+      "path": "diagrams/19_qoc_design_space.svg",
+      "bytes": 11950,
+      "sha256": "6db0472aa20fe6a59a6853dbb200a90eb490de90862e5b7a272385aff2610ae7",
+      "lines": 172
+    },
+    {
+      "path": "diagrams/20_quality_attribute_map.dot",
+      "bytes": 1275,
+      "sha256": "dbaf82612a6ea11eacca2c8292b473f3a73ae4099f0474ca3168e9cbcfaeb2af",
+      "lines": 26
+    },
+    {
+      "path": "diagrams/20_quality_attribute_map.svg",
+      "bytes": 11239,
+      "sha256": "b6189075468fee5ddb914f0f3413a26ea839200db99567c097b92f6591870c02",
+      "lines": 157
+    },
+    {
+      "path": "reference/source-blueprint/00_EXECUTIVE_BLUEPRINT.md",
+      "bytes": 15387,
+      "sha256": "94310e1d44e8aec89accb60dfbb48e786acabe0d9318534c4fa5c45024e4bdda",
+      "lines": 277
+    },
+    {
+      "path": "reference/source-blueprint/00_SPRINT_0_CHARTER.md",
+      "bytes": 5274,
+      "sha256": "516f921e55f13dada223601f3cb8c98269284cdbf978018954d6d5c29761a781",
+      "lines": 109
+    },
+    {
+      "path": "reference/source-blueprint/01_RESEARCH_SYNTHESIS(1).md",
+      "bytes": 11549,
+      "sha256": "d2865e90618d3f4cca8b0bc4a5dafb67baa8e8af9c80e25ca6ae9a43a9cbfb39",
+      "lines": 152
+    },
+    {
+      "path": "reference/source-blueprint/02_TARGET_ARCHITECTURE.md",
+      "bytes": 15842,
+      "sha256": "11cf74837b51572fca43aebacc0f826fd6ec9476c66f9199dbcc9ae97e89ca5f",
+      "lines": 297
+    },
+    {
+      "path": "reference/source-blueprint/03_DOMAIN_AND_DATA_MODEL(1).md",
+      "bytes": 14083,
+      "sha256": "f6ae46d8f4c3129b11ca6401a1b3c69789d5941a8949ce779b03e6230aa94ab7",
+      "lines": 419
+    },
+    {
+      "path": "reference/source-blueprint/04_RETRIEVAL_CONTEXT_AND_MEMORY.md",
+      "bytes": 12688,
+      "sha256": "911487d1e3e2fce952f28d4db3b0719a1789dceb10e8e14d81578b0094a375f1",
+      "lines": 553
+    },
+    {
+      "path": "reference/source-blueprint/05_SAFETY_PERMISSIONS_AND_THREAT_MODEL.md",
+      "bytes": 11498,
+      "sha256": "ad21983858f7de85d89ab4dd8f2a631838ecf062ea960d2f8d863f2c771d285e",
+      "lines": 310
+    },
+    {
+      "path": "reference/source-blueprint/06_ROADMAP_MILESTONES_AND_SPRINTS(1).md",
+      "bytes": 10875,
+      "sha256": "5afe098b96b161cd2f01daa900529cbc3636f0b6aaf2d55d04b38e5fb75d3989",
+      "lines": 254
+    },
+    {
+      "path": "reference/source-blueprint/07_EVALUATION_AND_EXPERIMENTS.md",
+      "bytes": 15021,
+      "sha256": "41ebb6d42ac023a97a2f837b58061694bc7eaabdb763b5255e2f78954a7e4d0d",
+      "lines": 361
+    },
+    {
+      "path": "reference/source-blueprint/08_ARCHITECTURE_DECISION_PROPOSALS.md",
+      "bytes": 10056,
+      "sha256": "00a277e8af4ddba3cf1ee34980a66bc485178a48d5504e0ac9dcf173f5bbd581",
+      "lines": 225
+    },
+    {
+      "path": "reference/source-blueprint/09_RESEARCH_BIBLIOGRAPHY(1).md",
+      "bytes": 8874,
+      "sha256": "15103fed2f5cb369f5e0880515dc76a9643a35579279e0b9337262bacf87d835",
+      "lines": 157
+    },
+    {
+      "path": "reference/source-blueprint/10_DISCOVERY_AND_REQUIREMENTS_WORKSHEET(1).md",
+      "bytes": 15091,
+      "sha256": "f1ac29f702c889cbd45c960db9166f21b787eb1ca1cc050753f931eb36b30048",
+      "lines": 87
+    },
+    {
+      "path": "reference/source-blueprint/11_RISK_REGISTER(1).md",
+      "bytes": 17344,
+      "sha256": "30d12ba8dc8ce5b63786011d6077fb8e7e73289517c0b4fb94d64c76bfb820d1",
+      "lines": 383
+    },
+    {
+      "path": "reference/source-blueprint/ARCHITECTURE_DECISION_RECORDS.md",
+      "bytes": 29470,
+      "sha256": "ad1c77a41c9eb29e254cae001231d26652d21f186feda2fce08ad14f78f474e4",
+      "lines": 654
+    },
+    {
+      "path": "reference/source-blueprint/ARTIFACT_MANIFEST(1).md",
+      "bytes": 14338,
+      "sha256": "a55b25e98799849acf67bdfdb71f4a5afb301649e2909299a3f29aa12ac556c3",
+      "lines": 118
+    },
+    {
+      "path": "reference/source-blueprint/BIG_BRAIN_TIME_SYSTEM_BLUEPRINT(1).md",
+      "bytes": 5617,
+      "sha256": "6ed4168a4792ea1222fb5d67ab573dc17fdf8a33fb1c7abca674cf2f80aca4a4",
+      "lines": 59
+    },
+    {
+      "path": "reference/source-blueprint/README(3).md",
+      "bytes": 43310,
+      "sha256": "469d8aa6574dbf237a352f20971d41758f9fbd43554f904129db9abfd81edd12",
+      "lines": 407
+    },
+    {
+      "path": "reference/source-blueprint/README.md",
+      "bytes": 552,
+      "sha256": "281923b250b8d1698ff483fc63264cc31183f4c4d69b8cd7dcb3fb4ef1934da4",
+      "lines": 7
+    },
+    {
+      "path": "studio.css",
+      "bytes": 1726,
+      "sha256": "27a5c3c26d0d0e4e17f62d9ddd6905d0aebc744bf3736895b12cbd0590ecc64f",
+      "lines": 35
+    },
+    {
+      "path": "templates/CONTEXT_CONTRACT.md",
+      "bytes": 598,
+      "sha256": "83f7d545f8b9e62efd78d39f466307ff09c45a45d89a745bbc2a1061ff5cd54f",
+      "lines": 39
+    },
+    {
+      "path": "templates/DECISION_PACKET.md",
+      "bytes": 626,
+      "sha256": "817681e74ba999606c08727545cd70dc2e4a279f9ace8a826ec10cc42a8abcd5",
+      "lines": 43
+    },
+    {
+      "path": "templates/DESIGN_QUESTION_PACKET.md",
+      "bytes": 875,
+      "sha256": "10f895d8572c7a185fa8e1b56b0a721f16eac08362a1327bbb37d31a015995b2",
+      "lines": 65
+    },
+    {
+      "path": "templates/EXPERIMENT_CARD.md",
+      "bytes": 768,
+      "sha256": "155ca54b6b9b9753889790016a2e54af16fcf5ec85871ed018d1de4910c5f21c",
+      "lines": 59
+    },
+    {
+      "path": "templates/FRICTION_RECORD.md",
+      "bytes": 447,
+      "sha256": "a01551cb6b0bbe79a46fee79a51a5137b3b4f390ede52682ff36e5c5e30b1eaf",
+      "lines": 41
+    },
+    {
+      "path": "templates/LIFECYCLE_IMPACT_PACKET.md",
+      "bytes": 966,
+      "sha256": "9ab81692839794cdc75cdafd6f465aa5b199dce8fe3cb92f2223e685e54630df",
+      "lines": 48
+    },
+    {
+      "path": "templates/QUALITY_ATTRIBUTE_SCENARIO.md",
+      "bytes": 436,
+      "sha256": "0dc224b4c86777e5579c8a808ce36f613c3ebb8140212ec30326b966c60727d2",
+      "lines": 27
+    },
+    {
+      "path": "templates/RESEARCH_BRIEF.md",
+      "bytes": 602,
+      "sha256": "a4c3aeb1dd8020c4e397513f8ff5cde3a689374fe0ca392974dc3605d837c67f",
+      "lines": 42
+    },
+    {
+      "path": "templates/SUBSYSTEM_CARD.md",
+      "bytes": 568,
+      "sha256": "679111b52a4250bf874a8c7bff8483c8a6b4ea65bade20f590f7ecff52d1f8ce",
+      "lines": 45
+    },
+    {
+      "path": "validation_report.json",
+      "bytes": 529,
+      "sha256": "58e289b6df542cb2db055ae32997dd0839cff4e1a5df52c2cd03bb2e6ec88088",
+      "lines": 20
+    }
+  ]
+}

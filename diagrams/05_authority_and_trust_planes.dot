@@ -1,0 +1,29 @@
+digraph G {
+
+graph [bgcolor="white", pad="0.28", nodesep="0.42", ranksep="0.58", fontname="Arial", fontsize="10", labelloc="t"];
+node [shape=box, style="rounded,filled", fillcolor="#F7F8FC", color="#52606D", penwidth="1.1", fontname="Arial", fontsize="10", margin="0.12,0.08"];
+edge [color="#66788A", penwidth="1.1", arrowsize="0.72", fontname="Arial", fontsize="9"];
+
+label="Authority, Trust, and Representation Planes";
+rankdir=LR;
+subgraph cluster_control { label="Trusted control plane"; style="rounded,filled"; color="#8FA3B8"; fillcolor="#EEF4FA";
+REQ [label="Explicit user request"]; POLICY [label="Policies and grants"]; CMD [label="Typed commands"];
+REQ -> POLICY -> CMD;
+}
+subgraph cluster_evidence { label="Untrusted evidence plane"; style="rounded,filled"; color="#D9A5A0"; fillcolor="#FFF3F1";
+DOC [label="Documents / email / web"]; OUT [label="Model outputs"]; OBS [label="Observations / imports"];
+}
+subgraph cluster_authority { label="Canonical authorities"; style="rounded,filled"; color="#8DB39B"; fillcolor="#F0FAF3";
+MD [label="Markdown / Git narrative"]; SQL [label="Selected SQLite state"]; EXT [label="External systems"];
+}
+subgraph cluster_derived { label="Disposable derived plane"; style="rounded,filled"; color="#B8A0D9"; fillcolor="#F8F2FF";
+IDX [label="Index / FTS / embeddings"]; GRPH [label="Candidate graph"]; PACK [label="Summaries / context packs"];
+}
+DOC -> IDX; OUT -> PACK; OBS -> IDX;
+MD -> IDX; SQL -> IDX; EXT -> IDX;
+IDX -> GRPH -> PACK;
+PACK -> POLICY [label="evidence for proposals", style=dashed];
+CMD -> MD [label="authorized write"];
+CMD -> SQL [label="authorized write"];
+CMD -> EXT [label="high-friction scoped action", style=dashed];
+}

@@ -1,0 +1,27 @@
+digraph G {
+
+graph [bgcolor="white", pad="0.28", nodesep="0.42", ranksep="0.58", fontname="Arial", fontsize="10", labelloc="t"];
+node [shape=box, style="rounded,filled", fillcolor="#F7F8FC", color="#52606D", penwidth="1.1", fontname="Arial", fontsize="10", margin="0.12,0.08"];
+edge [color="#66788A", penwidth="1.1", arrowsize="0.72", fontname="Arial", fontsize="9"];
+
+label="Target Container Architecture: Modular Monolith with Ports and Adapters";
+rankdir=TB;
+subgraph cluster_i { label="Delivery Interfaces"; style="rounded"; color="#B8C4CE";
+I1 [label="CLI"]; I2 [label="Flask / HTMX"]; I3 [label="Voice"]; I4 [label="Local API"];
+}
+APP [label="Application layer
+commands • queries • workflows • proposal orchestration", fillcolor="#E8F1FF"];
+DOM [label="Domain kernel
+identity • memory • truth • planning • permissions • evaluation", fillcolor="#EAF7EE", penwidth="2"];
+PORTS [label="Ports / contracts
+repositories • search • models • tools • clocks", fillcolor="#F3E8FF"];
+subgraph cluster_a { label="Adapters"; style="rounded"; color="#B8C4CE";
+A1 [label="Markdown / Git"]; A2 [label="SQLite"]; A3 [label="Model providers"]; A4 [label="Calendar / GitHub / Email"];
+}
+subgraph cluster_s { label="Stores and projections"; style="rounded"; color="#B8C4CE";
+S1 [label="Canonical narrative"]; S2 [label="Operational aggregates"]; S3 [label="Read model / FTS / graph"]; S4 [label="Context packs / reports"];
+}
+I1 -> APP; I2 -> APP; I3 -> APP; I4 -> APP;
+APP -> DOM; DOM -> PORTS; PORTS -> A1; PORTS -> A2; PORTS -> A3; PORTS -> A4;
+A1 -> S1; A2 -> S2; A2 -> S3; A3 -> S4; S1 -> S3; S2 -> S3; S3 -> S4;
+}

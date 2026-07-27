@@ -1,0 +1,24 @@
+digraph G {
+
+graph [bgcolor="white", pad="0.28", nodesep="0.42", ranksep="0.58", fontname="Arial", fontsize="10", labelloc="t"];
+node [shape=box, style="rounded,filled", fillcolor="#F7F8FC", color="#52606D", penwidth="1.1", fontname="Arial", fontsize="10", margin="0.12,0.08"];
+edge [color="#66788A", penwidth="1.1", arrowsize="0.72", fontname="Arial", fontsize="9"];
+
+label="Multi-Resolution Memory: Preserve Detail, Compile Views";
+rankdir=BT;
+L0 [label="L0 Original artifacts and episodes
+verbatim, durable, privacy-governed", fillcolor="#FFF4D6"];
+L1 [label="L1 Addressable spans and records
+sections, entities, assertions, decisions"];
+L2 [label="L2 Relations and evidence structures
+provenance, conflict, dependencies"];
+L3 [label="L3 Consolidated reflections
+patterns, themes, heuristics — derived"];
+L4 [label="L4 Purpose-bound views
+context packs, briefings, handoffs"];
+L5 [label="L5 Commitments and actions
+approved decisions, plans, tasks", fillcolor="#EAF7EE"];
+L0 -> L1 -> L2 -> L3 -> L4 -> L5;
+L5 -> L0 [label="new experience and evidence", style=dashed];
+L4 -> L0 [label="drill down", style=dashed];
+}

@@ -1,0 +1,27 @@
+digraph G {
+
+graph [bgcolor="white", pad="0.28", nodesep="0.42", ranksep="0.58", fontname="Arial", fontsize="10", labelloc="t"];
+node [shape=box, style="rounded,filled", fillcolor="#F7F8FC", color="#52606D", penwidth="1.1", fontname="Arial", fontsize="10", margin="0.12,0.08"];
+edge [color="#66788A", penwidth="1.1", arrowsize="0.72", fontname="Arial", fontsize="9"];
+
+label="The Product Kernel and Its Surrounding Layers";
+rankdir=TB;
+subgraph cluster_interfaces { label="Interfaces"; color="#B8C4CE"; style="rounded";
+CLI [label="CLI"]; WEB [label="Web / HTMX"]; VOICE [label="Voice"]; API [label="API / Agents"];
+}
+subgraph cluster_packs { label="Capability Packs"; color="#B8C4CE"; style="rounded";
+RESEARCH [label="Research"]; PROJECTS [label="Projects"]; LEARNING [label="Learning"]; LIFE [label="Life / Health Preparation"];
+}
+K [label="PRODUCT KERNEL
+identity • provenance • time • authority
+memory lifecycle • retrieval • commitments
+permissions • evaluation", shape=ellipse, fillcolor="#EAF7EE", penwidth="2"];
+PROFILE [label="Profile and policy layer
+Jonathan-specific vocabulary, values, boundaries", fillcolor="#FFF4D6"];
+ADAPTERS [label="Adapters
+Markdown • SQLite • Git • calendar • models • connectors", fillcolor="#E8F1FF"];
+CLI -> K; WEB -> K; VOICE -> K; API -> K;
+K -> RESEARCH; K -> PROJECTS; K -> LEARNING; K -> LIFE;
+PROFILE -> K [dir=both, label="configures / learns explicitly"];
+K -> ADAPTERS [dir=both];
+}

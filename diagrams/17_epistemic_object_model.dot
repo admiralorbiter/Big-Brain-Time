@@ -1,0 +1,27 @@
+digraph G {
+
+graph [bgcolor="white", pad="0.28", nodesep="0.42", ranksep="0.58", fontname="Arial", fontsize="10", labelloc="t"];
+node [shape=box, style="rounded,filled", fillcolor="#F7F8FC", color="#52606D", penwidth="1.1", fontname="Arial", fontsize="10", margin="0.12,0.08"];
+edge [color="#66788A", penwidth="1.1", arrowsize="0.72", fontname="Arial", fontsize="9"];
+
+label="Plural Epistemic Object Model";
+rankdir=LR;
+ITEM [label="Memory item
+episode • assertion • narrative • preference
+goal • plan • decision • simulation", fillcolor="#EAF7EE", penwidth="2"];
+SOURCE [label="Source and activity
+perceived • measured • reported • inferred • generated"];
+STANCE [label="Stance
+asserts • remembers • doubts • prefers • intends • explores"];
+PERS [label="Perspective / holder
+Jonathan-now • Jonathan-then • AI • organization"];
+PROP [label="Optional proposition
+subject • predicate • object • polarity • scope"];
+RES [label="Resolution
+unreviewed • supported • disputed • superseded • retracted"];
+REL [label="Relations
+supports • attacks • qualifies • derives • depends-on"];
+ITEM -> SOURCE; ITEM -> STANCE; STANCE -> PERS; ITEM -> PROP; PROP -> RES; ITEM -> REL;
+SOURCE -> RES [label="evidence"];
+PERS -> REL [label="perspective-aware"];
+}

@@ -1,0 +1,18 @@
+digraph G {
+
+graph [bgcolor="white", pad="0.28", nodesep="0.42", ranksep="0.58", fontname="Arial", fontsize="10", labelloc="t"];
+node [shape=box, style="rounded,filled", fillcolor="#F7F8FC", color="#52606D", penwidth="1.1", fontname="Arial", fontsize="10", margin="0.12,0.08"];
+edge [color="#66788A", penwidth="1.1", arrowsize="0.72", fontname="Arial", fontsize="9"];
+
+label="Big Brain Time Design Spiral";
+layout=circo;
+OBS [label="Observe real friction", fillcolor="#FFF4D6"];
+FRAME [label="Frame design question"];
+RES [label="Research and map options"];
+PRO [label="Build smallest probe"];
+PILOT [label="Use in real work"];
+MEAS [label="Measure value, safety, burden"];
+DEC [label="Decide: keep, revise, remove"];
+DOC [label="Record rationale and next risk", fillcolor="#EAF7EE"];
+OBS -> FRAME -> RES -> PRO -> PILOT -> MEAS -> DEC -> DOC -> OBS;
+}

@@ -1,0 +1,24 @@
+digraph G {
+
+graph [bgcolor="white", pad="0.28", nodesep="0.42", ranksep="0.58", fontname="Arial", fontsize="10", labelloc="t"];
+node [shape=box, style="rounded,filled", fillcolor="#F7F8FC", color="#52606D", penwidth="1.1", fontname="Arial", fontsize="10", margin="0.12,0.08"];
+edge [color="#66788A", penwidth="1.1", arrowsize="0.72", fontname="Arial", fontsize="9"];
+
+label="From Jonathan's Prototype to a Reusable Brain Platform";
+rankdir=TB;
+K [label="Universal kernel
+identity • memory • provenance • time • policy • evaluation", fillcolor="#EAF7EE", penwidth="2"];
+P [label="Profile
+person/project vocabulary, values, privacy, authority"];
+C [label="Capability packs
+research • planning • learning • health prep • creative work"];
+W [label="Workflow compositions
+project brain • personal brain • team brain"];
+I [label="Interfaces and integrations
+CLI • web • voice • APIs • local/cloud models"];
+D [label="Deployment envelope
+single machine • private sync • organization", fillcolor="#F3E8FF"];
+K -> P -> C -> W -> I -> D;
+P -> K [label="configures, never forks", style=dashed];
+C -> K [label="uses stable contracts", style=dashed];
+}

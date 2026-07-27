@@ -1,0 +1,29 @@
+digraph G {
+
+graph [bgcolor="white", pad="0.28", nodesep="0.42", ranksep="0.58", fontname="Arial", fontsize="10", labelloc="t"];
+node [shape=box, style="rounded,filled", fillcolor="#F7F8FC", color="#52606D", penwidth="1.1", fontname="Arial", fontsize="10", margin="0.12,0.08"];
+edge [color="#66788A", penwidth="1.1", arrowsize="0.72", fontname="Arial", fontsize="9"];
+
+label="Example QOC: What Should Be Canonical?";
+rankdir=LR;
+Q [label="QUESTION
+Where should operational project state be canonical?", shape=diamond, fillcolor="#FFF4D6"];
+O1 [label="OPTION A
+Markdown only"];
+O2 [label="OPTION B
+Split authority by field"];
+O3 [label="OPTION C
+SQLite operational aggregate"];
+C1 [label="CRITERION
+Portability", shape=ellipse, fillcolor="#EAF7EE"];
+C2 [label="CRITERION
+Transactional integrity", shape=ellipse, fillcolor="#EAF7EE"];
+C3 [label="CRITERION
+Low maintenance", shape=ellipse, fillcolor="#EAF7EE"];
+C4 [label="CRITERION
+Reversibility", shape=ellipse, fillcolor="#EAF7EE"];
+Q -> O1; Q -> O2; Q -> O3;
+O1 -> C1 [label="+"]; O1 -> C2 [label="−", style=dashed]; O1 -> C3 [label="?"]; O1 -> C4 [label="+"];
+O2 -> C1 [label="+"]; O2 -> C2 [label="+"]; O2 -> C3 [label="−", style=dashed]; O2 -> C4 [label="?"];
+O3 -> C1 [label="via export"]; O3 -> C2 [label="+"]; O3 -> C3 [label="+"]; O3 -> C4 [label="must prove"];
+}

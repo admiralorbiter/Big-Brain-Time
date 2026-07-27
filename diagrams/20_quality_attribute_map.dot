@@ -1,0 +1,26 @@
+digraph G {
+
+graph [bgcolor="white", pad="0.28", nodesep="0.42", ranksep="0.58", fontname="Arial", fontsize="10", labelloc="t"];
+node [shape=box, style="rounded,filled", fillcolor="#F7F8FC", color="#52606D", penwidth="1.1", fontname="Arial", fontsize="10", margin="0.12,0.08"];
+edge [color="#66788A", penwidth="1.1", arrowsize="0.72", fontname="Arial", fontsize="9"];
+
+label="Quality Attributes and Their Common Tensions";
+layout=neato;
+overlap=false;
+Q [label="Big Brain Time
+quality attributes", shape=ellipse, fillcolor="#EAF7EE", pos="0,0!"];
+REL [label="Reliability", pos="0,2!"];
+PORT [label="Portability", pos="1.8,1.4!"];
+PRIV [label="Privacy", pos="2,0!"];
+USE [label="Usability / low friction", pos="1.5,-1.5!"];
+EX [label="Explainability", pos="0,-2!"];
+AD [label="Adaptability", pos="-1.7,-1.4!"];
+PERF [label="Performance", pos="-2,0!"];
+AUTO [label="Autonomy", pos="-1.5,1.5!"];
+Q -> REL; Q -> PORT; Q -> PRIV; Q -> USE; Q -> EX; Q -> AD; Q -> PERF; Q -> AUTO;
+AUTO -> PRIV [dir=both, label="tension", style=dashed];
+USE -> EX [dir=both, label="detail burden", style=dashed];
+PERF -> REL [dir=both, label="caching/staleness", style=dashed];
+AD -> REL [dir=both, label="schema drift", style=dashed];
+PORT -> PERF [dir=both, label="local limits", style=dashed];
+}

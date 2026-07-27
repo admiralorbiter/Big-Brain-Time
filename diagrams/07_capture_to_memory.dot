@@ -1,0 +1,27 @@
+digraph G {
+
+graph [bgcolor="white", pad="0.28", nodesep="0.42", ranksep="0.58", fontname="Arial", fontsize="10", labelloc="t"];
+node [shape=box, style="rounded,filled", fillcolor="#F7F8FC", color="#52606D", penwidth="1.1", fontname="Arial", fontsize="10", margin="0.12,0.08"];
+edge [color="#66788A", penwidth="1.1", arrowsize="0.72", fontname="Arial", fontsize="9"];
+
+label="Capture-to-Memory Pipeline";
+rankdir=LR;
+RAW [label="Raw capture
+voice • note • conversation • file", fillcolor="#FFF4D6"];
+PRES [label="Preserve original
+hash • source • timestamp • privacy"];
+TRIAGE [label="Triage
+useful? sensitive? urgent? duplicate?"];
+EXTRACT [label="Extract candidates
+episodes • assertions • decisions • tasks"];
+STAGE [label="Ephemeral staging
+relations • destinations • questions"];
+REVIEW [label="Human review
+accept • edit • defer • discard", fillcolor="#F3E8FF"];
+CAN [label="Canonical memory / operational state", fillcolor="#EAF7EE"];
+PROJ [label="Rebuild projections
+search • graph • summaries"];
+RAW -> PRES -> TRIAGE -> EXTRACT -> STAGE -> REVIEW -> CAN -> PROJ;
+TRIAGE -> RAW [label="leave as inbox", style=dashed];
+REVIEW -> PRES [label="keep source only", style=dashed];
+}

@@ -1,0 +1,25 @@
+digraph G {
+
+graph [bgcolor="white", pad="0.28", nodesep="0.42", ranksep="0.58", fontname="Arial", fontsize="10", labelloc="t"];
+node [shape=box, style="rounded,filled", fillcolor="#F7F8FC", color="#52606D", penwidth="1.1", fontname="Arial", fontsize="10", margin="0.12,0.08"];
+edge [color="#66788A", penwidth="1.1", arrowsize="0.72", fontname="Arial", fontsize="9"];
+
+label="Subsystem Landscape and Shared Foundations";
+rankdir=TB;
+FOUND [label="Shared foundations
+identity • source lineage • clocks • authority • privacy • stable IDs • events", fillcolor="#EAF7EE", penwidth="2"];
+subgraph cluster_cog { label="Cognitive and knowledge services"; style="rounded"; color="#B8C4CE";
+CAP [label="Capture / ingestion"]; MEM [label="Memory and object model"]; PROV [label="Provenance / temporal truth"]; RET [label="Retrieval / context"]; SYN [label="Synthesis / consolidation"];
+}
+subgraph cluster_ops { label="Operational services"; style="rounded"; color="#B8C4CE";
+PLAN [label="Projects / tasks / commitments"]; RE [label="Re-entry / transitions"]; PROP [label="Propagation / change control"]; LIFE [label="Lifecycle / retention / purge"];
+}
+subgraph cluster_gov { label="Governance services"; style="rounded"; color="#B8C4CE";
+PERM [label="Permissions / action firewall"]; EVAL [label="Evaluation / experiments"]; AUD [label="Audit / observability"]; INT [label="Integrations / adapters"];
+}
+FOUND -> CAP; FOUND -> MEM; FOUND -> PROV; FOUND -> RET; FOUND -> SYN;
+FOUND -> PLAN; FOUND -> RE; FOUND -> PROP; FOUND -> LIFE;
+FOUND -> PERM; FOUND -> EVAL; FOUND -> AUD; FOUND -> INT;
+CAP -> MEM -> PROV -> RET -> SYN;
+PLAN -> RE; PROV -> PROP; SYN -> PROP; PERM -> PROP; AUD -> EVAL;
+}

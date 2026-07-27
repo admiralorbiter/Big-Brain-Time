@@ -1,0 +1,20 @@
+{
+  "package": "Big Brain Time Design Studio",
+  "prepared": "2026-07-27",
+  "status": "PASS",
+  "checks": {
+    "required_files_present": true,
+    "authored_markdown_files_checked": 28,
+    "relative_links_checked": 123,
+    "svg_files_parsed": 20,
+    "dot_source_count": 20,
+    "atlas_covers_all_diagrams": true,
+    "template_count": 9,
+    "source_copies_verified": 17,
+    "combined_word_count": 40357,
+    "html_size_bytes": 671976,
+    "package_file_count_excluding_manifest": 89
+  },
+  "errors": [],
+  "warnings": []
+}
