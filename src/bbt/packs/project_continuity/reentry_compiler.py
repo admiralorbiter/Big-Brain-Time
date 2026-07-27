@@ -1,90 +1,74 @@
-"""Deterministic Re-entry Pack compiler for Project Continuity."""
+"""Deterministic Re-entry Pack compiler using domain ports."""
 
-from datetime import datetime
-from pathlib import Path
-import subprocess
-from typing import Dict, Any, Optional
-
-from bbt.adapters.yaml_transitions import YAMLProjectTransitionRepository
-from bbt.packs.project_continuity.models import ProjectTransition, ReentryPack
+from typing import Optional
+from bbt.ports.ports import (
+    ProjectTransitionRepository,
+    ProjectNarrativeRepository,
+    SourceStateProvider,
+    Clock,
+)
+from bbt.packs.project_continuity.models import (
+    ReentryPack,
+    ReentryStatus,
+    ReentryManifest,
+    SourceState,
+)
 
 
 class ReentryCompiler:
-    """Compiles deterministic, cited Re-entry Packs from local project state."""
+    """Compiles deterministic, cited Re-entry Packs via injected ports."""
 
-    def __init__(self, project_root: Path):
-        self.project_root = Path(project_root).resolve()
-        self.transition_repo = YAMLProjectTransitionRepository(self.project_root)
-
-    def get_git_revision(self) -> str:
-        """Fetch current git commit hash if in a git repository."""
-        try:
-            res = subprocess.run(
-                ["git", "rev-parse", "--short", "HEAD"],
-                cwd=str(self.project_root),
-                capture_output=True,
-                text=True,
-                check=True,
-            )
-            return res.stdout.strip()
-        except Exception:
-            return "git:uncommitted-or-none"
-
-    def find_project_narrative(self) -> tuple[str, str]:
-        """Find primary project narrative markdown file under projects/."""
-        projects_dir = self.project_root / "projects"
-        if projects_dir.exists():
-            md_files = list(projects_dir.glob("*.md"))
-            if md_files:
-                target = md_files[0]
-                return target.stem.replace("-", " ").title(), target.read_text(encoding="utf-8")
-
-        # Fallback to README.md at root
-        readme = self.project_root / "README.md"
-        if readme.exists():
-            return self.project_root.name.replace("-", " ").title(), readme.read_text(encoding="utf-8")
-
-        return self.project_root.name.replace("-", " ").title(), "# Project Baseline\nNo narrative file found."
+    def __init__(
+        self,
+        project_id: str,
+        transitions: ProjectTransitionRepository,
+        narratives: ProjectNarrativeRepository,
+        source_state: SourceStateProvider,
+        clock: Clock,
+    ):
+        self.project_id = project_id
+        self.transitions = transitions
+        self.narratives = narratives
+        self.source_state = source_state
+        self.clock = clock
 
     def compile(self) -> ReentryPack:
         """Compile a cited Re-entry Pack artifact."""
-        project_name, narrative = self.find_project_narrative()
-        latest_transition = self.transition_repo.get_latest()
+        narrative_doc = self.narratives.get_canonical_narrative(self.project_id)
+        read_result = self.transitions.read_current(self.project_id)
+        snapshot = self.source_state.snapshot(self.project_id)
+        now_dt = self.clock.now()
+        now_iso = now_dt.isoformat().replace("+00:00", "Z")
 
-        if not latest_transition:
-            latest_transition = ProjectTransition(
-                project_id=f"project.{self.project_root.name}",
-                session_purpose="Initial baseline registration",
-                stop_point="Project workspace initialized.",
-                next_action="Review project narrative and record first transition.",
-            )
+        latest_t = read_result.latest
 
-        git_rev = self.get_git_revision()
-        now_str = datetime.now().isoformat()
+        # Determine ReentryStatus
+        if read_result.degraded:
+            status = ReentryStatus.DEGRADED
+        elif not latest_t:
+            status = ReentryStatus.NO_TRANSITION_RECORDED
+        elif snapshot.state in (SourceState.PROJECT_CHANGED, SourceState.UNCOMMITTED_PROJECT_CHANGES):
+            status = ReentryStatus.STALE
+        else:
+            status = ReentryStatus.READY
 
-        manifest: Dict[str, Any] = {
-            "compiler": "bbt.reentry-compiler/v0.1",
-            "compiled_at": now_str,
-            "project_root": str(self.project_root),
-            "git_revision": git_rev,
-            "latest_transition_id": latest_transition.id,
-            "transition_recorded_at": latest_transition.recorded_at,
-        }
-
-        # Check for potential staleness if transition source_revision differs
-        stale_warning: Optional[str] = None
-        if latest_transition.source_revision and latest_transition.source_revision != f"git:{git_rev}":
-            stale_warning = (
-                f"Source code revision has changed since transition was recorded! "
-                f"Recorded at `{latest_transition.source_revision}`, current is `{git_rev}`."
-            )
+        manifest = ReentryManifest(
+            compiler="bbt.reentry-compiler/v0.1",
+            compiled_at=now_iso,
+            project_id=self.project_id,
+            git_revision=snapshot.repository_head or "git:uncommitted-or-none",
+            project_fingerprint=snapshot.project_fingerprint,
+            latest_transition_id=latest_t.id if latest_t else None,
+            transition_recorded_at=latest_t.recorded_at if latest_t else None,
+        )
 
         return ReentryPack(
-            project_name=project_name,
-            compiled_at=now_str,
-            project_narrative=narrative,
-            latest_transition=latest_transition,
-            git_revision=git_rev,
-            stale_warning=stale_warning,
+            status=status,
+            project_name=narrative_doc.title,
+            compiled_at=now_iso,
+            project_narrative=narrative_doc.content,
+            latest_transition=latest_t,
+            source_snapshot=snapshot,
             manifest=manifest,
+            diagnostics=read_result.diagnostics,
         )

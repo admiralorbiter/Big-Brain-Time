@@ -31,9 +31,13 @@ def main() -> None:
     rec_parser.add_argument("--stop-point", "-s", default="", help="Where work stopped")
     rec_parser.add_argument("--next-action", "-n", default="", help="Next physical action")
     rec_parser.add_argument("--purpose", default="", help="Session purpose")
+    rec_parser.add_argument("--material-changes", "-c", default="", help="Comma separated material changes")
     rec_parser.add_argument("--open-loops", default="", help="Comma separated open loops")
     rec_parser.add_argument(
         "--non-interactive", action="store_true", help="Skip interactive confirmation prompts"
+    )
+    rec_parser.add_argument(
+        "--accept", action="store_true", help="Explicitly accept proposal in non-interactive mode"
     )
 
     args = parser.parse_args()
@@ -47,8 +51,10 @@ def main() -> None:
                 stop_point=args.stop_point,
                 next_action=args.next_action,
                 purpose=args.purpose,
+                material_changes=args.material_changes,
                 open_loops=args.open_loops,
                 interactive=not args.non_interactive,
+                accept=args.accept,
             )
         else:
             trans_parser.print_help()

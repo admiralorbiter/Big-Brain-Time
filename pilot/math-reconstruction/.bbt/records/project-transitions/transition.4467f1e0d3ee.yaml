@@ -1,0 +1,21 @@
+schema: bbt.project-transition/v1
+id: transition.4467f1e0d3ee
+project_id: project.math-reconstruction
+recorded_at: '2026-07-27T23:51:42.343171Z'
+recorded_by: user
+source_revision: git:21e2466051ee23e2eaeba71860c0eadc2e8c9914
+project_fingerprint: b2d03abe0a6dd62f
+lifecycle: active
+privacy: private
+session:
+  purpose: C1.1 Hardening Test
+transition:
+  material_changes:
+  - Enforced UTC timestamps and exclusive write
+  stop_point: Finished C1.1 implementation and testing
+  next_action: Commit C1.1 branch and review panel updates
+  open_loops:
+  - Prepare C2 proposal
+  evidence_anchors: []
+  protected_commitments: []
+  resumption_warnings: []
