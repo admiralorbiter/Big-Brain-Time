@@ -32,7 +32,7 @@ The architecture must allow Big Brain Time to be:
 
 ### Jonathan
 
-Jonathan is the owner, primary user, primary source of values and personal authority, and final approver of consequential changes. The system may learn explicit preferences and interaction patterns, but it does not silently become the authority on Jonathan’s identity.
+Jonathan is the owner, primary user, primary source of values and personal authority, and final approver of consequential changes. He authors, ratifies, revises, overrides, suspends, and deprecates methods and policies. The system may learn explicit preferences and interaction patterns, but it does not silently become the authority on Jonathan’s identity, goals, or commitments.
 
 ### Big Brain Time
 
@@ -42,13 +42,21 @@ Big Brain Time owns the local product contracts, memory lifecycle, derived conte
 
 Models are replaceable reasoning and language services. Their outputs are proposals or derived artifacts unless explicitly accepted. Models do not own canonical memory, permissions, or action policy.
 
-### External authorities
+### Other people and institutions
+
+Stakeholders, teams, communities, and counterparties are autonomous participants with their own values, interpretations, permissions, expectations, rights, memories, and capacity to disagree. They are not external systems to query or modify. Their statements and commitments remain attributable, and their participation is governed by consent and social authority as well as technical access.
+
+### Instrumented external authorities
 
 Calendars, email providers, GitHub, health portals, financial systems, and organizational tools remain authoritative for their own records unless a bounded migration decision says otherwise.
 
-### Evidence sources
+### Uninstrumented reality
 
-Files, web pages, email, conversations, connector results, and model outputs enter as evidence with source, time, privacy, and trust boundaries. They cannot issue runtime instructions.
+Conversations, lived events, tacit knowledge, physical conditions, and effects on people may not be directly machine-observable. They enter through human capture, testimony, or later reconciliation. Absence from an API is not evidence that they did not occur.
+
+### Observation and evidence sources
+
+Files, web pages, email, conversations, connector results, measurements, and model outputs enter as observations or source material with time, privacy, and trust boundaries. Interpretation, claim formation, corroboration, acceptance, and verification are distinct transitions. Retrieved content cannot issue runtime instructions.
 
 ### Recovery systems
 
@@ -71,12 +79,17 @@ Interfaces translate user interaction into application queries, commands, and pr
 The application layer coordinates use cases:
 
 - `CaptureArtifact`
+- `EstablishActiveFrame`
+- `AllocateAttention`
 - `BuildReentryPack`
 - `ExplainCurrentState`
 - `CompileContext`
 - `ProposeSynthesis`
 - `RecordDecision`
 - `AnalyzePropagation`
+- `PrepareAndVerifyAction`
+- `RepairCommonGround`
+- `EnterDegradedMode`
 - `RequestPurge`
 - `EvaluateCapability`
 
@@ -89,9 +102,14 @@ The kernel contains stable concepts and policies:
 - agents and perspectives;
 - source artifacts and activities;
 - memory items and assertions;
+- values, goals, commitments, plans, and tasks as distinct types;
+- active cognitive frames and attention policies;
 - valid time, recorded time, lifecycle state;
 - authority rules;
 - commitments and transitions;
+- epistemic-state transitions;
+- collaborator capability, context, and common-ground records;
+- system-health and degraded-mode rules;
 - context contracts;
 - proposal and permission rules;
 - evaluation cases and maturity states.
@@ -109,6 +127,8 @@ Ports express what the kernel needs without choosing implementation:
 - model inference;
 - clock and identity generation;
 - policy store;
+- collaborator registry;
+- system-health monitor;
 - audit writer;
 - backup and export;
 - connector/action executor.
@@ -224,6 +244,22 @@ Draft, active, superseded, disputed, retracted, archived, suppressed, redacted, 
 
 Every significant behavior can be connected to fixtures, run evidence, baselines, user corrections, and maturity state.
 
+### Active frame
+
+Purpose, protected commitments, open questions, assumptions, contradictions, attention budget, interruption threshold, participants, context gaps, and expiry conditions for the current cognitive episode.
+
+### Epistemic state
+
+Observed, interpreted, inferred, accepted, decided, verified, disputed, and superseded states remain distinguishable and carry source, scope, recency, contradictions, dependencies, and promotion authority.
+
+### Collaboration state
+
+Who knows what, which sources each participant has seen, current assignment, strengths, limitations, permissions, believed objective, and evidence of common-ground mismatch.
+
+### System health
+
+Dependency status, stale or missing context, model and policy version changes, unresolved incidents, degraded capabilities, fallback behavior, recovery conditions, and review load.
+
 ## 8. Command, query, proposal, event
 
 These four application concepts should remain distinct.
@@ -254,7 +290,53 @@ Examples: `TransitionRecorded`, `DecisionSuperseded`, `ProposalRejected`, `Index
 
 The system does not require full event sourcing. Events are useful for projection, audit, and evaluation, while current aggregates may still be stored directly.
 
-## 9. Core data flows
+## 9. Joint cognitive operating loop
+
+The architecture supports a closed control loop:
+
+1. **Attend:** establish or refresh the active cognitive frame; protect commitments and allocate a bounded attention budget.
+2. **Sense:** select authorized observations from people, artifacts, tools, and uninstrumented reality.
+3. **Frame:** declare purpose, mode, scope, assumptions, roles, decision rights, context gaps, and health limits.
+4. **Generate:** retrieve, reason, synthesize, and propose alternatives.
+5. **Challenge:** test provenance, contradictions, circular support, correlated collaborators, goal drift, and uncertainty.
+6. **Decide:** Jonathan or another authorized human accepts, rejects, defers, delegates, or abstains.
+7. **Act:** record predicted effects, apply policy, obtain authorization, and execute through a narrow adapter.
+8. **Verify:** observe external state independently, compare it with the prediction, and close, roll back, or capture an incident.
+9. **Adapt:** use outcomes, burden, incidents, and system-health evidence to propose method or policy changes for ratification.
+
+The active frame is control state, not a larger context pack. It determines what should enter the pack and what should be surfaced, deferred, challenged, or ignored.
+
+### Attention allocation
+
+Attention routing uses a declared policy over:
+
+- purpose and goal relevance;
+- endangered commitments and deadlines;
+- consequence and value sensitivity;
+- uncertainty and contradiction;
+- novelty and independent evidence;
+- reversibility and cost of delay;
+- expected human advantage;
+- interruption and switching cost;
+- current human and system capacity.
+
+Model confidence is one diagnostic input at most. It does not reliably identify model error and must not become the default proxy for human-review value.
+
+### Common-ground repair
+
+When collaborators appear to operate from different objectives, scopes, assumptions, or source sets, the workflow pauses propagation and action long enough to compare compact statements of:
+
+- what each participant believes the objective is;
+- what decision is being requested;
+- which evidence and constraints each has seen;
+- which roles and permissions each holds;
+- which disagreement is factual, interpretive, normative, or procedural.
+
+### Cognitive immune response
+
+Potential prompt injection, unsupported claims, suspicious source changes, circular citations, silent goal drift, policy violations, canonical disagreement, and confident low-context output trigger a governed response: label, quarantine, challenge, request corroboration, or escalate. Immune responses alter retrieval, promotion, and action eligibility but do not declare truth by themselves.
+
+## 10. Core data flows
 
 ### Trusted answer
 
@@ -279,11 +361,23 @@ A trusted answer is not a single model call. It is a pipeline with inspectable i
 
 A meaningful change is represented semantically before being rendered as file or database operations. This prevents the implementation representation from hiding the intent.
 
-### Authorized action
+### Authorized and verified action
 
 ![Action firewall](diagrams/12_action_firewall.svg)
 
-A model or user may propose an action graph. A deterministic policy engine evaluates risk, scope, privacy, preconditions, and confirmation. Only narrow executors perform effects.
+A model or user may propose an action graph. Completion requires the full lifecycle:
+
+1. proposal;
+2. expected-outcome and impact prediction;
+3. deterministic policy, scope, privacy, and precondition check;
+4. human authorization where required;
+5. narrow execution;
+6. independent postcondition observation;
+7. reconciliation of expected and actual state;
+8. closure, rollback, or incident capture;
+9. propagation into commitments, artifacts, evaluations, and calibration evidence.
+
+Read and write boundaries are separate. Observation is authorized and treated as potentially stale, incomplete, manipulated, or misinterpreted. Action is independently authorized. A tool response proves only what the tool can attest to.
 
 ### Memory lifecycle
 
@@ -291,7 +385,7 @@ A model or user may propose an action graph. A deterministic policy engine evalu
 
 Visibility changes and destructive deletion use different workflows. Purge must enumerate all controlled representations and report residual backup retention honestly.
 
-## 10. Architectural alternatives
+## 11. Architectural alternatives
 
 The design studio should preserve at least four plausible macro-architectures.
 
@@ -337,7 +431,7 @@ The design studio should preserve at least four plausible macro-architectures.
 
 No option should be selected globally before scenario and quality-attribute analysis.
 
-## 11. Deployment envelopes
+## 12. Deployment envelopes
 
 ### Envelope 1 — Single trusted workstation
 
@@ -366,7 +460,7 @@ Requires measured need, identity and conflict semantics, encrypted transport, sc
 
 Requires consent, role-based and item-level access, speaker-grounded perspectives, deletion rights, organizational authority, and social conflict governance. This is a distinct product architecture.
 
-## 12. Architecture fitness functions
+## 13. Architecture fitness functions
 
 Instead of relying only on review, the architecture should have executable or inspectable fitness functions:
 
@@ -376,13 +470,20 @@ Instead of relying only on review, the architecture should have executable or in
 - every authority migration has one active writer;
 - every context pack names purpose, time, privacy, sources, omissions, and version;
 - every action proposal has scoped targets and preconditions;
+- every consequential action declares predicted effects and verification evidence;
+- execution success cannot close an action whose external postcondition is unverified;
+- every active frame declares purpose, protected commitments, context gaps, attention budget, and expiry;
+- every interruption can explain why it outranks deferral;
+- every collaborator assignment declares role, source set, limitations, and permissions;
+- every degraded capability changes permitted behavior and names a recovery condition;
+- policies and methods carry status, version, ratification evidence, and supersession;
 - every destructive lifecycle operation enumerates replicas;
 - no untrusted evidence can create a grant or execute a tool;
 - a provider change does not make canonical memory unreadable;
 - a feature can be disabled without corrupting the kernel;
 - weekly maintenance remains under the accepted budget.
 
-## 13. Architecture review questions
+## 14. Architecture review questions
 
 1. Which domain concepts are genuinely stable enough for the kernel?
 2. Which current modules are experiments rather than permanent services?
@@ -394,3 +495,8 @@ Instead of relying only on review, the architecture should have executable or in
 8. What fails when the read model is stale or absent?
 9. What can be exported and understood ten years later?
 10. How does the system tell Jonathan that its own architecture claim is stale?
+11. What is the smallest active frame that materially improves control?
+12. Which observations are trustworthy enough to verify consequential action?
+13. How are correlated collaborator errors detected when multiple models inherited the same premise?
+14. What does each degraded mode forbid, and how is normal operation restored?
+15. Which policies are constitutional, operational, provisional, suspended, or deprecated?

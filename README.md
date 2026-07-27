@@ -26,13 +26,15 @@ The package is intentionally larger than an implementation plan and smaller than
 
 ## Central product hypothesis
 
-> Big Brain Time can become a durable human–AI capability platform by preserving source and history, representing multiple cognitive object types and perspectives, compiling purpose-specific context, supporting commitments and re-entry, and permitting action only through explicit policy and evaluation.
+> Big Brain Time can become a durable joint cognitive capability platform by preserving source and history, maintaining an explicit active frame, representing epistemic state and commitments, coordinating human and AI roles, compiling purpose-specific context, closing action through independent verification, and adapting its methods under explicit human authority.
 
 The original blueprint correctly identified a narrower first opportunity: accurate resumption, conflict detection, and source-grounded context. The design studio keeps that practical kernel while exploring the larger ambition of a secondary cognitive system.
 
-## Five distinctions to keep visible
+The joint cognitive system is organized through five functional planes: purpose, cognitive control, knowledge, governance, and adaptation. Its core loop is `attend → sense → frame → generate → challenge → decide → act → verify`. Participants and tools contribute across those planes; they are not themselves the operating model.
 
-The package uses five distinctions repeatedly because much of the architectural confusion comes from collapsing them:
+## Eight distinctions to keep visible
+
+The package uses eight distinctions repeatedly because much of the architectural confusion comes from collapsing them:
 
 ### 1. Prototype versus product
 
@@ -53,6 +55,18 @@ Research constrains what is plausible and reveals failure modes. It rarely deter
 ### 5. Technical correctness versus joint-system improvement
 
 A module can pass tests and still make Jonathan’s overall workflow slower, noisier, harder to trust, or more dependent on maintenance.
+
+### 6. Available memory versus active attention
+
+An artifact may be relevant without belonging in the current frame. Surfacing and interruption must be governed by purpose, commitment risk, consequence, uncertainty, reversibility, novelty, and attention cost—not model confidence alone.
+
+### 7. Execution versus verified outcome
+
+A successful tool response proves that an operation was attempted or accepted at one boundary. Consequential action is complete only when the intended external state is independently observed and reconciled with the prediction.
+
+### 8. Tools versus autonomous people
+
+Calendar and GitHub are instrumented external authorities. People and institutions have their own rights, interpretations, expectations, and capacity to disagree; they are not systems to query or modify.
 
 ## Recommended reading path
 

@@ -111,6 +111,9 @@ Every important architectural property should be grounded in a concrete scenario
 - a private memory that must be purged;
 - a model output that is useful but not authoritative;
 - a collaborator who disagrees with Jonathan;
+- three collaborators who agree because they inherited the same faulty premise;
+- an urgent alert that displaces a more important quiet commitment;
+- an action that succeeds technically but produces the wrong real-world result;
 - a device or provider that becomes unavailable.
 
 ### 6.5 Design for correction
@@ -136,6 +139,22 @@ The unit of improvement is not the model or database alone. It is Jonathan + AI 
 ### 6.10 Preserve exits
 
 Every major commitment needs a way to export, rollback, rebuild, replace, archive, or retire it.
+
+### 6.11 Govern attention
+
+Human attention is finite system capacity. Every interruption, review request, persistent alert, and context field creates carrying cost. Surfacing should be purpose- and commitment-aware, explainable, deferrable, and tested against simpler baselines.
+
+### 6.12 Close the action loop
+
+Execution is not completion. Consequential action needs a prior prediction, explicit authority, independent observation, reconciliation with the expected state, and rollback or incident capture when they differ.
+
+### 6.13 Make methods evolvable
+
+Jonathan remains the authority for methods and policies. They may be proposed, tested, provisionally adopted, ratified, amended, overridden, suspended, or deprecated in response to evidence and incidents.
+
+### 6.14 Degrade explicitly
+
+When context, dependencies, models, tools, policies, or human review capacity are unreliable, the system should name the degraded capability, narrow permitted behavior, offer a bounded fallback, and state the recovery path.
 
 ## 7. Studio workflow
 

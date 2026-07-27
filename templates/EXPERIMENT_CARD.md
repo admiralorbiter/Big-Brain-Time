@@ -34,11 +34,19 @@ related_decision:
 
 ### Human/joint-system
 
+### Attention and interruption
+
+### Prediction, outcome, and calibration
+
+### System health and degraded behavior
+
 ### Maintenance and cost
 
 ## Data collection and privacy
 
 ## Confounders
+
+## Collaborator independence and common ground
 
 ## Decision rule
 

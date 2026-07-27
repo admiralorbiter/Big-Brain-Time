@@ -341,6 +341,16 @@ A separate policy reflecting historical, legal, emotional, safety, explanatory, 
 
 An old item can have low buoyancy and high preservation value.
 
+### Cognitive metabolism
+
+Every persistent artifact, rule, alert, task, collaborator record, and derived view consumes storage, review, retrieval, contradiction, dependency, privacy, and attention capacity. Creation therefore carries a future maintenance claim.
+
+A useful default principle is:
+
+> No persistent artifact without expected future retrieval, accountability, coordination, or learning value.
+
+This is not an automatic deletion rule. It is a requirement to name why an artifact should remain cognitively alive, what may decay or be suppressed, who bears the review cost, and which event should trigger re-evaluation.
+
 ## 12. Lifecycle vocabulary
 
 | Operation | Meaning | Reversible? | Payload retained? |
@@ -491,6 +501,7 @@ Possible long-term mechanisms include:
 5. Separate buoyancy and preservation scores will reduce clutter without hiding critical history.
 6. Explicit purge impact reports will be more understandable and trustworthy than a generic delete button.
 7. Idempotence and stale-child tests will catch more practical synthesis defects than model-quality scores alone.
+8. Recording expected future value and review cost at creation will reduce persistent low-value cognitive load.
 
 ## 18. Open questions
 
@@ -504,3 +515,5 @@ Possible long-term mechanisms include:
 - Which personal memories have intrinsic preservation value even when never retrieved?
 - When is forgetting beneficial for learning or creativity rather than merely reducing clutter?
 - How does a shared system negotiate one person’s deletion request against another person’s legitimate record?
+- How should attention and maintenance cost enter preservation value?
+- Which collaborator, alert, prediction, and system-health records justify persistent retention?

@@ -4,27 +4,61 @@
 
 Big Brain Time should not be defined primarily by a storage medium, database, interface, or AI model. Those are replaceable mechanisms.
 
-The product is a **continuity and capability system**:
+The product is a **joint cognitive control and continuity system**:
 
-> It helps a person or project preserve meaningful state and perspective, construct the smallest trustworthy context for the current purpose, recognize change and disagreement, and convert understanding into deliberate commitments and safe action.
+> It helps a person-plus-artifacts-plus-AI system maintain orientation, form warranted working beliefs, protect commitments, construct the smallest trustworthy context for the current purpose, act deliberately, verify real outcomes, and improve how the collaboration works.
 
-This thesis retains the original assurance-and-context wedge while making room for the larger ambition of a secondary human brain.
+This thesis retains the original assurance-and-context wedge while making room for the larger ambition of a secondary human brain. It also makes a crucial boundary explicit: Big Brain Time is not primarily a memory application with AI attached. Memory is one plane in a controlled process of attention, reasoning, judgment, action, and adaptation.
 
 ## 2. The unit of design
 
 The unit is not “the AI assistant” or “the knowledge base.” It is the organized joint system:
 
 ```text
-human judgment and lived experience
-+ AI reasoning and language capability
+Jonathan and other autonomous people
++ AI collaborator roles
 + persistent artifacts and structured state
-+ methods, policies, and evaluations
-+ external people, tools, and environments
++ an active cognitive frame that allocates scarce attention
++ methods, policies, evaluation, and system-health controls
++ instrumented and uninstrumented environments
 ```
 
 ![Joint cognitive system](diagrams/01_joint_cognitive_system.svg)
 
 A feature succeeds when the joint system can do something more reliably, safely, or creatively—not simply when the software has another function.
+
+### 2.1 Five functional planes
+
+The second-generation model organizes cognition by function rather than treating participants as the architecture:
+
+1. **Purpose plane:** values and identity guide goals; goals justify commitments. Plans and tasks are means, not silent replacements for goals.
+2. **Cognitive control loop:** attend → sense → frame → generate → challenge → decide → act → verify.
+3. **Knowledge plane:** observations and sources become qualified claims, accepted working beliefs, decisions, plans, and history with provenance and scope.
+4. **Governance plane:** authority, permissions, policies, review, rollback, and cognitive-immune responses bound what may influence belief or action.
+5. **Adaptation plane:** predictions, outcomes, incidents, evaluations, and system health change methods and permitted behavior.
+
+These are not five services or databases. Jonathan, AI collaborators, other people, artifacts, and tools participate in different portions of each plane.
+
+### 2.2 Active cognitive frame
+
+The active cognitive frame is the temporary control state that determines what matters now:
+
+- current purpose and desired outcome;
+- protected commitments and endangered obligations;
+- open questions and decision points;
+- active assumptions and unresolved contradictions;
+- priority, consequence, novelty, and reversibility;
+- attention budget and interruption threshold;
+- current participants, roles, and shared understanding;
+- known context gaps and degraded capabilities.
+
+Shared artifacts may contain thousands of relevant items. The active frame selects the few that should guide the next cognitive move. It is inspectable, expires or revalidates after material change, and does not become durable personal memory automatically.
+
+### 2.3 Control and adaptation
+
+The loop is closed only when action is followed by observation and reconciliation. A successful API response is execution evidence, not proof that the intended real-world outcome occurred. Before consequential action the system records predicted changes, risks, and verification evidence; afterward it compares expectation with reality and either closes the action, rolls it back, or captures an incident.
+
+The same rule applies to cognition itself. When context is stale, a dependency is unavailable, collaborators share a faulty premise, or the system cannot establish a trustworthy project state, system health must narrow permitted behavior. A degraded system may reconstruct and explain uncertainty while refusing to update canonical state or take external action.
 
 ## 3. Product promise
 
@@ -36,10 +70,11 @@ A mature Big Brain Time should make the following promise in a bounded form:
 4. **Perspective:** You can preserve different people’s or different-times’ views without forcing premature agreement.
 5. **Compression with recourse:** You can use concise views while retaining access to underlying evidence and known omissions.
 6. **Commitment:** You can connect understanding to goals, decisions, plans, next actions, and review triggers.
-7. **Safety and agency:** The system proposes, explains, and prepares; consequential action remains governed by explicit authority.
-8. **Adaptability:** The system can change representation, model provider, interface, or workflow without losing the user’s durable meaning.
-9. **Recovery:** Canonical information can be exported, restored, inspected, and rebuilt.
-10. **Improvement:** The system measures whether it actually reduces cognitive and coordination burden.
+7. **Attention:** The system can explain why something is being surfaced now, defer it without losing it, and protect limited human attention from low-value interruption.
+8. **Safety and agency:** The system proposes, explains, and prepares; consequential action remains governed by explicit authority and verified against real outcomes.
+9. **Adaptability:** The system can change representation, model provider, interface, workflow, or method without losing the user’s durable meaning.
+10. **Recovery:** Canonical information can be exported, restored, inspected, rebuilt, and used in an explicit degraded mode.
+11. **Improvement:** The system measures whether it actually reduces cognitive and coordination burden.
 
 ## 4. Product anti-promise
 
@@ -112,7 +147,7 @@ Success is measurable adaptation without an opaque, invasive profile.
 
 ## 6. Capability model
 
-The product can be described through ten capabilities rather than a feature list.
+The product can be described through eleven capabilities rather than a feature list.
 
 ### C1. Preserve
 
@@ -126,33 +161,37 @@ Make selected elements addressable as entities, assertions, stances, commitments
 
 Determine which states apply for a requested time and authority policy while retaining conflict and perspective.
 
-### C4. Retrieve
+### C4. Attend
+
+Maintain an inspectable active frame; allocate human and machine attention using purpose, consequence, uncertainty, reversibility, novelty, contradiction, value sensitivity, and interruption cost—not model confidence alone.
+
+### C5. Retrieve
 
 Find exact, local, temporal, multi-hop, global, and negative evidence with explanations.
 
-### C5. Compile
+### C6. Compile
 
 Build purpose-bound context packs, briefings, re-entry capsules, handoffs, and decision exhibits.
 
-### C6. Synthesize
+### C7. Synthesize
 
 Create summaries, patterns, alternatives, and proposed interpretations with explicit lineage and loss boundaries.
 
-### C7. Commit
+### C8. Commit
 
 Represent goals, decisions, plans, tasks, dependencies, and review conditions without confusing them with factual truth.
 
-### C8. Propagate
+### C9. Propagate
 
 Identify which views, plans, summaries, questions, or actions are affected by a material change.
 
-### C9. Govern
+### C10. Govern
 
-Apply privacy, permission, risk, retention, action, and review policies.
+Apply privacy, permission, risk, retention, action, review, system-health, and degraded-mode policies.
 
-### C10. Evaluate
+### C11. Evaluate
 
-Measure retrieval, correctness, resumption, safety, burden, trust, and real-world outcomes; feed incidents back into design.
+Measure retrieval, correctness, resumption, attention burden, safety, trust, prediction calibration, and real-world outcomes; feed incidents back into method and policy evolution.
 
 ## 7. The product kernel
 
@@ -163,6 +202,10 @@ A reusable kernel should contain capabilities that every Big Brain Time deployme
 ### Universal kernel candidates
 
 - stable identity for agents, artifacts, memory items, and commitments;
+- explicit values, goals, commitments, plans, and tasks as distinct object types;
+- active-frame and attention-allocation contracts;
+- epistemic-state transitions from observation through accepted working belief;
+- collaborator capability, context, permission, and common-ground records;
 - source and activity provenance;
 - valid time, recorded time, and lifecycle state;
 - authority and perspective;
@@ -170,6 +213,7 @@ A reusable kernel should contain capabilities that every Big Brain Time deployme
 - memory-item and relation contracts;
 - retrieval and context contracts;
 - proposal, permission, and audit contracts;
+- prediction, verification, incident, degraded-mode, and recovery contracts;
 - evaluation cases and run evidence;
 - import/export and migration conventions;
 - adapter interfaces;
@@ -299,9 +343,21 @@ When stopping work, recording a useful transition takes under a minute and impro
 
 When the system suppresses an old item from a default view, Jonathan can see why, reveal it, and change the policy.
 
+### Attention integrity
+
+When several items could interrupt Jonathan, the system explains their consequence, uncertainty, reversibility, novelty, commitment risk, and deferral cost; it does not use model confidence as the sole routing signal.
+
+### Verified action
+
+When an authorized action executes successfully at the tool boundary but the expected external state does not appear, the system reports the mismatch, preserves the prediction and observation, and initiates rollback or incident handling rather than declaring success.
+
 ### Adaptability
 
 When a model provider changes, canonical memory and evaluation cases remain usable, and the new model can be benchmarked without data migration.
+
+### Graceful degradation
+
+When a provider, connector, index, or trusted context source is unavailable, the system names the missing capability, narrows permitted behavior, offers a bounded fallback, and records the recovery condition.
 
 ## 11. Product principles
 
@@ -312,9 +368,12 @@ When a model provider changes, canonical memory and evaluation cases remain usab
 5. **Commitments are not beliefs.** Decisions, plans, and requirements have authority and status, not truth scores.
 6. **One writer per information type.** Projections and exports do not become co-equal authorities.
 7. **Models propose; policies authorize.** Model confidence is not permission.
-8. **Use generates evidence.** Features mature through real workflows, not only architecture reasoning.
-9. **Maintenance is part of usability.** The product must feel lighter than the information it replaces.
-10. **The user can leave.** Export, restore, delete, and provider replacement are product capabilities.
+8. **Execution is not completion.** Consequential action ends with verified external state or an explicit unresolved incident.
+9. **Attention is governed.** Surfacing, deferral, interruption, and escalation consume a finite budget and must be explainable.
+10. **Methods are versioned commitments.** Jonathan may propose, test, ratify, amend, suspend, override, or deprecate them.
+11. **Use generates evidence.** Features mature through real workflows, not only architecture reasoning.
+12. **Maintenance is part of usability.** Every persistent artifact and alert must justify its carrying cost.
+13. **The user can leave.** Export, restore, delete, and provider replacement are product capabilities.
 
 ## 12. Transformative outcomes
 
@@ -343,6 +402,9 @@ A mature system might feel transformative when Jonathan can:
 8. Users value a visible design rationale and correction path enough to tolerate some additional structure.
 9. Shadow-mode proactivity can reveal useful rules without creating surveillance or notification fatigue.
 10. A project-brain product can teach the kernel enough to later support a personal brain.
+11. Consequence- and commitment-aware attention allocation outperforms confidence-only routing on joint-system benefit and interruption cost.
+12. Prediction-and-verification receipts improve calibration and catch technically successful but practically wrong actions.
+13. Explicit degraded modes preserve usefulness while preventing uncertain reconstruction from silently changing canonical state.
 
 ## 14. Product questions that remain open
 
@@ -354,5 +416,9 @@ A mature system might feel transformative when Jonathan can:
 - What is the right economic or distribution model for a local-first product?
 - How much model independence is worth the adapter and evaluation burden?
 - At what point does multi-user collaboration require a different product rather than an extension?
+- Which fields belong in the smallest useful active cognitive frame?
+- What evidence is strong enough to interrupt Jonathan, and what should always wait for review?
+- How should common-ground disagreement be detected and repaired without constant restatement?
+- Which degraded modes permit read, synthesis, proposal, canonical mutation, or external action?
 
 These questions belong in the design studio, not in premature implementation commitments.

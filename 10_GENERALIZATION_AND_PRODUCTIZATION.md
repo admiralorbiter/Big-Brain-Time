@@ -23,13 +23,24 @@ Candidate contracts:
 - `MemoryItem`
 - `Stance`
 - `Assertion`
+- `EpistemicState`
+- `Goal`
 - `Commitment`
+- `ActiveFrame`
+- `AttentionPolicy`
+- `CollaboratorContext`
 - `Relation`
 - `LifecycleState`
 - `AuthorityRule`
 - `ContextContract`
 - `Proposal`
+- `Prediction`
 - `PermissionGrant`
+- `Verification`
+- `Incident`
+- `SystemHealth`
+- `DegradedMode`
+- `MethodPolicy`
 - `EvaluationCase`
 - `RunEvidence`
 
@@ -43,6 +54,8 @@ Universal infrastructure:
 - query and command envelopes;
 - adapter interfaces;
 - audit and evaluation;
+- collaborator capability/context registry and common-ground repair;
+- health-aware behavior, fallback, and recovery;
 - schema and policy versioning.
 
 ### 2.2 Profile and policy layer
@@ -58,6 +71,9 @@ It contains:
 - retention rules;
 - initiative preferences;
 - notification budgets;
+- interruption thresholds and attention budgets;
+- commitment-protection rules;
+- degraded-mode risk tolerance;
 - interaction and accessibility preferences;
 - accepted personal constraints;
 - allowed model destinations;
@@ -197,11 +213,11 @@ Import or create a project with files and a simple project page.
 
 ### Stage 1 — Orient
 
-Generate inventory, search, source references, and a re-entry capsule.
+Generate inventory, search, source references, a re-entry capsule, and a compact active cognitive frame.
 
 ### Stage 2 — Declare key objects
 
-Add decisions, questions, transitions, and commitments where useful.
+Add values, goals, decisions, questions, transitions, commitments, plans, and tasks where useful without collapsing their roles.
 
 ### Stage 3 — Add temporal/provenance structure
 
@@ -213,7 +229,7 @@ Add source-grounded syntheses and impact analysis.
 
 ### Stage 5 — Prepare and act
 
-Add proposals, policies, and narrowly authorized actions.
+Add proposals, prediction records, policies, narrowly authorized actions, independent verification, incident handling, and explicit degraded modes.
 
 The system should remain useful at every stage. This avoids requiring complete ontology adoption before first value.
 

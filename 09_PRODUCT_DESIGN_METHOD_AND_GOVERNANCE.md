@@ -308,6 +308,19 @@ A later decision replaces or narrows an earlier decision while preserving histor
 
 “Locked” should be rare and mean process protection, not immunity from new evidence.
 
+### Method and policy jurisprudence
+
+Methods and policies are evolvable governance artifacts, not a fixed constitution handed to Jonathan by the system. Their hierarchy should distinguish:
+
+- **constitutional principles:** stable values and nondelegable authority boundaries;
+- **operational policies:** current rules for attention, privacy, action, retention, verification, and review;
+- **case records:** decisions, exceptions, incidents, appeals, and trust repairs that show how rules behaved;
+- **experiments:** bounded tests of a proposed rule or amendment.
+
+Jonathan may author, grant provisional status, ratify, amend, override, suspend, or deprecate a method. Incidents challenge it; evaluations support or weaken it. Every method record should name scope, status, author/authority, version, evidence, exceptions, supersession, review date, and fallback.
+
+No policy may modify its own authority or convert a model proposal into ratification.
+
 ## 6. Architecture review through quality attributes
 
 At major boundaries, run a small ATAM-inspired workshop—even if Jonathan and AI occupy multiple roles.
@@ -333,14 +346,23 @@ Example:
 Trustworthiness
 ├── temporal correctness
 ├── source/citation correctness
+├── epistemic-state integrity
+├── verified external outcomes
 ├── recoverability
 └── predictable action boundary
 
 Usability
 ├── capture friction
 ├── time to re-entry
+├── interruption and attention cost
 ├── correction effort
 └── maintenance burden
+
+Resilience
+├── visible dependency and context health
+├── behaviorally enforced degraded modes
+├── bounded fallback
+└── explicit recovery path
 ```
 
 ### Step 4 — Prioritize scenarios
@@ -380,6 +402,17 @@ A single-person project still benefits from role separation.
 - detects inconsistencies and missing scenarios;
 - does not treat its own proposal as acceptance.
 
+Every collaborator assignment should also declare:
+
+- current role and bounded assignment;
+- source set and context already seen;
+- believed objective and requested decision;
+- strengths and known limitations;
+- permissions and prohibited effects;
+- whether independence from other collaborators is part of the assignment.
+
+When the objective, scope, or source set appears inconsistent, the collaborator initiates common-ground repair before propagating a decision or taking action.
+
 ### Implementer
 
 - builds the bounded probe or accepted capability;
@@ -390,6 +423,8 @@ A single-person project still benefits from role separation.
 
 - checks source claims, test evidence, edge cases, privacy, and overconfidence;
 - attempts to falsify the preferred option;
+- receives independently framed context when inherited-premise or correlated-model error is a material risk;
+- verifies real postconditions through an observation path appropriate to the action, not merely the executor’s success response;
 - may be a separate model session, test harness, or deliberate review mode.
 
 ### Archivist / change-control role
@@ -505,6 +540,9 @@ A suggested cadence during the design phase:
 
 - architecture and product-thesis check;
 - keep/simplify/remove review;
+- active-frame and attention-policy burden review;
+- system-health, degraded-mode, and recovery review;
+- method and policy ratify/amend/suspend/deprecate review;
 - research agenda reprioritization;
 - measurement burden check;
 - documentation navigation test.
@@ -531,11 +569,15 @@ Resume substantial implementation only when all are true:
 8. Acceptance tests or a manual evaluation protocol exist.
 9. The change is small enough to reverse.
 10. The design packet names what remains deliberately out of scope.
+11. The active frame and attention cost for the workflow are understood.
+12. Observation, prediction, execution, verification, and incident closure are distinct where action is involved.
+13. A degraded-mode behavior and recovery condition are named for required dependencies.
 
 ## 13. Method anti-patterns
 
 - using sprint completion as proof of product maturity;
 - asking a panel of models to create artificial certainty;
+- treating agreement among collaborators with the same premise and source set as independent verification;
 - generating a giant research review without a decision it can change;
 - coding the first plausible schema before modeling real examples;
 - turning every prototype field into a universal kernel concept;
@@ -543,6 +585,9 @@ Resume substantial implementation only when all are true:
 - documenting only the selected option;
 - treating an ADR as permanently locked despite changed assumptions;
 - measuring everything and making the system a self-tracking burden;
+- treating API success as verified real-world completion;
+- allowing degraded capability to remain merely an error banner instead of narrowing behavior;
+- allowing a provisional method to become permanent through inertia;
 - allowing the design studio itself to become another unprocessed corpus.
 
 ## 14. Design phase definition of done

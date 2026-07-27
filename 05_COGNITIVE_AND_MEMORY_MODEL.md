@@ -64,7 +64,31 @@ Distributed cognition and augmentation traditions emphasize that capability can 
 
 References include Hutchins’ *Cognition in the Wild*, Engelbart’s *Augmenting Human Intellect*, and Licklider’s *Man-Computer Symbiosis*.
 
-### 2.6 Belief revision and multiple assumption environments are useful computational analogies
+### 2.6 Attention is a separate cognitive function
+
+Human–AI teaming research distinguishes reasoning, memory, and attention as foundational functions connected by meta-coordination and governance. Memory makes information available; attention determines what receives scarce processing now. The two should not be collapsed.
+
+**Design implication:** Big Brain Time needs an explicit active cognitive frame and an attention-allocation policy. Surfacing should consider consequence, uncertainty, reversibility, novelty, contradiction, value sensitivity, endangered commitments, interruption cost, and deferral cost. Model confidence alone is not a reliable allocation rule.
+
+Reference: [Gonzalez et al., “Toward a science of human–AI teaming for decision making,” 2026](https://doi.org/10.1093/pnasnexus/pgag030).
+
+### 2.7 Communication requires epistemic vigilance
+
+People depend on communicated information and are therefore exposed to accidental error and intentional manipulation. Evaluating content without evaluating its source, context, plausibility, and supporting path is insufficient.
+
+**Design implication:** observations, interpretations, claims, accepted working beliefs, decisions, and verified states must remain distinguishable. Suspicious sources, prompt injection, circular support, silent goal drift, and confident synthesis from inadequate context should trigger labeling, quarantine, corroboration, challenge, or escalation—not automatic acceptance.
+
+Reference: [Sperber et al., “Epistemic Vigilance,” 2010](https://doi.org/10.1111/j.1468-0017.2010.01394.x).
+
+### 2.8 Groups remember who knows what
+
+Transactive-memory research shows that collective memory includes knowledge about who is responsible for which knowledge and how to retrieve it. A forced division of responsibility can disrupt an established coordination structure.
+
+**Design implication:** Big Brain Time needs a capability and context registry for human and AI collaborators: strengths, known limitations, information seen, current assignment, permissions, and believed objective. It also needs common-ground repair: a collaborator should be able to state its understanding of the objective and request correction.
+
+Reference: [Wegner, Erber, & Raymond, “Transactive Memory in Close Relationships,” 1991](https://doi.org/10.1037/0022-3514.61.6.923).
+
+### 2.9 Belief revision and multiple assumption environments are useful computational analogies
 
 Truth Maintenance Systems preserve reasons for beliefs and revise dependent conclusions when assumptions change. Assumption-Based TMS work supports multiple mutually inconsistent assumption sets without forcing one global state.
 
@@ -84,7 +108,7 @@ This is more expressive than labeling one environment `FACT` and the other `UNKN
 
 References: Doyle’s Truth Maintenance System work and [de Kleer’s Assumption-Based TMS](https://www.sciencedirect.com/science/article/abs/pii/0004370286900809).
 
-### 2.7 Beliefs, desires, and intentions should not be collapsed
+### 2.10 Beliefs, desires, and intentions should not be collapsed
 
 BDI agent architectures separate informational state, motivational state, and committed action.
 
@@ -98,7 +122,7 @@ BDI agent architectures separate informational state, motivational state, and co
 
 Reference: [Rao & Georgeff, 1995](https://aaai.org/papers/icmas95-042-bdi-agents-from-theory-to-practice/).
 
-### 2.8 Arguments and attacks are different from claim labels
+### 2.11 Arguments and attacks are different from claim labels
 
 Formal argumentation represents arguments and attack relations and can yield more than one acceptable position depending on semantics.
 
@@ -106,7 +130,7 @@ Formal argumentation represents arguments and attack relations and can yield mor
 
 Reference: Dung, “On the Acceptability of Arguments and Its Fundamental Role in Nonmonotonic Reasoning, Logic Programming and n-Person Games” (1995).
 
-### 2.9 Current agent-memory research is informative but immature
+### 2.12 Current agent-memory research is informative but immature
 
 Recent work explores consolidation, forgetting, reconsolidation, knowledge graphs, multi-cue retrieval, dynamic organization, and memory safety. These papers are useful sources of mechanisms and test ideas, but they should not be treated as settled product architecture.
 
@@ -232,6 +256,47 @@ This is not the same as object kind or confidence.
 - whether the authority binds action, evidence, or only perspective;
 - what rule selected or preserved alternatives.
 
+### 3.8 Purpose hierarchy
+
+Motivational and operational objects form a typed chain:
+
+```text
+values and identity
+        ↓ guide
+goals and desired outcomes
+        ↓ justify
+commitments and obligations
+        ↓ constrain
+plans, tasks, and actions
+```
+
+An AI collaborator may optimize or challenge a plan without silently redefining the goal that justified it. A new opportunity does not automatically supersede an existing commitment. A commitment ledger should record who promised what, to whom, why, by when, its current risk, and the explicit condition that cancels or supersedes it.
+
+### 3.9 Epistemic-state progression
+
+The world does not deliver clean evidence. It supplies observations, messages, measurements, documents, tool results, claims, and interpretations. The system should preserve the stages through which these become action-guiding state:
+
+```text
+source or observation
+    → interpretation
+    → claim
+    → corroboration or challenge
+    → accepted working belief
+    → decision to proceed
+    → independent verification or supersession
+```
+
+Useful status distinctions include:
+
+- **observed:** the source or tool produced this content;
+- **inferred:** this interpretation was generated from declared inputs;
+- **accepted:** an authorized actor adopted it as a working belief within a scope;
+- **decided:** the system will proceed under an explicit choice;
+- **verified:** an independent observation confirmed the material state;
+- **superseded:** the item was previously applicable but is no longer current.
+
+Confidence may accompany these states but cannot replace provenance, scope, contradiction, or authority.
+
 ## 4. Proposed minimal structures
 
 The following is a conceptual model, not an immediate schema mandate.
@@ -272,9 +337,30 @@ commitment:
   status: active
   reconsider_if:
     - hybrid retrieval improves hard-case recall by the declared threshold
+
+active_frame:
+  purpose: "Choose the next retrieval experiment."
+  protected_commitments: [K-19]
+  open_questions: ["Does hybrid retrieval improve the hard cases?"]
+  active_assumptions: ["The seeded cases resemble real queries."]
+  attention_budget: "one 45-minute review"
+  interruption_threshold: "new evidence that threatens K-19"
+  context_gaps: ["No longitudinal query sample yet."]
+  expires_on:
+    - material source-set change
+    - experiment decision recorded
+
+collaborator_context:
+  collaborator: agent.retrieval_reviewer
+  assignment: "Challenge the experiment interpretation."
+  has_seen: [run://retrieval/e17, K-19]
+  strengths: [evaluation_design, contradiction_analysis]
+  limitations: [no_access_to_private_journal, no_lived_project_context]
+  permissions: [read, propose]
+  believed_objective: "Test whether FTS5 should remain the default baseline."
 ```
 
-The episode, interpretation, assertion, and decision are related but not identical.
+The episode, interpretation, assertion, decision, active frame, and collaborator context are related but not identical.
 
 ## 5. Memory families for product design
 
@@ -310,13 +396,13 @@ Remembering to perform an intended action when a time, event, context, or state 
 
 **Product behavior:** connect commitments to triggers; preserve why the trigger matters; avoid notification overload; distinguish reminders from calendar authority.
 
-### 5.5 Working context
+### 5.5 Active cognitive frame
 
-The temporary, bounded state needed for the current task.
+The temporary, bounded control state needed for the current task.
 
-**Examples:** context pack, re-entry capsule, active files, open reasoning lane.
+**Examples:** current purpose, protected commitments, open questions, active assumptions, salient contradictions, attention budget, interruption threshold, context gaps, current roles.
 
-**Product behavior:** compile purpose-specific views; expire after material change; do not treat active context as durable memory automatically.
+**Product behavior:** compile purpose-specific views; explain surfacing and deferral; protect endangered commitments; expire or revalidate after material change; do not treat active context as durable memory automatically.
 
 ### 5.6 Social and perspective memory
 
@@ -333,6 +419,22 @@ Knowledge about how Jonathan and the system work together.
 **Examples:** which explanation formats help, which alerts are intrusive, which closeout fields improve resumption, which tasks are repeatedly reconstructed.
 
 **Product behavior:** human-reviewable, evidence-linked, time-bound, and easy to correct; never an opaque personality dossier.
+
+### 5.8 Transactive and common-ground memory
+
+Knowledge about who knows what, what each participant has seen, what each believes the objective is, and how to repair divergent understanding.
+
+**Examples:** a researcher has read corpus A but not the decision history; an adversarial reviewer has read-only permission; two collaborators disagree about whether the goal is exploration or selection.
+
+**Product behavior:** maintain explicit capability, context, assignment, limitation, and permission records; prefer independent context when correlated error is a concern; surface a compact “my understanding of the objective” repair when common ground appears broken.
+
+### 5.9 System-health memory
+
+Current and historical knowledge about the reliability and availability of the joint system itself.
+
+**Examples:** stale index, changed model version, unavailable connector, corrupted canonical document, unresolved policy conflict, overloaded human reviewer.
+
+**Product behavior:** bind health state to allowed behavior; name degraded capability and recovery path; prevent uncertain reconstruction from silently updating canonical records or taking external action.
 
 ## 6. Memory layers
 
@@ -463,6 +565,19 @@ Big Brain Time should test:
 
 Frequency, recency, and graph centrality must not become authority by accident.
 
+### Cognitive immune response
+
+The system should not pretend to decide truth autonomously. It should provide bounded responses to epistemic and control hazards:
+
+- **label** unsupported or low-context material;
+- **quarantine** content from canonical promotion or control paths;
+- **challenge** provenance, scope, circular support, or goal alignment;
+- **corroborate** through an independent source or independently framed collaborator;
+- **escalate** when consequence, contradiction, privacy, or value sensitivity exceeds policy;
+- **repair** affected views and commitments after a bad premise is found.
+
+This mechanism belongs across ingestion, retrieval, synthesis, collaboration, and action—not in one “safety model.”
+
 ## 10. Worked examples
 
 ### Example A — Subjective experience
@@ -511,6 +626,10 @@ Jonathan remembers choosing a design because of privacy. A contemporaneous ADR s
 5. Slow, reviewed self-model updates will improve personalization more safely than continuous opaque profile inference.
 6. Argument structures will be useful for architecture and research decisions but excessive for ordinary facts.
 7. A small set of cognitive modes will be easier to understand than dozens of inline epistemic markers.
+8. An explicit active frame will improve resumption and reduce irrelevant context more than adding undifferentiated long-term memory.
+9. Attention allocation using consequence, commitment risk, uncertainty, reversibility, novelty, and interruption cost will outperform model-confidence routing.
+10. Capability/context records and common-ground repair will reduce correlated collaborator errors and repeated explanation.
+11. Prediction-and-verification records will expose technically successful but practically incorrect actions.
 
 ## 12. Open research and design questions
 
@@ -524,3 +643,7 @@ Jonathan remembers choosing a design because of privacy. A contemporaneous ADR s
 - How does the system preserve skill and judgment rather than encourage excessive cognitive offloading?
 - How are consent and deletion handled when memory concerns other people?
 - When should the system intentionally surface a past self rather than current interpretation?
+- What is the minimum active frame that changes behavior without becoming another maintenance burden?
+- Which attention-allocation factors are observable and understandable enough for daily use?
+- When should collaborators share context, and when should they reason independently to avoid inherited-premise failures?
+- Which health failures require abstention, read-only fallback, or a ban on canonical mutation?

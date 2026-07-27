@@ -377,7 +377,8 @@ When should the system initiate?
 - **A. Respond only when asked.**
 - **B. Batch suggestions in review or re-entry.**
 - **C. Triggered notifications with budgets and quiet hours.**
-- **D. Continuous adaptive monitoring and negotiation.**
+- **D. Active-frame allocation using commitment risk, consequence, uncertainty, reversibility, novelty, value sensitivity, deferral cost, and interruption cost.**
+- **E. Continuous adaptive monitoring and negotiation.**
 
 ### Criteria
 
@@ -387,15 +388,18 @@ When should the system initiate?
 - privacy;
 - predictability;
 - missed commitments;
+- goal and commitment alignment;
+- explainability of surfacing and deferral;
+- sensitivity to degraded system or human capacity;
 - trust.
 
 ### Current assessment
 
-Start with B and shadow-mode C. D requires mature consent, policy, and evaluation and may never be appropriate for some domains.
+Start with B and shadow-mode C, while using D to explain candidate ranking inside the batch. Confidence-only routing is not an acceptable baseline: a model may be highly confident on exactly the cases where human attention is most valuable. E requires mature consent, policy, common-ground repair, health-aware behavior, and evaluation and may never be appropriate for some domains.
 
 ### Discriminating probe
 
-Generate candidate alerts silently for four weeks; label useful, late, redundant, wrong, intrusive, or already known.
+Generate candidate alerts silently for four weeks. Compare recency-, confidence-, and active-frame-based ranking. Label each useful, late, redundant, wrong, intrusive, already known, goal-drifting, or commitment-protecting; record both missed commitments and attention cost.
 
 ---
 
@@ -520,11 +524,12 @@ How much provenance, uncertainty, and policy should the interface show?
 - speed;
 - accessibility;
 - high-stakes safety;
+- attention and maintenance burden;
 - learning curve.
 
 ### Current assessment
 
-C plus D: concise default output, visible status and key caveats, one-step evidence drill-down, and specialized audit views when needed.
+C plus D: concise default output, visible status and key caveats, one-step evidence drill-down, and specialized audit views when needed. The active frame should expose why an item is salient now without requiring the user to inspect the entire epistemic ledger.
 
 ### Discriminating probe
 

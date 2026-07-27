@@ -41,13 +41,15 @@ The package is intentionally larger than an implementation plan and smaller than
 
 ## Central product hypothesis
 
-> Big Brain Time can become a durable human–AI capability platform by preserving source and history, representing multiple cognitive object types and perspectives, compiling purpose-specific context, supporting commitments and re-entry, and permitting action only through explicit policy and evaluation.
+> Big Brain Time can become a durable joint cognitive capability platform by preserving source and history, maintaining an explicit active frame, representing epistemic state and commitments, coordinating human and AI roles, compiling purpose-specific context, closing action through independent verification, and adapting its methods under explicit human authority.
 
 The original blueprint correctly identified a narrower first opportunity: accurate resumption, conflict detection, and source-grounded context. The design studio keeps that practical kernel while exploring the larger ambition of a secondary cognitive system.
 
-## Five distinctions to keep visible
+The joint cognitive system is organized through five functional planes: purpose, cognitive control, knowledge, governance, and adaptation. Its core loop is `attend → sense → frame → generate → challenge → decide → act → verify`. Participants and tools contribute across those planes; they are not themselves the operating model.
 
-The package uses five distinctions repeatedly because much of the architectural confusion comes from collapsing them:
+## Eight distinctions to keep visible
+
+The package uses eight distinctions repeatedly because much of the architectural confusion comes from collapsing them:
 
 ### 1. Prototype versus product
 
@@ -68,6 +70,18 @@ Research constrains what is plausible and reveals failure modes. It rarely deter
 ### 5. Technical correctness versus joint-system improvement
 
 A module can pass tests and still make Jonathan’s overall workflow slower, noisier, harder to trust, or more dependent on maintenance.
+
+### 6. Available memory versus active attention
+
+An artifact may be relevant without belonging in the current frame. Surfacing and interruption must be governed by purpose, commitment risk, consequence, uncertainty, reversibility, novelty, and attention cost—not model confidence alone.
+
+### 7. Execution versus verified outcome
+
+A successful tool response proves that an operation was attempted or accepted at one boundary. Consequential action is complete only when the intended external state is independently observed and reconciled with the prediction.
+
+### 8. Tools versus autonomous people
+
+Calendar and GitHub are instrumented external authorities. People and institutions have their own rights, interpretations, expectations, and capacity to disagree; they are not systems to query or modify.
 
 ## Recommended reading path
 
@@ -217,7 +231,6 @@ big-brain-time-design-studio/
 
 Read `00_DESIGN_STUDIO_CHARTER.md`, then spend one session on the “keep, question, retire” worksheet at the end of `01_CURRENT_PRODUCT_AND_PROOF_OF_CONCEPT.md`. Do not begin with the roadmap. The next build should emerge from the design risk that matters most, not from the next numbered sprint.
 
-
 ---
 
 # 00 — Design Studio Charter
@@ -333,6 +346,9 @@ Every important architectural property should be grounded in a concrete scenario
 - a private memory that must be purged;
 - a model output that is useful but not authoritative;
 - a collaborator who disagrees with Jonathan;
+- three collaborators who agree because they inherited the same faulty premise;
+- an urgent alert that displaces a more important quiet commitment;
+- an action that succeeds technically but produces the wrong real-world result;
 - a device or provider that becomes unavailable.
 
 ### 6.5 Design for correction
@@ -358,6 +374,22 @@ The unit of improvement is not the model or database alone. It is Jonathan + AI 
 ### 6.10 Preserve exits
 
 Every major commitment needs a way to export, rollback, rebuild, replace, archive, or retire it.
+
+### 6.11 Govern attention
+
+Human attention is finite system capacity. Every interruption, review request, persistent alert, and context field creates carrying cost. Surfacing should be purpose- and commitment-aware, explainable, deferrable, and tested against simpler baselines.
+
+### 6.12 Close the action loop
+
+Execution is not completion. Consequential action needs a prior prediction, explicit authority, independent observation, reconciliation with the expected state, and rollback or incident capture when they differ.
+
+### 6.13 Make methods evolvable
+
+Jonathan remains the authority for methods and policies. They may be proposed, tested, provisionally adopted, ratified, amended, overridden, suspended, or deprecated in response to evidence and incidents.
+
+### 6.14 Degrade explicitly
+
+When context, dependencies, models, tools, policies, or human review capacity are unreliable, the system should name the degraded capability, narrow permitted behavior, offer a bounded fallback, and state the recovery path.
 
 ## 7. Studio workflow
 
@@ -512,7 +544,6 @@ The first ten design inquiries should be treated as candidates, not a fixed sequ
 **Implementation posture:** maintenance and narrow probes only  
 **Primary output:** design understanding and experiment-ready decisions  
 **Reconsider implementation mode when:** one design question has a bounded option space, discriminating probe, acceptance criteria, and recovery path.
-
 
 ---
 
@@ -798,7 +829,6 @@ The current repository has achieved what a strong proof of concept should: it ha
 
 The right next step is not to abandon it, nor to treat it as the target. It is to preserve it as **Prototype A**, design alternative architectures and cognitive models around it, and use small experiments to determine which concepts deserve to become durable product contracts.
 
-
 ---
 
 # 02 — Product Thesis and Capability Model
@@ -807,27 +837,61 @@ The right next step is not to abandon it, nor to treat it as the target. It is t
 
 Big Brain Time should not be defined primarily by a storage medium, database, interface, or AI model. Those are replaceable mechanisms.
 
-The product is a **continuity and capability system**:
+The product is a **joint cognitive control and continuity system**:
 
-> It helps a person or project preserve meaningful state and perspective, construct the smallest trustworthy context for the current purpose, recognize change and disagreement, and convert understanding into deliberate commitments and safe action.
+> It helps a person-plus-artifacts-plus-AI system maintain orientation, form warranted working beliefs, protect commitments, construct the smallest trustworthy context for the current purpose, act deliberately, verify real outcomes, and improve how the collaboration works.
 
-This thesis retains the original assurance-and-context wedge while making room for the larger ambition of a secondary human brain.
+This thesis retains the original assurance-and-context wedge while making room for the larger ambition of a secondary human brain. It also makes a crucial boundary explicit: Big Brain Time is not primarily a memory application with AI attached. Memory is one plane in a controlled process of attention, reasoning, judgment, action, and adaptation.
 
 ## 2. The unit of design
 
 The unit is not “the AI assistant” or “the knowledge base.” It is the organized joint system:
 
 ```text
-human judgment and lived experience
-+ AI reasoning and language capability
+Jonathan and other autonomous people
++ AI collaborator roles
 + persistent artifacts and structured state
-+ methods, policies, and evaluations
-+ external people, tools, and environments
++ an active cognitive frame that allocates scarce attention
++ methods, policies, evaluation, and system-health controls
++ instrumented and uninstrumented environments
 ```
 
 ![Joint cognitive system](diagrams/01_joint_cognitive_system.svg)
 
 A feature succeeds when the joint system can do something more reliably, safely, or creatively—not simply when the software has another function.
+
+### 2.1 Five functional planes
+
+The second-generation model organizes cognition by function rather than treating participants as the architecture:
+
+1. **Purpose plane:** values and identity guide goals; goals justify commitments. Plans and tasks are means, not silent replacements for goals.
+2. **Cognitive control loop:** attend → sense → frame → generate → challenge → decide → act → verify.
+3. **Knowledge plane:** observations and sources become qualified claims, accepted working beliefs, decisions, plans, and history with provenance and scope.
+4. **Governance plane:** authority, permissions, policies, review, rollback, and cognitive-immune responses bound what may influence belief or action.
+5. **Adaptation plane:** predictions, outcomes, incidents, evaluations, and system health change methods and permitted behavior.
+
+These are not five services or databases. Jonathan, AI collaborators, other people, artifacts, and tools participate in different portions of each plane.
+
+### 2.2 Active cognitive frame
+
+The active cognitive frame is the temporary control state that determines what matters now:
+
+- current purpose and desired outcome;
+- protected commitments and endangered obligations;
+- open questions and decision points;
+- active assumptions and unresolved contradictions;
+- priority, consequence, novelty, and reversibility;
+- attention budget and interruption threshold;
+- current participants, roles, and shared understanding;
+- known context gaps and degraded capabilities.
+
+Shared artifacts may contain thousands of relevant items. The active frame selects the few that should guide the next cognitive move. It is inspectable, expires or revalidates after material change, and does not become durable personal memory automatically.
+
+### 2.3 Control and adaptation
+
+The loop is closed only when action is followed by observation and reconciliation. A successful API response is execution evidence, not proof that the intended real-world outcome occurred. Before consequential action the system records predicted changes, risks, and verification evidence; afterward it compares expectation with reality and either closes the action, rolls it back, or captures an incident.
+
+The same rule applies to cognition itself. When context is stale, a dependency is unavailable, collaborators share a faulty premise, or the system cannot establish a trustworthy project state, system health must narrow permitted behavior. A degraded system may reconstruct and explain uncertainty while refusing to update canonical state or take external action.
 
 ## 3. Product promise
 
@@ -839,10 +903,11 @@ A mature Big Brain Time should make the following promise in a bounded form:
 4. **Perspective:** You can preserve different people’s or different-times’ views without forcing premature agreement.
 5. **Compression with recourse:** You can use concise views while retaining access to underlying evidence and known omissions.
 6. **Commitment:** You can connect understanding to goals, decisions, plans, next actions, and review triggers.
-7. **Safety and agency:** The system proposes, explains, and prepares; consequential action remains governed by explicit authority.
-8. **Adaptability:** The system can change representation, model provider, interface, or workflow without losing the user’s durable meaning.
-9. **Recovery:** Canonical information can be exported, restored, inspected, and rebuilt.
-10. **Improvement:** The system measures whether it actually reduces cognitive and coordination burden.
+7. **Attention:** The system can explain why something is being surfaced now, defer it without losing it, and protect limited human attention from low-value interruption.
+8. **Safety and agency:** The system proposes, explains, and prepares; consequential action remains governed by explicit authority and verified against real outcomes.
+9. **Adaptability:** The system can change representation, model provider, interface, workflow, or method without losing the user’s durable meaning.
+10. **Recovery:** Canonical information can be exported, restored, inspected, rebuilt, and used in an explicit degraded mode.
+11. **Improvement:** The system measures whether it actually reduces cognitive and coordination burden.
 
 ## 4. Product anti-promise
 
@@ -915,7 +980,7 @@ Success is measurable adaptation without an opaque, invasive profile.
 
 ## 6. Capability model
 
-The product can be described through ten capabilities rather than a feature list.
+The product can be described through eleven capabilities rather than a feature list.
 
 ### C1. Preserve
 
@@ -929,33 +994,37 @@ Make selected elements addressable as entities, assertions, stances, commitments
 
 Determine which states apply for a requested time and authority policy while retaining conflict and perspective.
 
-### C4. Retrieve
+### C4. Attend
+
+Maintain an inspectable active frame; allocate human and machine attention using purpose, consequence, uncertainty, reversibility, novelty, contradiction, value sensitivity, and interruption cost—not model confidence alone.
+
+### C5. Retrieve
 
 Find exact, local, temporal, multi-hop, global, and negative evidence with explanations.
 
-### C5. Compile
+### C6. Compile
 
 Build purpose-bound context packs, briefings, re-entry capsules, handoffs, and decision exhibits.
 
-### C6. Synthesize
+### C7. Synthesize
 
 Create summaries, patterns, alternatives, and proposed interpretations with explicit lineage and loss boundaries.
 
-### C7. Commit
+### C8. Commit
 
 Represent goals, decisions, plans, tasks, dependencies, and review conditions without confusing them with factual truth.
 
-### C8. Propagate
+### C9. Propagate
 
 Identify which views, plans, summaries, questions, or actions are affected by a material change.
 
-### C9. Govern
+### C10. Govern
 
-Apply privacy, permission, risk, retention, action, and review policies.
+Apply privacy, permission, risk, retention, action, review, system-health, and degraded-mode policies.
 
-### C10. Evaluate
+### C11. Evaluate
 
-Measure retrieval, correctness, resumption, safety, burden, trust, and real-world outcomes; feed incidents back into design.
+Measure retrieval, correctness, resumption, attention burden, safety, trust, prediction calibration, and real-world outcomes; feed incidents back into method and policy evolution.
 
 ## 7. The product kernel
 
@@ -966,6 +1035,10 @@ A reusable kernel should contain capabilities that every Big Brain Time deployme
 ### Universal kernel candidates
 
 - stable identity for agents, artifacts, memory items, and commitments;
+- explicit values, goals, commitments, plans, and tasks as distinct object types;
+- active-frame and attention-allocation contracts;
+- epistemic-state transitions from observation through accepted working belief;
+- collaborator capability, context, permission, and common-ground records;
 - source and activity provenance;
 - valid time, recorded time, and lifecycle state;
 - authority and perspective;
@@ -973,6 +1046,7 @@ A reusable kernel should contain capabilities that every Big Brain Time deployme
 - memory-item and relation contracts;
 - retrieval and context contracts;
 - proposal, permission, and audit contracts;
+- prediction, verification, incident, degraded-mode, and recovery contracts;
 - evaluation cases and run evidence;
 - import/export and migration conventions;
 - adapter interfaces;
@@ -1102,9 +1176,21 @@ When stopping work, recording a useful transition takes under a minute and impro
 
 When the system suppresses an old item from a default view, Jonathan can see why, reveal it, and change the policy.
 
+### Attention integrity
+
+When several items could interrupt Jonathan, the system explains their consequence, uncertainty, reversibility, novelty, commitment risk, and deferral cost; it does not use model confidence as the sole routing signal.
+
+### Verified action
+
+When an authorized action executes successfully at the tool boundary but the expected external state does not appear, the system reports the mismatch, preserves the prediction and observation, and initiates rollback or incident handling rather than declaring success.
+
 ### Adaptability
 
 When a model provider changes, canonical memory and evaluation cases remain usable, and the new model can be benchmarked without data migration.
+
+### Graceful degradation
+
+When a provider, connector, index, or trusted context source is unavailable, the system names the missing capability, narrows permitted behavior, offers a bounded fallback, and records the recovery condition.
 
 ## 11. Product principles
 
@@ -1115,9 +1201,12 @@ When a model provider changes, canonical memory and evaluation cases remain usab
 5. **Commitments are not beliefs.** Decisions, plans, and requirements have authority and status, not truth scores.
 6. **One writer per information type.** Projections and exports do not become co-equal authorities.
 7. **Models propose; policies authorize.** Model confidence is not permission.
-8. **Use generates evidence.** Features mature through real workflows, not only architecture reasoning.
-9. **Maintenance is part of usability.** The product must feel lighter than the information it replaces.
-10. **The user can leave.** Export, restore, delete, and provider replacement are product capabilities.
+8. **Execution is not completion.** Consequential action ends with verified external state or an explicit unresolved incident.
+9. **Attention is governed.** Surfacing, deferral, interruption, and escalation consume a finite budget and must be explainable.
+10. **Methods are versioned commitments.** Jonathan may propose, test, ratify, amend, suspend, override, or deprecate them.
+11. **Use generates evidence.** Features mature through real workflows, not only architecture reasoning.
+12. **Maintenance is part of usability.** Every persistent artifact and alert must justify its carrying cost.
+13. **The user can leave.** Export, restore, delete, and provider replacement are product capabilities.
 
 ## 12. Transformative outcomes
 
@@ -1146,6 +1235,9 @@ A mature system might feel transformative when Jonathan can:
 8. Users value a visible design rationale and correction path enough to tolerate some additional structure.
 9. Shadow-mode proactivity can reveal useful rules without creating surveillance or notification fatigue.
 10. A project-brain product can teach the kernel enough to later support a personal brain.
+11. Consequence- and commitment-aware attention allocation outperforms confidence-only routing on joint-system benefit and interruption cost.
+12. Prediction-and-verification receipts improve calibration and catch technically successful but practically wrong actions.
+13. Explicit degraded modes preserve usefulness while preventing uncertain reconstruction from silently changing canonical state.
 
 ## 14. Product questions that remain open
 
@@ -1157,9 +1249,12 @@ A mature system might feel transformative when Jonathan can:
 - What is the right economic or distribution model for a local-first product?
 - How much model independence is worth the adapter and evaluation burden?
 - At what point does multi-user collaboration require a different product rather than an extension?
+- Which fields belong in the smallest useful active cognitive frame?
+- What evidence is strong enough to interrupt Jonathan, and what should always wait for review?
+- How should common-ground disagreement be detected and repaired without constant restatement?
+- Which degraded modes permit read, synthesis, proposal, canonical mutation, or external action?
 
 These questions belong in the design studio, not in premature implementation commitments.
-
 
 ---
 
@@ -1197,7 +1292,7 @@ The architecture must allow Big Brain Time to be:
 
 ### Jonathan
 
-Jonathan is the owner, primary user, primary source of values and personal authority, and final approver of consequential changes. The system may learn explicit preferences and interaction patterns, but it does not silently become the authority on Jonathan’s identity.
+Jonathan is the owner, primary user, primary source of values and personal authority, and final approver of consequential changes. He authors, ratifies, revises, overrides, suspends, and deprecates methods and policies. The system may learn explicit preferences and interaction patterns, but it does not silently become the authority on Jonathan’s identity, goals, or commitments.
 
 ### Big Brain Time
 
@@ -1207,13 +1302,21 @@ Big Brain Time owns the local product contracts, memory lifecycle, derived conte
 
 Models are replaceable reasoning and language services. Their outputs are proposals or derived artifacts unless explicitly accepted. Models do not own canonical memory, permissions, or action policy.
 
-### External authorities
+### Other people and institutions
+
+Stakeholders, teams, communities, and counterparties are autonomous participants with their own values, interpretations, permissions, expectations, rights, memories, and capacity to disagree. They are not external systems to query or modify. Their statements and commitments remain attributable, and their participation is governed by consent and social authority as well as technical access.
+
+### Instrumented external authorities
 
 Calendars, email providers, GitHub, health portals, financial systems, and organizational tools remain authoritative for their own records unless a bounded migration decision says otherwise.
 
-### Evidence sources
+### Uninstrumented reality
 
-Files, web pages, email, conversations, connector results, and model outputs enter as evidence with source, time, privacy, and trust boundaries. They cannot issue runtime instructions.
+Conversations, lived events, tacit knowledge, physical conditions, and effects on people may not be directly machine-observable. They enter through human capture, testimony, or later reconciliation. Absence from an API is not evidence that they did not occur.
+
+### Observation and evidence sources
+
+Files, web pages, email, conversations, connector results, measurements, and model outputs enter as observations or source material with time, privacy, and trust boundaries. Interpretation, claim formation, corroboration, acceptance, and verification are distinct transitions. Retrieved content cannot issue runtime instructions.
 
 ### Recovery systems
 
@@ -1236,12 +1339,17 @@ Interfaces translate user interaction into application queries, commands, and pr
 The application layer coordinates use cases:
 
 - `CaptureArtifact`
+- `EstablishActiveFrame`
+- `AllocateAttention`
 - `BuildReentryPack`
 - `ExplainCurrentState`
 - `CompileContext`
 - `ProposeSynthesis`
 - `RecordDecision`
 - `AnalyzePropagation`
+- `PrepareAndVerifyAction`
+- `RepairCommonGround`
+- `EnterDegradedMode`
 - `RequestPurge`
 - `EvaluateCapability`
 
@@ -1254,9 +1362,14 @@ The kernel contains stable concepts and policies:
 - agents and perspectives;
 - source artifacts and activities;
 - memory items and assertions;
+- values, goals, commitments, plans, and tasks as distinct types;
+- active cognitive frames and attention policies;
 - valid time, recorded time, lifecycle state;
 - authority rules;
 - commitments and transitions;
+- epistemic-state transitions;
+- collaborator capability, context, and common-ground records;
+- system-health and degraded-mode rules;
 - context contracts;
 - proposal and permission rules;
 - evaluation cases and maturity states.
@@ -1274,6 +1387,8 @@ Ports express what the kernel needs without choosing implementation:
 - model inference;
 - clock and identity generation;
 - policy store;
+- collaborator registry;
+- system-health monitor;
 - audit writer;
 - backup and export;
 - connector/action executor.
@@ -1389,6 +1504,22 @@ Draft, active, superseded, disputed, retracted, archived, suppressed, redacted, 
 
 Every significant behavior can be connected to fixtures, run evidence, baselines, user corrections, and maturity state.
 
+### Active frame
+
+Purpose, protected commitments, open questions, assumptions, contradictions, attention budget, interruption threshold, participants, context gaps, and expiry conditions for the current cognitive episode.
+
+### Epistemic state
+
+Observed, interpreted, inferred, accepted, decided, verified, disputed, and superseded states remain distinguishable and carry source, scope, recency, contradictions, dependencies, and promotion authority.
+
+### Collaboration state
+
+Who knows what, which sources each participant has seen, current assignment, strengths, limitations, permissions, believed objective, and evidence of common-ground mismatch.
+
+### System health
+
+Dependency status, stale or missing context, model and policy version changes, unresolved incidents, degraded capabilities, fallback behavior, recovery conditions, and review load.
+
 ## 8. Command, query, proposal, event
 
 These four application concepts should remain distinct.
@@ -1419,7 +1550,53 @@ Examples: `TransitionRecorded`, `DecisionSuperseded`, `ProposalRejected`, `Index
 
 The system does not require full event sourcing. Events are useful for projection, audit, and evaluation, while current aggregates may still be stored directly.
 
-## 9. Core data flows
+## 9. Joint cognitive operating loop
+
+The architecture supports a closed control loop:
+
+1. **Attend:** establish or refresh the active cognitive frame; protect commitments and allocate a bounded attention budget.
+2. **Sense:** select authorized observations from people, artifacts, tools, and uninstrumented reality.
+3. **Frame:** declare purpose, mode, scope, assumptions, roles, decision rights, context gaps, and health limits.
+4. **Generate:** retrieve, reason, synthesize, and propose alternatives.
+5. **Challenge:** test provenance, contradictions, circular support, correlated collaborators, goal drift, and uncertainty.
+6. **Decide:** Jonathan or another authorized human accepts, rejects, defers, delegates, or abstains.
+7. **Act:** record predicted effects, apply policy, obtain authorization, and execute through a narrow adapter.
+8. **Verify:** observe external state independently, compare it with the prediction, and close, roll back, or capture an incident.
+9. **Adapt:** use outcomes, burden, incidents, and system-health evidence to propose method or policy changes for ratification.
+
+The active frame is control state, not a larger context pack. It determines what should enter the pack and what should be surfaced, deferred, challenged, or ignored.
+
+### Attention allocation
+
+Attention routing uses a declared policy over:
+
+- purpose and goal relevance;
+- endangered commitments and deadlines;
+- consequence and value sensitivity;
+- uncertainty and contradiction;
+- novelty and independent evidence;
+- reversibility and cost of delay;
+- expected human advantage;
+- interruption and switching cost;
+- current human and system capacity.
+
+Model confidence is one diagnostic input at most. It does not reliably identify model error and must not become the default proxy for human-review value.
+
+### Common-ground repair
+
+When collaborators appear to operate from different objectives, scopes, assumptions, or source sets, the workflow pauses propagation and action long enough to compare compact statements of:
+
+- what each participant believes the objective is;
+- what decision is being requested;
+- which evidence and constraints each has seen;
+- which roles and permissions each holds;
+- which disagreement is factual, interpretive, normative, or procedural.
+
+### Cognitive immune response
+
+Potential prompt injection, unsupported claims, suspicious source changes, circular citations, silent goal drift, policy violations, canonical disagreement, and confident low-context output trigger a governed response: label, quarantine, challenge, request corroboration, or escalate. Immune responses alter retrieval, promotion, and action eligibility but do not declare truth by themselves.
+
+## 10. Core data flows
 
 ### Trusted answer
 
@@ -1444,11 +1621,23 @@ A trusted answer is not a single model call. It is a pipeline with inspectable i
 
 A meaningful change is represented semantically before being rendered as file or database operations. This prevents the implementation representation from hiding the intent.
 
-### Authorized action
+### Authorized and verified action
 
 ![Action firewall](diagrams/12_action_firewall.svg)
 
-A model or user may propose an action graph. A deterministic policy engine evaluates risk, scope, privacy, preconditions, and confirmation. Only narrow executors perform effects.
+A model or user may propose an action graph. Completion requires the full lifecycle:
+
+1. proposal;
+2. expected-outcome and impact prediction;
+3. deterministic policy, scope, privacy, and precondition check;
+4. human authorization where required;
+5. narrow execution;
+6. independent postcondition observation;
+7. reconciliation of expected and actual state;
+8. closure, rollback, or incident capture;
+9. propagation into commitments, artifacts, evaluations, and calibration evidence.
+
+Read and write boundaries are separate. Observation is authorized and treated as potentially stale, incomplete, manipulated, or misinterpreted. Action is independently authorized. A tool response proves only what the tool can attest to.
 
 ### Memory lifecycle
 
@@ -1456,7 +1645,7 @@ A model or user may propose an action graph. A deterministic policy engine evalu
 
 Visibility changes and destructive deletion use different workflows. Purge must enumerate all controlled representations and report residual backup retention honestly.
 
-## 10. Architectural alternatives
+## 11. Architectural alternatives
 
 The design studio should preserve at least four plausible macro-architectures.
 
@@ -1502,7 +1691,7 @@ The design studio should preserve at least four plausible macro-architectures.
 
 No option should be selected globally before scenario and quality-attribute analysis.
 
-## 11. Deployment envelopes
+## 12. Deployment envelopes
 
 ### Envelope 1 — Single trusted workstation
 
@@ -1531,7 +1720,7 @@ Requires measured need, identity and conflict semantics, encrypted transport, sc
 
 Requires consent, role-based and item-level access, speaker-grounded perspectives, deletion rights, organizational authority, and social conflict governance. This is a distinct product architecture.
 
-## 12. Architecture fitness functions
+## 13. Architecture fitness functions
 
 Instead of relying only on review, the architecture should have executable or inspectable fitness functions:
 
@@ -1541,13 +1730,20 @@ Instead of relying only on review, the architecture should have executable or in
 - every authority migration has one active writer;
 - every context pack names purpose, time, privacy, sources, omissions, and version;
 - every action proposal has scoped targets and preconditions;
+- every consequential action declares predicted effects and verification evidence;
+- execution success cannot close an action whose external postcondition is unverified;
+- every active frame declares purpose, protected commitments, context gaps, attention budget, and expiry;
+- every interruption can explain why it outranks deferral;
+- every collaborator assignment declares role, source set, limitations, and permissions;
+- every degraded capability changes permitted behavior and names a recovery condition;
+- policies and methods carry status, version, ratification evidence, and supersession;
 - every destructive lifecycle operation enumerates replicas;
 - no untrusted evidence can create a grant or execute a tool;
 - a provider change does not make canonical memory unreadable;
 - a feature can be disabled without corrupting the kernel;
 - weekly maintenance remains under the accepted budget.
 
-## 13. Architecture review questions
+## 14. Architecture review questions
 
 1. Which domain concepts are genuinely stable enough for the kernel?
 2. Which current modules are experiments rather than permanent services?
@@ -1559,7 +1755,11 @@ Instead of relying only on review, the architecture should have executable or in
 8. What fails when the read model is stale or absent?
 9. What can be exported and understood ten years later?
 10. How does the system tell Jonathan that its own architecture claim is stale?
-
+11. What is the smallest active frame that materially improves control?
+12. Which observations are trustworthy enough to verify consequential action?
+13. How are correlated collaborator errors detected when multiple models inherited the same premise?
+14. What does each degraded mode forbid, and how is normal operation restored?
+15. Which policies are constitutional, operational, provisional, suspended, or deprecated?
 
 ---
 
@@ -1982,7 +2182,77 @@ Core contracts and evaluation; algorithms and prompts remain replaceable adapter
 
 ---
 
-## 8. Projects, Commitments, and Planning
+## 8. Attention, Active Frame, and Collaboration Coordination
+
+### Purpose
+
+Maintain orientation for the current cognitive episode and allocate scarce human and machine attention without turning every stored item into an interruption.
+
+### Primary jobs
+
+- establish current purpose, scope, and desired outcome;
+- protect commitments and surface endangered obligations;
+- track open questions, active assumptions, and salient contradictions;
+- allocate attention using consequence, uncertainty, reversibility, novelty, value sensitivity, and interruption cost;
+- compile the smallest relevant context from shared artifacts;
+- record participants, roles, information seen, permissions, and known limitations;
+- detect and repair common-ground mismatch;
+- expire or revalidate the frame after material change;
+- narrow permitted behavior when system health is degraded.
+
+### Inputs
+
+Values, goals, commitments, project state, epistemic ledger, source changes, context manifests, collaborator registry, health state, calendar references, interruption policy.
+
+### Outputs
+
+Inspectable active frame, ranked surfacing candidates, deferral record, context request, common-ground repair prompt, escalation, abstention, degraded-mode notice.
+
+### Authority
+
+Jonathan controls goals, protected commitments, attention preferences, and interruption thresholds. Deterministic policies enforce declared hard constraints. Models may propose salience and explain tradeoffs but may not silently reprioritize goals or cancel commitments.
+
+### Deterministic work
+
+Expiry, deadline calculation, policy thresholds, source-set comparison, permission filtering, frame versioning, deferral persistence, health gates, and audit.
+
+### Model work
+
+Propose relevance, identify possible contradiction or novelty, estimate missing context, draft common-ground summaries, and suggest attention tradeoffs.
+
+### Major frictions
+
+- the active frame becomes another status document to maintain;
+- urgency proxies crowd out important but quiet goals;
+- model confidence is mistaken for human-review value;
+- alerts create attention residue and blind dismissal;
+- collaborators inherit the same bad premise and appear independently confident;
+- “helpful” reprioritization silently changes the user’s goal;
+- stale frames keep controlling work after the environment changes;
+- system overload or missing context is hidden instead of changing behavior.
+
+### Design questions
+
+1. What is the minimum active-frame schema that materially improves behavior?
+2. Which factors justify interruption rather than review-queue placement?
+3. How are quiet long-term commitments protected from urgent noise?
+4. What evidence shows that collaborators no longer share the same objective or source set?
+5. When should collaborators receive independent context to reduce correlated error?
+6. Which frame changes require Jonathan’s acceptance?
+7. What is the carrying cost of each alert, frame field, and registry record?
+8. Which degraded states permit reading, synthesis, proposal, canonical mutation, or action?
+
+### Smallest probe
+
+For two weeks, maintain one compact active frame for a real project. Run every surfacing candidate through consequence, uncertainty, reversibility, novelty, commitment risk, deferral cost, and interruption cost. Compare it with recency- or confidence-based routing on useful-suggestion rate, missed commitments, correction burden, and unwanted interruptions.
+
+### Reusable role
+
+Universal control-loop capability built on purpose, commitment, epistemic, collaboration, policy, and health contracts.
+
+---
+
+## 9. Projects, Commitments, and Planning
 
 ### Purpose
 
@@ -1990,8 +2260,12 @@ Represent what the user or system has committed to doing, why, under what constr
 
 ### Primary jobs
 
+- preserve the chain from values to goals to commitments to plans and tasks;
 - project outcomes and definitions of done;
 - goals, decisions, plans, tasks, dependencies, and blockers;
+- promises and obligations: to whom, why, by when, and under what authority;
+- explicit cancellation and supersession conditions;
+- endangered-commitment detection;
 - status and readiness;
 - temporal constraints and review triggers;
 - recurrence references and calendar boundaries;
@@ -2025,6 +2299,8 @@ Task decomposition, prioritization alternatives, blocker interpretation, plan pr
 - model-generated tasks that create work rather than progress;
 - plans treated as facts;
 - priorities inferred from incomplete values;
+- plans silently redefine their parent goals;
+- new opportunities displace existing obligations without a supersession decision;
 - external dates copied locally and become stale.
 
 ### Design questions
@@ -2035,6 +2311,8 @@ Task decomposition, prioritization alternatives, blocker interpretation, plan pr
 4. How should the system challenge priorities without taking control?
 5. What planning state is essential for re-entry?
 6. How are abandoned or intentionally paused commitments represented?
+7. Which commitments are promises to other people and therefore require social, not merely technical, reconciliation?
+8. How does an attention policy protect important quiet commitments from urgent low-value activity?
 
 ### Smallest probe
 
@@ -2046,7 +2324,7 @@ Capability pack built on kernel commitments, time, identity, and policy.
 
 ---
 
-## 9. Re-entry and Continuity
+## 10. Re-entry and Continuity
 
 ### Purpose
 
@@ -2110,7 +2388,7 @@ Strong candidate for the first reusable project-brain capability.
 
 ---
 
-## 10. Propagation and Change Control
+## 11. Propagation and Change Control
 
 ### Purpose
 
@@ -2174,7 +2452,7 @@ Core change-control service with domain-specific dependency rules.
 
 ---
 
-## 11. Memory Lifecycle, Forgetting, and Deletion
+## 12. Memory Lifecycle, Forgetting, and Deletion
 
 ### Purpose
 
@@ -2239,7 +2517,7 @@ Core kernel and governance service. Essential before broad personal or multi-use
 
 ---
 
-## 12. Permissions and Action Firewall
+## 13. Permissions and Action Firewall
 
 ### Purpose
 
@@ -2250,10 +2528,13 @@ Allow increasingly useful initiative without allowing evidence, model confidence
 - define domain/action/target/time/privacy grants;
 - classify risk and reversibility;
 - validate typed action graphs;
+- record predicted changes, failure conditions, and verification evidence before execution;
 - require previews and confirmations;
+- authorize observation separately from mutation;
 - enforce preconditions, scope, and maximum affected items;
 - execute through narrow adapters;
-- verify postconditions;
+- observe and verify external postconditions independently;
+- reconcile expected and actual outcomes;
 - provide kill switch, safe mode, rollback, and trust repair.
 
 ### Inputs
@@ -2262,7 +2543,7 @@ User request, proposal, grants, resource state, privacy class, tool schema, evid
 
 ### Outputs
 
-Allow/deny decision, required confirmation, executed result, verification, audit and rollback status.
+Allow/deny decision, required confirmation, prediction record, executed result, external observation, reconciliation status, verification, incident, audit, and rollback status.
 
 ### Authority
 
@@ -2270,7 +2551,7 @@ Only the control plane creates grants. Retrieved content and model output cannot
 
 ### Deterministic work
 
-All authorization, target validation, risk ceiling, confirmation mode, path and recipient checks, action execution boundary.
+All authorization, target validation, risk ceiling, confirmation mode, path and recipient checks, action execution boundary, postcondition matching, and closure gate.
 
 ### Model work
 
@@ -2283,6 +2564,10 @@ Propose and explain actions; never decide its own permission.
 - monitoring feels more invasive than one-time action;
 - model output smuggles unapproved arguments;
 - rollback exists technically but cannot undo external consequences.
+- an API success is reported as outcome success without external verification;
+- read access admits stale or manipulated tool output into the control path;
+- verification repeats the same faulty observation path and is not independent;
+- degraded system health fails to narrow action permissions.
 
 ### Design questions
 
@@ -2292,10 +2577,13 @@ Propose and explain actions; never decide its own permission.
 4. How are model/data destinations part of permission?
 5. What changes require per-action confirmation forever?
 6. How should “negotiate” initiative be bounded for goals and identity?
+7. What independent observation is sufficient to verify each action class?
+8. When must a prediction mismatch trigger rollback, incident capture, or human reconciliation?
+9. Which system-health states force safe mode or prohibit action?
 
 ### Smallest probe
 
-Create twenty action scenarios and ask Jonathan to predict allow, deny, or confirm. Redesign policy language until expected and actual outcomes align.
+Create twenty action scenarios and ask Jonathan to predict allow, deny, or confirm. For each allowed scenario, record the expected external change and verification evidence; simulate technical success with a wrong real-world result. Redesign policy and closure language until expected and actual outcomes align.
 
 ### Reusable role
 
@@ -2303,7 +2591,7 @@ Universal governance kernel, with domain-specific grants and executors.
 
 ---
 
-## 13. Evaluation, Experiments, Audit, and Observability
+## 14. Evaluation, Experiments, Audit, and Observability
 
 ### Purpose
 
@@ -2316,13 +2604,15 @@ Determine whether the system is correct, useful, safe, understandable, and worth
 - record model, prompt, context, policy, and software versions;
 - distinguish prototype, tested, benchmarked, piloted, trusted, and authorized;
 - track human corrections, burden, trust, and task outcomes;
+- compare predicted and actual effects for actions, collaborators, and methods;
+- monitor dependency, context, model, policy, and human-review health;
 - convert incidents into tests;
 - preserve causal audit without sensitive payload excess;
 - support keep/simplify/remove decisions.
 
 ### Inputs
 
-Test fixtures, run manifests, user feedback, action events, incidents, metrics, retrospectives.
+Test fixtures, run manifests, active-frame history, prediction and outcome records, health transitions, user feedback, action events, incidents, metrics, retrospectives.
 
 ### Outputs
 
@@ -2348,6 +2638,9 @@ Rubric assistance, failure clustering, qualitative synthesis, candidate regressi
 - test count becomes a proxy for product maturity;
 - audit logs are technically complete but unusable;
 - success metrics optimize behavior users do not value.
+- human attention is treated as free evaluation capacity;
+- correlated model reviewers repeat the same premise and simulate independent assurance;
+- health degradation is visible in logs but does not alter permitted behavior.
 
 ### Design questions
 
@@ -2357,6 +2650,9 @@ Rubric assistance, failure clustering, qualitative synthesis, candidate regressi
 4. Which maturity claims expire after code/model/data changes?
 5. What audit detail is needed for trust repair?
 6. What is the removal threshold for a feature?
+7. How is attention cost included in joint-system benefit?
+8. How is evaluator independence established at the premise and source-set level?
+9. Which prediction mismatches should recalibrate a collaborator or method?
 
 ### Smallest probe
 
@@ -2368,7 +2664,7 @@ Universal kernel and design-process infrastructure.
 
 ---
 
-## 14. Integrations, Interfaces, and Runtime
+## 15. Integrations, Interfaces, and Runtime
 
 ### Purpose
 
@@ -2425,7 +2721,7 @@ Adapters and product surfaces around the kernel; deliberately replaceable.
 
 ---
 
-## 15. Cross-subsystem friction map
+## 16. Cross-subsystem friction map
 
 | Interaction | Typical failure |
 |---|---|
@@ -2434,17 +2730,23 @@ Adapters and product surfaces around the kernel; deliberately replaceable.
 | Provenance → retrieval | authority/time policy is applied after ranking instead of before |
 | Retrieval → context | token budget hides necessary conflict or scope |
 | Context → synthesis | summary becomes authority or loses exceptions |
+| Commitments → active frame | urgency displaces a quiet obligation without explicit supersession |
+| Artifacts → active frame | retrieval availability is confused with present salience |
+| Active frame → collaborator | role, source set, or objective mismatch creates false agreement |
 | Synthesis → planning | interpretation creates tasks without an accepted decision |
 | Planning → re-entry | current status exists but restart cognition is missing |
 | Change → propagation | dependency graph is noisy or incomplete |
 | Propagation → action | proposal scope exceeds what the user understood |
+| Execution → verification | tool success is mistaken for intended real-world outcome |
+| Health → governance | degraded capability is reported but does not narrow permission |
+| Incidents → methods | failure evidence accumulates without policy revision |
 | Lifecycle → audit | deletion process retains the sensitive payload in logs |
 | Evaluation → design | metrics reward feature behavior rather than capability value |
 | Integrations → privacy | convenient connector imports exceed minimum necessary evidence |
 
 These seams should receive more design attention than isolated module internals.
 
-## 16. Atlas exercise
+## 17. Atlas exercise
 
 For each subsystem, mark:
 
@@ -2456,7 +2758,6 @@ For each subsystem, mark:
 - `not yet justified`.
 
 Then identify the **three seams** whose failure would most damage trust. Those seams should define the first architecture probes after the design phase.
-
 
 ---
 
@@ -2526,7 +2827,31 @@ Distributed cognition and augmentation traditions emphasize that capability can 
 
 References include Hutchins’ *Cognition in the Wild*, Engelbart’s *Augmenting Human Intellect*, and Licklider’s *Man-Computer Symbiosis*.
 
-### 2.6 Belief revision and multiple assumption environments are useful computational analogies
+### 2.6 Attention is a separate cognitive function
+
+Human–AI teaming research distinguishes reasoning, memory, and attention as foundational functions connected by meta-coordination and governance. Memory makes information available; attention determines what receives scarce processing now. The two should not be collapsed.
+
+**Design implication:** Big Brain Time needs an explicit active cognitive frame and an attention-allocation policy. Surfacing should consider consequence, uncertainty, reversibility, novelty, contradiction, value sensitivity, endangered commitments, interruption cost, and deferral cost. Model confidence alone is not a reliable allocation rule.
+
+Reference: [Gonzalez et al., “Toward a science of human–AI teaming for decision making,” 2026](https://doi.org/10.1093/pnasnexus/pgag030).
+
+### 2.7 Communication requires epistemic vigilance
+
+People depend on communicated information and are therefore exposed to accidental error and intentional manipulation. Evaluating content without evaluating its source, context, plausibility, and supporting path is insufficient.
+
+**Design implication:** observations, interpretations, claims, accepted working beliefs, decisions, and verified states must remain distinguishable. Suspicious sources, prompt injection, circular support, silent goal drift, and confident synthesis from inadequate context should trigger labeling, quarantine, corroboration, challenge, or escalation—not automatic acceptance.
+
+Reference: [Sperber et al., “Epistemic Vigilance,” 2010](https://doi.org/10.1111/j.1468-0017.2010.01394.x).
+
+### 2.8 Groups remember who knows what
+
+Transactive-memory research shows that collective memory includes knowledge about who is responsible for which knowledge and how to retrieve it. A forced division of responsibility can disrupt an established coordination structure.
+
+**Design implication:** Big Brain Time needs a capability and context registry for human and AI collaborators: strengths, known limitations, information seen, current assignment, permissions, and believed objective. It also needs common-ground repair: a collaborator should be able to state its understanding of the objective and request correction.
+
+Reference: [Wegner, Erber, & Raymond, “Transactive Memory in Close Relationships,” 1991](https://doi.org/10.1037/0022-3514.61.6.923).
+
+### 2.9 Belief revision and multiple assumption environments are useful computational analogies
 
 Truth Maintenance Systems preserve reasons for beliefs and revise dependent conclusions when assumptions change. Assumption-Based TMS work supports multiple mutually inconsistent assumption sets without forcing one global state.
 
@@ -2546,7 +2871,7 @@ This is more expressive than labeling one environment `FACT` and the other `UNKN
 
 References: Doyle’s Truth Maintenance System work and [de Kleer’s Assumption-Based TMS](https://www.sciencedirect.com/science/article/abs/pii/0004370286900809).
 
-### 2.7 Beliefs, desires, and intentions should not be collapsed
+### 2.10 Beliefs, desires, and intentions should not be collapsed
 
 BDI agent architectures separate informational state, motivational state, and committed action.
 
@@ -2560,7 +2885,7 @@ BDI agent architectures separate informational state, motivational state, and co
 
 Reference: [Rao & Georgeff, 1995](https://aaai.org/papers/icmas95-042-bdi-agents-from-theory-to-practice/).
 
-### 2.8 Arguments and attacks are different from claim labels
+### 2.11 Arguments and attacks are different from claim labels
 
 Formal argumentation represents arguments and attack relations and can yield more than one acceptable position depending on semantics.
 
@@ -2568,7 +2893,7 @@ Formal argumentation represents arguments and attack relations and can yield mor
 
 Reference: Dung, “On the Acceptability of Arguments and Its Fundamental Role in Nonmonotonic Reasoning, Logic Programming and n-Person Games” (1995).
 
-### 2.9 Current agent-memory research is informative but immature
+### 2.12 Current agent-memory research is informative but immature
 
 Recent work explores consolidation, forgetting, reconsolidation, knowledge graphs, multi-cue retrieval, dynamic organization, and memory safety. These papers are useful sources of mechanisms and test ideas, but they should not be treated as settled product architecture.
 
@@ -2694,6 +3019,47 @@ This is not the same as object kind or confidence.
 - whether the authority binds action, evidence, or only perspective;
 - what rule selected or preserved alternatives.
 
+### 3.8 Purpose hierarchy
+
+Motivational and operational objects form a typed chain:
+
+```text
+values and identity
+        ↓ guide
+goals and desired outcomes
+        ↓ justify
+commitments and obligations
+        ↓ constrain
+plans, tasks, and actions
+```
+
+An AI collaborator may optimize or challenge a plan without silently redefining the goal that justified it. A new opportunity does not automatically supersede an existing commitment. A commitment ledger should record who promised what, to whom, why, by when, its current risk, and the explicit condition that cancels or supersedes it.
+
+### 3.9 Epistemic-state progression
+
+The world does not deliver clean evidence. It supplies observations, messages, measurements, documents, tool results, claims, and interpretations. The system should preserve the stages through which these become action-guiding state:
+
+```text
+source or observation
+    → interpretation
+    → claim
+    → corroboration or challenge
+    → accepted working belief
+    → decision to proceed
+    → independent verification or supersession
+```
+
+Useful status distinctions include:
+
+- **observed:** the source or tool produced this content;
+- **inferred:** this interpretation was generated from declared inputs;
+- **accepted:** an authorized actor adopted it as a working belief within a scope;
+- **decided:** the system will proceed under an explicit choice;
+- **verified:** an independent observation confirmed the material state;
+- **superseded:** the item was previously applicable but is no longer current.
+
+Confidence may accompany these states but cannot replace provenance, scope, contradiction, or authority.
+
 ## 4. Proposed minimal structures
 
 The following is a conceptual model, not an immediate schema mandate.
@@ -2734,9 +3100,30 @@ commitment:
   status: active
   reconsider_if:
     - hybrid retrieval improves hard-case recall by the declared threshold
+
+active_frame:
+  purpose: "Choose the next retrieval experiment."
+  protected_commitments: [K-19]
+  open_questions: ["Does hybrid retrieval improve the hard cases?"]
+  active_assumptions: ["The seeded cases resemble real queries."]
+  attention_budget: "one 45-minute review"
+  interruption_threshold: "new evidence that threatens K-19"
+  context_gaps: ["No longitudinal query sample yet."]
+  expires_on:
+    - material source-set change
+    - experiment decision recorded
+
+collaborator_context:
+  collaborator: agent.retrieval_reviewer
+  assignment: "Challenge the experiment interpretation."
+  has_seen: [run://retrieval/e17, K-19]
+  strengths: [evaluation_design, contradiction_analysis]
+  limitations: [no_access_to_private_journal, no_lived_project_context]
+  permissions: [read, propose]
+  believed_objective: "Test whether FTS5 should remain the default baseline."
 ```
 
-The episode, interpretation, assertion, and decision are related but not identical.
+The episode, interpretation, assertion, decision, active frame, and collaborator context are related but not identical.
 
 ## 5. Memory families for product design
 
@@ -2772,13 +3159,13 @@ Remembering to perform an intended action when a time, event, context, or state 
 
 **Product behavior:** connect commitments to triggers; preserve why the trigger matters; avoid notification overload; distinguish reminders from calendar authority.
 
-### 5.5 Working context
+### 5.5 Active cognitive frame
 
-The temporary, bounded state needed for the current task.
+The temporary, bounded control state needed for the current task.
 
-**Examples:** context pack, re-entry capsule, active files, open reasoning lane.
+**Examples:** current purpose, protected commitments, open questions, active assumptions, salient contradictions, attention budget, interruption threshold, context gaps, current roles.
 
-**Product behavior:** compile purpose-specific views; expire after material change; do not treat active context as durable memory automatically.
+**Product behavior:** compile purpose-specific views; explain surfacing and deferral; protect endangered commitments; expire or revalidate after material change; do not treat active context as durable memory automatically.
 
 ### 5.6 Social and perspective memory
 
@@ -2795,6 +3182,22 @@ Knowledge about how Jonathan and the system work together.
 **Examples:** which explanation formats help, which alerts are intrusive, which closeout fields improve resumption, which tasks are repeatedly reconstructed.
 
 **Product behavior:** human-reviewable, evidence-linked, time-bound, and easy to correct; never an opaque personality dossier.
+
+### 5.8 Transactive and common-ground memory
+
+Knowledge about who knows what, what each participant has seen, what each believes the objective is, and how to repair divergent understanding.
+
+**Examples:** a researcher has read corpus A but not the decision history; an adversarial reviewer has read-only permission; two collaborators disagree about whether the goal is exploration or selection.
+
+**Product behavior:** maintain explicit capability, context, assignment, limitation, and permission records; prefer independent context when correlated error is a concern; surface a compact “my understanding of the objective” repair when common ground appears broken.
+
+### 5.9 System-health memory
+
+Current and historical knowledge about the reliability and availability of the joint system itself.
+
+**Examples:** stale index, changed model version, unavailable connector, corrupted canonical document, unresolved policy conflict, overloaded human reviewer.
+
+**Product behavior:** bind health state to allowed behavior; name degraded capability and recovery path; prevent uncertain reconstruction from silently updating canonical records or taking external action.
 
 ## 6. Memory layers
 
@@ -2925,6 +3328,19 @@ Big Brain Time should test:
 
 Frequency, recency, and graph centrality must not become authority by accident.
 
+### Cognitive immune response
+
+The system should not pretend to decide truth autonomously. It should provide bounded responses to epistemic and control hazards:
+
+- **label** unsupported or low-context material;
+- **quarantine** content from canonical promotion or control paths;
+- **challenge** provenance, scope, circular support, or goal alignment;
+- **corroborate** through an independent source or independently framed collaborator;
+- **escalate** when consequence, contradiction, privacy, or value sensitivity exceeds policy;
+- **repair** affected views and commitments after a bad premise is found.
+
+This mechanism belongs across ingestion, retrieval, synthesis, collaboration, and action—not in one “safety model.”
+
 ## 10. Worked examples
 
 ### Example A — Subjective experience
@@ -2973,6 +3389,10 @@ Jonathan remembers choosing a design because of privacy. A contemporaneous ADR s
 5. Slow, reviewed self-model updates will improve personalization more safely than continuous opaque profile inference.
 6. Argument structures will be useful for architecture and research decisions but excessive for ordinary facts.
 7. A small set of cognitive modes will be easier to understand than dozens of inline epistemic markers.
+8. An explicit active frame will improve resumption and reduce irrelevant context more than adding undifferentiated long-term memory.
+9. Attention allocation using consequence, commitment risk, uncertainty, reversibility, novelty, and interruption cost will outperform model-confidence routing.
+10. Capability/context records and common-ground repair will reduce correlated collaborator errors and repeated explanation.
+11. Prediction-and-verification records will expose technically successful but practically incorrect actions.
 
 ## 12. Open research and design questions
 
@@ -2986,7 +3406,10 @@ Jonathan remembers choosing a design because of privacy. A contemporaneous ADR s
 - How does the system preserve skill and judgment rather than encourage excessive cognitive offloading?
 - How are consent and deletion handled when memory concerns other people?
 - When should the system intentionally surface a past self rather than current interpretation?
-
+- What is the minimum active frame that changes behavior without becoming another maintenance burden?
+- Which attention-allocation factors are observable and understandable enough for daily use?
+- When should collaborators share context, and when should they reason independently to avoid inherited-premise failures?
+- Which health failures require abstention, read-only fallback, or a ban on canonical mutation?
 
 ---
 
@@ -3333,6 +3756,16 @@ A separate policy reflecting historical, legal, emotional, safety, explanatory, 
 
 An old item can have low buoyancy and high preservation value.
 
+### Cognitive metabolism
+
+Every persistent artifact, rule, alert, task, collaborator record, and derived view consumes storage, review, retrieval, contradiction, dependency, privacy, and attention capacity. Creation therefore carries a future maintenance claim.
+
+A useful default principle is:
+
+> No persistent artifact without expected future retrieval, accountability, coordination, or learning value.
+
+This is not an automatic deletion rule. It is a requirement to name why an artifact should remain cognitively alive, what may decay or be suppressed, who bears the review cost, and which event should trigger re-evaluation.
+
 ## 12. Lifecycle vocabulary
 
 | Operation | Meaning | Reversible? | Payload retained? |
@@ -3483,6 +3916,7 @@ Possible long-term mechanisms include:
 5. Separate buoyancy and preservation scores will reduce clutter without hiding critical history.
 6. Explicit purge impact reports will be more understandable and trustworthy than a generic delete button.
 7. Idempotence and stale-child tests will catch more practical synthesis defects than model-quality scores alone.
+8. Recording expected future value and review cost at creation will reduce persistent low-value cognitive load.
 
 ## 18. Open questions
 
@@ -3496,7 +3930,8 @@ Possible long-term mechanisms include:
 - Which personal memories have intrinsic preservation value even when never retrieved?
 - When is forgetting beneficial for learning or creativity rather than merely reducing clutter?
 - How does a shared system negotiate one person’s deletion request against another person’s legitimate record?
-
+- How should attention and maintenance cost enter preservation value?
+- Which collaborator, alert, prediction, and system-health records justify persistent retention?
 
 ---
 
@@ -3879,7 +4314,8 @@ When should the system initiate?
 - **A. Respond only when asked.**
 - **B. Batch suggestions in review or re-entry.**
 - **C. Triggered notifications with budgets and quiet hours.**
-- **D. Continuous adaptive monitoring and negotiation.**
+- **D. Active-frame allocation using commitment risk, consequence, uncertainty, reversibility, novelty, value sensitivity, deferral cost, and interruption cost.**
+- **E. Continuous adaptive monitoring and negotiation.**
 
 ### Criteria
 
@@ -3889,15 +4325,18 @@ When should the system initiate?
 - privacy;
 - predictability;
 - missed commitments;
+- goal and commitment alignment;
+- explainability of surfacing and deferral;
+- sensitivity to degraded system or human capacity;
 - trust.
 
 ### Current assessment
 
-Start with B and shadow-mode C. D requires mature consent, policy, and evaluation and may never be appropriate for some domains.
+Start with B and shadow-mode C, while using D to explain candidate ranking inside the batch. Confidence-only routing is not an acceptable baseline: a model may be highly confident on exactly the cases where human attention is most valuable. E requires mature consent, policy, common-ground repair, health-aware behavior, and evaluation and may never be appropriate for some domains.
 
 ### Discriminating probe
 
-Generate candidate alerts silently for four weeks; label useful, late, redundant, wrong, intrusive, or already known.
+Generate candidate alerts silently for four weeks. Compare recency-, confidence-, and active-frame-based ranking. Label each useful, late, redundant, wrong, intrusive, already known, goal-drifting, or commitment-protecting; record both missed commitments and attention cost.
 
 ---
 
@@ -4022,11 +4461,12 @@ How much provenance, uncertainty, and policy should the interface show?
 - speed;
 - accessibility;
 - high-stakes safety;
+- attention and maintenance burden;
 - learning curve.
 
 ### Current assessment
 
-C plus D: concise default output, visible status and key caveats, one-step evidence drill-down, and specialized audit views when needed.
+C plus D: concise default output, visible status and key caveats, one-step evidence drill-down, and specialized audit views when needed. The active frame should expose why an item is salient now without requiring the user to inspect the entire epistemic ledger.
 
 ### Discriminating probe
 
@@ -4117,7 +4557,6 @@ What is the smallest experiment that can change our preference?
 DECISION STATUS:
 open | exploring | provisional | accepted | rejected | superseded
 ```
-
 
 ---
 
@@ -4495,6 +4934,7 @@ Re-entry is the product’s strongest practical wedge, and prospective memory co
 - implementation intentions and prospective closure;
 - cognitive offloading;
 - interruption and notification research;
+- attention allocation and meta-coordination in human–AI teams;
 - personal information management.
 
 ### Research questions
@@ -4504,14 +4944,16 @@ Re-entry is the product’s strongest practical wedge, and prospective memory co
 3. When should a reminder be time-, event-, state-, or context-triggered?
 4. Which knowledge should remain internal to preserve learning and judgment?
 5. How does the system distinguish useful preparation from interruption?
+6. Which combination of consequence, uncertainty, reversibility, novelty, commitment risk, value sensitivity, deferral cost, and interruption cost best predicts valuable human attention?
+7. How should allocation change when Jonathan or the system is overloaded?
 
 ### Local probe
 
-Run a within-person interrupted-work study comparing no capsule, manual capsule, and system-assisted capsule.
+Run a within-person interrupted-work study comparing no capsule, manual capsule, and system-assisted capsule. In a second phase, compare confidence-only, recency-only, and active-frame attention routing.
 
 ### Starting sources
 
-Use R23–R26 in the supplied bibliography.
+Use R23–R26 in the supplied bibliography; Gonzalez et al. (2026) on reasoning, memory, attention, and meta-coordination; and Xu et al. (2026) on the limits of confidence-based human routing.
 
 ---
 
@@ -4530,6 +4972,8 @@ A local metric such as answer accuracy can improve while overall maintenance, ve
 - Licklider and Engelbart augmentation;
 - distributed cognition;
 - joint cognitive systems;
+- reasoning, memory, attention, and meta-coordination;
+- transactive memory and common-ground repair;
 - human–AI interaction guidelines;
 - longitudinal HCI and co-adaptation research.
 
@@ -4540,14 +4984,18 @@ A local metric such as answer accuracy can improve while overall maintenance, ve
 3. How does trust calibrate after errors?
 4. Which artifacts become shared mental-model anchors?
 5. How can adaptation remain explicit and reversible?
+6. What must each collaborator know about the others’ roles, source sets, limitations, and permissions?
+7. When does shared context create correlated error rather than useful common ground?
+8. How should methods be proposed, tested, ratified, amended, suspended, and deprecated?
+9. How does the system change behavior when a dependency, context source, model, or human reviewer is degraded?
 
 ### Local probe
 
-Track one workflow for eight weeks: time, corrections, repeated explanation, maintenance, reliance, satisfaction, and what Jonathan stops remembering internally.
+Track one workflow for eight weeks: time, corrections, repeated explanation, maintenance, reliance, attention switching, common-ground failures, health degradation, satisfaction, and what Jonathan stops remembering internally.
 
 ### Starting sources
 
-Use R20–R22 and R28–R30 in the supplied bibliography.
+Use R20–R22 and R28–R30 in the supplied bibliography; Wegner, Erber, and Raymond (1991) on transactive memory; and Woods (2018) on graceful extensibility.
 
 ---
 
@@ -4604,6 +5052,7 @@ Proactivity is a major source of potential value and a major threat to agency, p
 - levels of automation;
 - human–AI interaction guidelines;
 - indirect prompt injection;
+- epistemic vigilance and source plausibility;
 - least privilege and capability security;
 - NIST/OWASP agent risk guidance.
 
@@ -4615,14 +5064,18 @@ Proactivity is a major source of potential value and a major threat to agency, p
 4. How should alert budgets and quiet modes work?
 5. What does trust repair require after an action error?
 6. How are evidence and control separated end to end?
+7. What observation is independent enough to verify an action’s intended outcome?
+8. How should prediction–outcome mismatches recalibrate collaborators and methods?
+9. Which cognitive-immune responses should label, quarantine, corroborate, or escalate suspicious material?
+10. Which degraded modes prohibit canonical mutation or external action?
 
 ### Local probe
 
-Run two read-only monitors in shadow mode and twenty permission-comprehension scenarios before enabling any new action.
+Run two read-only monitors in shadow mode and twenty permission-comprehension scenarios before enabling any new action. For each action, record predicted state, simulated tool response, independently observed state, and the required reconciliation when they differ.
 
 ### Starting sources
 
-Use R17–R22, R35, and the supplied safety document.
+Use R17–R22, R35, the supplied safety document, Horvitz’s mixed-initiative principles, Sperber et al. (2010) on epistemic vigilance, and the NIST AI RMF lifecycle monitoring and incident-response outcomes.
 
 ---
 
@@ -4683,6 +5136,7 @@ Productization toward shared brains introduces speaker grounding, audience sensi
 - transactive memory systems;
 - organizational memory;
 - common ground and shared mental models;
+- capability/context registries for human and AI participants;
 - distributed cognition;
 - emerging multi-party agent-memory benchmarks such as GroupMemBench.
 
@@ -4694,6 +5148,8 @@ Productization toward shared brains introduces speaker grounding, audience sensi
 4. How does the system represent disagreement without organizational coercion?
 5. What context may be shared with an AI on behalf of a group?
 6. How are audience-specific terms and prior knowledge preserved?
+7. How is each collaborator’s believed objective compared without constant restatement?
+8. When should a reviewer receive an independent source set to avoid inherited-premise agreement?
 
 ### Local probe
 
@@ -4767,7 +5223,6 @@ RECONSIDER WHEN:
 - A model-generated literature synthesis should be checked against primary sources for load-bearing claims.
 - A locally successful prototype may be more decision-relevant than a broad average result—but only for the scope actually tested.
 - Negative results and failed probes should remain part of the research memory.
-
 
 ---
 
@@ -5081,6 +5536,19 @@ A later decision replaces or narrows an earlier decision while preserving histor
 
 “Locked” should be rare and mean process protection, not immunity from new evidence.
 
+### Method and policy jurisprudence
+
+Methods and policies are evolvable governance artifacts, not a fixed constitution handed to Jonathan by the system. Their hierarchy should distinguish:
+
+- **constitutional principles:** stable values and nondelegable authority boundaries;
+- **operational policies:** current rules for attention, privacy, action, retention, verification, and review;
+- **case records:** decisions, exceptions, incidents, appeals, and trust repairs that show how rules behaved;
+- **experiments:** bounded tests of a proposed rule or amendment.
+
+Jonathan may author, grant provisional status, ratify, amend, override, suspend, or deprecate a method. Incidents challenge it; evaluations support or weaken it. Every method record should name scope, status, author/authority, version, evidence, exceptions, supersession, review date, and fallback.
+
+No policy may modify its own authority or convert a model proposal into ratification.
+
 ## 6. Architecture review through quality attributes
 
 At major boundaries, run a small ATAM-inspired workshop—even if Jonathan and AI occupy multiple roles.
@@ -5106,14 +5574,23 @@ Example:
 Trustworthiness
 ├── temporal correctness
 ├── source/citation correctness
+├── epistemic-state integrity
+├── verified external outcomes
 ├── recoverability
 └── predictable action boundary
 
 Usability
 ├── capture friction
 ├── time to re-entry
+├── interruption and attention cost
 ├── correction effort
 └── maintenance burden
+
+Resilience
+├── visible dependency and context health
+├── behaviorally enforced degraded modes
+├── bounded fallback
+└── explicit recovery path
 ```
 
 ### Step 4 — Prioritize scenarios
@@ -5153,6 +5630,17 @@ A single-person project still benefits from role separation.
 - detects inconsistencies and missing scenarios;
 - does not treat its own proposal as acceptance.
 
+Every collaborator assignment should also declare:
+
+- current role and bounded assignment;
+- source set and context already seen;
+- believed objective and requested decision;
+- strengths and known limitations;
+- permissions and prohibited effects;
+- whether independence from other collaborators is part of the assignment.
+
+When the objective, scope, or source set appears inconsistent, the collaborator initiates common-ground repair before propagating a decision or taking action.
+
 ### Implementer
 
 - builds the bounded probe or accepted capability;
@@ -5163,6 +5651,8 @@ A single-person project still benefits from role separation.
 
 - checks source claims, test evidence, edge cases, privacy, and overconfidence;
 - attempts to falsify the preferred option;
+- receives independently framed context when inherited-premise or correlated-model error is a material risk;
+- verifies real postconditions through an observation path appropriate to the action, not merely the executor’s success response;
 - may be a separate model session, test harness, or deliberate review mode.
 
 ### Archivist / change-control role
@@ -5278,6 +5768,9 @@ A suggested cadence during the design phase:
 
 - architecture and product-thesis check;
 - keep/simplify/remove review;
+- active-frame and attention-policy burden review;
+- system-health, degraded-mode, and recovery review;
+- method and policy ratify/amend/suspend/deprecate review;
 - research agenda reprioritization;
 - measurement burden check;
 - documentation navigation test.
@@ -5304,11 +5797,15 @@ Resume substantial implementation only when all are true:
 8. Acceptance tests or a manual evaluation protocol exist.
 9. The change is small enough to reverse.
 10. The design packet names what remains deliberately out of scope.
+11. The active frame and attention cost for the workflow are understood.
+12. Observation, prediction, execution, verification, and incident closure are distinct where action is involved.
+13. A degraded-mode behavior and recovery condition are named for required dependencies.
 
 ## 13. Method anti-patterns
 
 - using sprint completion as proof of product maturity;
 - asking a panel of models to create artificial certainty;
+- treating agreement among collaborators with the same premise and source set as independent verification;
 - generating a giant research review without a decision it can change;
 - coding the first plausible schema before modeling real examples;
 - turning every prototype field into a universal kernel concept;
@@ -5316,6 +5813,9 @@ Resume substantial implementation only when all are true:
 - documenting only the selected option;
 - treating an ADR as permanently locked despite changed assumptions;
 - measuring everything and making the system a self-tracking burden;
+- treating API success as verified real-world completion;
+- allowing degraded capability to remain merely an error banner instead of narrowing behavior;
+- allowing a provisional method to become permanent through inertia;
 - allowing the design studio itself to become another unprocessed corpus.
 
 ## 14. Design phase definition of done
@@ -5331,7 +5831,6 @@ The design phase can close when Jonathan can answer:
 - What experiment evidence supports the choice?
 - How will success, burden, safety, and reversibility be measured?
 - What exact small implementation begins next?
-
 
 ---
 
@@ -5360,13 +5859,24 @@ Candidate contracts:
 - `MemoryItem`
 - `Stance`
 - `Assertion`
+- `EpistemicState`
+- `Goal`
 - `Commitment`
+- `ActiveFrame`
+- `AttentionPolicy`
+- `CollaboratorContext`
 - `Relation`
 - `LifecycleState`
 - `AuthorityRule`
 - `ContextContract`
 - `Proposal`
+- `Prediction`
 - `PermissionGrant`
+- `Verification`
+- `Incident`
+- `SystemHealth`
+- `DegradedMode`
+- `MethodPolicy`
 - `EvaluationCase`
 - `RunEvidence`
 
@@ -5380,6 +5890,8 @@ Universal infrastructure:
 - query and command envelopes;
 - adapter interfaces;
 - audit and evaluation;
+- collaborator capability/context registry and common-ground repair;
+- health-aware behavior, fallback, and recovery;
 - schema and policy versioning.
 
 ### 2.2 Profile and policy layer
@@ -5395,6 +5907,9 @@ It contains:
 - retention rules;
 - initiative preferences;
 - notification budgets;
+- interruption thresholds and attention budgets;
+- commitment-protection rules;
+- degraded-mode risk tolerance;
 - interaction and accessibility preferences;
 - accepted personal constraints;
 - allowed model destinations;
@@ -5534,11 +6049,11 @@ Import or create a project with files and a simple project page.
 
 ### Stage 1 — Orient
 
-Generate inventory, search, source references, and a re-entry capsule.
+Generate inventory, search, source references, a re-entry capsule, and a compact active cognitive frame.
 
 ### Stage 2 — Declare key objects
 
-Add decisions, questions, transitions, and commitments where useful.
+Add values, goals, decisions, questions, transitions, commitments, plans, and tasks where useful without collapsing their roles.
 
 ### Stage 3 — Add temporal/provenance structure
 
@@ -5550,7 +6065,7 @@ Add source-grounded syntheses and impact analysis.
 
 ### Stage 5 — Prepare and act
 
-Add proposals, policies, and narrowly authorized actions.
+Add proposals, prediction records, policies, narrowly authorized actions, independent verification, incident handling, and explicit degraded modes.
 
 The system should remain useful at every stage. This avoids requiring complete ontology adoption before first value.
 
@@ -5839,7 +6354,6 @@ Only after the kernel has survived at least two capability packs and another use
 8. What data or behavior would make a hosted model unacceptable?
 9. Which social assumptions change in a shared deployment?
 10. Would the product still be worthwhile if it never became a business?
-
 
 ---
 
@@ -6482,7 +6996,42 @@ Operate diagnostics, search, re-entry, context browsing, planning, and lifecycle
 
 Core memory, retrieval, recovery, permission, and lifecycle functions must not require a specific model. Model-dependent capabilities declare degraded mode.
 
-## 23. Baseline packet
+## 23. Experiment E19 — Active-frame control and verified action
+
+### Question
+
+Does an explicit active cognitive frame allocate attention and close consequential actions better than recency-, confidence-, or task-list-based control?
+
+### Decision affected
+
+Whether active-frame, collaborator-context, prediction, verification, and degraded-mode contracts belong in the product kernel.
+
+### Design
+
+For one real project over two weeks:
+
+1. maintain a compact frame containing purpose, protected commitments, open questions, assumptions, contradictions, attention budget, interruption threshold, context gaps, participants, and health limits;
+2. rank candidate surfacing events under recency, model confidence, and active-frame policy;
+3. give one reviewer shared context and another independently framed context for selected high-consequence claims;
+4. run five reversible shadow actions with predicted state, simulated execution result, independent observation, and reconciliation;
+5. inject one stale-context and one unavailable-dependency condition and verify that permitted behavior narrows.
+
+### Measures
+
+- useful-suggestion rate and missed important items;
+- unwanted interruptions and switching cost;
+- protected versus silently displaced commitments;
+- common-ground failures and correlated-reviewer errors;
+- prediction–outcome mismatch detection;
+- false completion claims;
+- degraded-mode comprehension and compliance;
+- maintenance minutes for the frame and registries.
+
+### Decision rule
+
+Keep the smallest subset of fields that improves commitment protection, error detection, or interruption cost over simpler baselines. Reject any field whose carrying cost exceeds observed control value. No action path advances if execution success can close the action without independent postcondition evidence.
+
+## 24. Baseline packet
 
 Before the next major probe, record:
 
@@ -6499,7 +7048,7 @@ Before the next major probe, record:
 
 Without a baseline, “improvement” becomes a narrative.
 
-## 24. Experiment selection matrix
+## 25. Experiment selection matrix
 
 | Experiment | Impact | Uncertainty | Cost | Safety relevance | Suggested order |
 |---|---:|---:|---:|---:|---:|
@@ -6519,8 +7068,9 @@ Without a baseline, “improvement” becomes a narrative.
 | E16 audit | medium | medium | medium | high | before action |
 | E17 handoff | high | medium | low–medium | medium | 2 |
 | E18 no-model fallback | high | medium | low | high | 2 |
+| E19 active frame / verified action | very high | high | low–medium | very high | 1 |
 
-## 25. Portfolio stop rules
+## 26. Portfolio stop rules
 
 Pause the experiment program when:
 
@@ -6533,7 +7083,7 @@ Pause the experiment program when:
 - findings are not being turned into decisions or removals;
 - the portfolio becomes a substitute for simply using the system.
 
-## 26. Experiment card
+## 27. Experiment card
 
 Use `templates/EXPERIMENT_CARD.md` for each selected experiment. A complete card should state:
 
@@ -6580,14 +7130,17 @@ Do not infer a contract solely from a box or arrow. The accompanying documents d
 **File:** `diagrams/01_joint_cognitive_system.svg`  
 **Editable source:** `diagrams/01_joint_cognitive_system.dot`
 
-Shows capability as an interaction among Jonathan, AI collaborators, shared artifacts, methods/policies, and the world. Use it to resist designing the AI or repository in isolation.
+Shows the second-generation joint cognitive operating model: purpose, cognitive control, knowledge, governance, and adaptation planes connected through an explicit `attend → sense → frame → generate → challenge → decide → act → verify` loop. Jonathan, AI collaborators, other people, artifacts, and tools participate across the planes rather than serving as the architecture themselves.
 
 **Questions to ask:**
 
-- Which cognitive work is performed by each component?
-- Where does coordination cost appear?
-- Which artifact anchors shared understanding?
-- What happens when one model or tool is unavailable?
+- What protects values, goals, and commitments from silent plan or priority drift?
+- Why is an item inside the active frame, deferred, or allowed to interrupt?
+- Which epistemic transition converted an observation or interpretation into an accepted working belief?
+- Do collaborators share the same objective and source set, or merely appear to agree?
+- Which observation verifies the intended real-world outcome after execution?
+- How do incidents change methods, policies, calibration, or cognitive-immune responses?
+- What becomes forbidden when a model, connector, context source, or human reviewer is degraded?
 
 ### 2.2 Product kernel
 
@@ -7056,6 +7609,32 @@ Cutover evidence:
 Reconsider if:
 ```
 
+## D. Joint cognitive control case
+
+Choose one consequential workflow and complete:
+
+```text
+Values or identity constraints:
+Goal and desired outcome:
+Protected commitments:
+Current purpose:
+Open questions:
+Active assumptions and contradictions:
+Attention budget and interruption threshold:
+Participants, roles, source sets, limitations, permissions:
+Observation/source:
+Interpretation or claim:
+Authority for decision:
+Predicted external change:
+Authorized action:
+Independent verification evidence:
+Mismatch response:
+Current system-health limits:
+Degraded-mode behavior:
+Recovery condition:
+Method or policy that may need revision:
+```
+
 ---
 
 # Session 5 — Cognitive object model
@@ -7389,6 +7968,14 @@ DERIVED REPRESENTATIONS:
 
 EXTERNAL AUTHORITIES:
 
+ACTIVE FRAME AND ATTENTION POLICY:
+
+COLLABORATOR CONTEXT AND COMMON GROUND:
+
+ACTION PREDICTION AND VERIFICATION:
+
+SYSTEM HEALTH, DEGRADED MODES, AND RECOVERY:
+
 DOMINANT QUALITY ATTRIBUTES:
 
 TOP RISKS:
@@ -7411,6 +7998,9 @@ NEXT SMALLEST BUILD:
 - [ ] authority and lifecycle understood
 - [ ] privacy and recovery understood
 - [ ] tests or evaluation protocol exist
+- [ ] attention cost and active-frame behavior understood
+- [ ] prediction, execution, and independent verification separated
+- [ ] degraded-mode behavior and recovery condition named
 - [ ] slice is reversible
 - [ ] out-of-scope is explicit
 
@@ -7458,6 +8048,8 @@ NEXT SMALLEST BUILD:
 
 **Activity** — A provenance-producing process such as capture, import, extraction, synthesis, decision, migration, or execution.
 
+**Active cognitive frame** — Inspectable temporary control state containing current purpose, protected commitments, open questions, assumptions, contradictions, attention budget, interruption threshold, participant context, known gaps, health limits, and expiry conditions.
+
 **Adapter** — Replaceable implementation connecting a core port to a technology or external system, such as Markdown, SQLite, a model provider, GitHub, or calendar.
 
 **Agent** — A person, AI model, script, organization, or external system that creates, reports, transforms, decides, or executes something.
@@ -7469,6 +8061,8 @@ NEXT SMALLEST BUILD:
 **Artifact** — A durable or temporary representation such as a file, source record, context pack, decision, diagram, summary, or proposal.
 
 **Assumption environment** — A set of assumptions under which particular conclusions or designs apply; multiple incompatible environments may coexist.
+
+**Attention allocation** — The governed selection of what to surface, defer, ignore, or escalate using purpose, commitment risk, consequence, uncertainty, reversibility, novelty, value sensitivity, deferral cost, interruption cost, and current capacity.
 
 **Authority** — The declared right or precedence to report, decide, or govern an information type within a domain and time scope.
 
@@ -7502,6 +8096,8 @@ NEXT SMALLEST BUILD:
 
 **Commitment** — An accepted goal, decision, intention, plan, task, or obligation that governs action; not simply a factual belief.
 
+**Commitment ledger** — The durable record of promises and obligations, including who committed to what, to whom, why, by when, current risk, and explicit cancellation or supersession conditions.
+
 **Compiled artifact** — A purpose-specific derived output such as a context pack, briefing, handoff, or synthesis, usually with a manifest and invalidation rule.
 
 **Concept** — A maturity state in which an idea and rationale exist but feasibility or value is not yet demonstrated.
@@ -7514,6 +8110,10 @@ NEXT SMALLEST BUILD:
 
 **Control plane** — Trusted requests, policies, tool schemas, grants, and commands that may govern runtime behavior.
 
+**Common ground** — The participants’ sufficiently aligned understanding of the objective, scope, source set, roles, constraints, and decision being requested; divergence calls for explicit repair.
+
+**Cognitive immune response** — A governed response that labels, quarantines, challenges, corroborates, or escalates suspicious or inadequate material without claiming to determine truth autonomously.
+
 **Correction** — A later item or relation that changes the system’s epistemic position toward an earlier assertion.
 
 **Current truth** — The result of a query applying time, scope, authority, supersession, conflict, and evidence policy; not simply the newest text.
@@ -7523,6 +8123,8 @@ NEXT SMALLEST BUILD:
 **Decision** — An authority-bearing choice that governs action or architecture. It may be informed by facts and values but is not itself an empirical fact.
 
 **Derived projection** — Rebuildable structure such as an index, graph candidate, embedding, section table, or summary.
+
+**Degraded mode** — An explicit operating state in which missing or unreliable context, dependencies, models, tools, policies, or human capacity narrows permitted behavior and names a fallback and recovery condition.
 
 **Design question** — An unresolved issue about product, cognition, interaction, architecture, or policy that should be explored before implementation commitment.
 
@@ -7545,6 +8147,10 @@ NEXT SMALLEST BUILD:
 **Epistemic class** — A label describing the nature or status of a claim; this package recommends separating it from object kind, source mode, stance, and logical relation.
 
 **Epistemic plurality** — The ability to represent multiple perspectives, hypotheses, memories, narratives, and assumption environments without forcing premature factual resolution.
+
+**Epistemic state** — A typed relationship between the system and content—such as observed, inferred, accepted, decided, verified, disputed, or superseded—kept distinct from confidence, object kind, and lifecycle.
+
+**Epistemic ledger** — Source-, scope-, and time-aware records of observations, interpretations, claims, support, contradictions, accepted working beliefs, dependencies, and supersession.
 
 **Evaluation case** — A versioned question or task with expected evidence, forbidden claims, time/authority conditions, rubric, and abstention behavior.
 
@@ -7594,7 +8200,9 @@ NEXT SMALLEST BUILD:
 
 ## J
 
-**Joint cognitive system** — Jonathan, AI, artifacts, methods, language, tools, and environment considered as one organized capability system.
+**Joint cognitive system** — Jonathan, AI collaborators, other people, artifacts, methods, language, tools, and environment considered as one organized capability system whose function is to maintain control and orientation under finite attention and uncertainty.
+
+**Joint cognitive operating loop** — Attend, sense, frame, generate, challenge, decide, act, and verify, with outcome and incident evidence feeding adaptation.
 
 ## K
 
@@ -7657,6 +8265,8 @@ NEXT SMALLEST BUILD:
 **Preservation value** — A retention priority based on historical, safety, explanatory, legal, emotional, or recovery importance; separate from current relevance.
 
 **Procedure** — A versioned method for performing a task, supported by demonstrations and outcomes rather than treated as universally correct.
+
+**Prediction ledger** — A record of expected change, possible failure, and the evidence that would show whether a consequential action or method worked.
 
 **Product wedge** — A focused recurring job through which the broader kernel can deliver and demonstrate value.
 
@@ -7722,6 +8332,8 @@ NEXT SMALLEST BUILD:
 
 **Stance** — How an agent relates to content: asserts, remembers, doubts, prefers, intends, explores, and so on.
 
+**System health** — Current dependency, context, model, policy, incident, and human-review conditions that determine whether normal or degraded behavior is allowed.
+
 **Structured projection** — Selected semantic records derived from narrative sources for query or reasoning.
 
 **Suppress** — Reversibly reduce default visibility, ranking, or notification without deleting the item.
@@ -7752,18 +8364,19 @@ NEXT SMALLEST BUILD:
 
 **Valid time** — The period during which a claim or state is intended to apply in the modeled world.
 
+**Verification** — Independent observation and reconciliation of actual external state against a declared prediction; executor success alone is not sufficient.
+
 **View** — A task-oriented representation assembled from canonical and derived information; it does not become a second source of truth.
 
 ## W
 
-**Working context** — Temporary bounded information compiled for the current task, analogous to active working memory but stored as an inspectable artifact.
+**Working context** — Temporary bounded information compiled for the current task. It supplies content to the active cognitive frame but does not by itself decide salience, interruption, or authority.
 
 **Working self** — In autobiographical memory theory, current goals and self-processes that shape memory construction; used here as a design concept, not a literal software module.
 
 ## X–Z
 
 **Zero false automatic supersessions** — A conservative reconciliation goal: uncertain changes route to review rather than silently replacing prior claims.
-
 
 ---
 
@@ -7901,15 +8514,15 @@ Important limitation: the studio did not independently execute the repository te
 |---|---|---|
 | `00_DESIGN_STUDIO_CHARTER.md` | source roadmap rules, evaluation gates, risk register | DSRM, Spiral, QOC, ATAM; design-mode governance |
 | `01_CURRENT_PRODUCT_AND_PROOF_OF_CONCEPT.md` | source blueprint and live repo | conservative maturity map and freeze strategy |
-| `02_PRODUCT_THESIS_AND_CAPABILITY_MODEL.md` | executive blueprint, jobs and horizons | product kernel, project/personal/shared scales |
-| `03_SYSTEM_LANDSCAPE_AND_ARCHITECTURE.md` | target architecture, authority matrix, safety | federated project-brain alternative and fitness functions |
-| `04_SUBSYSTEM_ATLAS.md` | all architecture and domain documents | responsibility cards, subsystem probes, seam map |
-| `05_COGNITIVE_AND_MEMORY_MODEL.md` | epistemic markers, temporal truth, joint system | plural object model, source mode, stance, perspective, cognitive modes |
+| `02_PRODUCT_THESIS_AND_CAPABILITY_MODEL.md` | executive blueprint, jobs and horizons | five-plane joint cognitive operating model, active frame, product kernel, project/personal/shared scales |
+| `03_SYSTEM_LANDSCAPE_AND_ARCHITECTURE.md` | target architecture, authority matrix, safety | closed cognitive control loop, verified action lifecycle, degraded modes, federated project-brain alternative, and fitness functions |
+| `04_SUBSYSTEM_ATLAS.md` | all architecture and domain documents | attention/coordination subsystem, responsibility cards, subsystem probes, seam map |
+| `05_COGNITIVE_AND_MEMORY_MODEL.md` | epistemic markers, temporal truth, joint system | active frame, epistemic-state progression, transactive memory, cognitive immune response, plural object model, source mode, stance, perspective, cognitive modes |
 | `06_SYNTHESIS_CONSOLIDATION_AND_FORGETTING.md` | context contracts, summaries-as-caches, managed forgetting | information-bottleneck framing, synthesis contract, purge transaction |
 | `07_DESIGN_TENSIONS_AND_OPTION_SPACES.md` | ADRs, risks, architecture alternatives | QOC option maps and additional macro alternatives |
 | `08_RESEARCH_AGENDA_AND_EVIDENCE_MAP.md` | supplied bibliography and research gaps | 2025–2026 memory benchmarks and prioritized local probes |
-| `09_PRODUCT_DESIGN_METHOD_AND_GOVERNANCE.md` | roadmap gates and evaluation process | four backlogs, risk-driven studio workflow, decision packets |
-| `10_GENERALIZATION_AND_PRODUCTIZATION.md` | capability-platform horizon | kernel/profile/pack productization model |
+| `09_PRODUCT_DESIGN_METHOD_AND_GOVERNANCE.md` | roadmap gates and evaluation process | evolvable method/policy jurisprudence, collaborator context, four backlogs, risk-driven studio workflow, decision packets |
+| `10_GENERALIZATION_AND_PRODUCTIZATION.md` | capability-platform horizon | active-frame, health, verification, and kernel/profile/pack productization model |
 | `11_EXPERIMENT_PORTFOLIO_AND_DECISION_GATES.md` | existing ten experiments and scorecard | semantic-foundation and productization experiments |
 | `12_DIAGRAM_ATLAS.md` | supplied Mermaid diagrams | rendered cross-level architecture and cognitive diagrams |
 | `13_DESIGN_WORKBOOK.md` | discovery worksheet and roadmap | paced studio exercises |
@@ -7927,6 +8540,11 @@ Important limitation: the studio did not independently execute the repository te
 | Schacter, D. L., Addis, D. R., & Buckner, R. L. (2007). Constructive episodic simulation work. | Peer-reviewed | Memory supports future simulation; motivates explicit scenario objects. |
 | Risko, E. F., & Gilbert, S. J. (2016). *Cognitive Offloading*. | Peer-reviewed review | External tools can redistribute cognitive work; motivates measuring skill and dependence. |
 | Licklider (1960), Engelbart (1962), Hutchins (1995). | Foundational | Human–computer symbiosis, augmentation, and distributed cognition. |
+| Gonzalez, C., et al. (2026). *Toward a science of human–AI teaming for decision making: A complementarity framework*. PNAS Nexus. DOI: 10.1093/pnasnexus/pgag030. | Peer-reviewed | Treats reasoning, memory, and attention as foundational functions joined by meta-coordination; motivates the active frame and role-aware control loop. |
+| Wegner, D. M., Erber, R., & Raymond, P. (1991). *Transactive Memory in Close Relationships*. | Peer-reviewed | Collective memory includes knowledge of who knows what; motivates capability/context registries and cautions against imposed role structures. |
+| Sperber, D., et al. (2010). *Epistemic Vigilance*. | Peer-reviewed review | Communication creates exposure to accidental and intentional misinformation; motivates source, context, plausibility, corroboration, and cognitive-immune responses. |
+| Horvitz, E. (1999). *Principles of Mixed-Initiative User Interfaces* and *Mixed-Initiative Interaction*. | Peer-reviewed conference/journal | Initiative depends on uncertainty, timing, value, and user control; motivates interruption thresholds, deferral, and role negotiation. |
+| Woods, D. D. (2018). *The Theory of Graceful Extensibility*. | Peer-reviewed | Sustained adaptability requires extending adaptive capacity under surprise; motivates visible degraded modes and recovery paths. |
 | Leroy & Glomb (2018); Masicampo & Baumeister (2011). | Peer-reviewed | Ready-to-resume and prospective closure. |
 | Jilek et al. (2019; 2026). Managed forgetting. | Peer-reviewed/book chapter | Buoyancy, reversible suppression, preservation value. |
 
@@ -7967,7 +8585,7 @@ Important limitation: the studio did not independently execute the repository te
 | GraphRAG research and documentation | Research/official project | Separate local retrieval from global sensemaking. |
 | RAGAS and ARES | Research frameworks | Separate context, faithfulness, and answer relevance. |
 | Greshake et al. (2023). Indirect prompt injection. | Primary security research | Evidence/control separation and least privilege. |
-| NIST AI 600-1 | Official guidance | Lifecycle AI risk management. |
+| NIST AI RMF 1.0 Core and NIST AI 600-1 | Official guidance | Human oversight, lifecycle monitoring, independent evaluation, incident response, recovery, change management, and safe decommissioning. |
 | OWASP prompt-injection and agent-security guidance | Official community guidance | Privilege, output validation, monitoring, and human approval. |
 
 ## 8. Emerging 2025–2026 agent-memory evidence
@@ -7980,6 +8598,7 @@ These sources are recent and should be treated as **research directions and benc
 | [Human-Inspired Memory Architecture for LLM Agents](https://www.microsoft.com/en-us/research/publication/human-inspired-memory-architecture-for-llm-agents/) | May 2026 preprint/MSR | Consolidation, interference-based forgetting, maturation, reconsolidation, graphs, multi-cue retrieval; useful mechanisms and tradeoff curves. |
 | [MemEvoBench](https://arxiv.org/abs/2604.15774) | April 2026 preprint | Long-horizon memory safety under adversarial injection, noisy tools, and biased feedback. |
 | [RHELM](https://www.microsoft.com/en-us/research/publication/beyond-static-dialogues-benchmarking-realistic-heterogeneous-and-evolving-long-term-memory/) | May 2026 preprint/MSR | Heterogeneous, evolving, multi-source memory and contextual reasoning. |
+| [Toward Human-AI Complementarity Across Diverse Tasks](https://arxiv.org/abs/2605.04070) | May 2026 preprint | Confidence-based routing does not reliably identify AI errors; motivates richer allocation of scarce human attention and independent evaluation. |
 | GroupMemBench | May 2026 preprint/MSR | Speaker-grounded memory, multi-party beliefs, and audience-sensitive language. |
 | A-MEM | 2025 preprint | Dynamic note linking and memory evolution inspired by Zettelkasten. |
 | Recent memory-to-action and interdependent-session benchmarks | 2026 emerging | Evaluate whether stored memory supports coherent tool use and continued tasks, not only recall. |

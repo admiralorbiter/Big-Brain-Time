@@ -132,15 +132,15 @@ Important limitation: the studio did not independently execute the repository te
 |---|---|---|
 | `00_DESIGN_STUDIO_CHARTER.md` | source roadmap rules, evaluation gates, risk register | DSRM, Spiral, QOC, ATAM; design-mode governance |
 | `01_CURRENT_PRODUCT_AND_PROOF_OF_CONCEPT.md` | source blueprint and live repo | conservative maturity map and freeze strategy |
-| `02_PRODUCT_THESIS_AND_CAPABILITY_MODEL.md` | executive blueprint, jobs and horizons | product kernel, project/personal/shared scales |
-| `03_SYSTEM_LANDSCAPE_AND_ARCHITECTURE.md` | target architecture, authority matrix, safety | federated project-brain alternative and fitness functions |
-| `04_SUBSYSTEM_ATLAS.md` | all architecture and domain documents | responsibility cards, subsystem probes, seam map |
-| `05_COGNITIVE_AND_MEMORY_MODEL.md` | epistemic markers, temporal truth, joint system | plural object model, source mode, stance, perspective, cognitive modes |
+| `02_PRODUCT_THESIS_AND_CAPABILITY_MODEL.md` | executive blueprint, jobs and horizons | five-plane joint cognitive operating model, active frame, product kernel, project/personal/shared scales |
+| `03_SYSTEM_LANDSCAPE_AND_ARCHITECTURE.md` | target architecture, authority matrix, safety | closed cognitive control loop, verified action lifecycle, degraded modes, federated project-brain alternative, and fitness functions |
+| `04_SUBSYSTEM_ATLAS.md` | all architecture and domain documents | attention/coordination subsystem, responsibility cards, subsystem probes, seam map |
+| `05_COGNITIVE_AND_MEMORY_MODEL.md` | epistemic markers, temporal truth, joint system | active frame, epistemic-state progression, transactive memory, cognitive immune response, plural object model, source mode, stance, perspective, cognitive modes |
 | `06_SYNTHESIS_CONSOLIDATION_AND_FORGETTING.md` | context contracts, summaries-as-caches, managed forgetting | information-bottleneck framing, synthesis contract, purge transaction |
 | `07_DESIGN_TENSIONS_AND_OPTION_SPACES.md` | ADRs, risks, architecture alternatives | QOC option maps and additional macro alternatives |
 | `08_RESEARCH_AGENDA_AND_EVIDENCE_MAP.md` | supplied bibliography and research gaps | 2025–2026 memory benchmarks and prioritized local probes |
-| `09_PRODUCT_DESIGN_METHOD_AND_GOVERNANCE.md` | roadmap gates and evaluation process | four backlogs, risk-driven studio workflow, decision packets |
-| `10_GENERALIZATION_AND_PRODUCTIZATION.md` | capability-platform horizon | kernel/profile/pack productization model |
+| `09_PRODUCT_DESIGN_METHOD_AND_GOVERNANCE.md` | roadmap gates and evaluation process | evolvable method/policy jurisprudence, collaborator context, four backlogs, risk-driven studio workflow, decision packets |
+| `10_GENERALIZATION_AND_PRODUCTIZATION.md` | capability-platform horizon | active-frame, health, verification, and kernel/profile/pack productization model |
 | `11_EXPERIMENT_PORTFOLIO_AND_DECISION_GATES.md` | existing ten experiments and scorecard | semantic-foundation and productization experiments |
 | `12_DIAGRAM_ATLAS.md` | supplied Mermaid diagrams | rendered cross-level architecture and cognitive diagrams |
 | `13_DESIGN_WORKBOOK.md` | discovery worksheet and roadmap | paced studio exercises |
@@ -158,6 +158,11 @@ Important limitation: the studio did not independently execute the repository te
 | Schacter, D. L., Addis, D. R., & Buckner, R. L. (2007). Constructive episodic simulation work. | Peer-reviewed | Memory supports future simulation; motivates explicit scenario objects. |
 | Risko, E. F., & Gilbert, S. J. (2016). *Cognitive Offloading*. | Peer-reviewed review | External tools can redistribute cognitive work; motivates measuring skill and dependence. |
 | Licklider (1960), Engelbart (1962), Hutchins (1995). | Foundational | Human–computer symbiosis, augmentation, and distributed cognition. |
+| Gonzalez, C., et al. (2026). *Toward a science of human–AI teaming for decision making: A complementarity framework*. PNAS Nexus. DOI: 10.1093/pnasnexus/pgag030. | Peer-reviewed | Treats reasoning, memory, and attention as foundational functions joined by meta-coordination; motivates the active frame and role-aware control loop. |
+| Wegner, D. M., Erber, R., & Raymond, P. (1991). *Transactive Memory in Close Relationships*. | Peer-reviewed | Collective memory includes knowledge of who knows what; motivates capability/context registries and cautions against imposed role structures. |
+| Sperber, D., et al. (2010). *Epistemic Vigilance*. | Peer-reviewed review | Communication creates exposure to accidental and intentional misinformation; motivates source, context, plausibility, corroboration, and cognitive-immune responses. |
+| Horvitz, E. (1999). *Principles of Mixed-Initiative User Interfaces* and *Mixed-Initiative Interaction*. | Peer-reviewed conference/journal | Initiative depends on uncertainty, timing, value, and user control; motivates interruption thresholds, deferral, and role negotiation. |
+| Woods, D. D. (2018). *The Theory of Graceful Extensibility*. | Peer-reviewed | Sustained adaptability requires extending adaptive capacity under surprise; motivates visible degraded modes and recovery paths. |
 | Leroy & Glomb (2018); Masicampo & Baumeister (2011). | Peer-reviewed | Ready-to-resume and prospective closure. |
 | Jilek et al. (2019; 2026). Managed forgetting. | Peer-reviewed/book chapter | Buoyancy, reversible suppression, preservation value. |
 
@@ -198,7 +203,7 @@ Important limitation: the studio did not independently execute the repository te
 | GraphRAG research and documentation | Research/official project | Separate local retrieval from global sensemaking. |
 | RAGAS and ARES | Research frameworks | Separate context, faithfulness, and answer relevance. |
 | Greshake et al. (2023). Indirect prompt injection. | Primary security research | Evidence/control separation and least privilege. |
-| NIST AI 600-1 | Official guidance | Lifecycle AI risk management. |
+| NIST AI RMF 1.0 Core and NIST AI 600-1 | Official guidance | Human oversight, lifecycle monitoring, independent evaluation, incident response, recovery, change management, and safe decommissioning. |
 | OWASP prompt-injection and agent-security guidance | Official community guidance | Privilege, output validation, monitoring, and human approval. |
 
 ## 8. Emerging 2025–2026 agent-memory evidence
@@ -211,6 +216,7 @@ These sources are recent and should be treated as **research directions and benc
 | [Human-Inspired Memory Architecture for LLM Agents](https://www.microsoft.com/en-us/research/publication/human-inspired-memory-architecture-for-llm-agents/) | May 2026 preprint/MSR | Consolidation, interference-based forgetting, maturation, reconsolidation, graphs, multi-cue retrieval; useful mechanisms and tradeoff curves. |
 | [MemEvoBench](https://arxiv.org/abs/2604.15774) | April 2026 preprint | Long-horizon memory safety under adversarial injection, noisy tools, and biased feedback. |
 | [RHELM](https://www.microsoft.com/en-us/research/publication/beyond-static-dialogues-benchmarking-realistic-heterogeneous-and-evolving-long-term-memory/) | May 2026 preprint/MSR | Heterogeneous, evolving, multi-source memory and contextual reasoning. |
+| [Toward Human-AI Complementarity Across Diverse Tasks](https://arxiv.org/abs/2605.04070) | May 2026 preprint | Confidence-based routing does not reliably identify AI errors; motivates richer allocation of scarce human attention and independent evaluation. |
 | GroupMemBench | May 2026 preprint/MSR | Speaker-grounded memory, multi-party beliefs, and audience-sensitive language. |
 | A-MEM | 2025 preprint | Dynamic note linking and memory evolution inspired by Zettelkasten. |
 | Recent memory-to-action and interdependent-session benchmarks | 2026 emerging | Evaluate whether stored memory supports coherent tool use and continued tasks, not only recall. |

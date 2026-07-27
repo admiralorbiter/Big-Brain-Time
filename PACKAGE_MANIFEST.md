@@ -11,7 +11,7 @@
 - Diagrams: **20** rendered SVGs plus **20** editable Graphviz DOT sources
 - Reusable design templates: **9**
 - Preserved source-package files: **17**, plus a source-reference README
-- Combined narrative length: approximately **40,357 words**
+- Combined narrative length: approximately **42,071 words**
 - Validation errors: **0**
 - Validation warnings: **0**
 
@@ -32,10 +32,10 @@ The machine-readable file inventory and SHA-256 hashes are in [`manifest.json`](
 | [`README.md`](README.md) | Orientation, package map, paced reading path, and suggested design-studio cadence. |
 | [`00_DESIGN_STUDIO_CHARTER.md`](00_DESIGN_STUDIO_CHARTER.md) | Defines the design phase, its boundaries, outputs, questions, evidence classes, and completion criteria. |
 | [`01_CURRENT_PRODUCT_AND_PROOF_OF_CONCEPT.md`](01_CURRENT_PRODUCT_AND_PROOF_OF_CONCEPT.md) | Separates demonstrated capability, implemented mechanism, architectural aspiration, rough edges, and unverified claims in the current repository. |
-| [`02_PRODUCT_THESIS_AND_CAPABILITY_MODEL.md`](02_PRODUCT_THESIS_AND_CAPABILITY_MODEL.md) | Defines the product thesis, durable kernel, capability model, use modes, product boundaries, and alternative product shapes. |
-| [`03_SYSTEM_LANDSCAPE_AND_ARCHITECTURE.md`](03_SYSTEM_LANDSCAPE_AND_ARCHITECTURE.md) | Describes the whole-system landscape, authority boundaries, trust planes, modular architecture, data flows, deployment horizons, and quality attributes. |
-| [`04_SUBSYSTEM_ATLAS.md`](04_SUBSYSTEM_ATLAS.md) | Gives a repeatable card for each major subsystem: purpose, inputs, outputs, state, invariants, failure modes, dependencies, friction, experiments, and open questions. |
-| [`05_COGNITIVE_AND_MEMORY_MODEL.md`](05_COGNITIVE_AND_MEMORY_MODEL.md) | Defines a plural cognitive-object model, perspectives and stances, episodic/semantic layers, consolidation, simulation, and human–AI division of labor. |
+| [`02_PRODUCT_THESIS_AND_CAPABILITY_MODEL.md`](02_PRODUCT_THESIS_AND_CAPABILITY_MODEL.md) | Defines the five-plane joint cognitive operating model, active frame, product thesis, durable kernel, capability model, product boundaries, and alternative product shapes. |
+| [`03_SYSTEM_LANDSCAPE_AND_ARCHITECTURE.md`](03_SYSTEM_LANDSCAPE_AND_ARCHITECTURE.md) | Describes the closed cognitive control loop, whole-system landscape, authority boundaries, trust planes, verified action lifecycle, degraded modes, modular architecture, and quality attributes. |
+| [`04_SUBSYSTEM_ATLAS.md`](04_SUBSYSTEM_ATLAS.md) | Gives a repeatable card for each major subsystem, including attention/coordination: purpose, inputs, outputs, state, invariants, failure modes, dependencies, friction, experiments, and open questions. |
+| [`05_COGNITIVE_AND_MEMORY_MODEL.md`](05_COGNITIVE_AND_MEMORY_MODEL.md) | Defines the active cognitive frame, epistemic-state progression, transactive memory, cognitive immune response, plural cognitive objects, perspectives, and human–AI division of labor. |
 | [`06_SYNTHESIS_CONSOLIDATION_AND_FORGETTING.md`](06_SYNTHESIS_CONSOLIDATION_AND_FORGETTING.md) | Separates indexing, deduplication, summarization, reflection, consolidation, suppression, archive, retraction, deletion, purge, and unlearning. |
 | [`07_DESIGN_TENSIONS_AND_OPTION_SPACES.md`](07_DESIGN_TENSIONS_AND_OPTION_SPACES.md) | Preserves major unresolved architectural choices as explicit Question–Option–Criteria design spaces rather than premature decisions. |
 | [`08_RESEARCH_AGENDA_AND_EVIDENCE_MAP.md`](08_RESEARCH_AGENDA_AND_EVIDENCE_MAP.md) | Organizes completed research, current evidence, targeted research threads, research packets, and evidence-to-decision traceability. |

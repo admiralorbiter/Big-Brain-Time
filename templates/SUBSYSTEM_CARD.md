@@ -32,11 +32,17 @@ owner:
 
 ## Dependencies
 
+## System health, degraded mode, and recovery
+
 ## Failure modes
 
 ## Quality scenarios
 
 ## Evaluation and maturity evidence
+
+## Attention and carrying cost
+
+## Prediction and verification boundary
 
 ## Open design questions
 

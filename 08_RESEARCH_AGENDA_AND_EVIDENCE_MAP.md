@@ -372,6 +372,7 @@ Re-entry is the product’s strongest practical wedge, and prospective memory co
 - implementation intentions and prospective closure;
 - cognitive offloading;
 - interruption and notification research;
+- attention allocation and meta-coordination in human–AI teams;
 - personal information management.
 
 ### Research questions
@@ -381,14 +382,16 @@ Re-entry is the product’s strongest practical wedge, and prospective memory co
 3. When should a reminder be time-, event-, state-, or context-triggered?
 4. Which knowledge should remain internal to preserve learning and judgment?
 5. How does the system distinguish useful preparation from interruption?
+6. Which combination of consequence, uncertainty, reversibility, novelty, commitment risk, value sensitivity, deferral cost, and interruption cost best predicts valuable human attention?
+7. How should allocation change when Jonathan or the system is overloaded?
 
 ### Local probe
 
-Run a within-person interrupted-work study comparing no capsule, manual capsule, and system-assisted capsule.
+Run a within-person interrupted-work study comparing no capsule, manual capsule, and system-assisted capsule. In a second phase, compare confidence-only, recency-only, and active-frame attention routing.
 
 ### Starting sources
 
-Use R23–R26 in the supplied bibliography.
+Use R23–R26 in the supplied bibliography; Gonzalez et al. (2026) on reasoning, memory, attention, and meta-coordination; and Xu et al. (2026) on the limits of confidence-based human routing.
 
 ---
 
@@ -407,6 +410,8 @@ A local metric such as answer accuracy can improve while overall maintenance, ve
 - Licklider and Engelbart augmentation;
 - distributed cognition;
 - joint cognitive systems;
+- reasoning, memory, attention, and meta-coordination;
+- transactive memory and common-ground repair;
 - human–AI interaction guidelines;
 - longitudinal HCI and co-adaptation research.
 
@@ -417,14 +422,18 @@ A local metric such as answer accuracy can improve while overall maintenance, ve
 3. How does trust calibrate after errors?
 4. Which artifacts become shared mental-model anchors?
 5. How can adaptation remain explicit and reversible?
+6. What must each collaborator know about the others’ roles, source sets, limitations, and permissions?
+7. When does shared context create correlated error rather than useful common ground?
+8. How should methods be proposed, tested, ratified, amended, suspended, and deprecated?
+9. How does the system change behavior when a dependency, context source, model, or human reviewer is degraded?
 
 ### Local probe
 
-Track one workflow for eight weeks: time, corrections, repeated explanation, maintenance, reliance, satisfaction, and what Jonathan stops remembering internally.
+Track one workflow for eight weeks: time, corrections, repeated explanation, maintenance, reliance, attention switching, common-ground failures, health degradation, satisfaction, and what Jonathan stops remembering internally.
 
 ### Starting sources
 
-Use R20–R22 and R28–R30 in the supplied bibliography.
+Use R20–R22 and R28–R30 in the supplied bibliography; Wegner, Erber, and Raymond (1991) on transactive memory; and Woods (2018) on graceful extensibility.
 
 ---
 
@@ -481,6 +490,7 @@ Proactivity is a major source of potential value and a major threat to agency, p
 - levels of automation;
 - human–AI interaction guidelines;
 - indirect prompt injection;
+- epistemic vigilance and source plausibility;
 - least privilege and capability security;
 - NIST/OWASP agent risk guidance.
 
@@ -492,14 +502,18 @@ Proactivity is a major source of potential value and a major threat to agency, p
 4. How should alert budgets and quiet modes work?
 5. What does trust repair require after an action error?
 6. How are evidence and control separated end to end?
+7. What observation is independent enough to verify an action’s intended outcome?
+8. How should prediction–outcome mismatches recalibrate collaborators and methods?
+9. Which cognitive-immune responses should label, quarantine, corroborate, or escalate suspicious material?
+10. Which degraded modes prohibit canonical mutation or external action?
 
 ### Local probe
 
-Run two read-only monitors in shadow mode and twenty permission-comprehension scenarios before enabling any new action.
+Run two read-only monitors in shadow mode and twenty permission-comprehension scenarios before enabling any new action. For each action, record predicted state, simulated tool response, independently observed state, and the required reconciliation when they differ.
 
 ### Starting sources
 
-Use R17–R22, R35, and the supplied safety document.
+Use R17–R22, R35, the supplied safety document, Horvitz’s mixed-initiative principles, Sperber et al. (2010) on epistemic vigilance, and the NIST AI RMF lifecycle monitoring and incident-response outcomes.
 
 ---
 
@@ -560,6 +574,7 @@ Productization toward shared brains introduces speaker grounding, audience sensi
 - transactive memory systems;
 - organizational memory;
 - common ground and shared mental models;
+- capability/context registries for human and AI participants;
 - distributed cognition;
 - emerging multi-party agent-memory benchmarks such as GroupMemBench.
 
@@ -571,6 +586,8 @@ Productization toward shared brains introduces speaker grounding, audience sensi
 4. How does the system represent disagreement without organizational coercion?
 5. What context may be shared with an AI on behalf of a group?
 6. How are audience-specific terms and prior knowledge preserved?
+7. How is each collaborator’s believed objective compared without constant restatement?
+8. When should a reviewer receive an independent source set to avoid inherited-premise agreement?
 
 ### Local probe
 

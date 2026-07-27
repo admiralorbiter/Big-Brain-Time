@@ -417,7 +417,77 @@ Core contracts and evaluation; algorithms and prompts remain replaceable adapter
 
 ---
 
-## 8. Projects, Commitments, and Planning
+## 8. Attention, Active Frame, and Collaboration Coordination
+
+### Purpose
+
+Maintain orientation for the current cognitive episode and allocate scarce human and machine attention without turning every stored item into an interruption.
+
+### Primary jobs
+
+- establish current purpose, scope, and desired outcome;
+- protect commitments and surface endangered obligations;
+- track open questions, active assumptions, and salient contradictions;
+- allocate attention using consequence, uncertainty, reversibility, novelty, value sensitivity, and interruption cost;
+- compile the smallest relevant context from shared artifacts;
+- record participants, roles, information seen, permissions, and known limitations;
+- detect and repair common-ground mismatch;
+- expire or revalidate the frame after material change;
+- narrow permitted behavior when system health is degraded.
+
+### Inputs
+
+Values, goals, commitments, project state, epistemic ledger, source changes, context manifests, collaborator registry, health state, calendar references, interruption policy.
+
+### Outputs
+
+Inspectable active frame, ranked surfacing candidates, deferral record, context request, common-ground repair prompt, escalation, abstention, degraded-mode notice.
+
+### Authority
+
+Jonathan controls goals, protected commitments, attention preferences, and interruption thresholds. Deterministic policies enforce declared hard constraints. Models may propose salience and explain tradeoffs but may not silently reprioritize goals or cancel commitments.
+
+### Deterministic work
+
+Expiry, deadline calculation, policy thresholds, source-set comparison, permission filtering, frame versioning, deferral persistence, health gates, and audit.
+
+### Model work
+
+Propose relevance, identify possible contradiction or novelty, estimate missing context, draft common-ground summaries, and suggest attention tradeoffs.
+
+### Major frictions
+
+- the active frame becomes another status document to maintain;
+- urgency proxies crowd out important but quiet goals;
+- model confidence is mistaken for human-review value;
+- alerts create attention residue and blind dismissal;
+- collaborators inherit the same bad premise and appear independently confident;
+- “helpful” reprioritization silently changes the user’s goal;
+- stale frames keep controlling work after the environment changes;
+- system overload or missing context is hidden instead of changing behavior.
+
+### Design questions
+
+1. What is the minimum active-frame schema that materially improves behavior?
+2. Which factors justify interruption rather than review-queue placement?
+3. How are quiet long-term commitments protected from urgent noise?
+4. What evidence shows that collaborators no longer share the same objective or source set?
+5. When should collaborators receive independent context to reduce correlated error?
+6. Which frame changes require Jonathan’s acceptance?
+7. What is the carrying cost of each alert, frame field, and registry record?
+8. Which degraded states permit reading, synthesis, proposal, canonical mutation, or action?
+
+### Smallest probe
+
+For two weeks, maintain one compact active frame for a real project. Run every surfacing candidate through consequence, uncertainty, reversibility, novelty, commitment risk, deferral cost, and interruption cost. Compare it with recency- or confidence-based routing on useful-suggestion rate, missed commitments, correction burden, and unwanted interruptions.
+
+### Reusable role
+
+Universal control-loop capability built on purpose, commitment, epistemic, collaboration, policy, and health contracts.
+
+---
+
+## 9. Projects, Commitments, and Planning
 
 ### Purpose
 
@@ -425,8 +495,12 @@ Represent what the user or system has committed to doing, why, under what constr
 
 ### Primary jobs
 
+- preserve the chain from values to goals to commitments to plans and tasks;
 - project outcomes and definitions of done;
 - goals, decisions, plans, tasks, dependencies, and blockers;
+- promises and obligations: to whom, why, by when, and under what authority;
+- explicit cancellation and supersession conditions;
+- endangered-commitment detection;
 - status and readiness;
 - temporal constraints and review triggers;
 - recurrence references and calendar boundaries;
@@ -460,6 +534,8 @@ Task decomposition, prioritization alternatives, blocker interpretation, plan pr
 - model-generated tasks that create work rather than progress;
 - plans treated as facts;
 - priorities inferred from incomplete values;
+- plans silently redefine their parent goals;
+- new opportunities displace existing obligations without a supersession decision;
 - external dates copied locally and become stale.
 
 ### Design questions
@@ -470,6 +546,8 @@ Task decomposition, prioritization alternatives, blocker interpretation, plan pr
 4. How should the system challenge priorities without taking control?
 5. What planning state is essential for re-entry?
 6. How are abandoned or intentionally paused commitments represented?
+7. Which commitments are promises to other people and therefore require social, not merely technical, reconciliation?
+8. How does an attention policy protect important quiet commitments from urgent low-value activity?
 
 ### Smallest probe
 
@@ -481,7 +559,7 @@ Capability pack built on kernel commitments, time, identity, and policy.
 
 ---
 
-## 9. Re-entry and Continuity
+## 10. Re-entry and Continuity
 
 ### Purpose
 
@@ -545,7 +623,7 @@ Strong candidate for the first reusable project-brain capability.
 
 ---
 
-## 10. Propagation and Change Control
+## 11. Propagation and Change Control
 
 ### Purpose
 
@@ -609,7 +687,7 @@ Core change-control service with domain-specific dependency rules.
 
 ---
 
-## 11. Memory Lifecycle, Forgetting, and Deletion
+## 12. Memory Lifecycle, Forgetting, and Deletion
 
 ### Purpose
 
@@ -674,7 +752,7 @@ Core kernel and governance service. Essential before broad personal or multi-use
 
 ---
 
-## 12. Permissions and Action Firewall
+## 13. Permissions and Action Firewall
 
 ### Purpose
 
@@ -685,10 +763,13 @@ Allow increasingly useful initiative without allowing evidence, model confidence
 - define domain/action/target/time/privacy grants;
 - classify risk and reversibility;
 - validate typed action graphs;
+- record predicted changes, failure conditions, and verification evidence before execution;
 - require previews and confirmations;
+- authorize observation separately from mutation;
 - enforce preconditions, scope, and maximum affected items;
 - execute through narrow adapters;
-- verify postconditions;
+- observe and verify external postconditions independently;
+- reconcile expected and actual outcomes;
 - provide kill switch, safe mode, rollback, and trust repair.
 
 ### Inputs
@@ -697,7 +778,7 @@ User request, proposal, grants, resource state, privacy class, tool schema, evid
 
 ### Outputs
 
-Allow/deny decision, required confirmation, executed result, verification, audit and rollback status.
+Allow/deny decision, required confirmation, prediction record, executed result, external observation, reconciliation status, verification, incident, audit, and rollback status.
 
 ### Authority
 
@@ -705,7 +786,7 @@ Only the control plane creates grants. Retrieved content and model output cannot
 
 ### Deterministic work
 
-All authorization, target validation, risk ceiling, confirmation mode, path and recipient checks, action execution boundary.
+All authorization, target validation, risk ceiling, confirmation mode, path and recipient checks, action execution boundary, postcondition matching, and closure gate.
 
 ### Model work
 
@@ -718,6 +799,10 @@ Propose and explain actions; never decide its own permission.
 - monitoring feels more invasive than one-time action;
 - model output smuggles unapproved arguments;
 - rollback exists technically but cannot undo external consequences.
+- an API success is reported as outcome success without external verification;
+- read access admits stale or manipulated tool output into the control path;
+- verification repeats the same faulty observation path and is not independent;
+- degraded system health fails to narrow action permissions.
 
 ### Design questions
 
@@ -727,10 +812,13 @@ Propose and explain actions; never decide its own permission.
 4. How are model/data destinations part of permission?
 5. What changes require per-action confirmation forever?
 6. How should “negotiate” initiative be bounded for goals and identity?
+7. What independent observation is sufficient to verify each action class?
+8. When must a prediction mismatch trigger rollback, incident capture, or human reconciliation?
+9. Which system-health states force safe mode or prohibit action?
 
 ### Smallest probe
 
-Create twenty action scenarios and ask Jonathan to predict allow, deny, or confirm. Redesign policy language until expected and actual outcomes align.
+Create twenty action scenarios and ask Jonathan to predict allow, deny, or confirm. For each allowed scenario, record the expected external change and verification evidence; simulate technical success with a wrong real-world result. Redesign policy and closure language until expected and actual outcomes align.
 
 ### Reusable role
 
@@ -738,7 +826,7 @@ Universal governance kernel, with domain-specific grants and executors.
 
 ---
 
-## 13. Evaluation, Experiments, Audit, and Observability
+## 14. Evaluation, Experiments, Audit, and Observability
 
 ### Purpose
 
@@ -751,13 +839,15 @@ Determine whether the system is correct, useful, safe, understandable, and worth
 - record model, prompt, context, policy, and software versions;
 - distinguish prototype, tested, benchmarked, piloted, trusted, and authorized;
 - track human corrections, burden, trust, and task outcomes;
+- compare predicted and actual effects for actions, collaborators, and methods;
+- monitor dependency, context, model, policy, and human-review health;
 - convert incidents into tests;
 - preserve causal audit without sensitive payload excess;
 - support keep/simplify/remove decisions.
 
 ### Inputs
 
-Test fixtures, run manifests, user feedback, action events, incidents, metrics, retrospectives.
+Test fixtures, run manifests, active-frame history, prediction and outcome records, health transitions, user feedback, action events, incidents, metrics, retrospectives.
 
 ### Outputs
 
@@ -783,6 +873,9 @@ Rubric assistance, failure clustering, qualitative synthesis, candidate regressi
 - test count becomes a proxy for product maturity;
 - audit logs are technically complete but unusable;
 - success metrics optimize behavior users do not value.
+- human attention is treated as free evaluation capacity;
+- correlated model reviewers repeat the same premise and simulate independent assurance;
+- health degradation is visible in logs but does not alter permitted behavior.
 
 ### Design questions
 
@@ -792,6 +885,9 @@ Rubric assistance, failure clustering, qualitative synthesis, candidate regressi
 4. Which maturity claims expire after code/model/data changes?
 5. What audit detail is needed for trust repair?
 6. What is the removal threshold for a feature?
+7. How is attention cost included in joint-system benefit?
+8. How is evaluator independence established at the premise and source-set level?
+9. Which prediction mismatches should recalibrate a collaborator or method?
 
 ### Smallest probe
 
@@ -803,7 +899,7 @@ Universal kernel and design-process infrastructure.
 
 ---
 
-## 14. Integrations, Interfaces, and Runtime
+## 15. Integrations, Interfaces, and Runtime
 
 ### Purpose
 
@@ -860,7 +956,7 @@ Adapters and product surfaces around the kernel; deliberately replaceable.
 
 ---
 
-## 15. Cross-subsystem friction map
+## 16. Cross-subsystem friction map
 
 | Interaction | Typical failure |
 |---|---|
@@ -869,17 +965,23 @@ Adapters and product surfaces around the kernel; deliberately replaceable.
 | Provenance → retrieval | authority/time policy is applied after ranking instead of before |
 | Retrieval → context | token budget hides necessary conflict or scope |
 | Context → synthesis | summary becomes authority or loses exceptions |
+| Commitments → active frame | urgency displaces a quiet obligation without explicit supersession |
+| Artifacts → active frame | retrieval availability is confused with present salience |
+| Active frame → collaborator | role, source set, or objective mismatch creates false agreement |
 | Synthesis → planning | interpretation creates tasks without an accepted decision |
 | Planning → re-entry | current status exists but restart cognition is missing |
 | Change → propagation | dependency graph is noisy or incomplete |
 | Propagation → action | proposal scope exceeds what the user understood |
+| Execution → verification | tool success is mistaken for intended real-world outcome |
+| Health → governance | degraded capability is reported but does not narrow permission |
+| Incidents → methods | failure evidence accumulates without policy revision |
 | Lifecycle → audit | deletion process retains the sensitive payload in logs |
 | Evaluation → design | metrics reward feature behavior rather than capability value |
 | Integrations → privacy | convenient connector imports exceed minimum necessary evidence |
 
 These seams should receive more design attention than isolated module internals.
 
-## 16. Atlas exercise
+## 17. Atlas exercise
 
 For each subsystem, mark:
 

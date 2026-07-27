@@ -1,30 +1,141 @@
 digraph G {
 
-graph [bgcolor="white", pad="0.28", nodesep="0.42", ranksep="0.58", fontname="Arial", fontsize="10", labelloc="t"];
-node [shape=box, style="rounded,filled", fillcolor="#F7F8FC", color="#52606D", penwidth="1.1", fontname="Arial", fontsize="10", margin="0.12,0.08"];
-edge [color="#66788A", penwidth="1.1", arrowsize="0.72", fontname="Arial", fontsize="9"];
+graph [bgcolor="white", pad="0.30", nodesep="0.32", ranksep="0.62", fontname="Arial", fontsize="10", labelloc="t", compound=true, newrank=true];
+node [shape=box, style="rounded,filled", fillcolor="#F7F8FC", color="#52606D", penwidth="1.1", fontname="Arial", fontsize="9.5", margin="0.12,0.08"];
+edge [color="#66788A", penwidth="1.05", arrowsize="0.68", fontname="Arial", fontsize="8.5"];
 
-label="Big Brain Time as a Joint Cognitive System";
-rankdir=LR;
-H [label="Jonathan
-values • judgment • lived context", fillcolor="#FFF4D6"];
-AI [label="AI collaborators
-reasoning • drafting • synthesis", fillcolor="#E8F1FF"];
-A [label="Shared artifacts
-notes • decisions • plans • diagrams", fillcolor="#EAF7EE"];
-M [label="Methods and policies
-questions • permissions • evaluation", fillcolor="#F3E8FF"];
-E [label="World and external systems
-people • projects • calendar • GitHub", fillcolor="#FCE8E6"];
-H -> A [label="captures / corrects"];
-AI -> A [label="proposes / compiles"];
-A -> H [label="supports memory and action"];
-A -> AI [label="grounds context"];
-M -> AI [label="constrains"];
-M -> H [label="structures reflection"];
-E -> H [label="experience"];
-E -> A [label="evidence"];
-H -> E [label="acts"];
-AI -> E [label="only through authorized tools", style=dashed];
-A -> M [label="results and incidents"];
+label="Big Brain Time Joint Cognitive Operating Model";
+rankdir=TB;
+
+J [label="Jonathan\nvalues • judgment • lived context\nfinal personal authority", fillcolor="#FFF4D6", penwidth="1.5"];
+AI [label="AI collaborator roles\nreason • retrieve • draft • challenge\nproposals, not authority", fillcolor="#E8F1FF"];
+P [label="Other people and institutions\nstakeholders • teams • communities\nautonomous participants", fillcolor="#FCE8E6"];
+{rank=same; J; AI; P;}
+
+subgraph cluster_purpose {
+  label="1  PURPOSE PLANE";
+  color="#D5A72B";
+  style="rounded,filled";
+  fillcolor="#FFFBED";
+  V [label="Values and identity\nstable direction and boundaries", fillcolor="#FFF4D6"];
+  G [label="Goals and desired outcomes\nwhat should become true", fillcolor="#FFF4D6"];
+  C [label="Commitment ledger\npromises • obligations • deadlines\nsupersession and cancellation", fillcolor="#FFF4D6"];
+  {rank=same; V; G; C;}
+  V -> G [label="guides"];
+  G -> C [label="justifies"];
+}
+
+subgraph cluster_control {
+  label="2  COGNITIVE CONTROL LOOP";
+  color="#4D78A8";
+  style="rounded,filled";
+  fillcolor="#F1F6FC";
+  AT [label="ATTEND\nactive cognitive frame\npriorities • open questions • assumptions\nattention budget • interruption threshold", fillcolor="#DCEBFA", penwidth="1.6"];
+  SE [label="SENSE\nselect observations\nand relevant state", fillcolor="#E8F1FF"];
+  FR [label="FRAME\nestablish purpose, scope,\nmode, roles, and constraints", fillcolor="#E8F1FF"];
+  GE [label="GENERATE\nretrieve • reason • synthesize\npropose options", fillcolor="#E8F1FF"];
+  CH [label="CHALLENGE\ncontradictions • provenance\nindependent critique • uncertainty", fillcolor="#E8F1FF"];
+  DE [label="DECIDE\nhuman-authorized choice\nor explicit abstention", fillcolor="#E8F1FF"];
+  AC [label="ACT\npredict • policy-check • authorize\nexecute through narrow tools", fillcolor="#E8F1FF"];
+  VE [label="VERIFY\nobserve actual state • reconcile\nrollback or capture incident", fillcolor="#E8F1FF"];
+  {rank=same; AT; SE; FR; GE; CH; DE; AC; VE;}
+  AT -> SE -> FR -> GE -> CH -> DE -> AC -> VE;
+  VE -> AT [label="outcome changes orientation", constraint=false];
+}
+
+subgraph cluster_knowledge {
+  label="3  KNOWLEDGE PLANE";
+  color="#4B9460";
+  style="rounded,filled";
+  fillcolor="#F1FAF3";
+  O [label="Observations and sources\nobserved • reported • measured • imported", fillcolor="#EAF7EE"];
+  E [label="Epistemic ledger\nclaim • provenance • scope • recency\nsupport • contradiction • supersession", fillcolor="#EAF7EE"];
+  A [label="Shared artifacts and history\nnotes • decisions • plans • diagrams\noriginals plus derived views", fillcolor="#EAF7EE"];
+  R [label="Capability and context registry\nwho knows what • what each role has seen\nlimits • permissions • common ground", fillcolor="#EAF7EE"];
+  {rank=same; O; E; A; R;}
+  O -> E [label="interpret and qualify"];
+  E -> A [label="preserve and compile"];
+  R -> A [label="attributes participation"];
+}
+
+subgraph cluster_governance {
+  label="4  GOVERNANCE PLANE";
+  color="#8A62A8";
+  style="rounded,filled";
+  fillcolor="#F8F2FC";
+  AU [label="Authority and decision rights\nwho may decide what", fillcolor="#F3E8FF"];
+  PO [label="Policies and permissions\nconstitution • operational rules\nprovisional status • override", fillcolor="#F3E8FF"];
+  IM [label="Cognitive immune response\nlabel • quarantine • corroborate • escalate\ninjection • goal drift • circular support", fillcolor="#F3E8FF"];
+  {rank=same; AU; PO; IM;}
+  AU -> PO [label="delegates and constrains"];
+  PO -> IM [label="defines response"];
+}
+
+subgraph cluster_adaptation {
+  label="5  ADAPTATION PLANE";
+  color="#B35B4B";
+  style="rounded,filled";
+  fillcolor="#FFF4F1";
+  PR [label="Prediction and outcome ledger\nexpected change • actual change\ncalibration • unintended effects", fillcolor="#FCE8E6"];
+  EV [label="Evaluation and incidents\njoint-system benefit • burden • failure\nindependent review", fillcolor="#FCE8E6"];
+  ME [label="Method evolution\npropose • test • ratify • amend\nsuspend • deprecate", fillcolor="#FCE8E6"];
+  SH [label="System health and resilience\ndependency status • stale context • degraded mode\nfallback • recovery path", fillcolor="#FCE8E6"];
+  {rank=same; PR; EV; ME; SH;}
+  PR -> EV -> ME;
+  SH -> EV [label="operating evidence"];
+}
+
+X [label="Instrumented environment\ncalendar • GitHub • email • databases • apps", fillcolor="#F5F6F8"];
+U [label="Uninstrumented reality\nconversations • lived events • tacit knowledge\nphysical conditions", fillcolor="#F5F6F8"];
+{rank=same; X; U;}
+
+J -> V [label="authors / revises"];
+J -> AT [label="directs scarce attention"];
+J -> DE [label="judges / authorizes"];
+J -> PO [label="ratifies / overrides"];
+AI -> GE [label="participates"];
+AI -> CH [label="questions / explains"];
+P -> O [label="communicates / disputes"];
+P -> DE [label="rights and expectations", style=dashed];
+
+C -> AT [label="protects obligations"];
+A -> AT [label="selective retrieval", constraint=false];
+E -> CH [label="grounds vigilance", constraint=false];
+R -> FR [label="roles and common ground", constraint=false];
+AT -> A [label="records active state", style=dashed];
+
+PO -> FR [label="constrains", constraint=false];
+PO -> AC [label="authorizes", constraint=false];
+IM -> CH [label="triggers scrutiny", constraint=false];
+SH -> AT [label="limits permitted behavior", constraint=false];
+SH -> AC [label="safe/degraded mode", constraint=false];
+
+AC -> PR [label="records prediction"];
+VE -> PR [label="records actual outcome"];
+ME -> PO [label="validated change", constraint=false];
+EV -> IM [label="new defenses", constraint=false];
+
+X -> O [label="authorized observation", constraint=false];
+U -> O [label="experience / capture", constraint=false];
+AC -> X [label="authorized action"];
+AC -> U [label="human action / consequence", style=dashed];
+X -> VE [label="postcondition observation", constraint=false];
+U -> VE [label="real-world outcome", constraint=false];
+
+AT -> O [style=invis, weight=100];
+O -> AU [style=invis, weight=100];
+AU -> PR [style=invis, weight=100];
+PR -> X [style=invis, weight=100];
+AT -> SE [style=invis, weight=100];
+SE -> FR [style=invis, weight=100];
+FR -> GE [style=invis, weight=100];
+GE -> CH [style=invis, weight=100];
+CH -> DE [style=invis, weight=100];
+DE -> AC [style=invis, weight=100];
+AC -> VE [style=invis, weight=100];
+AU -> PO [style=invis, weight=100];
+PO -> IM [style=invis, weight=100];
+PR -> EV [style=invis, weight=100];
+EV -> ME [style=invis, weight=100];
+ME -> SH [style=invis, weight=100];
 }
