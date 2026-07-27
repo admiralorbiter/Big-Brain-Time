@@ -12,43 +12,33 @@ The workbook is meant to be completed slowly. Copy a section into a dated workin
 
 | Capability | Real example | Before BBT | With BBT | Evidence or artifact |
 |---|---|---|---|---|
-| | | | | |
-| | | | | |
-| | | | | |
+| Project Context-Switching | Bouncing between multiple active projects | Manual deep-dive into old notes and files to reconstruct state | Ask in plain English where work stopped and resume immediately | User Socratic Dialogue (2026-07-27) |
 
 ## B. What required repeated correction or maintenance?
 
 | Friction | Frequency | Consequence | Current workaround | Likely cause |
 |---|---:|---|---|---|
-| | | | | |
-| | | | | |
-| | | | | |
+| Corpus Scaling Anxiety | Anticipated | Worry about performance/token degradation as corpus grows | None yet; need bounded context packs | Prototype lacks strict kernel context boundaries |
+| AI Verbosity | Frequent | Low information density; slow to scan prose | Manual skimming | LLM default behavior favors long-form text over dense lists |
 
 ## C. Keep, question, retire
 
 **Keep and strengthen:**
 
-1.
-2.
-3.
+1. Conversational / Voice-to-text intake and plain-English Q&A.
+2. Time-aware reminders and proactive commitment pulses (e.g. 15-min warning before meeting).
 
 **Keep as experiments:**
 
-1.
-2.
-3.
+1. Bounded project-continuity re-entry packs.
 
 **Redesign:**
 
-1.
-2.
-3.
+1. Repetitive manual intake (e.g. manual calendar reviews) — move to API automated ingestion with human-in-the-loop review.
 
 **Retire or simplify:**
 
-1.
-2.
-3.
+1. Excessive un-summarized text outputs — enforce strict scannability and structural density.
 
 ## D. Maturity claims
 
@@ -58,7 +48,7 @@ For each important capability, mark:
 concept | prototype | tested | benchmarked | piloted | trusted | authorized
 ```
 
-What evidence would be required for the next label?
+- **Project Re-entry:** `piloted` (early stage). Used in real daily work with Markdown docs and AI harness; requires human-in-the-loop review.
 
 ---
 
@@ -66,31 +56,26 @@ What evidence would be required for the next label?
 
 ## A. Complete the sentence
 
-> Big Brain Time helps ______________________________ when ______________________________ by ______________________________, while never ______________________________.
+> Big Brain Time helps **Jonathan** when **managing multiple concurrent projects** by **preserving and compiling the knowledge around those projects**, while never **introducing major errors or rewriting/deleting data without explicit human confirmation**.
 
 ## B. Top five jobs
 
 | Job | Trigger situation | Desired progress | Current alternative | Trust-destroying failure |
 |---|---|---|---|---|
-| 1 | | | | |
-| 2 | | | | |
-| 3 | | | | |
-| 4 | | | | |
-| 5 | | | | |
+| 1. Knowledge Ingestion | New ideas, notes, voice dump, calendar events | Capture into canonical storage without manual friction | Manual markdown writing | Dropping or misattributing captured knowledge |
+| 2. Knowledge Retrieval | Returning to a project after absence | Fast, accurate citation and re-entry summary | Skimming 10+ markdown files | Surfacing stale or hallucinated decisions as current |
+| 3. Recontextualization & Synthesis | Asking complex multi-note questions | Dense, actionable answers and new structured knowledge | Re-reading entire project directory | Silently omitting key constraints or altering meaning |
 
 ## C. Anti-promises
 
 What should the system explicitly not claim or attempt?
 
-1.
-2.
-3.
-4.
-5.
+1. Never delete or rewrite canonical data without explicit human confirmation.
+2. Never take consequential external actions autonomously.
 
 ## D. Transformative one-year test
 
-> After one year, Big Brain Time would feel transformative if it reliably ______________________________, while requiring no more than ______________________________ of deliberate maintenance per week, and I trusted it enough to ______________________________.
+> After one year, Big Brain Time would feel transformative if it reliably **manages project workflows, replaces ad-hoc notes apps at scale, and acts as a major productivity force multiplier**, while requiring no more than **minimal** deliberate maintenance per week, and I trusted it enough to **rely on its re-entry packs for daily project resumption**.
 
 ---
 
@@ -577,10 +562,10 @@ NEXT SMALLEST BUILD:
 
 ## C. Ready-to-Resume plan
 
-**Stop point:**  
-**Restart cue:**  
-**Next micro-action:**  
-**Resumption trigger:**
+**Stop point:** Finished Design Studio Socratic inquiry on `main` branch. Workbook Sessions 1, 2, and 12C populated; provisional ADRs C01, C02, and C03 written to `docs/decisions/`. Tagged `design-studio-v1.0`.  
+**Restart cue:** Switching to implementation branch `project-continuity-v0.1`.  
+**Next micro-action:** Create the separate `math-reconstruction` pilot repository and write the first canonical `projects/math-reconstruction.md` narrative and `.bbt/records/project-transitions/transition.01.yaml` file by hand.  
+**Resumption trigger:** `design-studio-v1.0` git tag committed.  
 
 ---
 
