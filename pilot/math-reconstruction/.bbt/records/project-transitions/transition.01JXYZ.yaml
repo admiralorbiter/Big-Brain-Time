@@ -1,0 +1,38 @@
+schema: bbt.project-transition/v1
+id: transition.01JXYZ7890ABCDEFGH
+project_id: project.math-reconstruction
+
+recorded_at: 2026-07-27T17:30:00-05:00
+recorded_by: agent.jonathan
+source_revision: git:abc1234
+lifecycle: active
+privacy: private
+
+session:
+  purpose: >
+    Understand why the completeness axiom is needed in the proof
+    of the intermediate value theorem.
+
+transition:
+  material_changes:
+    - >
+      Identified that the nested-interval argument is where
+      completeness enters.
+  stop_point: >
+    Finished the interval construction but have not shown that
+    the common point must satisfy f(c) = 0.
+  next_action: >
+    Write the contradiction argument for the case f(c) > 0.
+  open_loops:
+    - >
+      Compare this proof with the supremum-based proof.
+  evidence_anchors:
+    - source: textbook.chapter.4
+      locator: section.4.2
+    - source: notes/ivt-proof.md
+      locator: lines.48-93
+  protected_commitments: []
+  resumption_warnings:
+    - >
+      Do not restart the proof from the theorem statement;
+      the interval construction is already complete.

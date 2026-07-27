@@ -1,0 +1,29 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Pytest / Coverage / Virtual environments
+.pytest_cache/
+.coverage
+htmlcov/
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
+
+# IDE / OS junk
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Big Brain Time Derived Projections & Caches (Disposable)
+# NOTE: .bbt/records/ MUST REMAIN TRACKED for canonical transition records!
+.bbt/projections/
+.bbt/artifacts/
+.bbt/cache/
+*.sqlite
+*.sqlite3

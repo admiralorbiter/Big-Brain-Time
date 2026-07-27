@@ -1,0 +1,19 @@
+schema: bbt.project-transition/v1
+id: transition.6be1cff92c16
+project_id: project.math-reconstruction
+recorded_at: '2026-07-27T18:33:59.767888'
+recorded_by: user
+source_revision: git:fe42229
+lifecycle: active
+privacy: private
+session:
+  purpose: Completed contradiction proof
+transition:
+  material_changes: []
+  stop_point: Finished proof of case f(c) > 0
+  next_action: Write the case f(c) < 0
+  open_loops:
+  - Draft Lean formalization
+  evidence_anchors: []
+  protected_commitments: []
+  resumption_warnings: []
