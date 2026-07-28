@@ -4,6 +4,7 @@ import argparse
 import sys
 
 from bbt.interfaces.cli.transition import cmd_record, cmd_show
+from bbt.interfaces.cli.closeout import cmd_closeout
 
 
 def main() -> None:
@@ -13,7 +14,20 @@ def main() -> None:
     )
     subparsers = parser.add_subparsers(dest="command", help="Available subcommands")
 
-    # Transition parser
+    # bbt closeout
+    closeout_parser = subparsers.add_parser("closeout", help="Conversational voice/chat closeout workflow")
+    closeout_parser.add_argument(
+        "--project", "-p", default=".", help="Path to project directory (default: current dir)"
+    )
+    closeout_parser.add_argument("--dump", "-d", default="", help="Raw voice or chat dump text")
+    closeout_parser.add_argument(
+        "--non-interactive", action="store_true", help="Skip interactive prompts"
+    )
+    closeout_parser.add_argument(
+        "--proposal-only", action="store_true", help="Emit proposal card without prompting for acceptance"
+    )
+
+    # bbt transition
     trans_parser = subparsers.add_parser("transition", help="Manage project continuity transitions")
     trans_subparsers = trans_parser.add_subparsers(dest="subcommand", help="Transition action")
 
@@ -42,7 +56,14 @@ def main() -> None:
 
     args = parser.parse_args()
 
-    if args.command == "transition":
+    if args.command == "closeout":
+        cmd_closeout(
+            project_path=args.project,
+            dump=args.dump,
+            interactive=not args.non_interactive,
+            proposal_only=args.proposal_only,
+        )
+    elif args.command == "transition":
         if args.subcommand == "show":
             cmd_show(args.project)
         elif args.subcommand == "record":
