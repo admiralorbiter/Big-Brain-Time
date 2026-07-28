@@ -1,6 +1,6 @@
-"""Deterministic Re-entry Pack compiler using domain ports."""
+"""Deterministic Re-entry Pack compiler using domain ports and C2.1 fingerprint staleness logic."""
 
-from typing import Optional
+from dataclasses import replace
 from bbt.ports.ports import (
     ProjectTransitionRepository,
     ProjectNarrativeRepository,
@@ -42,13 +42,30 @@ class ReentryCompiler:
 
         latest_t = read_result.latest
 
-        # Determine ReentryStatus
+        # Determine ReentryStatus with exact fingerprint comparison
         if read_result.degraded:
             status = ReentryStatus.DEGRADED
         elif not latest_t:
             status = ReentryStatus.NO_TRANSITION_RECORDED
-        elif snapshot.state in (SourceState.PROJECT_CHANGED, SourceState.UNCOMMITTED_PROJECT_CHANGES):
+        elif snapshot.state == SourceState.SOURCE_STATE_UNKNOWN:
+            status = ReentryStatus.DEGRADED
+        elif snapshot.dirty_paths:
             status = ReentryStatus.STALE
+        elif (
+            latest_t.project_fingerprint
+            and snapshot.project_fingerprint
+            and latest_t.project_fingerprint != snapshot.project_fingerprint
+        ):
+            # Committed project files have changed since transition was recorded!
+            status = ReentryStatus.STALE
+            snapshot = replace(snapshot, state=SourceState.PROJECT_CHANGED)
+        elif (
+            latest_t.source_revision
+            and snapshot.repository_head
+            and latest_t.source_revision != f"git:{snapshot.repository_head}"
+        ):
+            snapshot = replace(snapshot, state=SourceState.REPOSITORY_ADVANCED_PROJECT_UNCHANGED)
+            status = ReentryStatus.READY
         else:
             status = ReentryStatus.READY
 

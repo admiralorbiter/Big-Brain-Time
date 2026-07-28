@@ -142,6 +142,11 @@ class YAMLProjectTransitionRepository:
                     continue
 
                 transition = ProjectTransition.from_dict(data)
+
+                # Filter by active lifecycle (ignore retracted/superseded records)
+                if transition.lifecycle not in {"active"}:
+                    continue
+
                 transitions.append((dt_instant, transition))
 
             except Exception as e:

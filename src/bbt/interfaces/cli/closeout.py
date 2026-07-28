@@ -1,12 +1,13 @@
-"""CLI closeout command for Milestone C2 Conversational Harness."""
+"""CLI closeout command for Milestone C2.1 Conversational Harness."""
 
+import json
 from pathlib import Path
 import sys
-from typing import Optional
 
 from bbt.adapters.yaml_transitions import YAMLProjectTransitionRepository
 from bbt.adapters.markdown_narrative import MarkdownProjectNarrativeRepository
 from bbt.adapters.git_source_state import GitSourceStateProvider
+from bbt.adapters.system_clock import SystemClock
 from bbt.adapters.models.heuristic_transition_extractor import HeuristicTransitionExtractor
 from bbt.packs.project_continuity.proposal_builder import ProposalBuilder
 from bbt.packs.project_continuity.clarification_policy import ClarificationPolicy
@@ -15,8 +16,6 @@ from bbt.packs.project_continuity.accept_transition import AcceptTransitionPropo
 from bbt.packs.project_continuity.extraction_models import (
     TransitionExtractionRequest,
     ProposalAcceptance,
-    ProposedField,
-    FieldStatus,
     ProposalStatus,
 )
 from bbt.interfaces.renderers.proposal_renderer import render_proposal_card
@@ -26,6 +25,7 @@ def cmd_closeout(
     project_path: str,
     dump: str = "",
     interactive: bool = True,
+    accept: bool = False,
     proposal_only: bool = False,
 ) -> None:
     """Execute conversational voice/chat closeout workflow."""
@@ -94,50 +94,44 @@ def cmd_closeout(
             print(f"\n💬 Clarification [{proposal.clarification_count + 1} / 3]: {question.prompt}")
             user_answer = input("> ").strip()
 
-            if not user_answer:
-                # User skipped — leave field UNKNOWN (do NOT populate fake text!)
-                continue
+            # Record exchange in session state machine
+            session.record_exchange(question.target_field, question.prompt, user_answer)
 
-            # Update proposal field with user-supplied answer
-            new_fields = dict(proposal.fields)
-            new_fields[question.target_field] = ProposedField(
-                value=user_answer,
-                status=FieldStatus.USER_SUPPLIED,
+            # Apply user answer directly to proposal without mutating model extraction result
+            proposal = builder.apply_user_answer(
+                proposal=proposal,
+                target_field=question.target_field,
+                answer=user_answer,
             )
-
-            # Re-evaluate proposal with builder
-            extraction_result.raw_fields[question.target_field] = user_answer
-            proposal = builder.build_proposal(
-                project_id=project_id,
-                transcript=dump,
-                extraction=extraction_result,
-                source_snapshot=snapshot,
-                existing_proposal=proposal,
-            )
+            session.replace_proposal(proposal)
 
     # 5. Display Proposal Card Preview
     print("\n" + render_proposal_card(proposal))
 
-    if proposal_only:
-        print("[PROPOSAL ONLY] Emitted proposal preview card. Written 0 files to disk.")
+    if proposal_only or (not interactive and not accept):
+        print("[PROPOSAL ONLY] Non-interactive mode without --accept. Written 0 files to disk.")
         return
 
     # 6. Solicit Explicit Confirmation
     if interactive:
         confirm = input("Accept and write this canonical transition record? [y/N]: ").strip().lower()
         if confirm != "y":
+            session.reject()
             print("Operation cancelled. No changes written.")
             return
 
     # 7. Unified AcceptTransitionProposal Service
     repo = YAMLProjectTransitionRepository(path)
-    service = AcceptTransitionProposal(repo)
+    clock = SystemClock()
+    service = AcceptTransitionProposal(repo, source_state=source_state, clock=clock)
 
     acceptance = ProposalAcceptance(
         proposal_id=proposal.proposal_id,
         reviewed_hash=proposal.review_hash,
         accepted_by="user",
+        allow_incomplete=False,
     )
 
     result = service.execute(proposal, acceptance)
+    session.accept()
     print(f"[OK] Canonical transition record written to working tree: {result.file_path}")

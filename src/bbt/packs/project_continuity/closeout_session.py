@@ -3,7 +3,7 @@
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from enum import Enum
-from typing import List, Optional, Tuple
+from typing import List, Optional
 import uuid
 
 from bbt.packs.project_continuity.extraction_models import (
@@ -45,7 +45,7 @@ class CloseoutSession:
 
     @classmethod
     def create(
-        self,
+        cls,
         project_id: str,
         transcript: str,
         proposal: ProjectTransitionProposal,
@@ -56,7 +56,7 @@ class CloseoutSession:
             if proposal.status == ProposalStatus.READY_FOR_REVIEW
             else CloseoutStatus.NEEDS_CLARIFICATION
         )
-        return CloseoutSession(
+        return cls(
             session_id=session_id,
             project_id=project_id,
             status=status,
@@ -64,3 +64,30 @@ class CloseoutSession:
             proposal=proposal,
             exchanges=[],
         )
+
+    def record_exchange(self, target_field: str, question_prompt: str, user_answer: str) -> None:
+        """Record an interactive clarification exchange."""
+        now_iso = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+        self.exchanges.append(
+            ClarificationExchange(
+                target_field=target_field,
+                question_prompt=question_prompt,
+                user_answer=user_answer,
+                answered_at=now_iso,
+            )
+        )
+
+    def replace_proposal(self, new_proposal: ProjectTransitionProposal) -> None:
+        """Update current session proposal and transition status."""
+        self.proposal = new_proposal
+        if new_proposal.status == ProposalStatus.READY_FOR_REVIEW:
+            self.status = CloseoutStatus.READY_FOR_REVIEW
+
+    def mark_ready(self) -> None:
+        self.status = CloseoutStatus.READY_FOR_REVIEW
+
+    def accept(self) -> None:
+        self.status = CloseoutStatus.ACCEPTED
+
+    def reject(self) -> None:
+        self.status = CloseoutStatus.REJECTED

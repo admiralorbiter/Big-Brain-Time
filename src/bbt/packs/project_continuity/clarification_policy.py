@@ -1,7 +1,7 @@
 """Deterministic clarification policy for bounded follow-up questions."""
 
 from dataclasses import dataclass
-from typing import Optional, Tuple
+from typing import Optional
 from bbt.packs.project_continuity.extraction_models import (
     ProjectTransitionProposal,
     FieldStatus,
@@ -22,7 +22,6 @@ class ClarificationPolicy:
 
     MAX_FOLLOWUPS = 3
 
-    # Re-entry value priorities (1 = highest priority)
     FIELD_PROMPTS = [
         ("next_action", "What is the single next physical action to restart progress?", 1),
         ("stop_point", "Where did you physically or conceptually stop?", 2),
@@ -32,12 +31,14 @@ class ClarificationPolicy:
         self,
         proposal: ProjectTransitionProposal,
     ) -> Optional[ClarificationQuestion]:
-        """Select the highest-priority missing question if follow-up budget remains."""
+        """Select highest-priority missing question if follow-up budget remains and field wasn't already asked."""
         if proposal.clarification_count >= self.MAX_FOLLOWUPS:
-            # Hard cap reached — return None to stop asking questions
             return None
 
         for field_name, prompt_text, priority in self.FIELD_PROMPTS:
+            if field_name in proposal.asked_fields:
+                continue
+
             pf = proposal.fields.get(field_name)
             if pf is None or pf.status in (FieldStatus.MISSING, FieldStatus.UNKNOWN) or pf.value is None:
                 return ClarificationQuestion(

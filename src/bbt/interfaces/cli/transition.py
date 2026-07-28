@@ -89,6 +89,7 @@ def cmd_record(
     extraction_result = extractor.extract(request)
 
     source_state = GitSourceStateProvider(path)
+    clock = SystemClock()
     snapshot = source_state.snapshot(project_id)
     builder = ProposalBuilder()
     proposal = builder.build_proposal(
@@ -111,11 +112,12 @@ def cmd_record(
             return
 
     repo = YAMLProjectTransitionRepository(path)
-    service = AcceptTransitionProposal(repo)
+    service = AcceptTransitionProposal(repo, source_state=source_state, clock=clock)
     acceptance = ProposalAcceptance(
         proposal_id=proposal.proposal_id,
         reviewed_hash=proposal.review_hash,
         accepted_by="user",
+        allow_incomplete=False,
     )
 
     result = service.execute(proposal, acceptance)
