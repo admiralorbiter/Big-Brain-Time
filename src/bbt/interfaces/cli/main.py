@@ -24,6 +24,9 @@ def main() -> None:
         "--non-interactive", action="store_true", help="Skip interactive prompts"
     )
     closeout_parser.add_argument(
+        "--accept", action="store_true", help="Explicitly accept proposal in non-interactive mode"
+    )
+    closeout_parser.add_argument(
         "--proposal-only", action="store_true", help="Emit proposal card without prompting for acceptance"
     )
 
@@ -61,6 +64,7 @@ def main() -> None:
             project_path=args.project,
             dump=args.dump,
             interactive=not args.non_interactive,
+            accept=args.accept,
             proposal_only=args.proposal_only,
         )
     elif args.command == "transition":

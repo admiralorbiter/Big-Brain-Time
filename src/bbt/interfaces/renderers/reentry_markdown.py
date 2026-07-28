@@ -1,5 +1,6 @@
 """Markdown presentation renderer for ReentryPack."""
 
+import sys
 from bbt.packs.project_continuity.models import ReentryPack, ReentryStatus, SourceState
 
 
@@ -93,4 +94,7 @@ def render_reentry_markdown(pack: ReentryPack) -> str:
         pack.project_narrative.strip(),
     ])
 
-    return "\n".join(lines)
+    full_text = "\n".join(lines)
+    # Ensure stdout encoding safety on Windows consoles
+    encoding = getattr(sys.stdout, "encoding", "utf-8") or "utf-8"
+    return full_text.encode(encoding, errors="replace").decode(encoding)
