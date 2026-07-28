@@ -123,8 +123,29 @@ class YAMLProjectTransitionRepository:
                     degraded = True
                     continue
 
+                rec_id = data.get("id")
+                if not rec_id or not isinstance(rec_id, str) or not TRANSITION_ID_PATTERN.fullmatch(rec_id):
+                    diagnostics.append(
+                        TransitionDiagnostic(
+                            file_path=rel_path,
+                            message=f"Missing or invalid transition ID '{rec_id}'. Must match pattern ^transition\\.[a-zA-Z0-9_-]+$",
+                        )
+                    )
+                    degraded = True
+                    continue
+
                 rec_project = data.get("project_id")
-                if rec_project and rec_project != project_id:
+                if not rec_project or not isinstance(rec_project, str):
+                    diagnostics.append(
+                        TransitionDiagnostic(
+                            file_path=rel_path,
+                            message="Missing or invalid project_id in transition record.",
+                        )
+                    )
+                    degraded = True
+                    continue
+
+                if rec_project != project_id:
                     # Belongs to another project — ignore without degrading this project
                     continue
 
@@ -136,6 +157,17 @@ class YAMLProjectTransitionRepository:
                         TransitionDiagnostic(
                             file_path=rel_path,
                             message=f"Invalid or timezone-naive recorded_at timestamp '{recorded_at_str}'. Must be UTC ISO 8601.",
+                        )
+                    )
+                    degraded = True
+                    continue
+
+                lifecycle = data.get("lifecycle", "active")
+                if lifecycle not in {"active", "retracted", "superseded"}:
+                    diagnostics.append(
+                        TransitionDiagnostic(
+                            file_path=rel_path,
+                            message=f"Invalid transition lifecycle '{lifecycle}'. Must be one of active, retracted, superseded.",
                         )
                     )
                     degraded = True

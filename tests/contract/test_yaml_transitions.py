@@ -79,12 +79,27 @@ def test_corrupt_file_degraded_mode():
 
         # Inject corrupt YAML record
         corrupt_file = tmp_path / ".bbt" / "records" / "project-transitions" / "transition.corrupt.yaml"
-        corrupt_file.write_text("schema: bbt.project-transition/v1\nrecorded_at: INVALID_TIMESTAMP\n", encoding="utf-8")
+        corrupt_file.write_text("schema: bbt.project-transition/v1\nid: transition.corrupt\nproject_id: project.test\nrecorded_at: INVALID_TIMESTAMP\n", encoding="utf-8")
 
         result = repo.read_current("project.test")
         assert result.degraded
         assert len(result.diagnostics) >= 1
         assert "Invalid or timezone-naive" in result.diagnostics[0].message
+
+
+def test_missing_project_id_degrades_storage():
+    """Verify that transition records with missing project_id trigger fail-closed degraded status."""
+    with tempfile.TemporaryDirectory() as tmpdir:
+        tmp_path = Path(tmpdir)
+        repo = YAMLProjectTransitionRepository(tmp_path)
+
+        invalid_file = tmp_path / ".bbt" / "records" / "project-transitions" / "transition.noproj.yaml"
+        invalid_file.write_text("schema: bbt.project-transition/v1\nid: transition.noproj\nrecorded_at: 2026-07-27T18:00:00Z\n", encoding="utf-8")
+
+        result = repo.read_current("project.test")
+        assert result.degraded
+        assert len(result.diagnostics) >= 1
+        assert "Missing or invalid project_id" in result.diagnostics[0].message
 
 
 def test_utc_timestamp_instant_sorting():
