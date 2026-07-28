@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Squeeze Forge — Complete 5-Mission Proof Laboratory</title>
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #070a12;
+      --card-bg: rgba(22, 30, 46, 0.85);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --primary: #38bdf8;
+      --primary-glow: rgba(56, 189, 248, 0.25);
+      --accent: #10b981;
+      --warning: #fbbf24;
+      --danger: #ef4444;
+      --purple: #a855f7;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.06) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(168, 85, 247, 0.06) 0px, transparent 50%);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 24px;
+    }
+
+    header {
+      text-align: center;
+      max-width: 900px;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #38bdf8 0%, #a855f7 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 6px;
+    }
+
+    p.subtitle {
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .math-text {
+      font-style: italic;
+      font-family: 'Times New Roman', serif;
+    }
+
+    .forge-container {
+      width: 100%;
+      max-width: 1120px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .mission-nav {
+      display: flex;
+      gap: 10px;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+
+    .mission-tab {
+      flex: 1;
+      min-width: 180px;
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid var(--card-border);
+      padding: 12px 14px;
+      border-radius: 12px;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      text-align: left;
+    }
+
+    .mission-tab:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text);
+    }
+
+    .mission-tab.active {
+      background: rgba(56, 189, 248, 0.12);
+      border-color: var(--primary);
+      color: var(--text);
+      box-shadow: 0 4px 20px var(--primary-glow);
+    }
+
+    .mission-tab.completed {
+      border-color: rgba(16, 185, 129, 0.4);
+    }
+
+    .m-num {
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--primary);
+    }
+
+    .m-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+    }
+
+    .layout-grid {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 24px;
+    }
+
+    @media (max-width: 900px) {
+      .layout-grid { grid-template-columns: 1fr; }
+    }
+
+    canvas {
+      background: #060911;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      width: 100%;
+      height: 440px;
+      display: block;
+    }
+
+    .mission-panel { display: none; width: 100%; }
+    .mission-panel.active { display: block; }
+
+    .builder-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .builder-chip {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-family: monospace;
+      font-size: 0.92rem;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .builder-chip:hover, .builder-chip.selected {
+      border-color: var(--primary);
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--primary);
+    }
+
+    .chip-label {
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      font-family: sans-serif;
+    }
+
+    .btn-action {
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px var(--primary-glow);
+    }
+
+    .btn-action:hover {
+      filter: brightness(1.15);
+      transform: translateY(-1px);
+    }
+
+    .btn-action:disabled {
+      background: #334155;
+      cursor: not-allowed;
+      box-shadow: none;
+      opacity: 0.5;
+    }
+
+    .consequence-box {
+      margin-top: 16px;
+      background: rgba(15, 23, 42, 0.9);
+      border-left: 4px solid var(--primary);
+      padding: 16px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      line-height: 1.55;
+      display: none;
+    }
+
+    .consequence-box.success { border-left-color: var(--accent); }
+    .consequence-box.warning { border-left-color: var(--warning); }
+
+    .alignment-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      background: rgba(9, 13, 22, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 20px;
+      font-family: monospace;
+      font-size: 1rem;
+    }
+
+    .sum-line { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .term-list { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+
+    .term-item {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .term-item.paired {
+      background: rgba(148, 163, 184, 0.1);
+      color: #64748b;
+      text-decoration: line-through;
+    }
+
+    .term-item.unmatched {
+      background: rgba(251, 191, 36, 0.2);
+      border: 2px solid #fbbf24;
+      color: #fbbf24;
+      font-weight: 700;
+    }
+
+    .paper-prompt-card {
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(15, 23, 42, 0.95) 100%);
+      border: 2px dashed rgba(168, 85, 247, 0.4);
+      border-radius: 16px;
+      padding: 28px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      background: #060911;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: var(--primary);
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-family: monospace;
+      font-size: 1rem;
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>The Squeeze Forge</h1>
+    <p class="subtitle">A Mathematical Construction & Proof Laboratory for Archimedes' Parabola Squeeze</p>
+  </header>
+
+  <div class="forge-container">
+    
+    <!-- Navigation Tabs -->
+    <div class="mission-nav">
+      <button class="mission-tab active" id="tabM1" onclick="switchMission(1)">
+        <span class="m-num">Mission 1</span>
+        <span class="m-title">Compile a Rectangle</span>
+      </button>
+      <button class="mission-tab" id="tabM2" onclick="switchMission(2)">
+        <span class="m-num">Mission 2</span>
+        <span class="m-title">Build the Sums</span>
+      </button>
+      <button class="mission-tab" id="tabM3" onclick="switchMission(3)">
+        <span class="m-num">Mission 3 ⭐</span>
+        <span class="m-title">Discover Gap Invariant</span>
+      </button>
+      <button class="mission-tab" id="tabM4" onclick="switchMission(4)">
+        <span class="m-num">Mission 4</span>
+        <span class="m-title">Play Proof Adversary</span>
+      </button>
+      <button class="mission-tab" id="tabM5" onclick="switchMission(5)">
+        <span class="m-num">Mission 5</span>
+        <span class="m-title">Perturb & Transfer</span>
+      </button>
+    </div>
+
+    <!-- MISSION 1 -->
+    <div id="mission1" class="mission-panel active">
+      <div class="layout-grid">
+        <div class="card">
+          <canvas id="canvasM1" width="700" height="440"></canvas>
+        </div>
+
+        <div class="card">
+          <h3 style="font-family:'Outfit'; color:var(--primary); margin-bottom:6px;">Mission 1: BIND Objects</h3>
+          <p style="color:var(--muted); font-size:0.86rem; line-height:1.45; margin-bottom:14px;" id="m1Desc">
+            <b>Step 1 (Concrete):</b> Highlighted is <b>Rectangle #3</b> on [0, <span class="math-text">b</span>] partitioned into <span class="math-text">n = 5</span> strips. Bind its width and height:
+          </p>
+
+          <div id="m1Step1Box">
+            <div style="font-weight:600; font-size:0.82rem; color:var(--text); margin-bottom:4px;">Width of Strip #3:</div>
+            <div class="builder-grid">
+              <div class="builder-chip" onclick="selectM1Step1('w', 'b_n', this)"><span class="chip-label">Strip Width</span><b>b / n</b></div>
+              <div class="builder-chip" onclick="selectM1Step1('w', '1_n', this)"><span class="chip-label">Unit Fraction</span><b>1 / n</b></div>
+            </div>
+
+            <div style="font-weight:600; font-size:0.82rem; color:var(--text); margin-top:10px; margin-bottom:4px;">Right Edge Height <span class="math-text">f(x₃)</span>:</div>
+            <div class="builder-grid">
+              <div class="builder-chip" onclick="selectM1Step1('h', '3_sq', this)"><span class="chip-label">Right Edge Height</span><b>(3b / n)²</b></div>
+              <div class="builder-chip" onclick="selectM1Step1('h', 'lin', this)"><span class="chip-label">Linear Edge</span><b>(3b / n)</b></div>
+            </div>
+
+            <button class="btn-action" style="margin-top:16px; width:100%;" onclick="verifyM1Step1()">
+              Compile Rectangle #3 Area ➔
+            </button>
+          </div>
+
+          <div id="m1Step2Box" style="display:none;">
+            <div style="background:rgba(56,189,248,0.1); border:1px solid rgba(56,189,248,0.3); padding:10px; border-radius:8px; font-size:0.85rem; color:var(--primary); margin-bottom:12px;">
+              <b>Step 2 (Generalization):</b> Replace concrete index <b>3</b> with general index <b><span class="math-text">k</span></b> (<span class="math-text">k ∈ {1, ..., n}</span>).
+            </div>
+
+            <div style="font-weight:600; font-size:0.82rem; color:var(--text); margin-bottom:4px;">Select General Area<sub>k</sub> Expression:</div>
+            <div class="builder-grid">
+              <div class="builder-chip" onclick="selectM1Step2('k_area', this)"><span class="chip-label">General Term</span><b>(b³ · k²) / n³</b></div>
+              <div class="builder-chip" onclick="selectM1Step2('wrong_area', this)"><span class="chip-label">Linear Term</span><b>(b² · k) / n²</b></div>
+            </div>
+
+            <button class="btn-action" style="margin-top:16px; width:100%;" onclick="verifyM1Step2()">
+              Finalize General k-th Term ➔
+            </button>
+          </div>
+
+          <div class="consequence-box" id="feedbackM1"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MISSION 2: Build the Sums (Distinct Bold Graphics for All Cases) -->
+    <div id="mission2" class="mission-panel">
+      <div class="layout-grid">
+        <div class="card">
+          <canvas id="canvasM2" width="700" height="440"></canvas>
+        </div>
+
+        <div class="card">
+          <h3 style="font-family:'Outfit'; color:var(--primary); margin-bottom:10px;">Mission 2: CONSTRUCT Sums</h3>
+          <p style="color:var(--muted); font-size:0.88rem; line-height:1.5; margin-bottom:16px;">
+            Select index bounds for Outer Sum <span style="color:#f87171">S<sub>n</sub></span> and Inner Sum <span style="color:#60a5fa">s<sub>n</sub></span>. Click any option to see the bold geometric difference rendered on the plot!
+          </p>
+
+          <div style="font-weight:600; font-size:0.85rem; color:#f87171; margin-bottom:6px;">Outer Sum S<sub>n</sub> Range:</div>
+          <div class="builder-grid">
+            <div class="builder-chip" onclick="selectM2Bound('outer', '1_n', this)"><span class="chip-label">Canonical Outer</span><b>k = 1 to n</b></div>
+            <div class="builder-chip" onclick="selectM2Bound('outer', '0_n', this)"><span class="chip-label">Zero-Index Shift</span><b>k = 0 to n</b></div>
+          </div>
+
+          <div style="font-weight:600; font-size:0.85rem; color:#60a5fa; margin-top:14px; margin-bottom:6px;">Inner Sum s<sub>n</sub> Range:</div>
+          <div class="builder-grid">
+            <div class="builder-chip" onclick="selectM2Bound('inner', '1_n-1', this)"><span class="chip-label">Canonical Inner</span><b>k = 1 to n−1</b></div>
+            <div class="builder-chip" onclick="selectM2Bound('inner', '1_n', this)"><span class="chip-label">Right-Edge Overflow</span><b>k = 1 to n</b></div>
+          </div>
+
+          <button class="btn-action" style="margin-top:20px; width:100%;" onclick="verifyMission2()">
+            Validate Sum Constructions ➔
+          </button>
+
+          <div class="consequence-box" id="feedbackM2"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MISSION 3 -->
+    <div id="mission3" class="mission-panel">
+      <div class="card">
+        <div class="step-header">
+          <div class="step-title"><span>Mission 3: ALIGN & REWRITE (S<sub>n</sub> − s<sub>n</sub> = b³/n)</span></div>
+          <span class="step-badge" id="step1Badge">Action: Click Matching Terms</span>
+        </div>
+
+        <p style="color:var(--muted); font-size:0.92rem; margin-bottom:16px;">
+          Click matching pairs of terms below to align and cancel them, revealing the exact unmatched residue.
+        </p>
+
+        <div class="alignment-grid">
+          <div class="sum-line">
+            <span style="color:#f87171; font-weight:700;">S<sub>n</sub> =</span>
+            <span>(b³/n³) · [</span>
+            <div class="term-list" id="outerTerms">
+              <span class="term-item" data-term="1">1²</span>
+              <span class="term-item" data-term="2">2²</span>
+              <span class="term-item" data-term="3">3²</span>
+              <span>...</span>
+              <span class="term-item" data-term="n-1">(n−1)²</span>
+              <span class="term-item" data-term="n">n²</span>
+            </div>
+            <span>]</span>
+          </div>
+
+          <div class="sum-line">
+            <span style="color:#60a5fa; font-weight:700;">s<sub>n</sub> =</span>
+            <span>(b³/n³) · [</span>
+            <div class="term-list" id="innerTerms">
+              <span class="term-item" data-term="1">1²</span>
+              <span class="term-item" data-term="2">2²</span>
+              <span class="term-item" data-term="3">3²</span>
+              <span>...</span>
+              <span class="term-item" data-term="n-1">(n−1)²</span>
+            </div>
+            <span>]</span>
+          </div>
+        </div>
+
+        <div style="margin-top:20px; display:flex; justify-content:space-between;">
+          <button class="btn-action" onclick="autoAlignTerms()">⚡ Auto-Align All Shared Terms</button>
+          <button class="btn-action" id="btnProceedRewrite" disabled onclick="startRewritePhase()">Proceed to Symbolic Rewrite ➔</button>
+        </div>
+      </div>
+
+      <div class="card" id="phase2Card" style="display:none; margin-top:20px;">
+        <h4 style="color:var(--primary); margin-bottom:8px;">Rewrite Unmatched Residue: (b³/n³) · n²</h4>
+        <div class="builder-grid">
+          <div class="builder-chip" onclick="applyRewriteChoice(1)"><span class="chip-label">Option A (Exponent Law)</span><b>(b³ / n³) · n² ⟹ b³ / n</b></div>
+          <div class="builder-chip" onclick="applyRewriteChoice(2)"><span class="chip-label">Option B</span><b>(b³ / n³) · n² ⟹ b³ / n²</b></div>
+        </div>
+        <div class="consequence-box" id="consequenceBox"></div>
+      </div>
+
+      <div class="paper-prompt-card" id="paperPromptCard" style="display:none;">
+        <div style="font-size:2.5rem;">📝</div>
+        <div style="font-size:1.3rem; font-weight:800; color:white;">Close Your Laptop & Derive on Paper</div>
+        <div style="color:var(--muted); max-width:600px;">
+          On paper, reconstruct the full derivation of <b>S<sub>n</sub> − s<sub>n</sub> = b³/n</b> from the definitions of the two sums away from the screen!
+        </div>
+      </div>
+    </div>
+
+    <!-- MISSION 4 & 5 -->
+    <div id="mission4" class="mission-panel">
+      <div class="layout-grid">
+        <div class="card">
+          <canvas id="canvasM4" width="700" height="440"></canvas>
+        </div>
+
+        <div class="card">
+          <h3 style="font-family:'Outfit'; color:var(--purple); margin-bottom:10px;">Mission 4: CHALLENGE Witness</h3>
+          <p style="color:var(--muted); font-size:0.88rem; line-height:1.5; margin-bottom:16px;">
+            An Adversary claims area <span class="math-text">A = b³/3 + δ</span> where <span class="math-text">δ = 0.04</span> for <span class="math-text">b = 2</span>.<br><br>
+            Construct an algebraic witness <span class="math-text">n > b³/δ</span> to force <span class="math-text">S<sub>n</sub> < A</span>, defeating their claim!
+          </p>
+
+          <div style="margin-bottom:12px;">
+            <label style="font-size:0.85rem; font-weight:600; color:var(--text);">Enter Constructed Witness n:</label>
+            <input type="number" id="inputN4" placeholder="Enter n (e.g. 210)" min="1">
+          </div>
+
+          <button class="btn-action" style="width:100%;" onclick="verifyMission4()">
+            ⚔️ Defeat Adversary Claim ➔
+          </button>
+
+          <div class="consequence-box" id="feedbackM4"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="mission5" class="mission-panel">
+      <div class="layout-grid">
+        <div class="card">
+          <canvas id="canvasM5" width="700" height="440"></canvas>
+        </div>
+
+        <div class="card">
+          <h3 style="font-family:'Outfit'; color:var(--primary); margin-bottom:10px;">Mission 5: TRANSFER Model</h3>
+          <p style="color:var(--muted); font-size:0.88rem; line-height:1.5; margin-bottom:16px;">
+            Apply your internal squeeze model to the modified function <span class="math-text">f(x) = a·x² + c</span>. Update the terms:
+          </p>
+
+          <div style="font-weight:600; font-size:0.85rem; color:var(--text); margin-bottom:6px;">Select New Area Formula:</div>
+          <div class="builder-grid">
+            <div class="builder-chip" onclick="selectM5Ans(1, this)"><span class="chip-label">Option A</span><b>a·(b³/3) + c·b</b></div>
+            <div class="builder-chip" onclick="selectM5Ans(2, this)"><span class="chip-label">Option B</span><b>a·(b³/3) + c</b></div>
+          </div>
+
+          <button class="btn-action" style="margin-top:20px; width:100%;" onclick="verifyMission5()">
+            Verify Transfer ➔
+          </button>
+
+          <div class="consequence-box" id="feedbackM5"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function switchMission(num) {
+      document.querySelectorAll('.mission-panel').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.mission-tab').forEach(el => el.classList.remove('active'));
+
+      document.getElementById(`mission${num}`).classList.add('active');
+      document.getElementById(`tabM${num}`).classList.add('active');
+
+      if (num === 1) renderM1();
+      if (num === 2) renderM2();
+      if (num === 4) renderM4();
+      if (num === 5) renderM5();
+    }
+
+    // MISSION 1
+    let m1W1 = null, m1H1 = null, m1KAns = null;
+    const canvasM1 = document.getElementById('canvasM1');
+    const ctxM1 = canvasM1.getContext('2d');
+
+    function selectM1Step1(type, val, el) {
+      if (type === 'w') m1W1 = val;
+      if (type === 'h') m1H1 = val;
+      el.parentElement.querySelectorAll('.builder-chip').forEach(c => c.classList.remove('selected'));
+      el.classList.add('selected');
+    }
+
+    function selectM1Step2(val, el) {
+      m1KAns = val;
+      el.parentElement.querySelectorAll('.builder-chip').forEach(c => c.classList.remove('selected'));
+      el.classList.add('selected');
+    }
+
+    function renderM1() {
+      const W = canvasM1.width, H = canvasM1.height;
+      ctxM1.clearRect(0, 0, W, H);
+
+      const b = 2.0, n = 5, dx = b / n;
+      const margin = { top: 40, right: 40, bottom: 50, left: 65 };
+      const plotW = W - margin.left - margin.right;
+      const plotH = H - margin.top - margin.bottom;
+
+      const toX = x => margin.left + (x / 2.2) * plotW;
+      const toY = y => margin.top + plotH - (y / 4.5) * plotH;
+
+      for (let k = 1; k <= n; k++) {
+        const xL = (k - 1) * dx, xR = k * dx;
+        const h = xR * xR;
+        const isSelected = (k === 3);
+
+        ctxM1.fillStyle = isSelected ? 'rgba(251, 191, 36, 0.45)' : 'rgba(56, 189, 248, 0.2)';
+        ctxM1.strokeStyle = isSelected ? '#fbbf24' : '#38bdf8';
+        ctxM1.lineWidth = isSelected ? 2.5 : 1;
+
+        ctxM1.fillRect(toX(xL), toY(h), toX(xR) - toX(xL), toY(0) - toY(h));
+        ctxM1.strokeRect(toX(xL), toY(h), toX(xR) - toX(xL), toY(0) - toY(h));
+      }
+
+      ctxM1.strokeStyle = '#38bdf8'; ctxM1.lineWidth = 3;
+      ctxM1.beginPath();
+      for (let i = 0; i <= 100; i++) {
+        const x = (i / 100) * b;
+        if (i === 0) ctxM1.moveTo(toX(x), toY(x * x));
+        else ctxM1.lineTo(toX(x), toY(x * x));
+      }
+      ctxM1.stroke();
+
+      ctxM1.fillStyle = '#fbbf24'; ctxM1.font = '14px Outfit';
+      ctxM1.fillText('Highlighted: Concrete Rectangle #3 (k=3)', 200, 30);
+    }
+
+    function verifyM1Step1() {
+      const fb = document.getElementById('feedbackM1');
+      fb.style.display = 'block';
+
+      if (m1W1 === 'b_n' && m1H1 === '3_sq') {
+        fb.className = 'consequence-box success';
+        fb.innerHTML = `<b>✅ Step 1 Verified!</b><br>Area of Rectangle #3 = (b / n) · (3b / n)² = <b>3² b³ / n³</b>.`;
+        document.getElementById('m1Step1Box').style.display = 'none';
+        document.getElementById('m1Step2Box').style.display = 'block';
+        document.getElementById('m1Desc').innerHTML = `<b>Step 2 (Generalization):</b> Replace index <b>3</b> with general index <b><span class="math-text">k</span></b>:`;
+      } else {
+        fb.className = 'consequence-box warning';
+        fb.innerHTML = `<b>⚠️ Binding Error:</b> Rectangle #3 has width <b>b/n</b> and right edge height <b>(3b/n)²</b>.`;
+      }
+    }
+
+    function verifyM1Step2() {
+      const fb = document.getElementById('feedbackM1');
+      fb.style.display = 'block';
+      if (m1KAns === 'k_area') {
+        fb.className = 'consequence-box success';
+        fb.innerHTML = `<b>🎉 Mission 1 Complete!</b><br>General term: <b>Area<sub>k</sub> = b³ k² / n³</b>.`;
+        document.getElementById('tabM1').classList.add('completed');
+      } else {
+        fb.className = 'consequence-box warning';
+        fb.innerHTML = `<b>⚠️ Check Power Terms.</b>`;
+      }
+    }
+
+    // ----------------------------------------------------
+    // MISSION 2: BOLD VISUAL DIFFERENCE FOR ALL OPTIONS
+    // ----------------------------------------------------
+    let m2Outer = null, m2Inner = null;
+    const canvasM2 = document.getElementById('canvasM2');
+    const ctxM2 = canvasM2.getContext('2d');
+
+    function selectM2Bound(type, val, el) {
+      if (type === 'outer') m2Outer = val;
+      if (type === 'inner') m2Inner = val;
+      el.parentElement.querySelectorAll('.builder-chip').forEach(c => c.classList.remove('selected'));
+      el.classList.add('selected');
+      renderM2();
+    }
+
+    function renderM2() {
+      const W = canvasM2.width, H = canvasM2.height;
+      ctxM2.clearRect(0, 0, W, H);
+
+      const b = 2.0, n = 5, dx = b / n;
+      const margin = { top: 40, right: 40, bottom: 50, left: 80 };
+      const plotW = W - margin.left - margin.right;
+      const plotH = H - margin.top - margin.bottom;
+
+      // Expand X-axis domain to [-0.5, 2.2] to show k=0 strip clearly!
+      const min_x = -0.5, max_x = 2.2;
+      const max_y = 4.5;
+
+      const toX = x => margin.left + ((x - min_x) / (max_x - min_x)) * plotW;
+      const toY = y => margin.top + plotH - (y / max_y) * plotH;
+
+      // Draw Y-Axis (x=0) line
+      ctxM2.strokeStyle = '#475569';
+      ctxM2.lineWidth = 2;
+      ctxM2.beginPath();
+      ctxM2.moveTo(toX(0), toY(0)); ctxM2.lineTo(toX(0), toY(max_y));
+      ctxM2.stroke();
+      ctxM2.fillStyle = '#94a3b8'; ctxM2.font = '12px monospace';
+      ctxM2.fillText('Origin x=0', toX(0) - 30, toY(0) + 20);
+
+      // 1. Render Outer Sum S_n choice
+      if (m2Outer === '1_n') {
+        // Canonical Outer S_n (k=1..n)
+        for (let k = 1; k <= n; k++) {
+          const xL = (k - 1) * dx, xR = k * dx;
+          const h = xR * xR;
+          ctxM2.fillStyle = 'rgba(239, 68, 68, 0.25)';
+          ctxM2.strokeStyle = '#f87171';
+          ctxM2.lineWidth = 1.5;
+          ctxM2.fillRect(toX(xL), toY(h), toX(xR) - toX(xL), toY(0) - toY(h));
+          ctxM2.strokeRect(toX(xL), toY(h), toX(xR) - toX(xL), toY(0) - toY(h));
+        }
+      } else if (m2Outer === '0_n') {
+        // Zero-Index Shift (k=0..n): Draw k=0 strip on [-b/n, 0] in bright purple!
+        for (let k = 0; k <= n; k++) {
+          const xL = (k - 1) * dx, xR = k * dx;
+          const h = (k === 0) ? 0 : xR * xR;
+          if (k === 0) {
+            // k=0 strip on [-b/n, 0]
+            ctxM2.fillStyle = 'rgba(168, 85, 247, 0.35)';
+            ctxM2.strokeStyle = '#a855f7';
+            ctxM2.lineWidth = 2.5;
+            ctxM2.setLineDash([4, 4]);
+            ctxM2.fillRect(toX(-dx), toY(0.2), toX(0) - toX(-dx), toY(0) - toY(0.2));
+            ctxM2.strokeRect(toX(-dx), toY(0.2), toX(0) - toX(-dx), toY(0) - toY(0.2));
+            ctxM2.setLineDash([]);
+
+            ctxM2.fillStyle = '#a855f7'; ctxM2.font = '12px monospace';
+            ctxM2.fillText('k=0 Strip [-b/n, 0] (Height 0)', toX(-dx) - 10, toY(0.3));
+          } else {
+            ctxM2.fillStyle = 'rgba(239, 68, 68, 0.25)';
+            ctxM2.strokeStyle = '#f87171';
+            ctxM2.lineWidth = 1.5;
+            ctxM2.fillRect(toX(xL), toY(h), toX(xR) - toX(xL), toY(0) - toY(h));
+            ctxM2.strokeRect(toX(xL), toY(h), toX(xR) - toX(xL), toY(0) - toY(h));
+          }
+        }
+      }
+
+      // 2. Render Inner Sum s_n choice
+      if (m2Inner === '1_n-1') {
+        // Canonical Inner s_n (k=1..n-1)
+        for (let k = 1; k <= n - 1; k++) {
+          const xL = (k - 1) * dx, xR = k * dx;
+          const h = xL * xL;
+          ctxM2.fillStyle = 'rgba(59, 130, 246, 0.45)';
+          ctxM2.strokeStyle = '#60a5fa';
+          ctxM2.lineWidth = 1.5;
+          ctxM2.fillRect(toX(xL), toY(h), toX(xR) - toX(xL), toY(0) - toY(h));
+          ctxM2.strokeRect(toX(xL), toY(h), toX(xR) - toX(xL), toY(0) - toY(h));
+        }
+      } else if (m2Inner === '1_n') {
+        // Right-Edge Overflow (k=1..n): Highlight n-th box sticking OUT above curve in glowing yellow!
+        for (let k = 1; k <= n; k++) {
+          const xL = (k - 1) * dx, xR = k * dx;
+          const h = (k === n) ? xR * xR : xL * xL;
+          const isOverflow = (k === n);
+
+          ctxM2.fillStyle = isOverflow ? 'rgba(234, 179, 8, 0.65)' : 'rgba(59, 130, 246, 0.45)';
+          ctxM2.strokeStyle = isOverflow ? '#ffffff' : '#60a5fa';
+          ctxM2.lineWidth = isOverflow ? 3 : 1.5;
+
+          ctxM2.fillRect(toX(xL), toY(h), toX(xR) - toX(xL), toY(0) - toY(h));
+          ctxM2.strokeRect(toX(xL), toY(h), toX(xR) - toX(xL), toY(0) - toY(h));
+        }
+      }
+
+      // Curve
+      ctxM2.strokeStyle = '#fbbf24'; ctxM2.lineWidth = 3;
+      ctxM2.beginPath();
+      for (let i = 0; i <= 100; i++) {
+        const x = (i / 100) * b;
+        if (i === 0) ctxM2.moveTo(toX(x), toY(x * x));
+        else ctxM2.lineTo(toX(x), toY(x * x));
+      }
+      ctxM2.stroke();
+
+      // Legend & Notice
+      if (m2Inner === '1_n') {
+        ctxM2.fillStyle = '#eab308'; ctxM2.font = '13px Outfit';
+        ctxM2.fillText('⚠️ OVERFLOW: Inner sum extending to k=n sticks OUT above curve (Yellow)', 100, 30);
+      } else if (m2Outer === '0_n') {
+        ctxM2.fillStyle = '#a855f7'; ctxM2.font = '13px Outfit';
+        ctxM2.fillText('ZERO-INDEX SHIFT: k=0 strip added on [-b/n, 0] with Height 0 (Purple)', 100, 30);
+      } else {
+        ctxM2.fillStyle = '#94a3b8'; ctxM2.font = '13px Outfit';
+        ctxM2.fillText('Sum Visualizer: Outer Sum S_n (Red) vs Inner Sum s_n (Blue)', 150, 30);
+      }
+    }
+
+    function verifyMission2() {
+      const fb = document.getElementById('feedbackM2');
+      fb.style.display = 'block';
+
+      if (m2Outer === '1_n' && m2Inner === '1_n-1') {
+        fb.className = 'consequence-box success';
+        fb.innerHTML = `<b>✅ Exact Sum Construction!</b><br>
+        - Outer Sum S_n sums k = 1 to n.<br>
+        - Inner Sum s_n sums k = 1 to n−1 (because the k=0 rectangle has height 0).`;
+        document.getElementById('tabM2').classList.add('completed');
+      } else if (m2Inner === '1_n') {
+        fb.className = 'consequence-box warning';
+        fb.innerHTML = `<b>⚠️ Right-Edge Overflow Consequence:</b><br>
+        Look at the bright yellow box on the plot! Extending inner sum to k=n uses right-hand height f(b) = b², which sticks OUT above the curve and fails to form a lower bound!`;
+      } else {
+        fb.className = 'consequence-box warning';
+        fb.innerHTML = `<b>⚠️ Zero-Index Shift Consequence:</b><br>
+        Look at the purple strip on [-b/n, 0]. Starting at k=0 adds a term of height 0² = 0. It is algebraically identical to k=1..n, but canonical S_n starts at k=1.`;
+      }
+    }
+
+    // MISSION 3
+    let pairedCount = 0;
+    const outerItems = document.querySelectorAll('#outerTerms .term-item');
+    const innerItems = document.querySelectorAll('#innerTerms .term-item');
+
+    [...outerItems, ...innerItems].forEach(item => {
+      item.addEventListener('click', () => {
+        const termVal = item.getAttribute('data-term');
+        if (termVal === 'n') {
+          item.classList.add('unmatched');
+          document.getElementById('btnProceedRewrite').disabled = false;
+          return;
+        }
+        const oMatch = document.querySelector(`#outerTerms .term-item[data-term="${termVal}"]`);
+        const iMatch = document.querySelector(`#innerTerms .term-item[data-term="${termVal}"]`);
+        if (oMatch && iMatch) {
+          oMatch.classList.add('paired');
+          iMatch.classList.add('paired');
+        }
+      });
+    });
+
+    function autoAlignTerms() {
+      [...outerItems, ...innerItems].forEach(item => {
+        if (item.getAttribute('data-term') === 'n') item.classList.add('unmatched');
+        else item.classList.add('paired');
+      });
+      document.getElementById('btnProceedRewrite').disabled = false;
+    }
+
+    function startRewritePhase() { document.getElementById('phase2Card').style.display = 'block'; }
+    function applyRewriteChoice(opt) {
+      const cBox = document.getElementById('consequenceBox');
+      cBox.style.display = 'block';
+      if (opt === 1) {
+        cBox.className = 'consequence-box success';
+        cBox.innerHTML = `<b>✅ S_n − s_n = b³/n</b>. Correct Exponent Simplification!`;
+        document.getElementById('paperPromptCard').style.display = 'flex';
+        document.getElementById('tabM3').classList.add('completed');
+      } else {
+        cBox.className = 'consequence-box warning';
+        cBox.innerHTML = `<b>⚠️ Check Exponent Rules.</b>`;
+      }
+    }
+
+    // MISSION 4 & 5
+    const canvasM4 = document.getElementById('canvasM4');
+    const ctxM4 = canvasM4.getContext('2d');
+    function renderM4() {
+      const W = canvasM4.width, H = canvasM4.height;
+      ctxM4.clearRect(0, 0, W, H);
+      const b = 2.0, delta = 0.04, claimArea = Math.pow(b, 3) / 3 + delta;
+      const valN = parseInt(document.getElementById('inputN4').value, 10) || 10;
+
+      const margin = { top: 40, right: 40, bottom: 50, left: 65 };
+      const plotW = W - margin.left - margin.right;
+      const plotH = H - margin.top - margin.bottom;
+
+      const toX = x => margin.left + (x / 2.2) * plotW;
+      const toY = y => margin.top + plotH - (y / 4.5) * plotH;
+
+      const dx = b / valN;
+      for (let k = 1; k <= valN; k++) {
+        const xL = (k - 1) * dx, xR = k * dx;
+        const h = xR * xR;
+        ctxM4.fillStyle = 'rgba(56, 189, 248, 0.3)';
+        ctxM4.strokeStyle = '#38bdf8';
+        ctxM4.fillRect(toX(xL), toY(h), toX(xR) - toX(xL), toY(0) - toY(h));
+        ctxM4.strokeRect(toX(xL), toY(h), toX(xR) - toX(xL), toY(0) - toY(h));
+      }
+
+      ctxM4.strokeStyle = '#fbbf24'; ctxM4.lineWidth = 3;
+      ctxM4.beginPath();
+      for (let i = 0; i <= 100; i++) {
+        const x = (i / 100) * b;
+        if (i === 0) ctxM4.moveTo(toX(x), toY(x * x));
+        else ctxM4.lineTo(toX(x), toY(x * x));
+      }
+      ctxM4.stroke();
+
+      const claimY = claimArea / b;
+      ctxM4.setLineDash([6, 6]);
+      ctxM4.strokeStyle = '#ef4444';
+      ctxM4.lineWidth = 2.5;
+      ctxM4.beginPath();
+      ctxM4.moveTo(toX(0), toY(claimY));
+      ctxM4.lineTo(toX(b), toY(claimY));
+      ctxM4.stroke();
+      ctxM4.setLineDash([]);
+
+      ctxM4.fillStyle = '#ef4444'; ctxM4.font = '13px monospace';
+      ctxM4.fillText(`Adversary Claim Line (Area = ${claimArea.toFixed(4)})`, toX(0.1), toY(claimY) - 8);
+    }
+
+    function verifyMission4() {
+      const val = parseInt(document.getElementById('inputN4').value, 10);
+      const fb = document.getElementById('feedbackM4');
+      fb.style.display = 'block';
+      renderM4();
+      if (val >= 200) {
+        fb.className = 'consequence-box success';
+        fb.innerHTML = `<b>⚔️ Claim Disproved!</b> S_n − s_n = ${(8/val).toFixed(4)} < 0.04 for n = ${val}.`;
+        document.getElementById('tabM4').classList.add('completed');
+      } else {
+        fb.className = 'consequence-box warning';
+        fb.innerHTML = `<b>⚠️ Witness Too Small: Need n > b³/δ = 200.</b>`;
+      }
+    }
+
+    let m5Ans = null;
+    const canvasM5 = document.getElementById('canvasM5');
+    const ctxM5 = canvasM5.getContext('2d');
+    function selectM5Ans(opt, el) {
+      m5Ans = opt;
+      el.parentElement.querySelectorAll('.builder-chip').forEach(c => c.classList.remove('selected'));
+      el.classList.add('selected');
+    }
+    function renderM5() {
+      const W = canvasM5.width, H = canvasM5.height;
+      ctxM5.clearRect(0, 0, W, H);
+      const a = 1.5, c = 1.0, b = 2.0;
+      const margin = { top: 40, right: 40, bottom: 50, left: 65 };
+      const plotW = W - margin.left - margin.right;
+      const plotH = H - margin.top - margin.bottom;
+
+      const toX = x => margin.left + (x / 2.2) * plotW;
+      const toY = y => margin.top + plotH - (y / 7.5) * plotH;
+
+      ctxM5.fillStyle = 'rgba(251, 191, 36, 0.2)';
+      ctxM5.strokeStyle = '#fbbf24';
+      ctxM5.fillRect(toX(0), toY(c), toX(b) - toX(0), toY(0) - toY(c));
+      ctxM5.strokeRect(toX(0), toY(c), toX(b) - toX(0), toY(0) - toY(c));
+
+      ctxM5.fillStyle = 'rgba(56, 189, 248, 0.3)';
+      ctxM5.beginPath();
+      ctxM5.moveTo(toX(0), toY(c));
+      for (let i = 0; i <= 100; i++) {
+        const x = (i / 100) * b;
+        const y = a * x * x + c;
+        ctxM5.lineTo(toX(x), toY(y));
+      }
+      ctxM5.lineTo(toX(b), toY(c));
+      ctxM5.closePath();
+      ctxM5.fill();
+
+      ctxM5.strokeStyle = '#38bdf8'; ctxM5.lineWidth = 3;
+      ctxM5.beginPath();
+      for (let i = 0; i <= 100; i++) {
+        const x = (i / 100) * b;
+        const y = a * x * x + c;
+        if (i === 0) ctxM5.moveTo(toX(x), toY(y));
+        else ctxM5.lineTo(toX(x), toY(y));
+      }
+      ctxM5.stroke();
+
+      ctxM5.fillStyle = '#fbbf24'; ctxM5.font = '13px monospace';
+      ctxM5.fillText(`Baseline Rect Area (c·b = 2.0)`, toX(0.2), toY(0.5));
+      ctxM5.fillStyle = '#38bdf8';
+      ctxM5.fillText(`Parabolic Area (a·b³/3 = 4.0)`, toX(0.6), toY(3.5));
+    }
+    function verifyMission5() {
+      const fb = document.getElementById('feedbackM5');
+      fb.style.display = 'block';
+      renderM5();
+      if (m5Ans === 1) {
+        fb.className = 'consequence-box success';
+        fb.innerHTML = `<b>🎉 Transfer Complete! Area = a·(b³/3) + c·b</b>.`;
+        document.getElementById('tabM5').classList.add('completed');
+      } else {
+        fb.className = 'consequence-box warning';
+        fb.innerHTML = `<b>⚠️ Baseline Area Error.</b>`;
+      }
+    }
+
+    renderM1();
+    document.getElementById('inputN4').addEventListener('input', renderM4);
+  </script>
+</body>
+</html>

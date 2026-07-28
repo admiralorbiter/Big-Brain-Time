@@ -1,0 +1,30 @@
+schema: bbt.book-split-plan/v1
+book:
+  id: book.apostol-calculus-vol1
+  title: Calculus, Volume 1 (Apostol)
+  source: pilot\math-reconstruction\books\source\apostol-calculus-vol1.pdf
+  source_sha256: 9d70477000212db4fa040a570189dbc4926720d7f6baef802048d1226a929e27
+page_numbering:
+  basis: pdf_index_1based
+  inclusive: true
+chapters:
+- id: 00-front-matter
+  title: Front Matter
+  start_page: 1
+  end_page: 6
+  include: true
+- id: 00-introduction
+  title: Introduction
+  start_page: 7
+  end_page: 636
+  include: true
+- id: 17-answers-to-exercises
+  title: Answers to Exercises
+  start_page: 637
+  end_page: 676
+  include: true
+- id: 18-index
+  title: Index
+  start_page: 677
+  end_page: 686
+  include: true

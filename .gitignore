@@ -27,3 +27,14 @@ Thumbs.db
 .bbt/cache/
 *.sqlite
 *.sqlite3
+
+# Heavy / Copyrighted PDF Book Materials (Do NOT commit source or chapter PDFs)
+**/books/source/
+**/books/chapters/
+**/books/text/
+
+# Allow split plans and manifest JSON files to be tracked in Git
+!**/books/plans/
+!**/books/plans/*.yaml
+!**/books/chapters/**/manifest.json
+
