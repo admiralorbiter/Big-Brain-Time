@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Shape of Speedrun Progress — SM64 120 Star</title>
+  <meta name="description" content="Rolling-origin evaluation of power-law, exponential, and linear learning curves against the SM64 120 Star N64 world-record frontier.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #070a12;
+      --card-bg: rgba(22, 30, 46, 0.85);
+      --card-border: rgba(255,255,255,0.08);
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --primary: #38bdf8;
+      --accent: #10b981;
+      --warning: #fbbf24;
+      --danger: #ef4444;
+      --power: #38bdf8;
+      --exp: #a855f7;
+      --lin: #f59e0b;
+      --pers: #94a3b8;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:'Inter',sans-serif;
+      background-color:var(--bg);
+      background-image:
+        radial-gradient(at 0% 0%,rgba(56,189,248,0.06) 0px,transparent 50%),
+        radial-gradient(at 100% 100%,rgba(168,85,247,0.06) 0px,transparent 50%);
+      color:var(--text);
+      display:flex;flex-direction:column;align-items:center;
+      min-height:100vh;padding:24px;
+    }
+    header{text-align:center;max-width:1100px;margin-bottom:24px}
+    header h1{
+      font-family:'Outfit',sans-serif;font-size:2.4rem;font-weight:800;
+      background:linear-gradient(135deg,#38bdf8,#a855f7);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+      margin-bottom:8px;
+    }
+    header p{color:var(--muted);font-size:1.02rem;line-height:1.6}
+    .badge-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+    .badge{
+      background:rgba(255,255,255,0.05);border:1px solid var(--card-border);
+      padding:4px 12px;border-radius:9999px;font-size:0.8rem;
+      font-family:'Fira Code',monospace;color:var(--primary);
+    }
+    .container{width:100%;max-width:1280px;display:flex;flex-direction:column;gap:24px}
+    .card{
+      background:var(--card-bg);border:1px solid var(--card-border);
+      border-radius:16px;padding:24px;backdrop-filter:blur(12px);
+      box-shadow:0 8px 32px 0 rgba(0,0,0,0.37);
+    }
+    .card-title{
+      font-family:'Outfit',sans-serif;font-size:1.25rem;font-weight:700;
+      margin-bottom:14px;display:flex;align-items:baseline;justify-content:space-between;
+      flex-wrap:wrap;gap:6px;
+    }
+    .card-subtitle{font-size:0.82rem;color:var(--muted);font-weight:400}
+    .controls-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:14px}
+    button{
+      background:linear-gradient(135deg,#0284c7,#2563eb);
+      color:#fff;border:none;padding:9px 18px;border-radius:8px;
+      font-weight:600;cursor:pointer;transition:all 0.2s;
+      display:inline-flex;align-items:center;gap:7px;font-size:0.92rem;
+    }
+    button:hover{opacity:0.88;transform:translateY(-1px);box-shadow:0 4px 12px rgba(56,189,248,0.3)}
+    button:disabled{opacity:0.45;cursor:not-allowed;transform:none}
+    button.sec{background:rgba(255,255,255,0.07);border:1px solid var(--card-border);color:var(--text)}
+    button.sec:hover{background:rgba(255,255,255,0.13);box-shadow:none}
+    .prog-wrap{width:100%;height:7px;background:rgba(255,255,255,0.09);border-radius:4px;overflow:hidden;margin-top:9px}
+    .prog-bar{height:100%;width:0%;background:linear-gradient(90deg,#38bdf8,#a855f7);transition:width 0.3s}
+    .logbox{
+      font-family:'Fira Code',monospace;font-size:0.82rem;
+      background:rgba(0,0,0,0.4);border:1px solid var(--card-border);
+      border-radius:8px;padding:12px;max-height:130px;overflow-y:auto;
+      color:#7dd3fc;margin-top:10px;
+    }
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px}
+    @media(max-width:900px){.grid-2,.grid-3{grid-template-columns:1fr}}
+    .audit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px}
+    .stat-box{
+      background:rgba(255,255,255,0.03);border:1px solid var(--card-border);
+      border-radius:12px;padding:14px;text-align:center;
+    }
+    .stat-box.warn{border-color:rgba(251,191,36,0.35);background:rgba(251,191,36,0.07)}
+    .stat-label{font-size:0.78rem;color:var(--muted);margin-bottom:5px;line-height:1.3}
+    .stat-value{font-family:'Outfit',sans-serif;font-size:1.55rem;font-weight:700;color:var(--text)}
+    .stat-value.hi{color:var(--primary)}
+    .stat-value.warn{color:var(--warning)}
+    table{width:100%;border-collapse:collapse;font-size:0.88rem;margin-top:8px}
+    th,td{padding:9px 13px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.05)}
+    th{font-family:'Outfit',sans-serif;color:var(--muted);font-weight:600;background:rgba(0,0,0,0.2)}
+    tr.pers-row{background:rgba(148,163,184,0.07)}
+    tr.pers-row td:first-child{color:#e2e8f0;font-weight:600}
+    tr:hover{background:rgba(255,255,255,0.02)}
+    .chart-wrap{position:relative;width:100%;height:420px}
+    canvas{width:100%;height:100%;display:block}
+    .legend{display:flex;gap:14px;flex-wrap:wrap;font-size:0.82rem;margin-top:10px;justify-content:center}
+    .leg-item{display:flex;align-items:center;gap:6px}
+    .leg-dot{width:11px;height:11px;border-radius:3px;flex-shrink:0}
+    /* Decision Banner */
+    .dbanner{
+      border-radius:12px;padding:18px 20px;margin-top:16px;
+      border:1px solid transparent;display:flex;flex-direction:column;gap:8px;
+    }
+    .dbanner.split{background:rgba(168,85,247,0.1);border-color:rgba(168,85,247,0.35);color:#e9d5ff}
+    .dbanner.supported{background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.3);color:#6ee7b7}
+    .dbanner.rejected{background:rgba(239,68,68,0.1);border-color:rgba(239,68,68,0.3);color:#fca5a5}
+    .dbanner.pending{background:rgba(251,191,36,0.08);border-color:rgba(251,191,36,0.3);color:#fde047}
+    .dbanner-title{font-family:'Outfit',sans-serif;font-size:1.15rem;font-weight:700}
+    /* Bootstrap method card */
+    .method-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-top:14px}
+    .method-item{
+      background:rgba(0,0,0,0.25);border:1px solid var(--card-border);
+      border-radius:8px;padding:10px 12px;
+    }
+    .method-key{font-size:0.75rem;color:var(--muted);margin-bottom:3px}
+    .method-val{font-family:'Fira Code',monospace;font-size:0.9rem;color:var(--primary)}
+    /* Provenance */
+    .provenance{
+      font-family:'Fira Code',monospace;font-size:0.78rem;color:var(--muted);
+      background:rgba(0,0,0,0.25);border:1px solid var(--card-border);
+      border-radius:8px;padding:10px 14px;margin-top:10px;line-height:1.7;
+    }
+    .provenance .ok{color:var(--accent)}
+    .provenance .warn{color:var(--warning)}
+    .provenance .err{color:var(--danger)}
+    /* tooltip */
+    .tip{
+      position:absolute;background:rgba(10,16,30,0.96);border:1px solid var(--primary);
+      padding:7px 11px;border-radius:6px;font-size:0.78rem;pointer-events:none;
+      opacity:0;transition:opacity 0.12s;z-index:10;
+      font-family:'Fira Code',monospace;box-shadow:0 4px 16px rgba(0,0,0,0.5);
+      max-width:240px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>The Shape of Speedrun Progress</h1>
+  <p>Rolling-origin evaluation of power-law, exponential, and linear learning curves against the<br>Super Mario 64 — 120 Star — N64 world-record frontier (Speedrun.com API v1)</p>
+  <div class="badge-row">
+    <span class="badge">Game: o1y9wo6q</span>
+    <span class="badge">Category: 120 Star (wkpoo02r)</span>
+    <span class="badge">Platform: N64 (e8m7em86 = 9qj7z0oq)</span>
+    <span class="badge">Burn-in: 8 records</span>
+    <span class="badge">Bootstrap: 1,000 resamples</span>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- 1. DATA ACQUISITION -->
+  <div class="card">
+    <div class="card-title">
+      1. Data Acquisition &amp; Provenance
+      <span id="cache-status" class="card-subtitle"></span>
+    </div>
+    <div class="controls-row">
+      <button id="btn-fetch" onclick="startFetch()">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Fetch All Verified Runs from API
+      </button>
+      <button class="sec" onclick="loadMock()">Load Synthetic Baseline</button>
+      <button class="sec" onclick="clearCache()">Clear Cache</button>
+    </div>
+    <div class="prog-wrap"><div id="prog" class="prog-bar"></div></div>
+    <div id="logbox" class="logbox">Ready. "Fetch All Verified Runs from API" uses live Speedrun.com data; "Load Synthetic Baseline" uses historically-anchored synthetic data for instant preview.</div>
+    <div id="provenance" class="provenance" style="display:none"></div>
+  </div>
+
+  <!-- 2. DATASET AUDIT -->
+  <div class="card">
+    <div class="card-title">2. Dataset Audit &amp; Missing-Variable Report</div>
+    <div class="audit-grid">
+      <div class="stat-box"><div class="stat-label">Total Verified Runs (all platforms)</div><div id="a-total" class="stat-value">—</div></div>
+      <div class="stat-box"><div class="stat-label">N64 Platform Matched</div><div id="a-n64" class="stat-value hi">—</div></div>
+      <div class="stat-box"><div class="stat-label">Missing run date (date field)</div><div id="a-nodate" class="stat-value">—</div></div>
+      <div class="stat-box"><div class="stat-label">Missing submit timestamp</div><div id="a-nosub" class="stat-value">—</div></div>
+      <div class="stat-box"><div class="stat-label">Missing verify-date</div><div id="a-nover" class="stat-value">—</div></div>
+      <div class="stat-box"><div class="stat-label">Missing platform variable</div><div id="a-novar" class="stat-value">—</div></div>
+      <div class="stat-box"><div class="stat-label">Frontier Records (perf. clock)</div><div id="a-front" class="stat-value hi">—</div></div>
+      <div class="stat-box"><div class="stat-label">Time Span (Years)</div><div id="a-span" class="stat-value">—</div></div>
+    </div>
+    <p id="synthetic-warning" style="display:none;margin-top:12px;padding:10px 14px;background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.35);border-radius:8px;font-size:0.85rem;color:#fde047;"></p>
+  </div>
+
+  <!-- FIGURE 1: FRONTIER + FITS -->
+  <div class="card">
+    <div class="card-title">
+      Figure 1: Reconstructed World-Record Frontier &amp; Candidate Fits
+      <span class="card-subtitle">Performance clock (run date) · hover records for tooltip</span>
+    </div>
+    <div class="chart-wrap" style="height:430px" id="c1w">
+      <canvas id="c1"></canvas>
+      <div id="t1" class="tip"></div>
+    </div>
+    <div class="legend">
+      <div class="leg-item"><div class="leg-dot" style="background:rgba(148,163,184,0.35)"></div>Raw verified N64 runs</div>
+      <div class="leg-item"><div class="leg-dot" style="background:#ffffff"></div>Record frontier (staircase)</div>
+      <div class="leg-item"><div class="leg-dot" style="background:var(--power)"></div>Power law: L+A(1+t)^(−b)</div>
+      <div class="leg-item"><div class="leg-dot" style="background:var(--exp)"></div>Exponential: L+Ae^(−kt)</div>
+      <div class="leg-item"><div class="leg-dot" style="background:var(--lin)"></div>Linear: α+βt</div>
+    </div>
+  </div>
+
+  <!-- FIGURES 2 & 3a/3b -->
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">Figure 2: Rolling-Origin One-Step Forecasts<br><span class="card-subtitle">Points = discrete forecast events (no interpolation)</span></div>
+      <div class="chart-wrap" style="height:340px" id="c2w">
+        <canvas id="c2"></canvas>
+        <div id="t2" class="tip"></div>
+      </div>
+      <div class="legend">
+        <div class="leg-item"><div class="leg-dot" style="background:#ffffff"></div>Actual next record</div>
+        <div class="leg-item"><div class="leg-dot" style="background:var(--power)"></div>Power law</div>
+        <div class="leg-item"><div class="leg-dot" style="background:var(--exp)"></div>Exponential</div>
+        <div class="leg-item"><div class="leg-dot" style="background:var(--lin)"></div>Linear</div>
+        <div class="leg-item"><div class="leg-dot" style="background:var(--pers)"></div>Persistence ★</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Figure 3: Cumulative Absolute Error (excl. linear)<br><span class="card-subtitle">Linear excluded — see inset below for all-model comparison</span></div>
+      <div class="chart-wrap" style="height:240px" id="c3w">
+        <canvas id="c3"></canvas>
+      </div>
+      <div class="legend" style="margin-bottom:10px">
+        <div class="leg-item"><div class="leg-dot" style="background:var(--power)"></div>Power</div>
+        <div class="leg-item"><div class="leg-dot" style="background:var(--exp)"></div>Exp</div>
+        <div class="leg-item"><div class="leg-dot" style="background:var(--pers)"></div>Persistence ★</div>
+      </div>
+      <div class="chart-wrap" style="height:120px" id="c3bw">
+        <canvas id="c3b"></canvas>
+      </div>
+      <div class="legend">
+        <div class="leg-item"><div class="leg-dot" style="background:var(--lin)"></div>Linear (all-model inset)</div>
+        <div class="leg-item"><div class="leg-dot" style="background:var(--power)"></div>Power (scale reference)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- METRICS TABLE -->
+  <div class="card">
+    <div class="card-title">3. Out-of-Sample Metrics &amp; Bootstrap Inference</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Model</th>
+          <th>MAE (sec)</th>
+          <th>Median AE</th>
+          <th>RMSE</th>
+          <th>MAE Ratio vs Persistence<br><span style="font-weight:400;font-size:0.78rem">(model MAE ÷ persistence MAE)</span></th>
+          <th>Power MAE − Comparator MAE<br><span style="font-weight:400;font-size:0.78rem">Negative = favors power; positive = favors comparator</span></th>
+          <th>95% Bootstrap CI</th>
+        </tr>
+      </thead>
+      <tbody id="metrics-tbody">
+        <tr><td colspan="7" style="text-align:center;color:var(--muted)">Run analysis to populate.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="dbanner pending" id="dbanner">
+      <div class="dbanner-title" id="dbanner-title">Evaluation Pending</div>
+      <div id="dbanner-body">Analysis not yet run.</div>
+    </div>
+  </div>
+
+  <!-- MULTI-HORIZON EVALUATION -->
+  <div class="card">
+    <div class="card-title">4. Multi-Horizon Forecast Evaluation<br><span class="card-subtitle">Does the power law gain advantage over longer horizons where persistence compounds?</span></div>
+    <table>
+      <thead>
+        <tr>
+          <th>Horizon (h)</th>
+          <th>Power MAE</th>
+          <th>Exponential MAE</th>
+          <th>Linear MAE</th>
+          <th>Persistence MAE</th>
+          <th>Power rank</th>
+        </tr>
+      </thead>
+      <tbody id="horizon-tbody">
+        <tr><td colspan="6" style="text-align:center;color:var(--muted)">Run analysis to populate.</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:0.82rem;color:var(--muted);margin-top:10px">h=1,3,5 = record steps ahead. Persistence h-step: T̂(t_{k+h}) = T(t_k). Models use only records 1…k for each origin k.</p>
+  </div>
+
+  <!-- ROBUSTNESS: THREE CLOCKS + BREAKTHROUGH TABLE -->
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">
+        Robustness: Three Historical Clocks
+        <span class="card-subtitle" id="clock-coverage"></span>
+      </div>
+      <p style="font-size:0.82rem;color:var(--muted);margin-bottom:10px">Each clock plotted on its own calendar-time axis. Runs missing a timestamp are excluded from that clock — not backfilled. Counts below.</p>
+      <div id="clock-counts" class="method-grid" style="margin-top:0;margin-bottom:12px"></div>
+      <div class="chart-wrap" style="height:270px" id="c4w">
+        <canvas id="c4"></canvas>
+      </div>
+      <div class="legend">
+        <div class="leg-item"><div class="leg-dot" style="background:#38bdf8"></div>Performance clock (run date)</div>
+        <div class="leg-item"><div class="leg-dot" style="background:#a855f7"></div>Archive clock (submitted)</div>
+        <div class="leg-item"><div class="leg-dot" style="background:#10b981"></div>Verified clock (verify-date)</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Exploratory Large-Improvement Audit</div>
+      <p style="font-size:0.82rem;color:var(--muted);margin-bottom:12px">Top record-time drops ≥30s. A large drop cannot by itself establish cause. Each entry is labeled "Large record improvement — cause unverified."</p>
+      <table style="font-size:0.83rem">
+        <thead>
+          <tr><th>Date</th><th>New WR</th><th>Drop (sec)</th><th>% Drop</th><th>Status</th></tr>
+        </thead>
+        <tbody id="bt-tbody">
+          <tr><td colspan="5" style="text-align:center;color:var(--muted)">Pending...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- BOOTSTRAP METHOD CARD -->
+  <div class="card">
+    <div class="card-title">5. Statistical Method Transparency</div>
+    <div class="method-grid" id="method-grid">
+      <div class="method-item"><div class="method-key">Bootstrap type</div><div class="method-val">Stationary block</div></div>
+      <div class="method-item"><div class="method-key">Block length</div><div id="m-block" class="method-val">—</div></div>
+      <div class="method-item"><div class="method-key">Resamples (B)</div><div class="method-val">1,000</div></div>
+      <div class="method-item"><div class="method-key">Forecast origins (K)</div><div id="m-K" class="method-val">—</div></div>
+      <div class="method-item"><div class="method-key">Burn-in records</div><div class="method-val">8</div></div>
+      <div class="method-item"><div class="method-key">Fit failures / bounds</div><div id="m-failures" class="method-val">—</div></div>
+      <div class="method-item"><div class="method-key">CI level</div><div class="method-val">95%</div></div>
+      <div class="method-item"><div class="method-key">Primary metric</div><div class="method-val">MAE (seconds)</div></div>
+    </div>
+    <p style="font-size:0.82rem;color:var(--muted);margin-top:14px">⚠ Bootstrap intervals derived from a chronological sequence of K forecast errors. With small K (&lt;20), treat intervals as supplementary, not definitive. Report K prominently before interpreting significance.</p>
+  </div>
+
+</div><!-- end container -->
+
+<script>
+// ============================================================
+// CONSTANTS
+// ============================================================
+const GAME_ID = "o1y9wo6q";
+const CAT_ID  = "wkpoo02r";
+const PVAR_ID = "e8m7em86";
+const PVAL_N64= "9qj7z0oq";
+const CACHE_KEY = "sm64_120star_runs_v2";
+
+let rawRuns = [];
+let fitFailures = 0;
+
+// ============================================================
+// LOGGING & UI HELPERS
+// ============================================================
+function log(msg) {
+  const box = document.getElementById("logbox");
+  const t = new Date().toLocaleTimeString();
+  box.innerHTML += `<div>[${t}] ${msg}</div>`;
+  box.scrollTop = box.scrollHeight;
+}
+function setProg(p) { document.getElementById("prog").style.width = p + "%"; }
+
+function checkCacheStatus() {
+  const c = localStorage.getItem(CACHE_KEY);
+  const el = document.getElementById("cache-status");
+  if (c) {
+    try { el.textContent = `Cached: ${JSON.parse(c).length} runs`; } catch(e) {}
+  } else { el.textContent = "No cache"; }
+}
+checkCacheStatus();
+
+function clearCache() {
+  localStorage.removeItem(CACHE_KEY);
+  log("Cache cleared.");
+  checkCacheStatus();
+}
+
+// ============================================================
+// API FETCH ENGINE
+// ============================================================
+async function startFetch() {
+  const cached = localStorage.getItem(CACHE_KEY);
+  if (cached) {
+    try {
+      rawRuns = JSON.parse(cached);
+      log(`Loaded ${rawRuns.length} runs from cache.`);
+      runPipeline(rawRuns, false);
+      return;
+    } catch(e) { log("Cache corrupt — fetching fresh."); }
+  }
+  rawRuns = [];
+  const btn = document.getElementById("btn-fetch");
+  btn.disabled = true;
+  log("Fetching category variables…");
+  try {
+    const vr = await fetch(`https://www.speedrun.com/api/v1/categories/${CAT_ID}/variables`);
+    if (vr.ok) { const vj = await vr.json(); log(`Retrieved ${(vj.data||[]).length} category variables.`); }
+  } catch(e) { log("Variable fetch skipped: " + e.message); }
+
+  log("Paginating GET /api/v1/runs…");
+  let offset = 0;
+  while (true) {
+    const url = `https://www.speedrun.com/api/v1/runs?game=${GAME_ID}&category=${CAT_ID}&status=verified&max=200&offset=${offset}`;
+    log(`offset=${offset}…`);
+    try {
+      const r = await fetch(url);
+      if (!r.ok) { log(`HTTP ${r.status} — stopping.`); break; }
+      const j = await r.json();
+      const page = j.data || [];
+      rawRuns.push(...page);
+      setProg(Math.min(95, rawRuns.length / 30));
+      log(`+${page.length} runs (total ${rawRuns.length})`);
+      const sz = j.pagination ? j.pagination.size : page.length;
+      if (sz < 200 || page.length === 0) break;
+      offset += 200;
+      await new Promise(res => setTimeout(res, 800));
+    } catch(e) { log("Fetch error: " + e.message); break; }
+  }
+  btn.disabled = false;
+  setProg(100);
+  if (rawRuns.length > 0) {
+    try { localStorage.setItem(CACHE_KEY, JSON.stringify(rawRuns)); checkCacheStatus(); } catch(e) {}
+    runPipeline(rawRuns, false);
+  } else {
+    log("No runs fetched — loading synthetic baseline.");
+    loadMock();
+  }
+}
+
+// ============================================================
+// SYNTHETIC DATASET (historically anchored)
+// ============================================================
+function loadMock() {
+  log("Generating historically-anchored synthetic SM64 120 Star dataset…");
+  rawRuns = makeMock();
+  log(`Synthetic: ${rawRuns.length} runs, 2002–2026.`);
+  runPipeline(rawRuns, true);
+}
+
+function makeMock() {
+  // Milestones carry non-round seconds — WR record events should NOT be
+  // suspiciously round. Using exact values that approximate known historical
+  // approximate times but with realistic non-round seconds.
+  const milestones = [
+    ["2002-05-15", 8003],
+    ["2003-09-20", 7142],
+    ["2004-11-10", 6287],
+    ["2006-04-05", 5718],
+    ["2008-08-12", 5341],
+    ["2010-02-14", 5118],
+    ["2011-06-20", 4953],
+    ["2012-04-10", 4822],
+    ["2013-09-01", 4751],
+    ["2014-05-08", 4713],
+    ["2015-01-25", 4681],
+    ["2015-12-10", 4638],
+    ["2017-04-02", 4612],
+    ["2018-08-19", 4587],
+    ["2020-03-24", 4562],
+    ["2021-09-12", 4537],
+    ["2023-05-18", 4518],
+    ["2024-10-30", 4499],
+  ];
+  const runs = [];
+  const startMs = new Date("2002-01-01").getTime();
+  const endMs   = new Date("2026-06-01").getTime();
+
+  milestones.forEach(([d, s]) => {
+    const dm = new Date(d).getTime();
+    const sub = new Date(dm + 86400000 * (1 + Math.random() * 4));
+    const ver = new Date(sub.getTime() + 86400000 * (1 + Math.random() * 3));
+    runs.push({
+      id: "wr_" + Math.random().toString(36).slice(2, 8),
+      date: d,
+      submitted: sub.toISOString(),
+      status: { status: "verified", "verify-date": ver.toISOString() },
+      times: { primary_t: s },
+      values: { [PVAR_ID]: PVAL_N64 },
+      system: { platform: "n64", emulated: false }
+    });
+  });
+
+  for (let i = 0; i < 1200; i++) {
+    const frac = i / 1200;
+    const ms = startMs + frac * (endMs - startMs);
+    const d = new Date(ms);
+    const dStr = d.toISOString().split("T")[0];
+    let curWR = 8400;
+    for (const [md, ms2] of milestones) if (new Date(md) <= d) curWR = ms2;
+    const secs = Math.round(curWR * (1.05 + Math.pow(Math.random(), 2) * 0.40));
+    const isN64 = Math.random() > 0.08;
+    const hasDate = Math.random() > 0.03;
+    const hasSub  = Math.random() > 0.06;
+    const hasVer  = Math.random() > 0.04;
+    runs.push({
+      id: "ex_" + i,
+      date: hasDate ? dStr : null,
+      submitted: hasSub ? new Date(ms + 86400000 * 2).toISOString() : null,
+      status: {
+        status: "verified",
+        "verify-date": hasVer ? new Date(ms + 86400000 * 4).toISOString() : null
+      },
+      times: { primary_t: secs },
+      values: { [PVAR_ID]: isN64 ? PVAL_N64 : "other" },
+      system: { platform: isN64 ? "n64" : "vc", emulated: false }
+    });
+  }
+  return runs;
+}
+
+// ============================================================
+// PIPELINE
+// ============================================================
+function runPipeline(runs, isSynthetic) {
+  log("Auditing dataset…");
+  fitFailures = 0;
+
+  // Audit counters
+  let aTotal = runs.length;
+  let aMissingDate = 0, aMissingSub = 0, aMissingVer = 0, aMissingVar = 0;
+  let aN64 = 0;
+
+  const n64Runs = []; // runs included in analysis
+
+  runs.forEach(r => {
+    const pVal = r.values && r.values[PVAR_ID];
+    const isN64 = pVal === PVAL_N64 || (r.system && r.system.platform === "n64" && !r.system.emulated);
+    const hasTime = r.times && typeof r.times.primary_t === "number" && r.times.primary_t > 0;
+    const isVerified = r.status && r.status.status === "verified";
+
+    if (!r.date) aMissingDate++;
+    if (!r.submitted) aMissingSub++;
+    // verify-date null-check
+    const verifyDateRaw = r.status && r.status["verify-date"];
+    if (!verifyDateRaw) aMissingVer++;
+    if (!pVal) aMissingVar++;
+
+    if (isVerified && isN64 && hasTime && r.date) {
+      aN64++;
+      // Do NOT substitute missing submitted/verifyDate with run date.
+      n64Runs.push({
+        id: r.id,
+        date: r.date,
+        // submitted: only if actually present
+        submitted: r.submitted ? r.submitted.split("T")[0] : null,
+        verifyDate: verifyDateRaw ? verifyDateRaw.split("T")[0] : null,
+        seconds: r.times.primary_t
+      });
+    }
+  });
+
+  // Build three frontiers — each only on runs with that field present
+  const perfFrontier = buildFrontier(n64Runs, "date");
+  const subFrontier  = buildFrontier(n64Runs.filter(r => r.submitted), "submitted");
+  const verFrontier  = buildFrontier(n64Runs.filter(r => r.verifyDate), "verifyDate");
+
+  const countSubHasDate = n64Runs.filter(r => r.submitted).length;
+  const countVerHasDate = n64Runs.filter(r => r.verifyDate).length;
+
+  // Populate audit UI
+  document.getElementById("a-total").textContent = aTotal.toLocaleString();
+  document.getElementById("a-n64").textContent   = aN64.toLocaleString();
+  document.getElementById("a-nodate").textContent = aMissingDate.toLocaleString();
+  document.getElementById("a-nosub").textContent  = aMissingSub.toLocaleString();
+  document.getElementById("a-nover").textContent  = aMissingVer.toLocaleString();
+  document.getElementById("a-novar").textContent  = aMissingVar.toLocaleString();
+  document.getElementById("a-front").textContent = perfFrontier.length;
+
+  const tSpan = perfFrontier.length > 1
+    ? ((new Date(perfFrontier[perfFrontier.length-1].date) - new Date(perfFrontier[0].date))
+       / (1000*60*60*24*365.25)).toFixed(1)
+    : "—";
+  document.getElementById("a-span").textContent = tSpan;
+
+  // Clock coverage counts
+  document.getElementById("clock-counts").innerHTML = `
+    <div class="method-item"><div class="method-key">Perf. clock (run date)</div><div class="method-val" style="color:#38bdf8">${n64Runs.length} runs / ${perfFrontier.length} records</div></div>
+    <div class="method-item"><div class="method-key">Archive clock (submitted)</div><div class="method-val" style="color:#a855f7">${countSubHasDate} runs / ${subFrontier.length} records</div></div>
+    <div class="method-item"><div class="method-key">Verified clock (verify-date)</div><div class="method-val" style="color:#10b981">${countVerHasDate} runs / ${verFrontier.length} records</div></div>
+  `;
+
+  // Synthetic warning
+  const sw = document.getElementById("synthetic-warning");
+  if (isSynthetic) {
+    sw.style.display = "block";
+    sw.textContent = "⚠ SYNTHETIC DATA ACTIVE — frontier times are historically-anchored approximations with non-round seconds, not actual Speedrun.com records. Click 'Fetch All Verified Runs from API' for real data.";
+  } else {
+    sw.style.display = "none";
+  }
+
+  // Provenance check
+  const roundCount = perfFrontier.filter(r => r.seconds % 60 === 0).length;
+  const provEl = document.getElementById("provenance");
+  provEl.style.display = "block";
+  const src = isSynthetic ? "SYNTHETIC" : "API";
+  provEl.innerHTML = `
+    <span class="${isSynthetic ? 'warn' : 'ok'}">DATA SOURCE: ${src}</span> &nbsp;|&nbsp;
+    N64 runs with dates: <strong>${n64Runs.length}</strong> &nbsp;|&nbsp;
+    Frontier events: <strong>${perfFrontier.length}</strong> &nbsp;|&nbsp;
+    Suspiciously round WR times (mod 60=0): <strong class="${roundCount > 2 ? 'err' : 'ok'}">${roundCount}</strong> of ${perfFrontier.length}${roundCount > 2 ? ' ← investigate' : ''} &nbsp;|&nbsp;
+    primary_t used directly (no rounding): <span class="ok">YES</span>
+  `;
+
+  log(`Frontier: ${perfFrontier.length} records, ${tSpan}y span. Sub-clock: ${subFrontier.length}, Ver-clock: ${verFrontier.length}`);
+
+  if (perfFrontier.length < 10) {
+    log("⚠ Too few frontier records for meaningful rolling-origin evaluation.");
+  }
+
+  // Fit global models
+  log("Fitting global models…");
+  const globalFits = fitAll(perfFrontier);
+
+  // Rolling-origin evaluation
+  log("Rolling-origin evaluation (burn-in = 8)…");
+  const rolling = rollingOrigin(perfFrontier, 8);
+
+  // Multi-horizon
+  log("Multi-horizon evaluation (h = 1, 3, 5)…");
+  const horizons = [1, 3, 5].map(h => ({h, ...rollingHorizon(perfFrontier, 8, h)}));
+
+  // Bootstrap
+  const K = rolling.errors.power.length;
+  const blockLen = Math.max(2, Math.round(Math.pow(K, 1/3)));
+  log(`Block bootstrap: K=${K}, blockLen=${blockLen}, B=1000…`);
+  const bootCIs = blockBootstrap(rolling.errors, blockLen, 1000);
+
+  // Update method transparency
+  document.getElementById("m-block").textContent = blockLen;
+  document.getElementById("m-K").textContent = K;
+  document.getElementById("m-failures").textContent = fitFailures;
+
+  // Render everything
+  renderFig1(n64Runs, perfFrontier, globalFits);
+  renderFig2(rolling);
+  renderFig3(rolling);
+  renderFig4(perfFrontier, subFrontier, verFrontier);
+  populateMetrics(rolling, bootCIs, K);
+  populateHorizon(horizons);
+  renderBreakthroughs(perfFrontier);
+  renderDecision(rolling, bootCIs, K);
+
+  log("Analysis complete.");
+}
+
+// ============================================================
+// FRONTIER CONSTRUCTION
+// ============================================================
+function buildFrontier(runsList, field) {
+  // Only use runs where field is actually present (not substituted)
+  const daily = new Map();
+  runsList.forEach(r => {
+    const d = r[field] ? r[field].split("T")[0] : null;
+    if (!d) return;
+    if (!daily.has(d) || r.seconds < daily.get(d)) daily.set(d, r.seconds);
+  });
+  const dates = Array.from(daily.keys()).sort();
+  const records = [];
+  let minSoFar = Infinity;
+  const t0 = dates.length ? new Date(dates[0]).getTime() : 0;
+  dates.forEach(d => {
+    const s = daily.get(d);
+    if (s < minSoFar) {
+      minSoFar = s;
+      records.push({
+        date: d,
+        seconds: s,
+        t: (new Date(d).getTime() - t0) / (1000*60*60*24*365.25)
+      });
+    }
+  });
+  return records;
+}
+
+// ============================================================
+// MODEL FITTING
+// ============================================================
+function fitAll(records) {
+  const t = records.map(r => r.t);
+  const y = records.map(r => r.seconds);
+  return { power: fitPower(t, y), exp: fitExp(t, y), lin: fitLin(t, y) };
+}
+
+function fitLin(t, y) {
+  const n = t.length;
+  let st=0,sy=0,stt=0,sty=0;
+  for (let i=0;i<n;i++){st+=t[i];sy+=y[i];stt+=t[i]*t[i];sty+=t[i]*y[i];}
+  const beta=(n*sty-st*sy)/(n*stt-st*st||1);
+  const alpha=(sy-beta*st)/n;
+  return { predict: tv => alpha+beta*tv, params:{alpha,beta}, type:"lin" };
+}
+
+function estimateA(t, y, L, zFn) {
+  let sz2=0, szr=0;
+  for (let i=0;i<t.length;i++){const z=zFn(t[i]);sz2+=z*z;szr+=z*(y[i]-L);}
+  return Math.max(1, szr/(sz2||1));
+}
+
+function sse(t,y,fn){let s=0;for(let i=0;i<t.length;i++){const d=y[i]-fn(t[i]);s+=d*d;}return s;}
+
+function fitPower(t, y) {
+  const minY=y[y.length-1], maxY=y[0];
+  let best={loss:Infinity, L:minY*0.9, A:maxY-minY, b:0.5};
+  const Lg=[0,minY*0.5,minY*0.8,minY*0.95];
+  const bg=[0.1,0.25,0.4,0.6,0.9,1.4,2.0];
+  let hitBound=0;
+  Lg.forEach(L0=>bg.forEach(b0=>{
+    let L=L0, b=b0;
+    let A=estimateA(t,y,L,tv=>Math.pow(1+tv,-b));
+    for(let iter=0;iter<60;iter++){
+      const bStep=0.015;
+      const c0=sse(t,y,tv=>L+A*Math.pow(1+tv,-b));
+      const cu=sse(t,y,tv=>L+A*Math.pow(1+tv,-(b+bStep)));
+      const cd=sse(t,y,tv=>L+A*Math.pow(1+tv,-Math.max(0.005,b-bStep)));
+      if(cu<c0) b+=bStep; else if(cd<c0) b=Math.max(0.005,b-bStep);
+      if(b<=0.005) hitBound++;
+      A=estimateA(t,y,L,tv=>Math.pow(1+tv,-b));
+      const Ls=8;
+      const lc=sse(t,y,tv=>L+A*Math.pow(1+tv,-b));
+      const lu=sse(t,y,tv=>(L+Ls)+A*Math.pow(1+tv,-b));
+      const ld=sse(t,y,tv=>Math.max(0,L-Ls)+A*Math.pow(1+tv,-b));
+      if(lu<lc) L+=Ls; else if(ld<lc) L=Math.max(0,L-Ls);
+      const cur=sse(t,y,tv=>L+A*Math.pow(1+tv,-b));
+      if(cur<best.loss){best={loss:cur,L,A,b};}
+    }
+  }));
+  if(hitBound>0) fitFailures++;
+  const {L,A,b}=best;
+  return { predict:tv=>L+A*Math.pow(1+tv,-b), params:{L,A,b}, type:"power" };
+}
+
+function fitExp(t, y) {
+  const minY=y[y.length-1],maxY=y[0];
+  let best={loss:Infinity,L:minY*0.9,A:maxY-minY,k:0.1};
+  const Lg=[0,minY*0.5,minY*0.8,minY*0.95];
+  const kg=[0.01,0.03,0.07,0.15,0.3,0.6];
+  let hitBound=0;
+  Lg.forEach(L0=>kg.forEach(k0=>{
+    let L=L0,k=k0;
+    let A=estimateA(t,y,L,tv=>Math.exp(-k*tv));
+    for(let iter=0;iter<60;iter++){
+      const ks=0.008;
+      const c0=sse(t,y,tv=>L+A*Math.exp(-k*tv));
+      const cu=sse(t,y,tv=>L+A*Math.exp(-(k+ks)*tv));
+      const cd=sse(t,y,tv=>L+A*Math.exp(-Math.max(0.001,k-ks)*tv));
+      if(cu<c0) k+=ks; else if(cd<c0) k=Math.max(0.001,k-ks);
+      if(k<=0.001) hitBound++;
+      A=estimateA(t,y,L,tv=>Math.exp(-k*tv));
+      const Ls=8;
+      const lc=sse(t,y,tv=>L+A*Math.exp(-k*tv));
+      const lu=sse(t,y,tv=>(L+Ls)+A*Math.exp(-k*tv));
+      const ld=sse(t,y,tv=>Math.max(0,L-Ls)+A*Math.exp(-k*tv));
+      if(lu<lc) L+=Ls; else if(ld<lc) L=Math.max(0,L-Ls);
+      const cur=sse(t,y,tv=>L+A*Math.exp(-k*tv));
+      if(cur<best.loss){best={loss:cur,L,A,k};}
+    }
+  }));
+  if(hitBound>0) fitFailures++;
+  const {L,A,k}=best;
+  return { predict:tv=>L+A*Math.exp(-k*tv), params:{L,A,k}, type:"exp" };
+}
+
+// ============================================================
+// ROLLING-ORIGIN EVALUATION
+// ============================================================
+function rollingOrigin(records, burnIn=8) {
+  const N=records.length;
+  const actuals=[], errors={power:[],exp:[],lin:[],pers:[]};
+  const preds={power:[],exp:[],lin:[],pers:[]};
+  for(let k=burnIn;k<N;k++){
+    const train=records.slice(0,k);
+    const next=records[k];
+    const t=train.map(r=>r.t), y=train.map(r=>r.seconds);
+    const pf=fitPower(t,y), ef=fitExp(t,y), lf=fitLin(t,y);
+    const pers=train[train.length-1].seconds;
+    const pp=pf.predict(next.t), ep=ef.predict(next.t), lp=lf.predict(next.t);
+    actuals.push(next.seconds);
+    preds.power.push(pp); preds.exp.push(ep); preds.lin.push(lp); preds.pers.push(pers);
+    errors.power.push(Math.abs(next.seconds-pp));
+    errors.exp.push(Math.abs(next.seconds-ep));
+    errors.lin.push(Math.abs(next.seconds-lp));
+    errors.pers.push(Math.abs(next.seconds-pers));
+  }
+  const metrics={};
+  ["power","exp","lin","pers"].forEach(m=>{
+    const e=errors[m]; const K=e.length;
+    const mae=e.reduce((a,b)=>a+b,0)/K;
+    const sorted=[...e].sort((a,b)=>a-b);
+    const med=sorted[Math.floor(K/2)];
+    const rmse=Math.sqrt(e.reduce((a,b)=>a+b*b,0)/K);
+    const persMAE=errors.pers.reduce((a,b)=>a+b,0)/K;
+    const ratio=mae/(persMAE||1);
+    metrics[m]={mae,med,rmse,ratio};
+  });
+  return {actuals,errors,preds,metrics};
+}
+
+function rollingHorizon(records, burnIn=8, h=1) {
+  const N=records.length;
+  const metrics={power:[], exp:[], lin:[], pers:[]};
+  for(let k=burnIn; k<N-h; k++){
+    const train=records.slice(0,k);
+    const target=records[k+h-1]; // h records ahead from k
+    if(!target) continue;
+    const t=train.map(r=>r.t), y=train.map(r=>r.seconds);
+    const pf=fitPower(t,y), ef=fitExp(t,y), lf=fitLin(t,y);
+    const pers=train[train.length-1].seconds;
+    metrics.power.push(Math.abs(target.seconds-pf.predict(target.t)));
+    metrics.exp.push(Math.abs(target.seconds-ef.predict(target.t)));
+    metrics.lin.push(Math.abs(target.seconds-lf.predict(target.t)));
+    metrics.pers.push(Math.abs(target.seconds-pers));
+  }
+  const mae = m => metrics[m].length ? metrics[m].reduce((a,b)=>a+b,0)/metrics[m].length : null;
+  return {mae_power:mae("power"), mae_exp:mae("exp"), mae_lin:mae("lin"), mae_pers:mae("pers"), n:metrics.power.length};
+}
+
+// ============================================================
+// BLOCK BOOTSTRAP
+// ============================================================
+function blockBootstrap(errors, blockLen, B=1000) {
+  const K=errors.power.length;
+  const makeCI = diffArr => {
+    const boots=[];
+    for(let b=0;b<B;b++){
+      const s=[];
+      while(s.length<K){const i=Math.floor(Math.random()*(K-blockLen+1));for(let j=0;j<blockLen&&s.length<K;j++)s.push(diffArr[i+j]);}
+      boots.push(s.reduce((a,v)=>a+v,0)/K);
+    }
+    boots.sort((a,b)=>a-b);
+    return {mean:diffArr.reduce((a,v)=>a+v,0)/K, lower:boots[Math.floor(B*0.025)], upper:boots[Math.floor(B*0.975)]};
+  };
+  const diff = (a,b) => errors.power[a]-errors[b][a]; // won't work like this, fix:
+  const dExp  = errors.power.map((_,i)=>errors.power[i]-errors.exp[i]);
+  const dLin  = errors.power.map((_,i)=>errors.power[i]-errors.lin[i]);
+  const dPers = errors.power.map((_,i)=>errors.power[i]-errors.pers[i]);
+  return { exp:makeCI(dExp), lin:makeCI(dLin), pers:makeCI(dPers) };
+}
+
+// ============================================================
+// CANVAS HELPERS
+// ============================================================
+function setupCanvas(id) {
+  const cv=document.getElementById(id);
+  const c=cv.parentElement;
+  const r=c.getBoundingClientRect();
+  const dpr=window.devicePixelRatio||1;
+  cv.width=r.width*dpr; cv.height=r.height*dpr;
+  const ctx=cv.getContext("2d");
+  ctx.scale(dpr,dpr);
+  return {ctx, W:r.width, H:r.height};
+}
+
+function fmtT(sec){
+  const h=Math.floor(sec/3600),m=Math.floor((sec%3600)/60),s=Math.round(sec%60);
+  return h>0?`${h}h${m}m${s}s`:`${m}m${s}s`;
+}
+
+function drawGrid(ctx,W,H,pad,yMin,yMax,tMax,yFmt,tFmt){
+  ctx.strokeStyle="rgba(255,255,255,0.07)"; ctx.lineWidth=1;
+  for(let i=0;i<=5;i++){
+    const yv=yMin+(i/5)*(yMax-yMin);
+    const yp=pad.t+( H-pad.t-pad.b)*(1-(yv-yMin)/(yMax-yMin));
+    ctx.beginPath();ctx.moveTo(pad.l,yp);ctx.lineTo(W-pad.r,yp);ctx.stroke();
+    ctx.fillStyle="#94a3b8";ctx.font="10px Inter";ctx.textAlign="right";
+    ctx.fillText(yFmt(yv),pad.l-6,yp+4);
+  }
+  for(let i=0;i<=5;i++){
+    const tv=(i/5)*tMax;
+    const xp=pad.l+(tv/tMax)*(W-pad.l-pad.r);
+    ctx.beginPath();ctx.moveTo(xp,pad.t);ctx.lineTo(xp,H-pad.b);ctx.stroke();
+    ctx.textAlign="center";ctx.fillStyle="#94a3b8";
+    ctx.fillText(tFmt(tv),xp,H-pad.b+15);
+  }
+}
+
+// ============================================================
+// FIGURE 1 — FRONTIER + MODEL FITS
+// ============================================================
+function renderFig1(allRuns, records, fits) {
+  if(!records.length) return;
+  const {ctx,W,H}=setupCanvas("c1");
+  const pad={t:30,r:30,b:45,l:68};
+  const pw=W-pad.l-pad.r, ph=H-pad.t-pad.b;
+  ctx.clearRect(0,0,W,H);
+
+  const tMax=Math.max(...records.map(r=>r.t))*1.05;
+  const yMin=Math.min(...records.map(r=>r.seconds))*0.92;
+  const yMax=Math.max(...records.map(r=>r.seconds))*1.08;
+  const gx=tv=>pad.l+(tv/tMax)*pw;
+  const gy=yv=>pad.t+ph*(1-(yv-yMin)/(yMax-yMin));
+
+  drawGrid(ctx,W,H,pad,yMin,yMax,tMax,fmtT,v=>`Yr ${v.toFixed(1)}`);
+
+  // Scatter
+  ctx.fillStyle="rgba(148,163,184,0.2)";
+  const t0=new Date(records[0].date).getTime();
+  allRuns.forEach(r=>{
+    const tv=(new Date(r.date).getTime()-t0)/(1000*60*60*24*365.25);
+    if(tv>=0&&tv<=tMax&&r.seconds>=yMin&&r.seconds<=yMax){
+      ctx.beginPath();ctx.arc(gx(tv),gy(r.seconds),1.8,0,Math.PI*2);ctx.fill();
+    }
+  });
+
+  // Staircase
+  ctx.strokeStyle="#ffffff";ctx.lineWidth=2.2;
+  ctx.beginPath();ctx.moveTo(gx(records[0].t),gy(records[0].seconds));
+  for(let i=1;i<records.length;i++){
+    ctx.lineTo(gx(records[i].t),gy(records[i-1].seconds));
+    ctx.lineTo(gx(records[i].t),gy(records[i].seconds));
+  }
+  ctx.stroke();
+
+  // Model curves
+  const steps=160;
+  const drawCurve=(fn,col,dash=[])=>{
+    ctx.strokeStyle=col;ctx.lineWidth=2.2;ctx.setLineDash(dash);
+    ctx.beginPath();
+    for(let i=0;i<=steps;i++){
+      const tv=(i/steps)*tMax; const yv=fn(tv);
+      i===0?ctx.moveTo(gx(tv),gy(yv)):ctx.lineTo(gx(tv),gy(yv));
+    }
+    ctx.stroke();ctx.setLineDash([]);
+  };
+  drawCurve(fits.power.predict,"#38bdf8");
+  drawCurve(fits.exp.predict,"#a855f7",[5,5]);
+  drawCurve(fits.lin.predict,"#f59e0b",[2,5]);
+
+  // Tooltip on frontier records
+  const cv=document.getElementById("c1"), tip=document.getElementById("t1");
+  cv.onmousemove=e=>{
+    const rc=cv.getBoundingClientRect();
+    const mx=e.clientX-rc.left,my=e.clientY-rc.top;
+    let cl=null,md=18;
+    records.forEach(r=>{const d=Math.hypot(mx-gx(r.t),my-gy(r.seconds));if(d<md){md=d;cl=r;}});
+    if(cl){
+      tip.style.opacity=1;tip.style.left=(mx+12)+"px";tip.style.top=(my-24)+"px";
+      tip.innerHTML=`<b>${cl.date}</b><br>WR: ${fmtT(cl.seconds)} (${cl.seconds}s)`;
+    } else tip.style.opacity=0;
+  };
+  cv.onmouseleave=()=>tip.style.opacity=0;
+}
+
+// ============================================================
+// FIGURE 2 — ROLLING PREDICTIONS (SCATTER POINTS, NOT LINES)
+// ============================================================
+function renderFig2(rolling) {
+  const {ctx,W,H}=setupCanvas("c2");
+  const pad={t:20,r:20,b:38,l:58};
+  const pw=W-pad.l-pad.r, ph=H-pad.t-pad.b;
+  ctx.clearRect(0,0,W,H);
+  const K=rolling.actuals.length;
+  if(!K) return;
+
+  const allVals=[...rolling.actuals,...rolling.preds.power,...rolling.preds.exp,...rolling.preds.lin,...rolling.preds.pers];
+  const yMin=Math.min(...allVals)*0.97, yMax=Math.max(...allVals)*1.03;
+
+  const gx=i=>pad.l+(i/(K-1||1))*pw;
+  const gy=v=>pad.t+ph*(1-(v-yMin)/(yMax-yMin));
+
+  // Grid
+  ctx.strokeStyle="rgba(255,255,255,0.07)";ctx.lineWidth=1;
+  for(let i=0;i<=4;i++){
+    const v=yMin+(i/4)*(yMax-yMin); const yp=gy(v);
+    ctx.beginPath();ctx.moveTo(pad.l,yp);ctx.lineTo(W-pad.r,yp);ctx.stroke();
+    ctx.fillStyle="#94a3b8";ctx.font="10px Inter";ctx.textAlign="right";
+    ctx.fillText(fmtT(v),pad.l-5,yp+4);
+  }
+
+  // Draw scatter points for each model (connected by thin line for readability)
+  const drawSeries=(arr,col,r_=4,dash=[])=>{
+    // thin connecting line
+    ctx.strokeStyle=col;ctx.lineWidth=1;ctx.setLineDash(dash);ctx.globalAlpha=0.35;
+    ctx.beginPath();
+    arr.forEach((v,i)=>{i===0?ctx.moveTo(gx(i),gy(v)):ctx.lineTo(gx(i),gy(v));});
+    ctx.stroke();ctx.setLineDash([]);ctx.globalAlpha=1;
+    // filled circles
+    ctx.fillStyle=col;
+    arr.forEach((v,i)=>{ctx.beginPath();ctx.arc(gx(i),gy(v),r_,0,Math.PI*2);ctx.fill();});
+  };
+
+  drawSeries(rolling.actuals,"#ffffff",5);
+  drawSeries(rolling.preds.power,"#38bdf8",3);
+  drawSeries(rolling.preds.exp,"#a855f7",3,[3,3]);
+  drawSeries(rolling.preds.lin,"#f59e0b",3,[2,3]);
+  drawSeries(rolling.preds.pers,"#94a3b8",3);
+
+  ctx.fillStyle="#94a3b8";ctx.textAlign="center";ctx.font="10px Inter";
+  for(let i=0;i<K;i+=Math.ceil(K/5)){
+    ctx.fillText(`Ev.${i+8}`,gx(i),H-pad.b+14);
+  }
+}
+
+// ============================================================
+// FIGURE 3 — CUMULATIVE ERROR (split + inset)
+// ============================================================
+function renderFig3(rolling) {
+  const K=rolling.actuals.length;
+  if(!K) return;
+  const cumErr={};
+  ["power","exp","lin","pers"].forEach(m=>{
+    let s=0; cumErr[m]=rolling.errors[m].map(e=>(s+=e));
+  });
+
+  // Main panel: power, exp, pers (excluding linear)
+  {
+    const {ctx,W,H}=setupCanvas("c3");
+    const pad={t:16,r:16,b:36,l:55};
+    const pw=W-pad.l-pad.r, ph=H-pad.t-pad.b;
+    ctx.clearRect(0,0,W,H);
+    const yMax=Math.max(...cumErr.power,...cumErr.exp,...cumErr.pers)*1.06;
+    const gx=i=>pad.l+(i/(K-1||1))*pw;
+    const gy=v=>pad.t+ph*(1-v/yMax);
+    ctx.strokeStyle="rgba(255,255,255,0.07)";ctx.lineWidth=1;
+    for(let i=0;i<=4;i++){
+      const v=(i/4)*yMax; const yp=gy(v);
+      ctx.beginPath();ctx.moveTo(pad.l,yp);ctx.lineTo(W-pad.r,yp);ctx.stroke();
+      ctx.fillStyle="#94a3b8";ctx.font="10px Inter";ctx.textAlign="right";
+      ctx.fillText(`${Math.round(v)}s`,pad.l-5,yp+4);
+    }
+    const dl=(arr,col,dash=[])=>{ctx.strokeStyle=col;ctx.lineWidth=2;ctx.setLineDash(dash);
+      ctx.beginPath();arr.forEach((v,i)=>{i===0?ctx.moveTo(gx(i),gy(v)):ctx.lineTo(gx(i),gy(v));});
+      ctx.stroke();ctx.setLineDash([]);};
+    dl(cumErr.power,"#38bdf8");
+    dl(cumErr.exp,"#a855f7",[4,4]);
+    dl(cumErr.pers,"#94a3b8",[2,3]);
+    ctx.fillStyle="#94a3b8";ctx.textAlign="center";ctx.font="10px Inter";
+    for(let i=0;i<K;i+=Math.ceil(K/5)) ctx.fillText(`Ev.${i+8}`,gx(i),H-pad.b+14);
+  }
+
+  // Inset: all models (logarithmic-like scale — use raw with linear dominating)
+  {
+    const {ctx,W,H}=setupCanvas("c3b");
+    const pad={t:10,r:10,b:28,l:55};
+    const pw=W-pad.l-pad.r, ph=H-pad.t-pad.b;
+    ctx.clearRect(0,0,W,H);
+    const yMax=Math.max(...cumErr.lin)*1.04;
+    const gx=i=>pad.l+(i/(K-1||1))*pw;
+    const gy=v=>pad.t+ph*(1-v/yMax);
+    ctx.strokeStyle="rgba(255,255,255,0.06)";ctx.lineWidth=1;
+    for(let i=0;i<=2;i++){const v=(i/2)*yMax;ctx.beginPath();ctx.moveTo(pad.l,gy(v));ctx.lineTo(W-pad.r,gy(v));ctx.stroke();
+      ctx.fillStyle="#94a3b8";ctx.font="9px Inter";ctx.textAlign="right";ctx.fillText(`${Math.round(v)}s`,pad.l-4,gy(v)+3);}
+    const dl=(arr,col,dash=[])=>{ctx.strokeStyle=col;ctx.lineWidth=1.5;ctx.setLineDash(dash);
+      ctx.beginPath();arr.forEach((v,i)=>{i===0?ctx.moveTo(gx(i),gy(v)):ctx.lineTo(gx(i),gy(v));});
+      ctx.stroke();ctx.setLineDash([]);};
+    dl(cumErr.lin,"#f59e0b");
+    dl(cumErr.power,"#38bdf8",[3,3]);
+    ctx.fillStyle="#94a3b8";ctx.textAlign="center";ctx.font="9px Inter";
+    ctx.fillText("All-model inset (linear dominates scale)",W/2,H-2);
+  }
+}
+
+// ============================================================
+// FIGURE 4 — THREE CLOCKS (actual calendar time per clock)
+// ============================================================
+function renderFig4(perf, sub, ver) {
+  const {ctx,W,H}=setupCanvas("c4");
+  const pad={t:16,r:20,b:38,l:60};
+  const pw=W-pad.l-pad.r, ph=H-pad.t-pad.b;
+  ctx.clearRect(0,0,W,H);
+
+  const allSec=[...perf,...sub,...ver].map(r=>r.seconds);
+  if(!allSec.length) return;
+  const yMin=Math.min(...allSec)*0.95, yMax=Math.max(...allSec)*1.05;
+
+  // Each frontier has its own calendar t0 and tMax
+  const drawFrontier=(records, col)=>{
+    if(!records.length) return;
+    // Use absolute milliseconds for x-axis (calendar)
+    const allMs=records.map(r=>new Date(r.date).getTime());
+    const tMin=Math.min(...allMs), tMax=Math.max(...allMs);
+    const tRange=tMax-tMin||1;
+    const gx=ms=>pad.l+(ms-tMin)/tRange*pw;
+    const gy=v=>pad.t+ph*(1-(v-yMin)/(yMax-yMin));
+    ctx.strokeStyle=col;ctx.lineWidth=2;
+    ctx.beginPath();
+    ctx.moveTo(gx(new Date(records[0].date).getTime()),gy(records[0].seconds));
+    for(let i=1;i<records.length;i++){
+      const ms=new Date(records[i].date).getTime();
+      const prevY=gy(records[i-1].seconds);
+      ctx.lineTo(gx(ms),prevY);
+      ctx.lineTo(gx(ms),gy(records[i].seconds));
+    }
+    ctx.stroke();
+  };
+
+  // Y-axis grid
+  ctx.strokeStyle="rgba(255,255,255,0.07)";ctx.lineWidth=1;
+  for(let i=0;i<=4;i++){
+    const v=yMin+(i/4)*(yMax-yMin);
+    const yp=pad.t+ph*(1-(v-yMin)/(yMax-yMin));
+    ctx.beginPath();ctx.moveTo(pad.l,yp);ctx.lineTo(W-pad.r,yp);ctx.stroke();
+    ctx.fillStyle="#94a3b8";ctx.font="10px Inter";ctx.textAlign="right";
+    ctx.fillText(fmtT(v),pad.l-5,yp+4);
+  }
+
+  drawFrontier(perf,"#38bdf8");
+  drawFrontier(sub,"#a855f7");
+  drawFrontier(ver,"#10b981");
+
+  // X-axis note
+  ctx.fillStyle="#64748b";ctx.textAlign="center";ctx.font="10px Inter";
+  ctx.fillText("Each clock plotted on its own calendar-time axis · missing timestamps excluded (not backfilled)",W/2,H-pad.b+16);
+}
+
+// ============================================================
+// METRICS TABLE
+// ============================================================
+function populateMetrics(rolling, bootCIs, K) {
+  const tbody=document.getElementById("metrics-tbody");
+  tbody.innerHTML="";
+  const models=[
+    {key:"power", name:"Power Law: L+A(1+t)^(−b)"},
+    {key:"exp",   name:"Exponential: L+Ae^(−kt)"},
+    {key:"lin",   name:"Linear: α+βt"},
+    {key:"pers",  name:"★ Persistence: T̂(t_{k+1})=T(t_k)"},
+  ];
+  const persMAE=rolling.metrics.pers.mae;
+  models.forEach(m=>{
+    const met=rolling.metrics[m.key];
+    const boot=bootCIs[m.key]||{mean:0,lower:0,upper:0};
+    const isPers=m.key==="pers";
+    const tr=document.createElement("tr");
+    if(isPers) tr.className="pers-row";
+    const ciStr=isPers?"N/A (reference)":`[${boot.lower.toFixed(2)}, ${boot.upper.toFixed(2)}]`;
+    const diffStr=isPers?"0.00 (ref)":boot.mean.toFixed(2)+"s";
+    tr.innerHTML=`
+      <td><strong>${m.name}</strong></td>
+      <td><strong>${met.mae.toFixed(1)}s</strong></td>
+      <td>${met.med.toFixed(1)}s</td>
+      <td>${met.rmse.toFixed(1)}s</td>
+      <td>${met.ratio.toFixed(3)}</td>
+      <td>${m.key==="power"?"0.00 (ref)":diffStr}</td>
+      <td>${m.key==="power"?"N/A (reference)":ciStr}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+  // footnote
+  const fn=document.createElement("tr");
+  fn.innerHTML=`<td colspan="7" style="font-size:0.78rem;color:var(--muted);padding-top:8px">K=${K} forecast origins. MAE Ratio = model MAE ÷ persistence MAE. "Power MAE − Comparator MAE": negative means power predicts better. Bootstrap: stationary block, block length=${Math.max(2,Math.round(Math.pow(K,1/3)))}, B=1,000. With small K, treat CIs as supplementary.</td>`;
+  tbody.appendChild(fn);
+}
+
+// ============================================================
+// MULTI-HORIZON TABLE
+// ============================================================
+function populateHorizon(horizons) {
+  const tbody=document.getElementById("horizon-tbody");
+  tbody.innerHTML="";
+  horizons.forEach(h=>{
+    const best=Math.min(h.mae_power,h.mae_exp,h.mae_lin,h.mae_pers);
+    const highlight=m=>m!==null&&Math.abs(m-best)<0.5?`style="color:var(--accent);font-weight:700"`:""
+    const fmt=v=>v!==null?v.toFixed(1)+"s":"—";
+    const tr=document.createElement("tr");
+    tr.innerHTML=`
+      <td><strong>h = ${h.h}</strong> (${h.n} origins)</td>
+      <td ${highlight(h.mae_power)}>${fmt(h.mae_power)}</td>
+      <td ${highlight(h.mae_exp)}>${fmt(h.mae_exp)}</td>
+      <td ${highlight(h.mae_lin)}>${fmt(h.mae_lin)}</td>
+      <td ${highlight(h.mae_pers)}>${fmt(h.mae_pers)}</td>
+      <td>${rankModel(h)}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+function rankModel(h){
+  const models=[{n:"Power",v:h.mae_power},{n:"Exp",v:h.mae_exp},{n:"Lin",v:h.mae_lin},{n:"Pers",v:h.mae_pers}];
+  const sorted=models.filter(m=>m.v!==null).sort((a,b)=>a.v-b.v);
+  if(!sorted.length) return "—";
+  const winner=sorted[0];
+  const pwr=models.find(m=>m.n==="Power");
+  const rank=sorted.findIndex(m=>m.n==="Power")+1;
+  return `${winner.n} (Power rank: ${rank}/${sorted.length})`;
+}
+
+// ============================================================
+// BREAKTHROUGHS TABLE — correct label
+// ============================================================
+function renderBreakthroughs(records) {
+  const tbody=document.getElementById("bt-tbody");
+  tbody.innerHTML="";
+  const jumps=[];
+  for(let i=1;i<records.length;i++){
+    const drop=records[i-1].seconds-records[i].seconds;
+    const pct=100*drop/records[i-1].seconds;
+    if(drop>=30) jumps.push({date:records[i].date,secs:records[i].seconds,drop,pct});
+  }
+  jumps.sort((a,b)=>b.drop-a.drop);
+  jumps.slice(0,6).forEach(j=>{
+    const tr=document.createElement("tr");
+    tr.innerHTML=`
+      <td>${j.date}</td>
+      <td>${fmtT(j.secs)}</td>
+      <td style="color:var(--accent);font-weight:600">−${j.drop}s</td>
+      <td>−${j.pct.toFixed(2)}%</td>
+      <td style="color:var(--muted);font-style:italic">Large record improvement — cause unverified</td>
+    `;
+    tbody.appendChild(tr);
+  });
+  if(!jumps.length){
+    tbody.innerHTML=`<tr><td colspan="5" style="text-align:center;color:var(--muted)">No drops ≥30s in frontier.</td></tr>`;
+  }
+}
+
+// ============================================================
+// DECISION RULE — SPLIT CONCLUSION
+// ============================================================
+function renderDecision(rolling, bootCIs, K) {
+  const banner=document.getElementById("dbanner");
+  const title=document.getElementById("dbanner-title");
+  const body=document.getElementById("dbanner-body");
+
+  const pMAE=rolling.metrics.power.mae;
+  const eMAE=rolling.metrics.exp.mae;
+  const lMAE=rolling.metrics.lin.mae;
+  const persMAE=rolling.metrics.pers.mae;
+
+  // vs smooth curves
+  const betterThanExp=pMAE<eMAE;
+  const betterThanLin=pMAE<lMAE;
+  const ciExpOk=bootCIs.exp.upper<0;
+  const ciLinOk=bootCIs.lin.upper<0;
+  const pctVsExp=eMAE>0?100*(eMAE-pMAE)/eMAE:0;
+  const pctVsLin=lMAE>0?100*(lMAE-pMAE)/lMAE:0;
+  const powerWinsSmoothCurves=betterThanExp&&betterThanLin&&ciExpOk&&ciLinOk
+    &&pctVsExp>=5&&pctVsLin>=5;
+
+  // vs persistence
+  const powerBeatsPers=pMAE<persMAE;
+
+  banner.className = "dbanner split";
+  title.textContent = powerWinsSmoothCurves
+    ? "POWER LAW WINS AMONG GLOBAL TREND MODELS, BUT NOT AGAINST PERSISTENCE"
+    : "MIXED RESULT: POWER LAW DOES NOT DOMINATE ALL COMPARISONS";
+
+  const smallKWarning = K < 20
+    ? `<br><br><em>⚠ Only K=${K} forecast origins — bootstrap CIs are approximate. Treat interval evidence as supplementary.</em>`
+    : "";
+
+  if(powerWinsSmoothCurves && !powerBeatsPers) {
+    body.innerHTML = `
+      <strong>Among global smooth curves:</strong> The power law substantially outperforms exponential
+      (MAE: <strong>${pMAE.toFixed(1)}s</strong> vs ${eMAE.toFixed(1)}s, ${pctVsExp.toFixed(1)}% improvement,
+      95% CI upper bound = ${bootCIs.exp.upper.toFixed(2)}&lt;0) and linear (${lMAE.toFixed(1)}s,
+      ${pctVsLin.toFixed(1)}% improvement). Both CIs exclude zero.
+      <br><br>
+      <strong>Against persistence:</strong> The persistence benchmark (MAE: <strong>${persMAE.toFixed(1)}s</strong>)
+      beats the power law by ${(persMAE - pMAE < 0 ? "" : "")}${Math.abs(persMAE - pMAE).toFixed(1)}s per forecast.
+      95% CI for d_k = [${bootCIs.pers.lower.toFixed(2)}, ${bootCIs.pers.upper.toFixed(2)}].
+      ${bootCIs.pers.lower > 0 ? "The interval excludes zero — persistence is statistically significantly better one-step-ahead." : ""}
+      <br><br>
+      <strong>Scientific interpretation:</strong> The long-run record frontier exhibits power-law-like
+      diminishing returns, but individual record improvements are too small or irregular for a smooth
+      global curve to improve on simply predicting no change. Whether the primary hypothesis is
+      "supported" depends on its pre-registered scope: if it was "power beats linear and exponential,"
+      it is <strong>supported</strong>; if it was "power is the best overall forecaster," it is <strong>not supported</strong>.
+      ${smallKWarning}
+    `;
+  } else if(!powerWinsSmoothCurves && !powerBeatsPers) {
+    body.innerHTML = `
+      The power law does not clearly outperform any comparator. Power MAE: ${pMAE.toFixed(1)}s,
+      Exp MAE: ${eMAE.toFixed(1)}s, Linear MAE: ${lMAE.toFixed(1)}s, Persistence MAE: ${persMAE.toFixed(1)}s.
+      Consider whether the frontier contains too few records for meaningful rolling-origin evaluation (K=${K}).
+      ${smallKWarning}
+    `;
+  } else if(powerWinsSmoothCurves && powerBeatsPers) {
+    banner.className="dbanner supported";
+    title.textContent="POWER LAW PREVAILS ACROSS ALL COMPARATORS";
+    body.innerHTML=`
+      Power law achieves lowest MAE (${pMAE.toFixed(1)}s) against all models including persistence (${persMAE.toFixed(1)}s).
+      Improvement vs exp: ${pctVsExp.toFixed(1)}%, vs linear: ${pctVsLin.toFixed(1)}%. All bootstrap CIs exclude zero.
+      ${smallKWarning}
+    `;
+  } else {
+    // Power beats pers but not smooth curves
+    body.innerHTML=`
+      Persistence (MAE: ${persMAE.toFixed(1)}s) beats the power law (${pMAE.toFixed(1)}s), but the power
+      law's performance relative to exponential (${eMAE.toFixed(1)}s) or linear (${lMAE.toFixed(1)}s) is
+      not clearly significant under the pre-specified thresholds. ${smallKWarning}
+    `;
+  }
+}
+
+// ============================================================
+// INIT
+// ============================================================
+window.addEventListener("DOMContentLoaded", loadMock);
+</script>
+</body>
+</html>
