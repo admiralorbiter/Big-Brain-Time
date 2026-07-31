@@ -35,6 +35,12 @@
   --layer-extension-bg: rgba(168, 85, 247, 0.08);
   --layer-extension-border: rgba(168, 85, 247, 0.3);
 
+  /* Requirements Workbench Lab Colors */
+  --lab-clinic: #06b6d4;
+  --lab-decision: #f59e0b;
+  --lab-evidence: #10b981;
+  --lab-bg: rgba(6, 182, 212, 0.05);
+
   /* Layout Constants */
   --sidebar-width: 280px;
   --concept-panel-width: 320px;
