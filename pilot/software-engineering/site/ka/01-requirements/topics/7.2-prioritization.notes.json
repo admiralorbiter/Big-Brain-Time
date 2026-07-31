@@ -1,18 +1,19 @@
 {
   "topicId": "7.2-prioritization",
-  "fieldContext": [
+  "critiques": [
     {
-      "note": "Prioritization must weigh both satisfaction from having a feature and dissatisfaction from lacking it (Kano Model). An e-mail client spam filter produces high satisfaction, but inability to handle attachments produces extreme dissatisfaction.",
-      "source": "SWEBOK v4.0 Section 7.2 / Kano Model"
+      "claim": "Requirements priority can be calculated using a single scalar formula like Priority = Cost / (Value * (1 - Risk)).",
+      "assessment": "contested",
+      "critique": "A single score collapses incompatible dimensions. Legal obligations, critical safety controls, and optional user features should not compete in one weighted formula. Story points are team-local relative estimation constructs, not standardized cross-team measurements.",
+      "nuance": "Scalar formulas are helpful for ranking backlog items within a single feature category or single team backlog.",
+      "sources": ["Kano Model", "Reinertsen (Cost of Delay)"]
     }
   ],
-  "personalNotes": [
-    "Objective priority function: Priority = Cost / (Value * (1 - Risk)). Grouping requirements into broad priority buckets is more effective than debating fine numerical scales."
-  ],
-  "externalLinks": [
+  "extensions": [
     {
-      "label": "Topic 6.3 Scope Matching",
-      "url": "../topics/6.3-scope-matching.html"
+      "title": "Topic 9.1 Layered Requirements Taxonomy",
+      "summary": "Hard risk floors, cost of delay, option value, and Pareto-front prioritization.",
+      "link": "9.1-layered-taxonomy.html"
     }
   ]
 }

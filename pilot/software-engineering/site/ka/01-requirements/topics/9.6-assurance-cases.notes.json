@@ -1,0 +1,18 @@
+{
+  "topicId": "9.6-assurance-cases",
+  "fieldContext": [
+    {
+      "note": "Connects claims, reasoning, assumptions, and empirical evidence into Goal Structuring Notation (GSN) assurance cases (ISO/IEC/IEEE 15026-2:2022).",
+      "source": "ISO/IEC/IEEE 15026-2:2022 / GSN Community Standard v3"
+    }
+  ],
+  "personalNotes": [
+    "Evidence Graph Traceability: Goal -> Need -> Req -> Assumption -> Decision -> Architecture -> Code/Model -> Test -> Deployment -> Runtime Metric -> Incident -> Change."
+  ],
+  "externalLinks": [
+    {
+      "label": "Topic 7.3 Requirements Tracing (Baseline)",
+      "url": "7.3-tracing.html"
+    }
+  ]
+}

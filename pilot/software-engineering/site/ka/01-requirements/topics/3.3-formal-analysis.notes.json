@@ -1,18 +1,19 @@
 {
   "topicId": "3.3-formal-analysis",
-  "fieldContext": [
+  "critiques": [
     {
-      "note": "Formal specifications use mathematical semantics (Z, VDM, SDL) allowing static validation to prove absence of deadlock or race conditions in high-integrity systems.",
-      "source": "SWEBOK v4.0 Section 3.3 / Wing 'A Specifier's Introduction to Formal Methods'"
+      "claim": "Formal analysis enables mathematical proof of correctness and consistency in specifications.",
+      "assessment": "limited",
+      "critique": "The Model-Reality Gap: Proving a model has a property does NOT prove that the model represents stakeholder true needs, that environmental assumptions hold, that the abstraction omitted no critical behavior, or that implementation code matches the model.",
+      "nuance": "Formal methods are unmatched for eliminating specification ambiguities in high-assurance safety-critical cores.",
+      "sources": ["ISO/IEC/IEEE 15026-2:2022", "GSN Community Standard v3"]
     }
   ],
-  "personalNotes": [
-    "Wing's pragmatic compromise: use formal Z underpinnings with human-readable visual surface syntax like UML statecharts to avoid heavy notation burdens on human reviewers."
-  ],
-  "externalLinks": [
+  "extensions": [
     {
-      "label": "KA 11 Software Engineering Models and Methods — Formal Methods",
-      "url": "../../11-models/index.html"
+      "title": "Topic 9.6 Assurance Cases & Evidence Graphs",
+      "summary": "Goal Structuring Notation (GSN) and ISO 15026 assurance cases connecting claims, reasoning, and empirical evidence.",
+      "link": "9.6-assurance-cases.html"
     }
   ]
 }

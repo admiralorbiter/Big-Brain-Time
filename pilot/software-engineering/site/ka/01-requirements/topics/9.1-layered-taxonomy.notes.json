@@ -1,0 +1,18 @@
+{
+  "topicId": "9.1-layered-taxonomy",
+  "fieldContext": [
+    {
+      "note": "Replaces the binary functional/nonfunctional distinction with a 10-layer ontology: 1. Business Goals, 2. Stakeholder Needs, 3. Behavioral Reqs, 4. Quality Attributes, 5. Legal/Technical Constraints, 6. Transition Reqs, 7. Operational Reqs, 8. Safety/Security/Ethics Obligations, 9. Data/AI Reqs, 10. Assumptions & Hypotheses.",
+      "source": "BABOK v3 / Modern Software Engineering Practice"
+    }
+  ],
+  "personalNotes": [
+    "A multi-layer classification prevents cross-cutting concerns like privacy or security from being marginalized under a generic 'non-functional' bucket."
+  ],
+  "externalLinks": [
+    {
+      "label": "Topic 1.2 Requirements Categories (SWEBOK Baseline)",
+      "url": "1.2-categories.html"
+    }
+  ]
+}

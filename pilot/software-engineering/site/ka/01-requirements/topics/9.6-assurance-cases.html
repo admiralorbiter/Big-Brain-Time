@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>9.6 Assurance Cases & Evidence Graphs — SWEBOK v4.0 Explorer</title>
+  <link rel="stylesheet" href="../../../global.css">
+</head>
+<body data-topic-id="9.6-assurance-cases">
+
+  <header class="site-header">
+    <div class="brand">
+      <a href="../../../index.html" style="color: var(--text-main); text-decoration: none;">IEEE SWEBOK v4.0</a>
+      <span class="brand-badge">TOPIC 9.6</span>
+    </div>
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" class="search-input" placeholder="Search concepts..." />
+    </div>
+    <div style="font-size: 0.85rem; color: var(--text-muted);">
+      Software Requirements
+    </div>
+  </header>
+
+  <div class="layout-container">
+    
+    <nav class="sidebar-nav">
+      <div class="nav-section-title">09. Extension Subtopics</div>
+      <ul class="nav-list">
+        <li class="nav-item"><a href="9.1-layered-taxonomy.html" class="nav-link">9.1 Layered Taxonomy</a></li>
+        <li class="nav-item"><a href="9.2-continuous-validation.html" class="nav-link">9.2 Continuous Validation</a></li>
+        <li class="nav-item"><a href="9.3-maturity-uncertainty.html" class="nav-link">9.3 Maturity & Uncertainty</a></li>
+        <li class="nav-item"><a href="9.4-controlled-nl.html" class="nav-link">9.4 Controlled NL & SbE</a></li>
+        <li class="nav-item"><a href="9.5-sociotechnical.html" class="nav-link">9.5 Sociotechnical & Power</a></li>
+        <li class="nav-item"><a href="9.6-assurance-cases.html" class="nav-link active">9.6 Assurance Cases</a></li>
+        <li class="nav-item"><a href="9.7-quality-attr-scenarios.html" class="nav-link">9.7 QA Scenarios</a></li>
+        <li class="nav-item"><a href="9.8-ai-ml-requirements.html" class="nav-link">9.8 AI/ML Requirements</a></li>
+      </ul>
+      <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border-color);">
+        <a href="../sections/09-extensions.html" style="font-size: 0.85rem; color: var(--text-muted);">← Back to Section 09 Overview</a>
+      </div>
+    </nav>
+
+    <main class="main-content">
+      
+      <div class="breadcrumb">
+        <a href="../../../index.html">SWEBOK v4.0</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../index.html">KA 01</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../sections/09-extensions.html">09. Extensions</a>
+        <span class="breadcrumb-separator">/</span>
+        <span style="color: var(--text-main); font-weight: 600;">9.6 Assurance Cases</span>
+      </div>
+
+      <div class="ref-card">
+        <div class="ref-card-header">
+          <span class="ref-card-title">⚡ Quick Reference Card</span>
+          <span style="font-size: 0.75rem; background: rgba(168, 85, 247, 0.15); color: #c084fc; padding: 2px 8px; border-radius: 4px;">GSN & ISO 15026</span>
+        </div>
+        <h2 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 8px;">Assurance Cases & Evidence Graphs</h2>
+        <p style="font-size: 0.95rem; color: var(--text-main); line-height: 1.5; margin-bottom: 12px;">
+          Transforming requirements tracing into a structured argument (Goal Structuring Notation / GSN) connecting <strong>Claims, Reasoning Strategies, Context, Assumptions, and Empirical Evidence</strong>.
+        </p>
+      </div>
+
+      <article>
+        <h1 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 16px;">9.6 Assurance Cases & Evidence Graphs</h1>
+
+        <div class="layer-box extension">
+          <span class="layer-label">The Evidence Graph Traceability Chain</span>
+          <div style="font-family: var(--font-mono); font-size: 0.82rem; background: rgba(15, 23, 42, 0.8); border: 1px solid var(--border-color); padding: 14px; border-radius: 8px; margin: 12px 0;">
+            Goal → Need → Requirement → Assumption → Decision → Architecture → Code/Model → Test → Deployment → Runtime Metric → Incident → Change
+          </div>
+
+          <h4 style="margin: 16px 0 8px 0; color: #c084fc;">Key Metadata per Trace Link</h4>
+          <ul style="margin-left: 20px; font-size: 0.9rem; line-height: 1.6;">
+            <li><strong>Why the link exists:</strong> Explicit justification and architectural rationale.</li>
+            <li><strong>Who approved it:</strong> Named authority or CCB review record.</li>
+            <li><strong>Supporting evidence:</strong> Test log URIs, proof outputs, or telemetry dashboards.</li>
+            <li><strong>Reconsideration triggers:</strong> Operational events or metric shifts that invalidate the assumption.</li>
+          </ul>
+        </div>
+
+        <div id="sidecar-content" style="margin-top: 32px;"></div>
+      </article>
+
+    </main>
+
+    <aside class="concept-panel">
+      <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--text-dim); margin-bottom: 12px;">Concept Connections</div>
+      <ul style="list-style: none; font-size: 0.85rem;">
+        <li style="margin-bottom: 8px;"><a href="7.3-tracing.html">→ 7.3 Baseline Tracing</a></li>
+        <li style="margin-bottom: 8px;"><a href="3.3-formal-analysis.html">→ 3.3 Model Verification</a></li>
+      </ul>
+    </aside>
+
+  </div>
+
+  <script src="../../../global.js"></script>
+</body>
+</html>

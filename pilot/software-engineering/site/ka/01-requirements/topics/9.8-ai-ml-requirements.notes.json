@@ -1,0 +1,18 @@
+{
+  "topicId": "9.8-ai-ml-requirements",
+  "fieldContext": [
+    {
+      "note": "Covers data provenance, train/val/test contamination, subgroup metrics, hallucination/grounding bounds, prompt injection defense, and model cards (NIST AI RMF 1.0 & ISO/IEC 42001:2023).",
+      "source": "NIST AI RMF 1.0 / ISO/IEC 42001:2023 / Amershi et al. (SE4ML)"
+    }
+  ],
+  "personalNotes": [
+    "Traditional requirements assume developers directly specify behavior; ML requirements depend on data distributions, evaluation splits, non-monotonic behavior, and continuous drift."
+  ],
+  "externalLinks": [
+    {
+      "label": "Topic 4.4 Model-Based Specification (Baseline)",
+      "url": "4.4-model-based.html"
+    }
+  ]
+}

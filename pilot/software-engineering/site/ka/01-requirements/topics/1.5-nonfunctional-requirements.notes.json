@@ -1,18 +1,25 @@
 {
   "topicId": "1.5-nonfunctional-requirements",
-  "fieldContext": [
+  "critiques": [
     {
-      "note": "ISO/IEC 25010 Quality Models categorize nonfunctional properties into 8 quality characteristics: Functional Suitability, Performance Efficiency, Compatibility, Usability, Reliability, Security, Maintainability, and Portability.",
-      "source": "ISO/IEC 25010 Standard"
+      "claim": "Nonfunctional requirements are largely constraints on implementation technology and QoS constraints (citing ISO 25010:2011).",
+      "assessment": "outdated",
+      "critique": "The 2011 standard has been superseded by ISO/IEC 25010:2023 (9-characteristic quality model). Furthermore, vague adjectives like 'scalable' or 'fast' must be operationalized into Quality Attribute Scenarios to become architecturally significant.",
+      "nuance": "SWEBOK's intent to separate performance bounds from functionality remains crucial for architectural design.",
+      "sources": ["ISO/IEC 25010:2023", "SEI Quality Attribute Workshop"]
     }
   ],
-  "personalNotes": [
-    "Nonfunctional requirements constrain how functional behavior is automation-delivered."
-  ],
-  "externalLinks": [
+  "extensions": [
     {
-      "label": "Topic 1.7 Quality of Service Constraints",
-      "url": "1.7-qos-constraints.html"
+      "title": "Topic 9.7 Quality Attribute Scenarios",
+      "summary": "Concrete SEI scenario templates (Source, Stimulus, Artifact, Environment, Response, Measure).",
+      "link": "9.7-quality-attr-scenarios.html"
+    }
+  ],
+  "fieldContext": [
+    {
+      "note": "ISO 25010:2023 characteristics: Functional Suitability, Performance Efficiency, Compatibility, Interaction Capability, Reliability, Security, Maintainability, Flexibility, Safety.",
+      "source": "ISO/IEC 25010:2023"
     }
   ]
 }

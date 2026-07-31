@@ -1,0 +1,18 @@
+{
+  "topicId": "9.4-controlled-nl",
+  "fieldContext": [
+    {
+      "note": "Combines EARS (Easy Approach to Requirements Syntax: 5 natural language templates) with Specification by Example (SbE), decision tables, and boundary counterexamples.",
+      "source": "Mavin et al. (EARS) / Adzic (Specification by Example)"
+    }
+  ],
+  "personalNotes": [
+    "EARS 5 syntax patterns: Ubiquitous ('The system shall...'), Event-driven ('WHEN... the system shall...'), State-driven ('WHILE... the system shall...'), Option-driven ('WHERE... the system shall...'), Complex ('WHILE... WHEN... the system shall...')."
+  ],
+  "externalLinks": [
+    {
+      "label": "Topic 4.3 ATDD & BDD (Baseline)",
+      "url": "4.3-atdd-bdd.html"
+    }
+  ]
+}

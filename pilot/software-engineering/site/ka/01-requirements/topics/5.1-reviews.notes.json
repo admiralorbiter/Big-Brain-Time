@@ -1,18 +1,19 @@
 {
   "topicId": "5.1-reviews",
-  "fieldContext": [
+  "critiques": [
     {
-      "note": "Multi-perspective reviews require 3 distinct reviewer viewpoints: 1) Clients/Users (verify true wants/needs), 2) Requirements Specialists (verify clarity & standards compliance), and 3) Software Architects/Engineers (verify sufficiency for design & construction).",
-      "source": "SWEBOK v4.0 Section 5.1"
+      "claim": "Validation occurs primarily through pre-release requirements document reviews, simulations, and prototypes.",
+      "assessment": "limited",
+      "critique": "Modern SaaS/cloud products cannot fully validate requirements before release. Requirements are hypotheses continuously validated in production via feature flags, canary rollouts, telemetry, and SLO monitoring.",
+      "nuance": "Pre-release reviews remain essential for safety-critical, hard-to-update, or regulatory software.",
+      "sources": ["IEEE 2675-2021 DevOps", "Fagerholm et al. (RIGHT Model)"]
     }
   ],
-  "personalNotes": [
-    "Providing checklists, quality criteria, or a 'Definition of Done' to reviewers guides focus away from typos and toward missing exception boundaries."
-  ],
-  "externalLinks": [
+  "extensions": [
     {
-      "label": "KA 12 Software Quality — Reviews and Audits",
-      "url": "../../12-quality/index.html"
+      "title": "Topic 9.2 Continuous Discovery & Runtime Validation",
+      "summary": "Hypothesis-driven delivery, minimum viable experiments, feature flags, SLOs, and drift detection.",
+      "link": "9.2-continuous-validation.html"
     }
   ]
 }

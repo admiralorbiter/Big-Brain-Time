@@ -1,18 +1,19 @@
 {
   "topicId": "7.3-tracing",
-  "fieldContext": [
+  "critiques": [
     {
-      "note": "Requirements tracing documents consistency between work products: Backward tracing links requirements back to system specs & standards; Forward tracing links requirements forward to design elements, code, test cases, and user manuals.",
-      "source": "SWEBOK v4.0 Section 7.3"
+      "claim": "Requirements tracing is an accounting exercise connecting requirements to design, code, and test cases.",
+      "assessment": "extend",
+      "critique": "Traditional matrices record *that* a link exists, but omit *why* it exists, who approved it, what evidence supports it, what assumptions it depends on, and what operational incident should trigger reconsideration.",
+      "nuance": "Forward/backward matrices remain the mandatory baseline compliance standard for regulated engineering.",
+      "sources": ["ISO/IEC/IEEE 15026-2:2022", "GSN Community Standard v3"]
     }
   ],
-  "personalNotes": [
-    "Impact Analysis footprint: Tracing system change -> software requirements -> design elements -> code units -> test cases establishes the exact work volume needed for a change."
-  ],
-  "externalLinks": [
+  "extensions": [
     {
-      "label": "Gotel & Finkelstein — Analysis of the Requirements Traceability Problem",
-      "url": "7.3-tracing.html"
+      "title": "Topic 9.6 Assurance Cases & Evidence Graphs",
+      "summary": "Bi-directional evidence graphs capturing approval rationale, confidence levels, and operational triggers.",
+      "link": "9.6-assurance-cases.html"
     }
   ]
 }

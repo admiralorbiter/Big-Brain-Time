@@ -1,0 +1,18 @@
+{
+  "topicId": "9.2-continuous-validation",
+  "fieldContext": [
+    {
+      "note": "Connects business goals, instrumentation, feature flags, canary rollouts, SLO monitoring, and kill criteria (RIGHT Model & IEEE 2675 DevOps standard).",
+      "source": "Fagerholm et al. / IEEE 2675-2021"
+    }
+  ],
+  "personalNotes": [
+    "Requirements in modern cloud software are hypotheses continuously validated in production rather than completely frozen before coding."
+  ],
+  "externalLinks": [
+    {
+      "label": "Topic 5.1 Requirements Reviews (Baseline)",
+      "url": "5.1-reviews.html"
+    }
+  ]
+}

@@ -1,18 +1,19 @@
 {
   "topicId": "4.3-atdd-bdd",
-  "fieldContext": [
+  "critiques": [
     {
-      "note": "ATDD & BDD eliminate ambiguity by expressing requirements in executable test language: Given <context>, When <stimulus>, Then <outcome>.",
-      "source": "SWEBOK v4.0 Section 4.3"
+      "claim": "Natural language is ambiguous, while test-case language is unambiguous.",
+      "assessment": "contested",
+      "critique": "Test case examples reduce ambiguity but can still omit dimensions, encode wrong business assumptions, describe implementation details instead of outcomes, or fail to define behavior outside selected cases.",
+      "nuance": "Executable BDD scenarios significantly improve shared understanding over raw prose — the claim is over-stated, not wrong in direction.",
+      "sources": ["Mavin et al. (2009) EARS", "Adzic (2011) Specification by Example", "Bano (2015)"]
     }
   ],
-  "personalNotes": [
-    "ATDD/BDD test cases are unambiguous statements of requirement: modifying 'we expect the software to produce Y' to 'the software shall produce Y' converts a test case directly into a formal requirement."
-  ],
-  "externalLinks": [
+  "extensions": [
     {
-      "label": "KA 05 Software Testing — Acceptance Test Derivation",
-      "url": "../../05-testing/index.html"
+      "title": "Topic 9.4 Controlled Natural Language & Specification by Example",
+      "summary": "EARS 5 templates, decision tables, boundary counterexamples, and living documentation patterns.",
+      "link": "9.4-controlled-nl.html"
     }
   ]
 }

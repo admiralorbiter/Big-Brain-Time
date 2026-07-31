@@ -1,0 +1,18 @@
+{
+  "topicId": "9.5-sociotechnical",
+  "fieldContext": [
+    {
+      "note": "Extends stakeholder analysis to map structural power dynamics, ethical value elicitation (IEEE 7000-2021), non-user data subjects, and explicit harm modeling.",
+      "source": "IEEE 7000-2021 / Selbst et al. (2019)"
+    }
+  ],
+  "personalNotes": [
+    "Software boundaries should not be drawn purely around code while ignoring institutions, policies, and affected communities."
+  ],
+  "externalLinks": [
+    {
+      "label": "Topic 2.1 Elicitation Sources (Baseline)",
+      "url": "2.1-sources.html"
+    }
+  ]
+}

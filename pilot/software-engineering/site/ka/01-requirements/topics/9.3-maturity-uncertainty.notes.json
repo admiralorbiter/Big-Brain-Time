@@ -1,0 +1,18 @@
+{
+  "topicId": "9.3-maturity-uncertainty",
+  "fieldContext": [
+    {
+      "note": "Replaces absolute 'good requirement' criteria with a progressive lifecycle: 1. Observed Need, 2. Stated Req, 3. Analyzed Candidate, 4. Accepted Obligation, 5. Operationalized AC, 6. Verified Implementation, 7. Monitored Runtime Obligation.",
+      "source": "ISO/IEC/IEEE 29148:2018 / Modern BA Practice"
+    }
+  ],
+  "personalNotes": [
+    "Requirements maturity allows exploratory candidates to coexist with contractually binding items without pretending they possess the same evidence or precision."
+  ],
+  "externalLinks": [
+    {
+      "label": "Topic 3.1 Basic Requirements Analysis (SWEBOK Baseline)",
+      "url": "3.1-basic-analysis.html"
+    }
+  ]
+}

@@ -1,18 +1,28 @@
 {
   "topicId": "1.2-categories",
+  "critiques": [
+    {
+      "claim": "Requirements are divided into functional requirements, quality-of-service constraints, and technology constraints.",
+      "assessment": "limited",
+      "critique": "The functional/nonfunctional binary is too rigid to serve as a primary taxonomy. Security, accessibility, safety, and privacy contain both required behavior and required qualities. Terminology also conflicts with BABOK (Business vs Stakeholder vs Solution vs Transition requirements).",
+      "nuance": "Useful teaching heuristic for beginners to separate core domain business logic from technical implementation choices.",
+      "sources": ["BABOK v3", "ISO/IEC 25010:2023"]
+    }
+  ],
+  "extensions": [
+    {
+      "title": "Topic 9.1 Layered Requirements Taxonomy",
+      "summary": "Full 10-layer taxonomy replacing the binary functional/nonfunctional distinction.",
+      "link": "9.1-layered-taxonomy.html"
+    }
+  ],
   "fieldContext": [
     {
-      "note": "Modern agile frameworks often merge functional & nonfunctional items into single backlogs (User Stories vs Tech Spikes/NFR tasks), but SWEBOK emphasizes keeping the distinction during analysis to prevent domain confusion.",
-      "source": "Modern Field Context (2025+)"
+      "note": "ISO/IEC 25010:2023 replaces the 2011 edition, defining a 9-characteristic product quality model.",
+      "source": "ISO/IEC 25010:2023"
     }
   ],
   "personalNotes": [
-    "Categorization prevents domain experts from getting bogged down in platform architecture debates when validating business rules."
-  ],
-  "externalLinks": [
-    {
-      "label": "SWEBOK Figure 1.2 Hierarchy",
-      "url": "1.2-categories.html"
-    }
+    "BABOK hierarchy clarifies that project constraints (cost, schedule, staffing) should not be conflated with organizational business goals."
   ]
 }

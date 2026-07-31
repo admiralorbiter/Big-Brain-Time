@@ -21,6 +21,7 @@
   --accent-amber: #f59e0b;
   --accent-purple: #a855f7;
   --accent-emerald: #10b981;
+  --accent-rose: #f43f5e;
   
   /* Layer Card Colors */
   --layer-source-bg: rgba(59, 130, 246, 0.08);
@@ -29,6 +30,10 @@
   --layer-field-border: rgba(245, 158, 11, 0.3);
   --layer-personal-bg: rgba(16, 185, 129, 0.08);
   --layer-personal-border: rgba(16, 185, 129, 0.3);
+  --layer-critique-bg: rgba(244, 63, 94, 0.08);
+  --layer-critique-border: rgba(244, 63, 94, 0.3);
+  --layer-extension-bg: rgba(168, 85, 247, 0.08);
+  --layer-extension-border: rgba(168, 85, 247, 0.3);
 
   /* Layout Constants */
   --sidebar-width: 280px;
@@ -330,6 +335,16 @@ a:hover {
   border: 1px solid var(--layer-personal-border);
 }
 
+.layer-box.critique {
+  background: var(--layer-critique-bg);
+  border: 1px solid var(--layer-critique-border);
+}
+
+.layer-box.extension {
+  background: var(--layer-extension-bg);
+  border: 1px solid var(--layer-extension-border);
+}
+
 .layer-label {
   display: inline-block;
   font-size: 0.75rem;
@@ -354,6 +369,16 @@ a:hover {
 .layer-box.personal .layer-label {
   background: rgba(16, 185, 129, 0.2);
   color: #34d399;
+}
+
+.layer-box.critique .layer-label {
+  background: rgba(244, 63, 94, 0.2);
+  color: #fb7185;
+}
+
+.layer-box.extension .layer-label {
+  background: rgba(168, 85, 247, 0.2);
+  color: #c084fc;
 }
 
 /* Inline Concept Pills */

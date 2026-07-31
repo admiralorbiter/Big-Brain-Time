@@ -1,22 +1,25 @@
 {
   "topicId": "3.1-basic-analysis",
-  "fieldContext": [
+  "critiques": [
     {
-      "note": "Desirable properties of individual requirements: Unambiguous, Testable, Binding, Atomic, Representative of true needs, Stakeholder vocabulary, Acceptable to all.",
-      "source": "SWEBOK v4.0 Section 3.1"
-    },
-    {
-      "note": "Desirable properties of overall requirements collection: Complete, Concise, Internally Consistent, Externally Consistent, Feasible.",
-      "source": "SWEBOK v4.0 Section 3.1"
+      "claim": "Each requirement should be quantified, binding (client will pay for it), atomic, acceptable to all, and complete.",
+      "assessment": "contested",
+      "critique": "'Binding means client will pay' excludes legal, safety, regulatory, and ethical obligations. 'Acceptable to all' is impossible in genuine conflict. 'Complete' is an aspiration bounded by risk, not a provable state.",
+      "nuance": "Desirable properties serve as quality targets, but strict adherence early on rejects valid exploratory needs.",
+      "sources": ["ISO/IEC/IEEE 29148:2018", "Bano (2015)"]
     }
   ],
-  "personalNotes": [
-    "The 5-whys technique prevents implementing premature, suboptimal solution requests instead of solving the true underlying problem."
-  ],
-  "externalLinks": [
+  "extensions": [
     {
-      "label": "Topic 3.2 Economics of QoS Constraints",
-      "url": "3.2-qos-economics.html"
+      "title": "Topic 9.3 Requirement Maturity & Uncertainty",
+      "summary": "Maturity pipeline: Observed Need → Stated Req → Candidate → Accepted Obligation → Operationalized AC → Verified → Monitored Runtime.",
+      "link": "9.3-maturity-uncertainty.html"
+    }
+  ],
+  "fieldContext": [
+    {
+      "note": "ISO/IEC/IEEE 29148:2018 provides standard requirement quality characteristics; a 3rd edition is currently in development.",
+      "source": "ISO/IEC/IEEE 29148"
     }
   ]
 }

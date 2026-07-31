@@ -125,6 +125,36 @@
   function renderSidecar(data, container) {
     let html = '';
 
+    if (data.critiques && data.critiques.length > 0) {
+      html += `<div class="layer-box critique">
+        <span class="layer-label">🌹 Critique & Boundary Warnings</span>`;
+      data.critiques.forEach(item => {
+        html += `<div style="margin-bottom: 10px;">
+          <strong style="font-size: 0.85rem; color: #fb7185; display: block;">Claim: "${item.claim || ''}"</strong>
+          <p style="font-size: 0.88rem; margin: 4px 0;">${item.critique || ''}</p>`;
+        if (item.nuance) {
+          html += `<p style="font-size: 0.82rem; color: var(--text-muted); font-style: italic;">Where valid: ${item.nuance}</p>`;
+        }
+        if (item.sources && item.sources.length > 0) {
+          html += `<span style="font-size: 0.75rem; color: var(--text-dim);">Sources: ${item.sources.join(', ')}</span>`;
+        }
+        html += `</div>`;
+      });
+      html += `</div>`;
+    }
+
+    if (data.extensions && data.extensions.length > 0) {
+      html += `<div class="layer-box extension">
+        <span class="layer-label">🟣 Modern Extensions (2025+)</span>`;
+      data.extensions.forEach(ext => {
+        html += `<div style="margin-bottom: 8px;">
+          <a href="${ext.link}" style="font-size: 0.88rem; font-weight: 600; color: #c084fc; text-decoration: none;">→ ${ext.title}</a>
+          <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 2px;">${ext.summary}</p>
+        </div>`;
+      });
+      html += `</div>`;
+    }
+
     if (data.fieldContext && data.fieldContext.length > 0) {
       html += `<div class="layer-box field-context">
         <span class="layer-label">Field Context (2025+)</span>`;
