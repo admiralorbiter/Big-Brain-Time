@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04. Requirements Specification — KA 01 Software Requirements</title>
+  <link rel="stylesheet" href="../../../global.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="brand">
+      <a href="../../../index.html" style="color: var(--text-main); text-decoration: none;">IEEE SWEBOK v4.0</a>
+      <span class="brand-badge">SECTION 4.0</span>
+    </div>
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" class="search-input" placeholder="Search specification topics..." />
+    </div>
+    <div style="font-size: 0.85rem; color: var(--text-muted);">
+      Software Requirements
+    </div>
+  </header>
+
+  <div class="layout-container">
+    
+    <nav class="sidebar-nav">
+      <div class="nav-section-title">KA 01 Sections</div>
+      <ul class="nav-list">
+        <li class="nav-item"><a href="01-fundamentals.html" class="nav-link">1. Fundamentals</a></li>
+        <li class="nav-item"><a href="02-elicitation.html" class="nav-link">2. Elicitation</a></li>
+        <li class="nav-item"><a href="03-analysis.html" class="nav-link">3. Analysis</a></li>
+        <li class="nav-item"><a href="04-specification.html" class="nav-link active">4. Specification</a></li>
+        <li class="nav-item"><a href="05-validation.html" class="nav-link">5. Validation</a></li>
+        <li class="nav-item"><a href="06-management.html" class="nav-link">6. Management</a></li>
+        <li class="nav-item"><a href="07-practical.html" class="nav-link">7. Practical Considerations</a></li>
+        <li class="nav-item"><a href="08-tools.html" class="nav-link">8. Tools</a></li>
+      </ul>
+      <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border-color);">
+        <a href="../index.html" style="font-size: 0.85rem; color: var(--text-muted);">← Back to KA 01 Index</a>
+      </div>
+    </nav>
+
+    <main class="main-content">
+      
+      <div class="breadcrumb">
+        <a href="../../../index.html">SWEBOK v4.0</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../index.html">KA 01: Software Requirements</a>
+        <span class="breadcrumb-separator">/</span>
+        <span style="color: var(--text-main); font-weight: 600;">04. Specification</span>
+      </div>
+
+      <div class="hero-banner">
+        <span style="font-size: 0.8rem; font-weight: 700; color: var(--accent-purple); text-transform: uppercase;">Section 04 Overview</span>
+        <h1 style="font-size: 2rem; font-weight: 700; margin: 6px 0 12px 0;">Requirements Specification</h1>
+        <p style="font-size: 1rem; color: var(--text-muted);">
+          Record requirements so they can be remembered and communicated across time. Covers natural language formats, acceptance criteria (ATDD/BDD), model-based specifications (UML/SysML), requirement attributes, and incremental vs comprehensive baselines.
+        </p>
+      </div>
+
+      <div class="layer-box source">
+        <span class="layer-label">Canonical SWEBOK Text</span>
+        <p style="font-size: 0.95rem;">
+          Requirements specification records requirements for memory and communication. Downstream maintainers should not be able to discern the lifecycle used in earlier development from the form of requirements alone.
+        </p>
+      </div>
+
+      <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 16px;">Section Subtopics (Level 3 Wiki Nodes)</h2>
+
+      <div class="ka-grid">
+        <a href="../topics/4.1-unstructured-nl.html" class="ka-card" data-topic-link="4.1-unstructured-nl" style="text-decoration: none;">
+          <div>
+            <span style="font-size: 0.75rem; font-weight: 700; color: var(--accent-purple);">TOPIC 4.1</span>
+            <h3 class="ka-title">Unstructured Natural Language</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Common "The system shall..." statements, business rules, and user manual specifications.</p>
+          </div>
+          <div class="ka-meta" style="margin-top: 16px;">
+            <span>Reference + Study</span>
+            <span style="color: var(--accent-purple); font-weight: 600;">Read Topic →</span>
+          </div>
+        </a>
+
+        <a href="../topics/4.2-structured-nl.html" class="ka-card" data-topic-link="4.2-structured-nl" style="text-decoration: none;">
+          <div>
+            <span style="font-size: 0.75rem; font-weight: 700; color: var(--accent-purple);">TOPIC 4.2</span>
+            <h3 class="ka-title">Structured Natural Language</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Actor-Action format, Use Case templates (Trigger, Pre/Post-conditions), and User Stories.</p>
+          </div>
+          <div class="ka-meta" style="margin-top: 16px;">
+            <span>Reference + Study</span>
+            <span style="color: var(--accent-purple); font-weight: 600;">Read Topic →</span>
+          </div>
+        </a>
+
+        <a href="../topics/4.3-atdd-bdd.html" class="ka-card" data-topic-link="4.3-atdd-bdd" style="text-decoration: none;">
+          <div>
+            <span style="font-size: 0.75rem; font-weight: 700; color: var(--accent-purple);">TOPIC 4.3</span>
+            <h3 class="ka-title">Acceptance Criteria (ATDD & BDD)</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Acceptance Test Driven Development (ATDD) & Behavior Driven Development (BDD Given-When-Then).</p>
+          </div>
+          <div class="ka-meta" style="margin-top: 16px;">
+            <span>Reference + Study</span>
+            <span style="color: var(--accent-purple); font-weight: 600;">Read Topic →</span>
+          </div>
+        </a>
+
+        <a href="../topics/4.4-model-based.html" class="ka-card" data-topic-link="4.4-model-based" style="text-decoration: none;">
+          <div>
+            <span style="font-size: 0.75rem; font-weight: 700; color: var(--accent-purple);">TOPIC 4.4</span>
+            <h3 class="ka-title">Model-Based Specification</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Structural models (Classes, ERDs) vs Behavioral models (Use cases, Statecharts, Activity diagrams).</p>
+          </div>
+          <div class="ka-meta" style="margin-top: 16px;">
+            <span>Reference + Study</span>
+            <span style="color: var(--accent-purple); font-weight: 600;">Read Topic →</span>
+          </div>
+        </a>
+
+        <a href="../topics/4.5-attributes.html" class="ka-card" data-topic-link="4.5-attributes" style="text-decoration: none;">
+          <div>
+            <span style="font-size: 0.75rem; font-weight: 700; color: var(--accent-purple);">TOPIC 4.5</span>
+            <h3 class="ka-title">Additional Attributes & Planguage</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Requirement tags, rationale, priority, stability, and Tom Gilb's Planguage attributes.</p>
+          </div>
+          <div class="ka-meta" style="margin-top: 16px;">
+            <span>Reference + Study</span>
+            <span style="color: var(--accent-purple); font-weight: 600;">Read Topic →</span>
+          </div>
+        </a>
+
+        <a href="../topics/4.6-incremental-vs-comprehensive.html" class="ka-card" data-topic-link="4.6-incremental-vs-comprehensive" style="text-decoration: none;">
+          <div>
+            <span style="font-size: 0.75rem; font-weight: 700; color: var(--accent-purple);">TOPIC 4.6</span>
+            <h3 class="ka-title">Incremental vs Comprehensive</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Delta specifications (incremental) vs complete snapshot baselines (comprehensive releases).</p>
+          </div>
+          <div class="ka-meta" style="margin-top: 16px;">
+            <span>Reference + Study</span>
+            <span style="color: var(--accent-purple); font-weight: 600;">Read Topic →</span>
+          </div>
+        </a>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="../../../global.js"></script>
+</body>
+</html>

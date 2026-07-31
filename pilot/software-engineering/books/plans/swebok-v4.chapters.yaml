@@ -1,0 +1,107 @@
+schema: bbt.book-split-plan/v1
+book:
+  id: book.swebok-v4
+  title: "SWEBOK v4.0: Guide to the Software Engineering Body of Knowledge"
+  publisher: "IEEE Computer Society"
+  version: "4.0"
+  source: pilot/software-engineering/books/source/swebok-v4.pdf
+  source_sha256: 0519dc284c3c2a859db75b847a5aae29531cc74c5e5fdba26226a84ffb8958f3
+page_numbering:
+  basis: pdf_index_1based
+  inclusive: true
+chapters:
+- id: 00-front-matter
+  title: Front Matter, TOC & Forewords
+  start_page: 1
+  end_page: 42
+  include: true
+- id: 01-software-requirements
+  title: "CHAPTER 01: Software Requirements"
+  start_page: 43
+  end_page: 66
+  include: true
+- id: 02-software-architecture
+  title: "CHAPTER 02: Software Architecture"
+  start_page: 67
+  end_page: 82
+  include: true
+- id: 03-software-design
+  title: "CHAPTER 03: Software Design"
+  start_page: 83
+  end_page: 98
+  include: true
+- id: 04-software-construction
+  title: "CHAPTER 04: Software Construction"
+  start_page: 99
+  end_page: 116
+  include: true
+- id: 05-software-testing
+  title: "CHAPTER 05: Software Testing"
+  start_page: 117
+  end_page: 150
+  include: true
+- id: 06-software-engineering-operations
+  title: "CHAPTER 06: Software Engineering Operations"
+  start_page: 151
+  end_page: 166
+  include: true
+- id: 07-software-maintenance
+  title: "CHAPTER 07: Software Maintenance"
+  start_page: 167
+  end_page: 184
+  include: true
+- id: 08-software-configuration-management
+  title: "CHAPTER 08: Software Configuration Management"
+  start_page: 185
+  end_page: 201
+  include: true
+- id: 09-software-engineering-management
+  title: "CHAPTER 09: Software Engineering Management"
+  start_page: 202
+  end_page: 220
+  include: true
+- id: 10-software-engineering-process
+  title: "CHAPTER 10: Software Engineering Process"
+  start_page: 221
+  end_page: 232
+  include: true
+- id: 11-software-engineering-models-and-methods
+  title: "CHAPTER 11: Software Engineering Models and Methods"
+  start_page: 233
+  end_page: 245
+  include: true
+- id: 12-software-quality
+  title: "CHAPTER 12: Software Quality"
+  start_page: 246
+  end_page: 263
+  include: true
+- id: 13-software-security
+  title: "CHAPTER 13: Software Security"
+  start_page: 264
+  end_page: 273
+  include: true
+- id: 14-software-engineering-professional-practice
+  title: "CHAPTER 14: Software Engineering Professional Practice"
+  start_page: 274
+  end_page: 287
+  include: true
+- id: 15-software-engineering-economics
+  title: "CHAPTER 15: Software Engineering Economics"
+  start_page: 288
+  end_page: 311
+  include: true
+- id: 16-computing-foundations
+  title: "CHAPTER 16: Computing Foundations"
+  start_page: 312
+  end_page: 344
+  include: true
+- id: 17-mathematical-foundations
+  title: "CHAPTER 17: Mathematical Foundations"
+  start_page: 345
+  end_page: 366
+  include: true
+- id: 18-engineering-foundations
+  title: "CHAPTER 18: Engineering Foundations"
+  start_page: 367
+  end_page: 411
+  include: true

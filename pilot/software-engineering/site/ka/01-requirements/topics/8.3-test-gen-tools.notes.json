@@ -1,0 +1,18 @@
+{
+  "topicId": "8.3-test-gen-tools",
+  "fieldContext": [
+    {
+      "note": "Formally defined languages allow functional test cases to be mechanically derived. For example: converting BDD scenarios or state transition models into positive (valid transitions) and negative (unlisted event-state pairs) test suites.",
+      "source": "SWEBOK v4.0 Section 8.3"
+    }
+  ],
+  "personalNotes": [
+    "Test generation tools mechanically generate test inputs, but determining expected outputs still requires domain expertise or oracle specifications."
+  ],
+  "externalLinks": [
+    {
+      "label": "KA 05 Software Testing — Automated Test Generation",
+      "url": "../../05-testing/index.html"
+    }
+  ]
+}

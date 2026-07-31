@@ -1,0 +1,18 @@
+{
+  "topicId": "6.3-scope-matching",
+  "fieldContext": [
+    {
+      "note": "Scope matching ensures required work does not exceed cost, schedule, or staffing constraints. Quantitative alignment (Functional Size Measurement / Story Points) balances capacity vs scope.",
+      "source": "SWEBOK v4.0 Section 6.3"
+    }
+  ],
+  "personalNotes": [
+    "When scope exceeds capacity, project teams must either reduce scope (remove lowest-priority items) or negotiate increased budget/schedule capacity."
+  ],
+  "externalLinks": [
+    {
+      "label": "Topic 7.5 Measuring Requirements (FSM & Story Points)",
+      "url": "../topics/7.5-measuring.html"
+    }
+  ]
+}

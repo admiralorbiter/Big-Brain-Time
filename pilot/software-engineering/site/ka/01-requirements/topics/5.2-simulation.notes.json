@@ -1,0 +1,18 @@
+{
+  "topicId": "5.5-simulation",
+  "fieldContext": [
+    {
+      "note": "Non-technical stakeholders often struggle to review textual specifications. Executing or simulating formal models (e.g. running statechart scenario simulations) allows stakeholders to validate behavior visually.",
+      "source": "SWEBOK v4.0 Section 5.2"
+    }
+  ],
+  "personalNotes": [
+    "Simulation replaces abstract reading with scenario execution, helping stakeholders confirm whether policies and state transitions match real-world expectations."
+  ],
+  "externalLinks": [
+    {
+      "label": "Topic 4.4 Model-Based Specification",
+      "url": "4.4-model-based.html"
+    }
+  ]
+}

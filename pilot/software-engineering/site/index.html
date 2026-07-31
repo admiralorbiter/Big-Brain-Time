@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SWEBOK v4.0 — Interactive Knowledge Explorer</title>
+  <meta name="description" content="An interactive, wiki-style exploration of IEEE SWEBOK v4.0 for modern software engineering practice.">
+  <link rel="stylesheet" href="global.css">
+</head>
+<body>
+
+  <!-- Top Header Navigation -->
+  <header class="site-header">
+    <div class="brand">
+      <span>IEEE SWEBOK v4.0</span>
+      <span class="brand-badge">INTERACTIVE EXPLORER</span>
+    </div>
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" class="search-input" placeholder="Search concepts, terms, or KAs (e.g. BDD, QoS)..." />
+    </div>
+    <div style="font-size: 0.85rem; color: var(--text-muted);">
+      Big Brain Time Pilot
+    </div>
+  </header>
+
+  <div class="layout-container">
+    
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar-nav">
+      <div class="nav-section-title">Piloted Knowledge Areas</div>
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a href="ka/01-requirements/index.html" class="nav-link active">
+            <span>01. Software Requirements</span>
+            <span style="font-size: 0.7rem; background: rgba(56, 189, 248, 0.2); color: var(--primary-glow); padding: 2px 6px; border-radius: 4px;">ACTIVE</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="nav-section-title">Upcoming Knowledge Areas</div>
+      <ul class="nav-list">
+        <li class="nav-item"><a href="#" class="nav-link" style="opacity: 0.5; pointer-events: none;">02. Software Architecture</a></li>
+        <li class="nav-item"><a href="#" class="nav-link" style="opacity: 0.5; pointer-events: none;">03. Software Design</a></li>
+        <li class="nav-item"><a href="#" class="nav-link" style="opacity: 0.5; pointer-events: none;">04. Software Construction</a></li>
+        <li class="nav-item"><a href="#" class="nav-link" style="opacity: 0.5; pointer-events: none;">05. Software Testing</a></li>
+        <li class="nav-item"><a href="#" class="nav-link" style="opacity: 0.5; pointer-events: none;">06. SE Operations</a></li>
+        <li class="nav-item"><a href="#" class="nav-link" style="opacity: 0.5; pointer-events: none;">07. Software Maintenance</a></li>
+        <li class="nav-item"><a href="#" class="nav-link" style="opacity: 0.5; pointer-events: none;">08. SCM</a></li>
+        <li class="nav-item"><a href="#" class="nav-link" style="opacity: 0.5; pointer-events: none;">09. SE Management</a></li>
+        <li class="nav-item"><a href="#" class="nav-link" style="opacity: 0.5; pointer-events: none;">10. SE Process</a></li>
+        <li class="nav-item"><a href="#" class="nav-link" style="opacity: 0.5; pointer-events: none;">11. Models & Methods</a></li>
+        <li class="nav-item"><a href="#" class="nav-link" style="opacity: 0.5; pointer-events: none;">12. Software Quality</a></li>
+        <li class="nav-item"><a href="#" class="nav-link" style="opacity: 0.5; pointer-events: none;">13. Software Security</a></li>
+        <li class="nav-item"><a href="#" class="nav-link" style="opacity: 0.5; pointer-events: none;">14. Professional Practice</a></li>
+        <li class="nav-item"><a href="#" class="nav-link" style="opacity: 0.5; pointer-events: none;">15. SE Economics</a></li>
+        <li class="nav-item"><a href="#" class="nav-link" style="opacity: 0.5; pointer-events: none;">16. Computing Foundations</a></li>
+        <li class="nav-item"><a href="#" class="nav-link" style="opacity: 0.5; pointer-events: none;">17. Math Foundations</a></li>
+        <li class="nav-item"><a href="#" class="nav-link" style="opacity: 0.5; pointer-events: none;">18. Engineering Foundations</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main Content Surface -->
+    <main class="main-content">
+      
+      <!-- Hero Banner -->
+      <div class="hero-banner">
+        <h1 style="font-size: 2rem; font-weight: 700; margin-bottom: 12px; background: linear-gradient(135deg, #fff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+          Guide to the Software Engineering Body of Knowledge
+        </h1>
+        <p style="font-size: 1.05rem; color: var(--text-muted); max-width: 680px; margin-bottom: 20px;">
+          An interactive, layered wiki transforming IEEE SWEBOK v4.0 into a living study and reference platform. Interlinked concepts, modern field context, and deep-dive topics.
+        </p>
+        <div style="display: flex; gap: 16px;">
+          <a href="ka/01-requirements/index.html" class="glass-card" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: var(--accent-blue); color: #fff; font-weight: 600; text-decoration: none; border: none; margin-bottom: 0;">
+            🚀 Explore KA 01: Software Requirements
+          </a>
+        </div>
+      </div>
+
+      <!-- Overview Stats -->
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 32px;">
+        <div class="glass-card" style="padding: 16px; margin-bottom: 0;">
+          <div style="font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase; font-weight: 700;">Knowledge Areas</div>
+          <div style="font-size: 1.8rem; font-weight: 700; color: var(--primary-glow);">18</div>
+        </div>
+        <div class="glass-card" style="padding: 16px; margin-bottom: 0;">
+          <div style="font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase; font-weight: 700;">Active Pilot</div>
+          <div style="font-size: 1.8rem; font-weight: 700; color: var(--accent-amber);">KA 01</div>
+        </div>
+        <div class="glass-card" style="padding: 16px; margin-bottom: 0;">
+          <div style="font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase; font-weight: 700;">KA 01 Wiki Topics</div>
+          <div style="font-size: 1.8rem; font-weight: 700; color: var(--accent-emerald);">32 Topics</div>
+        </div>
+      </div>
+
+      <!-- Knowledge Area Grid -->
+      <h2 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 16px;">SWEBOK v4.0 Knowledge Areas</h2>
+      
+      <div class="ka-grid">
+        
+        <!-- KA 01 Active -->
+        <a href="ka/01-requirements/index.html" class="ka-card active-ka">
+          <div>
+            <div class="ka-number">KA 01 • ACTIVE PILOT</div>
+            <h3 class="ka-title">Software Requirements</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Elicitation, analysis, specification, validation, and management over the software life cycle.</p>
+          </div>
+          <div class="ka-meta" style="margin-top: 16px;">
+            <span>32 Subtopics</span>
+            <span style="color: var(--primary-glow); font-weight: 600;">Explore KA →</span>
+          </div>
+        </a>
+
+        <!-- KA 02 -->
+        <div class="ka-card" style="opacity: 0.65;">
+          <div>
+            <div class="ka-number">KA 02</div>
+            <h3 class="ka-title">Software Architecture</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Fundamental structures, architectural styles, tactics, and evaluation.</p>
+          </div>
+          <div class="ka-meta" style="margin-top: 16px;">
+            <span>16 Subtopics</span>
+            <span style="color: var(--text-dim);">Queued</span>
+          </div>
+        </div>
+
+        <!-- KA 03 -->
+        <div class="ka-card" style="opacity: 0.65;">
+          <div>
+            <div class="ka-number">KA 03</div>
+            <h3 class="ka-title">Software Design</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Detailed design, design patterns, quality attributes, and interface design.</p>
+          </div>
+          <div class="ka-meta" style="margin-top: 16px;">
+            <span>18 Subtopics</span>
+            <span style="color: var(--text-dim);">Queued</span>
+          </div>
+        </div>
+
+        <!-- KA 04 -->
+        <div class="ka-card" style="opacity: 0.65;">
+          <div>
+            <div class="ka-number">KA 04</div>
+            <h3 class="ka-title">Software Construction</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Code minimization, standards, defensive programming, and integration.</p>
+          </div>
+          <div class="ka-meta" style="margin-top: 16px;">
+            <span>15 Subtopics</span>
+            <span style="color: var(--text-dim);">Queued</span>
+          </div>
+        </div>
+
+        <!-- KA 05 -->
+        <div class="ka-card" style="opacity: 0.65;">
+          <div>
+            <div class="ka-number">KA 05</div>
+            <h3 class="ka-title">Software Testing</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Test levels, techniques, automated test generation, and defect tracking.</p>
+          </div>
+          <div class="ka-meta" style="margin-top: 16px;">
+            <span>22 Subtopics</span>
+            <span style="color: var(--text-dim);">Queued</span>
+          </div>
+        </div>
+
+        <!-- KA 06 -->
+        <div class="ka-card" style="opacity: 0.65;">
+          <div>
+            <div class="ka-number">KA 06</div>
+            <h3 class="ka-title">Software Engineering Operations</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">DevOps, site reliability engineering, deployment, and monitoring.</p>
+          </div>
+          <div class="ka-meta" style="margin-top: 16px;">
+            <span>14 Subtopics</span>
+            <span style="color: var(--text-dim);">Queued</span>
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+
+  <script src="global.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "topicId": "7.6-process-quality",
+  "fieldContext": [
+    {
+      "note": "Aligning the requirements process with CMMI/ISO quality models, benchmarking measures, and integrating security (CIA: Confidentiality, Integrity, Availability) planning into process improvement.",
+      "source": "SWEBOK v4.0 Section 7.6"
+    }
+  ],
+  "personalNotes": [
+    "Requirements process quality directly determines downstream product cost, schedule predictability, and customer satisfaction."
+  ],
+  "externalLinks": [
+    {
+      "label": "KA 10 Software Engineering Process",
+      "url": "../../10-process/index.html"
+    }
+  ]
+}

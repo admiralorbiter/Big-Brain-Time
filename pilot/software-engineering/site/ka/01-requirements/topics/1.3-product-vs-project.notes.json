@@ -1,0 +1,18 @@
+{
+  "topicId": "1.3-product-vs-project",
+  "fieldContext": [
+    {
+      "note": "Product requirements specify expected form, fit, or function. Project requirements constrain the construction process (budget, deadline, staffing, staging environments).",
+      "source": "SWEBOK v4.0 Section 1.3"
+    }
+  ],
+  "personalNotes": [
+    "Mixing project deadlines/costs into product functional specs creates confusion. Keep charter/process constraints in management documents, product features in functional specs."
+  ],
+  "externalLinks": [
+    {
+      "label": "KA 09 Software Engineering Management",
+      "url": "../../09-management/index.html"
+    }
+  ]
+}

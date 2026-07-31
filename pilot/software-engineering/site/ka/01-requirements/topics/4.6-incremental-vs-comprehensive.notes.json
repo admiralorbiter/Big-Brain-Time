@@ -1,0 +1,18 @@
+{
+  "topicId": "4.6-incremental-vs-comprehensive",
+  "fieldContext": [
+    {
+      "note": "Incremental specifications contain only deltas (additions, modifications, deletions). Comprehensive specifications contain all requirements in a single complete baseline snapshot.",
+      "source": "SWEBOK v4.0 Section 4.6"
+    }
+  ],
+  "personalNotes": [
+    "Hybrid release strategy: intermediate sprint releases (x.1, x.2) use incremental delta specifications; major releases (1.0, 2.0) publish comprehensive snapshot baselines so readers never have to trace back through dozens of delta files."
+  ],
+  "externalLinks": [
+    {
+      "label": "KA 08 Software Configuration Management",
+      "url": "../../08-scm/index.html"
+    }
+  ]
+}

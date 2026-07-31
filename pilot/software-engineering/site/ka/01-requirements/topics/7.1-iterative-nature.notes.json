@@ -1,0 +1,18 @@
+{
+  "topicId": "7.1-iterative-nature",
+  "fieldContext": [
+    {
+      "note": "Requirements work requires balancing breadth (discovering the full scope of system capabilities) with depth (detailed specification of individual features). In practice, requirements work cannot be completed in a single pass.",
+      "source": "SWEBOK v4.0 Section 7.1"
+    }
+  ],
+  "personalNotes": [
+    "Simultaneous breadth-wise and depth-wise tension drives iterative requirements discovery. Alternating between expanding breadth and deepening key features prevents premature over-specification of volatile areas."
+  ],
+  "externalLinks": [
+    {
+      "label": "Topic 7.4 Requirements Stability and Volatility",
+      "url": "7.4-volatility.html"
+    }
+  ]
+}

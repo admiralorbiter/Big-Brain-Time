@@ -1,0 +1,18 @@
+{
+  "topicId": "6.1-scrubbing",
+  "fieldContext": [
+    {
+      "note": "Requirements scrubbing finds the smallest set of simply stated requirements that meet stakeholder needs, eliminating items that are out of scope, yield inadequate ROI, or are unessential.",
+      "source": "SWEBOK v4.0 Section 6.1"
+    }
+  ],
+  "personalNotes": [
+    "Plan-based lifecycle: Scrubbing occurs immediately before validation review. Agile lifecycle: Scrubbing happens implicitly during sprint backlog refinement."
+  ],
+  "externalLinks": [
+    {
+      "label": "McConnell — Rapid Development",
+      "url": "6.1-scrubbing.html"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "topicId": "1.5-nonfunctional-requirements",
+  "fieldContext": [
+    {
+      "note": "ISO/IEC 25010 Quality Models categorize nonfunctional properties into 8 quality characteristics: Functional Suitability, Performance Efficiency, Compatibility, Usability, Reliability, Security, Maintainability, and Portability.",
+      "source": "ISO/IEC 25010 Standard"
+    }
+  ],
+  "personalNotes": [
+    "Nonfunctional requirements constrain how functional behavior is automation-delivered."
+  ],
+  "externalLinks": [
+    {
+      "label": "Topic 1.7 Quality of Service Constraints",
+      "url": "1.7-qos-constraints.html"
+    }
+  ]
+}

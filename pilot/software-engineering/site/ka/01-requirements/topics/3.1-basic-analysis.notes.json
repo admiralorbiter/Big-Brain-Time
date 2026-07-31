@@ -1,0 +1,22 @@
+{
+  "topicId": "3.1-basic-analysis",
+  "fieldContext": [
+    {
+      "note": "Desirable properties of individual requirements: Unambiguous, Testable, Binding, Atomic, Representative of true needs, Stakeholder vocabulary, Acceptable to all.",
+      "source": "SWEBOK v4.0 Section 3.1"
+    },
+    {
+      "note": "Desirable properties of overall requirements collection: Complete, Concise, Internally Consistent, Externally Consistent, Feasible.",
+      "source": "SWEBOK v4.0 Section 3.1"
+    }
+  ],
+  "personalNotes": [
+    "The 5-whys technique prevents implementing premature, suboptimal solution requests instead of solving the true underlying problem."
+  ],
+  "externalLinks": [
+    {
+      "label": "Topic 3.2 Economics of QoS Constraints",
+      "url": "3.2-qos-economics.html"
+    }
+  ]
+}

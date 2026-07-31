@@ -1,0 +1,18 @@
+{
+  "topicId": "4.5-attributes",
+  "fieldContext": [
+    {
+      "note": "Requirement attributes support tracing, rationale tracking, stability scoring, priority ranking, and Gilb's Planguage metrics (Scale, Meter, Minimum, Target, Outstanding).",
+      "source": "SWEBOK v4.0 Section 4.5 / Tom Gilb 'Competitive Engineering'"
+    }
+  ],
+  "personalNotes": [
+    "Attaching rationale to requirements is vital for long-term maintenance — maintainers need to know WHY a requirement exists before modifying it."
+  ],
+  "externalLinks": [
+    {
+      "label": "KA 01 Section 07 Requirements Tracing",
+      "url": "../sections/07-practical.html"
+    }
+  ]
+}

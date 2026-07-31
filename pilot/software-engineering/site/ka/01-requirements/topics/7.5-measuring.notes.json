@@ -1,0 +1,18 @@
+{
+  "topicId": "7.5-measuring",
+  "fieldContext": [
+    {
+      "note": "Functional Size Measurement (FSM) evaluates requirement volume (e.g. IFPUG Function Points, NESMA, COSMIC) or Agile Story Points. Volume is used to estimate project effort, cost, and defect density.",
+      "source": "SWEBOK v4.0 Section 7.5"
+    }
+  ],
+  "personalNotes": [
+    "Requirements quality indicators evaluate individual requirement statements and overall specifications against the desirable properties defined in Section 3.1."
+  ],
+  "externalLinks": [
+    {
+      "label": "KA 10 Software Engineering Process — Size Measurement",
+      "url": "../../10-process/index.html"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "topicId": "1.1-definition",
+  "fieldContext": [
+    {
+      "note": "In modern cloud-native & microservice engineering, 'intent' is increasingly specified as code (Infrastructure as Code, OpenAPI specs, policy as code like OPA) rather than static natural language documents.",
+      "source": "Modern Field Context (2025+)"
+    }
+  ],
+  "personalNotes": [
+    "SWEBOK's definition highlights problem-solving properties vs system specifications. Notice how missing intent is framed as the root cause of defects during long-term maintenance."
+  ],
+  "externalLinks": [
+    {
+      "label": "Big Brain Time Design Studio — Cognitive Model",
+      "url": "../../../../05_COGNITIVE_AND_MEMORY_MODEL.md"
+    }
+  ]
+}

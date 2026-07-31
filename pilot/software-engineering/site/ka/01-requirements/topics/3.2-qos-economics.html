@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3.2 Economics of QoS Constraints — SWEBOK v4.0 Explorer</title>
+  <link rel="stylesheet" href="../../../global.css">
+</head>
+<body data-topic-id="3.2-qos-economics">
+
+  <header class="site-header">
+    <div class="brand">
+      <a href="../../../index.html" style="color: var(--text-main); text-decoration: none;">IEEE SWEBOK v4.0</a>
+      <span class="brand-badge">TOPIC 3.2</span>
+    </div>
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" class="search-input" placeholder="Search concepts..." />
+    </div>
+    <div style="font-size: 0.85rem; color: var(--text-muted);">
+      Software Requirements
+    </div>
+  </header>
+
+  <div class="layout-container">
+    
+    <nav class="sidebar-nav">
+      <div class="nav-section-title">03. Analysis Subtopics</div>
+      <ul class="nav-list">
+        <li class="nav-item"><a href="3.1-basic-analysis.html" class="nav-link">3.1 Basic Analysis</a></li>
+        <li class="nav-item"><a href="3.2-qos-economics.html" class="nav-link active">3.2 QoS Economics</a></li>
+        <li class="nav-item"><a href="3.3-formal-analysis.html" class="nav-link">3.3 Formal Analysis</a></li>
+        <li class="nav-item"><a href="3.4-conflict-resolution.html" class="nav-link">3.4 Conflict Resolution</a></li>
+      </ul>
+      <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border-color);">
+        <a href="../sections/03-analysis.html" style="font-size: 0.85rem; color: var(--text-muted);">← Back to Section 03 Overview</a>
+      </div>
+    </nav>
+
+    <main class="main-content">
+      
+      <div class="breadcrumb">
+        <a href="../../../index.html">SWEBOK v4.0</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../index.html">KA 01</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../sections/03-analysis.html">03. Analysis</a>
+        <span class="breadcrumb-separator">/</span>
+        <span style="color: var(--text-main); font-weight: 600;">3.2 QoS Economics</span>
+      </div>
+
+      <div class="ref-card">
+        <div class="ref-card-header">
+          <span class="ref-card-title">⚡ Quick Reference Card</span>
+          <span style="font-size: 0.75rem; background: rgba(56, 189, 248, 0.15); color: var(--primary-glow); padding: 2px 8px; border-radius: 4px;">Economic Curve Analysis</span>
+        </div>
+        <h2 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 8px;">Economics of Quality of Service Constraints</h2>
+        <p style="font-size: 0.95rem; color: var(--text-main); line-height: 1.5; margin-bottom: 12px;">
+          QoS requirements (capacity, latency, reliability) evaluated through economic curves: identifying the <strong>Perfection Point</strong>, <strong>Fail Point</strong>, and <strong>Step-Function Cost Curve</strong> to find the most cost-effective performance target.
+        </p>
+      </div>
+
+      <article>
+        <h1 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 16px;">3.2 Economics of Quality of Service Constraints</h1>
+
+        <div class="layer-box source">
+          <span class="layer-label">Canonical SWEBOK Text</span>
+          <p style="font-size: 0.95rem; margin-bottom: 10px;">
+            QoS constraints are often specified arbitrarily. Economic analysis models stakeholder value vs performance level:
+          </p>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0;">
+            <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid var(--border-color); padding: 14px; border-radius: 8px;">
+              <h4 style="color: var(--primary-glow); font-size: 0.9rem; margin-bottom: 4px;">1. Perfection Point</h4>
+              <p style="font-size: 0.82rem; color: var(--text-muted);">The most favorable level of performance beyond which additional capacity yields zero extra value (e.g. supporting more users than total world population).</p>
+            </div>
+            <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid var(--border-color); padding: 14px; border-radius: 8px;">
+              <h4 style="color: #f87171; font-size: 0.9rem; margin-bottom: 4px;">2. Fail Point</h4>
+              <p style="font-size: 0.82rem; color: var(--text-muted);">The least favorable level of performance below which there is no further reduction in benefit and the system ceases to be viable.</p>
+            </div>
+          </div>
+
+          <h4 style="margin: 16px 0 8px 0; color: var(--accent-amber);">Step-Function Cost Curves</h4>
+          <p style="font-size: 0.9rem;">
+            Delivery cost increases as a step-function: an initial investment level enables performance up to a maximum plateau; further investment triggers step-ups to higher plateaus. The optimal requirement target maximizes <code>Value(Level) - Cost(Level)</code>.
+          </p>
+        </div>
+
+        <div id="sidecar-content" style="margin-top: 32px;"></div>
+      </article>
+
+    </main>
+
+    <aside class="concept-panel">
+      <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--text-dim); margin-bottom: 12px;">Concept Connections</div>
+      <ul style="list-style: none; font-size: 0.85rem;">
+        <li style="margin-bottom: 8px;"><a href="../topics/1.7-qos-constraints.html">→ 1.7 QoS Constraints</a></li>
+        <li style="margin-bottom: 8px;"><a href="3.1-basic-analysis.html">→ 3.1 Basic Analysis</a></li>
+      </ul>
+    </aside>
+
+  </div>
+
+  <script src="../../../global.js"></script>
+</body>
+</html>

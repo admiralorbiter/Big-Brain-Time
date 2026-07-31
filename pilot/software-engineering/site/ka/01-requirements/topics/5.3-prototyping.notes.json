@@ -1,0 +1,18 @@
+{
+  "topicId": "5.3-prototyping",
+  "fieldContext": [
+    {
+      "note": "Prototypes concretely demonstrate developer interpretations of requirements. They uncover wrong assumptions early, especially for dynamic UI behavior.",
+      "source": "SWEBOK v4.0 Section 5.3"
+    }
+  ],
+  "personalNotes": [
+    "Prototype Risk: Cosmetic or UI glitch distractions can cause reviewers to miss flaws in core underlying business logic. Always clarify prototype scope during reviews."
+  ],
+  "externalLinks": [
+    {
+      "label": "Topic 2.2 Elicitation Prototyping",
+      "url": "../topics/2.2-techniques.html"
+    }
+  ]
+}

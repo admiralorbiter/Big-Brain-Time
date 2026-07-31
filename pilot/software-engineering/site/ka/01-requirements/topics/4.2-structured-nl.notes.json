@@ -1,0 +1,18 @@
+{
+  "topicId": "4.2-structured-nl",
+  "fieldContext": [
+    {
+      "note": "Structured natural language imposes templates on natural language to increase precision. Formats include Actor-Action ('When event, actor shall action unless condition'), Use Case templates, and User Stories ('As a role, I want capability so that benefit').",
+      "source": "SWEBOK v4.0 Section 4.2"
+    }
+  ],
+  "personalNotes": [
+    "Use case specifications capture triggering events, parameters, normal course, alternative courses, and exception courses cleanly."
+  ],
+  "externalLinks": [
+    {
+      "label": "Cockburn — Writing Effective Use Cases",
+      "url": "4.2-structured-nl.html"
+    }
+  ]
+}

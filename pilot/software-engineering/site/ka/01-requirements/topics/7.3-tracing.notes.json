@@ -1,0 +1,18 @@
+{
+  "topicId": "7.3-tracing",
+  "fieldContext": [
+    {
+      "note": "Requirements tracing documents consistency between work products: Backward tracing links requirements back to system specs & standards; Forward tracing links requirements forward to design elements, code, test cases, and user manuals.",
+      "source": "SWEBOK v4.0 Section 7.3"
+    }
+  ],
+  "personalNotes": [
+    "Impact Analysis footprint: Tracing system change -> software requirements -> design elements -> code units -> test cases establishes the exact work volume needed for a change."
+  ],
+  "externalLinks": [
+    {
+      "label": "Gotel & Finkelstein — Analysis of the Requirements Traceability Problem",
+      "url": "7.3-tracing.html"
+    }
+  ]
+}

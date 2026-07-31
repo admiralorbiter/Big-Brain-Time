@@ -1,0 +1,18 @@
+{
+  "topicId": "4.4-model-based",
+  "fieldContext": [
+    {
+      "note": "Model-based specifications use visual modeling languages (UML, SysML) in a technology-free manner to specify functional policies and processes.",
+      "source": "SWEBOK v4.0 Section 4.4"
+    }
+  ],
+  "personalNotes": [
+    "Structural models (Class diagrams, ERDs) specify business policies to be enforced. Behavioral models (Use case diagrams, Activity diagrams, Statecharts) specify processes to be executed."
+  ],
+  "externalLinks": [
+    {
+      "label": "KA 11 Software Engineering Models and Methods",
+      "url": "../../11-models/index.html"
+    }
+  ]
+}

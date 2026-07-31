@@ -1,0 +1,18 @@
+{
+  "topicId": "1.2-categories",
+  "fieldContext": [
+    {
+      "note": "Modern agile frameworks often merge functional & nonfunctional items into single backlogs (User Stories vs Tech Spikes/NFR tasks), but SWEBOK emphasizes keeping the distinction during analysis to prevent domain confusion.",
+      "source": "Modern Field Context (2025+)"
+    }
+  ],
+  "personalNotes": [
+    "Categorization prevents domain experts from getting bogged down in platform architecture debates when validating business rules."
+  ],
+  "externalLinks": [
+    {
+      "label": "SWEBOK Figure 1.2 Hierarchy",
+      "url": "1.2-categories.html"
+    }
+  ]
+}

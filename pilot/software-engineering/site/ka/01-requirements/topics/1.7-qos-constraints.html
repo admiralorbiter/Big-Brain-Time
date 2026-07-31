@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1.7 Quality of Service Constraints — SWEBOK v4.0 Explorer</title>
+  <link rel="stylesheet" href="../../../global.css">
+</head>
+<body data-topic-id="1.7-qos-constraints">
+
+  <header class="site-header">
+    <div class="brand">
+      <a href="../../../index.html" style="color: var(--text-main); text-decoration: none;">IEEE SWEBOK v4.0</a>
+      <span class="brand-badge">TOPIC 1.7</span>
+    </div>
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" class="search-input" placeholder="Search concepts..." />
+    </div>
+    <div style="font-size: 0.85rem; color: var(--text-muted);">
+      Software Requirements
+    </div>
+  </header>
+
+  <div class="layout-container">
+    
+    <nav class="sidebar-nav">
+      <div class="nav-section-title">01. Fundamentals</div>
+      <ul class="nav-list">
+        <li class="nav-item"><a href="1.1-definition.html" class="nav-link">1.1 Definition of Requirement</a></li>
+        <li class="nav-item"><a href="1.2-categories.html" class="nav-link">1.2 Categories Breakdown</a></li>
+        <li class="nav-item"><a href="1.3-product-vs-project.html" class="nav-link">1.3 Product vs Project</a></li>
+        <li class="nav-item"><a href="1.4-functional-requirements.html" class="nav-link">1.4 Functional Requirements</a></li>
+        <li class="nav-item"><a href="1.5-nonfunctional-requirements.html" class="nav-link">1.5 Nonfunctional Requirements</a></li>
+        <li class="nav-item"><a href="1.6-technology-constraints.html" class="nav-link">1.6 Technology Constraints</a></li>
+        <li class="nav-item"><a href="1.7-qos-constraints.html" class="nav-link active">1.7 Quality of Service Constraints</a></li>
+        <li class="nav-item"><a href="1.8-why-categorize.html" class="nav-link">1.8 Why Categorize This Way?</a></li>
+        <li class="nav-item"><a href="1.9-system-vs-software.html" class="nav-link">1.9 System vs Software Reqs</a></li>
+        <li class="nav-item"><a href="1.10-derived-requirements.html" class="nav-link">1.10 Derived Requirements</a></li>
+        <li class="nav-item"><a href="1.11-activities-overview.html" class="nav-link">1.11 Activities Overview</a></li>
+      </ul>
+      <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border-color);">
+        <a href="../sections/01-fundamentals.html" style="font-size: 0.85rem; color: var(--text-muted);">← Back to Section 01</a>
+      </div>
+    </nav>
+
+    <main class="main-content">
+      
+      <div class="breadcrumb">
+        <a href="../../../index.html">SWEBOK v4.0</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../index.html">KA 01</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../sections/01-fundamentals.html">01. Fundamentals</a>
+        <span class="breadcrumb-separator">/</span>
+        <span style="color: var(--text-main); font-weight: 600;">1.7 Quality of Service Constraints</span>
+      </div>
+
+      <div class="ref-card">
+        <div class="ref-card-header">
+          <span class="ref-card-title">⚡ Quick Reference Card</span>
+          <span style="font-size: 0.75rem; background: rgba(56, 189, 248, 0.15); color: var(--primary-glow); padding: 2px 8px; border-radius: 4px;">ISO 25010</span>
+        </div>
+        <h2 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 8px;">Quality of Service (QoS) Constraints</h2>
+        <p style="font-size: 0.95rem; color: var(--text-main); line-height: 1.5; margin-bottom: 12px;">
+          Requirements that do not mandate specific named technologies, but instead specify acceptable <strong>performance levels</strong> (response time, throughput, accuracy, reliability, availability, security, scalability).
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <span class="concept-pill" data-term="quality of service constraint">QoS Constraints</span>
+          <span class="concept-pill" data-term="nonfunctional requirement">Nonfunctional Reqs</span>
+        </div>
+      </div>
+
+      <article>
+        <h1 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 16px;">1.7 Quality of Service Constraints</h1>
+
+        <div class="layer-box source">
+          <span class="layer-label">Canonical SWEBOK Text</span>
+          <p style="font-size: 0.95rem; margin-bottom: 10px;">
+            QoS constraints specify acceptable performance levels an automated solution must exhibit:
+          </p>
+          <ul style="margin-left: 20px; font-size: 0.9rem; margin-bottom: 10px;">
+            <li>Response time, throughput, accuracy, reliability, availability, scalability.</li>
+            <li>Reference Standard: ISO/IEC 25010 (SQuaRE - System and software quality models).</li>
+            <li>Safety and Security are particularly critical QoS domains where requirements are frequently overlooked.</li>
+          </ul>
+        </div>
+
+        <h3 style="font-size: 1.2rem; font-weight: 600; margin: 28px 0 12px 0;">Mutual Support vs Negative Conflict</h3>
+        <p style="margin-bottom: 16px; color: var(--text-muted);">
+          QoS constraints interact with each other in complex ways:
+        </p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px;">
+          <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); padding: 16px; border-radius: 10px;">
+            <h4 style="color: #34d399; font-size: 0.95rem; font-weight: 700; margin-bottom: 6px;">Mutually Supporting</h4>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Improving modifiability often improves reliability, as both stem from clean, decoupled code structure.</p>
+          </div>
+          <div style="background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.25); padding: 16px; border-radius: 10px;">
+            <h4 style="color: #f87171; font-size: 0.95rem; font-weight: 700; margin-bottom: 6px;">Conflicting / Trade-off</h4>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Extreme execution speed optimizations often reduce code modifiability by introducing complex micro-optimizations.</p>
+          </div>
+        </div>
+
+        <div id="sidecar-content" style="margin-top: 32px;"></div>
+      </article>
+
+    </main>
+
+    <aside class="concept-panel">
+      <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--text-dim); margin-bottom: 12px;">Concept Connections</div>
+      <ul style="list-style: none; font-size: 0.85rem;">
+        <li style="margin-bottom: 8px;"><a href="../sections/03-analysis.html">→ Section 3.2 QoS Economics</a></li>
+        <li style="margin-bottom: 8px;"><a href="1.5-nonfunctional-requirements.html">→ 1.5 Nonfunctional Reqs</a></li>
+      </ul>
+    </aside>
+
+  </div>
+
+  <script src="../../../global.js"></script>
+</body>
+</html>

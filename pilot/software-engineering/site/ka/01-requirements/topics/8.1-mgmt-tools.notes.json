@@ -1,0 +1,18 @@
+{
+  "topicId": "8.1-mgmt-tools",
+  "fieldContext": [
+    {
+      "note": "Requirements management tools store attributes, enforce tracing matrices, generate document outputs, and track change control. Ad-hoc spreadsheet approaches rapidly break down at scale.",
+      "source": "SWEBOK v4.0 Section 8.1"
+    }
+  ],
+  "personalNotes": [
+    "Modern tool integration: Linking issue trackers (Jira, GitHub Issues) with OpenAPI specifications and CI/CD policy engines keeps requirement attributes versioned alongside code."
+  ],
+  "externalLinks": [
+    {
+      "label": "Topic 7.3 Requirements Tracing",
+      "url": "../topics/7.3-tracing.html"
+    }
+  ]
+}

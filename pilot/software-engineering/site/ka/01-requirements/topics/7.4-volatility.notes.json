@@ -1,0 +1,18 @@
+{
+  "topicId": "7.4-volatility",
+  "fieldContext": [
+    {
+      "note": "Some requirements are highly stable (fundamental domain rules like interest calculation in banking); others are volatile (changing tax legislation, volatile UI preferences). Identifying volatile requirements enables change-tolerant architectures.",
+      "source": "SWEBOK v4.0 Section 7.4"
+    }
+  ],
+  "personalNotes": [
+    "Design for Change: Encapsulate volatile requirements behind interface boundaries or strategy patterns so legislative/policy changes don't ripple into core business logic."
+  ],
+  "externalLinks": [
+    {
+      "label": "KA 02 Software Architecture — Modularity and Encapsulation",
+      "url": "../../02-architecture/index.html"
+    }
+  ]
+}

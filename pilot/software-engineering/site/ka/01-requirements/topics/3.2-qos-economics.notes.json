@@ -1,0 +1,18 @@
+{
+  "topicId": "3.2-qos-economics",
+  "fieldContext": [
+    {
+      "note": "Perfection Point = Most favorable level of performance, beyond which additional capacity yields zero extra value. Fail Point = Least favorable level, below which system is non-viable.",
+      "source": "SWEBOK v4.0 Section 3.2 / Tockey 'Return on Software'"
+    }
+  ],
+  "personalNotes": [
+    "QoS cost to deliver is a step-function (investment increases capacity up to discrete performance plateaus). Maximum economic return occurs where value minus delivery cost is maximized."
+  ],
+  "externalLinks": [
+    {
+      "label": "KA 15 Software Engineering Economics",
+      "url": "../../15-economics/index.html"
+    }
+  ]
+}

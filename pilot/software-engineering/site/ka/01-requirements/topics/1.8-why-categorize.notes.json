@@ -1,0 +1,18 @@
+{
+  "topicId": "1.8-why-categorize",
+  "fieldContext": [
+    {
+      "note": "Divide and conquer: business stakeholders are experts in functional policies; engineers are experts in technology constraints. Categorizing keeps validation clear.",
+      "source": "SWEBOK v4.0 Section 1.8"
+    }
+  ],
+  "personalNotes": [
+    "Domain decomposition (Recursive Design) shows how a nonfunctional requirement in a parent domain (e.g., Security/Auditing) induces functional requirements in a child domain."
+  ],
+  "externalLinks": [
+    {
+      "label": "McMenamin & Palmer — Essential Systems Analysis",
+      "url": "1.4-functional-requirements.html"
+    }
+  ]
+}

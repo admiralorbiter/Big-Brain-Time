@@ -1,0 +1,18 @@
+{
+  "topicId": "5.1-reviews",
+  "fieldContext": [
+    {
+      "note": "Multi-perspective reviews require 3 distinct reviewer viewpoints: 1) Clients/Users (verify true wants/needs), 2) Requirements Specialists (verify clarity & standards compliance), and 3) Software Architects/Engineers (verify sufficiency for design & construction).",
+      "source": "SWEBOK v4.0 Section 5.1"
+    }
+  ],
+  "personalNotes": [
+    "Providing checklists, quality criteria, or a 'Definition of Done' to reviewers guides focus away from typos and toward missing exception boundaries."
+  ],
+  "externalLinks": [
+    {
+      "label": "KA 12 Software Quality — Reviews and Audits",
+      "url": "../../12-quality/index.html"
+    }
+  ]
+}

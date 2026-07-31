@@ -1,0 +1,18 @@
+{
+  "topicId": "8.2-modeling-tools",
+  "fieldContext": [
+    {
+      "note": "Modeling tools support visual model creation (UML/SysML), static analysis (syntax, completeness, consistency), formal verification (Theorem Provers & Model Checkers), and model simulation.",
+      "source": "SWEBOK v4.0 Section 8.2"
+    }
+  ],
+  "personalNotes": [
+    "Model checkers systematically evaluate finite state spaces to find deadlock or invariant violations. Theorem provers assist human engineers in proving general mathematical properties."
+  ],
+  "externalLinks": [
+    {
+      "label": "Topic 3.3 Formal Analysis",
+      "url": "../topics/3.3-formal-analysis.html"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "topicId": "2.2-techniques",
+  "fieldContext": [
+    {
+      "note": "Elicitation is not passive. Tacit knowledge (unstated assumptions users cannot easily articulate) requires active techniques like observation, apprenticing, and protocol analysis.",
+      "source": "SWEBOK v4.0 Section 2.2"
+    }
+  ],
+  "personalNotes": [
+    "Modern agile teams heavily use User Story Mapping, Design Thinking (Empathize, Define, Ideate, Prototype, Test), and UI Prototypes alongside traditional interviews."
+  ],
+  "externalLinks": [
+    {
+      "label": "Topic 4.3 Acceptance Criteria Specification (ATDD/BDD)",
+      "url": "../topics/4.3-atdd.html"
+    }
+  ]
+}

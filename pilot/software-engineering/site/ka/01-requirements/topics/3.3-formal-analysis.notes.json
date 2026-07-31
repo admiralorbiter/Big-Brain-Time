@@ -1,0 +1,18 @@
+{
+  "topicId": "3.3-formal-analysis",
+  "fieldContext": [
+    {
+      "note": "Formal specifications use mathematical semantics (Z, VDM, SDL) allowing static validation to prove absence of deadlock or race conditions in high-integrity systems.",
+      "source": "SWEBOK v4.0 Section 3.3 / Wing 'A Specifier's Introduction to Formal Methods'"
+    }
+  ],
+  "personalNotes": [
+    "Wing's pragmatic compromise: use formal Z underpinnings with human-readable visual surface syntax like UML statecharts to avoid heavy notation burdens on human reviewers."
+  ],
+  "externalLinks": [
+    {
+      "label": "KA 11 Software Engineering Models and Methods — Formal Methods",
+      "url": "../../11-models/index.html"
+    }
+  ]
+}

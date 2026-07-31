@@ -1,0 +1,18 @@
+{
+  "topicId": "1.7-qos-constraints",
+  "fieldContext": [
+    {
+      "note": "QoS constraints specify performance targets without mandating technology names (e.g., 'API response latency < 50ms at 99.9th percentile' is QoS; 'Use Redis cache' is a Technology Constraint).",
+      "source": "Modern Field Context"
+    }
+  ],
+  "personalNotes": [
+    "Section 3.2 in SWEBOK connects QoS to economic curves (Value vs Cost to deliver, Fail point vs Perfection point). Modifiability vs speed trade-offs are classic QoS tensions."
+  ],
+  "externalLinks": [
+    {
+      "label": "SWEBOK Section 3.2 Economics of QoS",
+      "url": "../sections/03-analysis.html"
+    }
+  ]
+}

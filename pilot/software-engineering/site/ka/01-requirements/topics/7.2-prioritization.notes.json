@@ -1,0 +1,18 @@
+{
+  "topicId": "7.2-prioritization",
+  "fieldContext": [
+    {
+      "note": "Prioritization must weigh both satisfaction from having a feature and dissatisfaction from lacking it (Kano Model). An e-mail client spam filter produces high satisfaction, but inability to handle attachments produces extreme dissatisfaction.",
+      "source": "SWEBOK v4.0 Section 7.2 / Kano Model"
+    }
+  ],
+  "personalNotes": [
+    "Objective priority function: Priority = Cost / (Value * (1 - Risk)). Grouping requirements into broad priority buckets is more effective than debating fine numerical scales."
+  ],
+  "externalLinks": [
+    {
+      "label": "Topic 6.3 Scope Matching",
+      "url": "../topics/6.3-scope-matching.html"
+    }
+  ]
+}

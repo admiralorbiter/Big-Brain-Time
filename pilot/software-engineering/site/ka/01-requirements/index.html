@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KA 01: Software Requirements — SWEBOK v4.0 Explorer</title>
+  <link rel="stylesheet" href="../../global.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="brand">
+      <a href="../../index.html" style="color: var(--text-main); text-decoration: none;">IEEE SWEBOK v4.0</a>
+      <span class="brand-badge">KA 01</span>
+    </div>
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" class="search-input" placeholder="Search within Software Requirements..." />
+    </div>
+    <div style="font-size: 0.85rem; color: var(--text-muted);">
+      Big Brain Time Pilot
+    </div>
+  </header>
+
+  <div class="layout-container">
+    
+    <nav class="sidebar-nav">
+      <div class="nav-section-title">KA 01 Sections</div>
+      <ul class="nav-list">
+        <li class="nav-item"><a href="sections/01-fundamentals.html" class="nav-link">1. Fundamentals</a></li>
+        <li class="nav-item"><a href="sections/02-elicitation.html" class="nav-link">2. Elicitation</a></li>
+        <li class="nav-item"><a href="sections/03-analysis.html" class="nav-link">3. Analysis</a></li>
+        <li class="nav-item"><a href="sections/04-specification.html" class="nav-link">4. Specification</a></li>
+        <li class="nav-item"><a href="sections/05-validation.html" class="nav-link">5. Validation</a></li>
+        <li class="nav-item"><a href="sections/06-management.html" class="nav-link">6. Management</a></li>
+        <li class="nav-item"><a href="sections/07-practical.html" class="nav-link">7. Practical Considerations</a></li>
+        <li class="nav-item"><a href="sections/08-tools.html" class="nav-link">8. Tools</a></li>
+      </ul>
+      <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border-color);">
+        <a href="../../index.html" style="font-size: 0.85rem; color: var(--text-muted);">← Back to All KAs</a>
+      </div>
+    </nav>
+
+    <main class="main-content">
+      
+      <!-- Breadcrumbs -->
+      <div class="breadcrumb">
+        <a href="../../index.html">SWEBOK v4.0</a>
+        <span class="breadcrumb-separator">/</span>
+        <span style="color: var(--text-main); font-weight: 600;">KA 01: Software Requirements</span>
+      </div>
+
+      <!-- Hero Header -->
+      <div class="hero-banner">
+        <div style="font-size: 0.8rem; font-weight: 700; color: var(--primary-glow); text-transform: uppercase; margin-bottom: 6px;">Knowledge Area 01</div>
+        <h1 style="font-size: 2.2rem; font-weight: 700; margin-bottom: 12px;">Software Requirements</h1>
+        <p style="font-size: 1.05rem; color: var(--text-muted); line-height: 1.6;">
+          Software requirements express the needs and constraints on a software product or project that contribute to solving a real-world problem. This Knowledge Area covers requirements elicitation, analysis, specification, validation, and ongoing management throughout the product lifecycle.
+        </p>
+      </div>
+
+      <!-- 🎧 Multimedia Overview Card (NotebookLM Audio & Video Embed) -->
+      <div class="glass-card" style="border: 1px solid rgba(168, 85, 247, 0.3); background: rgba(168, 85, 247, 0.05); margin-bottom: 28px;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 1.2rem;">🎧</span>
+            <h3 style="font-size: 1.1rem; font-weight: 700; color: #c084fc;">NotebookLM Audio & Video Overview</h3>
+          </div>
+          <span style="font-size: 0.75rem; background: rgba(168, 85, 247, 0.2); color: #c084fc; padding: 2px 8px; border-radius: 4px; font-weight: 600;">AI GENERATED MEDIA</span>
+        </div>
+
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 16px;">
+          Listen to the AI Deep Dive discussion or watch the video overview covering Chapter 01 concepts before diving into individual sections:
+        </p>
+
+        <!-- Audio Player Block -->
+        <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid var(--border-color); padding: 16px; border-radius: 10px; margin-bottom: 16px;">
+          <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 8px; color: var(--text-main);">
+            🎙️ Chapter 01 Podcast / Audio Overview
+          </div>
+          <audio controls style="width: 100%; outline: none; border-radius: 6px;">
+            <source src="../../assets/media/ch01-explainer.m4a" type="audio/mp4">
+            <source src="../../assets/media/ch01-overview.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+          <span style="font-size: 0.75rem; color: var(--text-dim); display: block; margin-top: 6px;">
+            File: <code>site/assets/media/ch01-explainer.m4a</code> (37.8 MB)
+          </span>
+        </div>
+
+        <!-- Video Player Block -->
+        <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid var(--border-color); padding: 16px; border-radius: 10px;">
+          <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 8px; color: var(--text-main);">
+            🎬 Chapter 01 Video Explainer
+          </div>
+          <video controls style="width: 100%; max-height: 380px; border-radius: 8px; background: #000;">
+            <source src="../../assets/media/ch01-overview.mp4" type="video/mp4">
+            Your browser does not support the video element.
+          </video>
+          <span style="font-size: 0.75rem; color: var(--text-dim); display: block; margin-top: 6px;">
+            File: <code>site/assets/media/ch01-overview.mp4</code> (35.6 MB)
+          </span>
+        </div>
+      </div>
+
+      <!-- Canonical Core Tension Box -->
+      <div class="layer-box source">
+        <span class="layer-label">Canonical Core Perspective</span>
+        <p style="font-size: 0.95rem; margin-bottom: 8px;">
+          "Determining requirements correctly is high-stakes work. If not detected and repaired early, missing, misinterpreted, and incorrect requirements induce exponentially cascading rework to correct them."
+        </p>
+        <span style="font-size: 0.8rem; color: var(--text-dim);">— SWEBOK v4.0, Chapter 01, Page 43</span>
+      </div>
+
+      <!-- Cross-KA Relationships Panel -->
+      <div class="glass-card">
+        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 14px;">Cross-KA Relationship Map</h3>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 16px;">
+          Software Requirements acts as a primary input and constraint for multiple downstream disciplines in SWEBOK:
+        </p>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;">
+          <div style="background: rgba(15, 23, 42, 0.6); padding: 12px; border-radius: 8px; border: 1px solid var(--border-color);">
+            <span style="font-size: 0.8rem; font-weight: 700; color: var(--primary-glow);">KA 02: Architecture</span>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">Requirements constrain architectural tactics; QoS constraints drive quality attribute scenarios.</p>
+          </div>
+          <div style="background: rgba(15, 23, 42, 0.6); padding: 12px; border-radius: 8px; border: 1px solid var(--border-color);">
+            <span style="font-size: 0.8rem; font-weight: 700; color: var(--accent-amber);">KA 05: Testing</span>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">Acceptance criteria (ATDD/BDD) directly derive functional test cases before code construction.</p>
+          </div>
+          <div style="background: rgba(15, 23, 42, 0.6); padding: 12px; border-radius: 8px; border: 1px solid var(--border-color);">
+            <span style="font-size: 0.8rem; font-weight: 700; color: var(--accent-emerald);">KA 07: Maintenance</span>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">Requirements capture intent for maintainers who were not the original authors of the codebase.</p>
+          </div>
+          <div style="background: rgba(15, 23, 42, 0.6); padding: 12px; border-radius: 8px; border: 1px solid var(--border-color);">
+            <span style="font-size: 0.8rem; font-weight: 700; color: var(--accent-purple);">KA 10: Process</span>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">Life cycle choice (Waterfall, Iterative, Agile) dictates <em>when</em> requirements work is performed.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8 Section Breakdown Cards -->
+      <h2 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 16px;">Breakdown of Topics (8 Sections)</h2>
+      
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        
+        <a href="sections/01-fundamentals.html" class="glass-card" style="text-decoration: none; margin-bottom: 0;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <span style="font-size: 0.75rem; font-weight: 700; color: var(--primary-glow); text-transform: uppercase;">Section 01</span>
+              <h3 style="font-size: 1.2rem; font-weight: 600; color: var(--text-main); margin: 4px 0 8px 0;">Software Requirements Fundamentals</h3>
+              <p style="font-size: 0.88rem; color: var(--text-muted);">Formal definitions, functional vs nonfunctional requirements, technology constraints, QoS constraints, derived requirements, system vs software.</p>
+            </div>
+            <span style="font-size: 0.85rem; font-weight: 600; color: var(--primary-glow); white-space: nowrap; margin-left: 16px;">11 Topics →</span>
+          </div>
+        </a>
+
+        <a href="sections/02-elicitation.html" class="glass-card" style="text-decoration: none; margin-bottom: 0;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <span style="font-size: 0.75rem; font-weight: 700; color: var(--accent-amber); text-transform: uppercase;">Section 02</span>
+              <h3 style="font-size: 1.2rem; font-weight: 600; color: var(--text-main); margin: 4px 0 8px 0;">Requirements Elicitation</h3>
+              <p style="font-size: 0.88rem; color: var(--text-muted);">Stakeholder analysis, non-person sources, interviews, JAD/JRP workshops, story mapping, and tacit knowledge discovery.</p>
+            </div>
+            <span style="font-size: 0.85rem; font-weight: 600; color: var(--accent-amber); white-space: nowrap; margin-left: 16px;">2 Topics →</span>
+          </div>
+        </a>
+
+        <a href="sections/03-analysis.html" class="glass-card" style="text-decoration: none; margin-bottom: 0;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <span style="font-size: 0.75rem; font-weight: 700; color: var(--accent-emerald); text-transform: uppercase;">Section 03</span>
+              <h3 style="font-size: 1.2rem; font-weight: 600; color: var(--text-main); margin: 4px 0 8px 0;">Requirements Analysis</h3>
+              <p style="font-size: 0.88rem; color: var(--text-muted);">Desirable properties (5-whys), economics of QoS constraints (fail vs perfection points), formal analysis, and conflict resolution.</p>
+            </div>
+            <span style="font-size: 0.85rem; font-weight: 600; color: var(--accent-emerald); white-space: nowrap; margin-left: 16px;">4 Topics →</span>
+          </div>
+        </a>
+
+        <a href="sections/04-specification.html" class="glass-card" style="text-decoration: none; margin-bottom: 0;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <span style="font-size: 0.75rem; font-weight: 700; color: var(--accent-purple); text-transform: uppercase;">Section 04</span>
+              <h3 style="font-size: 1.2rem; font-weight: 600; color: var(--text-main); margin: 4px 0 8px 0;">Requirements Specification</h3>
+              <p style="font-size: 0.88rem; color: var(--text-muted);">Unstructured vs structured natural language, ATDD, BDD Given-When-Then, model-based specifications (UML/SysML), and requirement attributes.</p>
+            </div>
+            <span style="font-size: 0.85rem; font-weight: 600; color: var(--accent-purple); white-space: nowrap; margin-left: 16px;">8 Topics →</span>
+          </div>
+        </a>
+
+        <a href="sections/05-validation.html" class="glass-card" style="text-decoration: none; margin-bottom: 0;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <span style="font-size: 0.75rem; font-weight: 700; color: var(--primary-glow); text-transform: uppercase;">Section 05</span>
+              <h3 style="font-size: 1.2rem; font-weight: 600; color: var(--text-main); margin: 4px 0 8px 0;">Requirements Validation</h3>
+              <p style="font-size: 0.88rem; color: var(--text-muted);">Multi-perspective reviews, simulation and execution of formal models, exploratory prototyping risks and benefits.</p>
+            </div>
+            <span style="font-size: 0.85rem; font-weight: 600; color: var(--primary-glow); white-space: nowrap; margin-left: 16px;">3 Topics →</span>
+          </div>
+        </a>
+
+        <a href="sections/06-management.html" class="glass-card" style="text-decoration: none; margin-bottom: 0;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <span style="font-size: 0.75rem; font-weight: 700; color: var(--accent-amber); text-transform: uppercase;">Section 06</span>
+              <h3 style="font-size: 1.2rem; font-weight: 600; color: var(--text-main); margin: 4px 0 8px 0;">Requirements Management Activities</h3>
+              <p style="font-size: 0.88rem; color: var(--text-muted);">Requirements scrubbing, change control processes in plan-based vs agile, and quantitative scope matching.</p>
+            </div>
+            <span style="font-size: 0.85rem; font-weight: 600; color: var(--accent-amber); white-space: nowrap; margin-left: 16px;">3 Topics →</span>
+          </div>
+        </a>
+
+        <a href="sections/07-practical.html" class="glass-card" style="text-decoration: none; margin-bottom: 0;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <span style="font-size: 0.75rem; font-weight: 700; color: var(--accent-emerald); text-transform: uppercase;">Section 07</span>
+              <h3 style="font-size: 1.2rem; font-weight: 600; color: var(--text-main); margin: 4px 0 8px 0;">Practical Considerations</h3>
+              <p style="font-size: 0.88rem; color: var(--text-muted);">Iterative depth/breadth, Kano model prioritization, forward/backward requirements tracing, volatility assessment, and functional size measurement.</p>
+            </div>
+            <span style="font-size: 0.85rem; font-weight: 600; color: var(--accent-emerald); white-space: nowrap; margin-left: 16px;">6 Topics →</span>
+          </div>
+        </a>
+
+        <a href="sections/08-tools.html" class="glass-card" style="text-decoration: none; margin-bottom: 0;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <span style="font-size: 0.75rem; font-weight: 700; color: var(--accent-purple); text-transform: uppercase;">Section 08</span>
+              <h3 style="font-size: 1.2rem; font-weight: 600; color: var(--text-main); margin: 4px 0 8px 0;">Software Requirements Tools</h3>
+              <p style="font-size: 0.88rem; color: var(--text-muted);">Requirements management tools, modeling & simulation tools, and automated functional test case generation tools.</p>
+            </div>
+            <span style="font-size: 0.85rem; font-weight: 600; color: var(--accent-purple); white-space: nowrap; margin-left: 16px;">3 Topics →</span>
+          </div>
+        </a>
+
+      </div>
+
+    </main>
+  </div>
+
+  <script src="../../global.js"></script>
+</body>
+</html>

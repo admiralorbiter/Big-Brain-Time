@@ -1,0 +1,18 @@
+{
+  "topicId": "1.6-technology-constraints",
+  "fieldContext": [
+    {
+      "note": "Technology constraints explicitly dictate or forbid named technologies (e.g. 'Must deploy to AWS EKS', 'Database must be PostgreSQL 15', 'No C++ raw pointers').",
+      "source": "SWEBOK v4.0 Section 1.6"
+    }
+  ],
+  "personalNotes": [
+    "Technology constraints limit implementation solution spaces. Distinguish them carefully from Quality of Service constraints."
+  ],
+  "externalLinks": [
+    {
+      "label": "Topic 1.7 Quality of Service Constraints",
+      "url": "1.7-qos-constraints.html"
+    }
+  ]
+}

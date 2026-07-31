@@ -1,0 +1,18 @@
+{
+  "topicId": "2.1-sources",
+  "fieldContext": [
+    {
+      "note": "Identifying stakeholder classes rather than individuals prevents bias toward vocal groups and ensures neglected classes (e.g. Ops, First-level Support, Negatively Affected Users) have their constraints surfaced.",
+      "source": "SWEBOK v4.0 Section 2.1"
+    }
+  ],
+  "personalNotes": [
+    "Always check non-person sources: legacy defect databases and computing environments often reveal tacit constraints that users forget to mention."
+  ],
+  "externalLinks": [
+    {
+      "label": "Topic 2.2 Elicitation Techniques",
+      "url": "2.2-techniques.html"
+    }
+  ]
+}

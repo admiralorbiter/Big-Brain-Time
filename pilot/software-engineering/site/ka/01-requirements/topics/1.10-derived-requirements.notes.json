@@ -1,0 +1,18 @@
+{
+  "topicId": "1.10-derived-requirements",
+  "fieldContext": [
+    {
+      "note": "Derived requirements originate from internal design choices (e.g. choosing a microservices or event-driven architecture induces requirements for service discovery, schema registries, and circuit breakers).",
+      "source": "Modern Field Context"
+    }
+  ],
+  "personalNotes": [
+    "External stakeholders see an architectural choice as a design decision, but sub-teams assigned to component construction receive that choice as a strict requirement."
+  ],
+  "externalLinks": [
+    {
+      "label": "KA 02 Architecture — Architectural Styles",
+      "url": "../../02-architecture/index.html"
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1.4 Functional Requirements — SWEBOK v4.0 Explorer</title>
+  <link rel="stylesheet" href="../../../global.css">
+</head>
+<body data-topic-id="1.4-functional-requirements">
+
+  <header class="site-header">
+    <div class="brand">
+      <a href="../../../index.html" style="color: var(--text-main); text-decoration: none;">IEEE SWEBOK v4.0</a>
+      <span class="brand-badge">TOPIC 1.4</span>
+    </div>
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" class="search-input" placeholder="Search concepts..." />
+    </div>
+    <div style="font-size: 0.85rem; color: var(--text-muted);">
+      Software Requirements
+    </div>
+  </header>
+
+  <div class="layout-container">
+    
+    <nav class="sidebar-nav">
+      <div class="nav-section-title">01. Fundamentals</div>
+      <ul class="nav-list">
+        <li class="nav-item"><a href="1.1-definition.html" class="nav-link">1.1 Definition of Requirement</a></li>
+        <li class="nav-item"><a href="1.2-categories.html" class="nav-link">1.2 Categories Breakdown</a></li>
+        <li class="nav-item"><a href="1.3-product-vs-project.html" class="nav-link">1.3 Product vs Project</a></li>
+        <li class="nav-item"><a href="1.4-functional-requirements.html" class="nav-link active">1.4 Functional Requirements</a></li>
+        <li class="nav-item"><a href="1.5-nonfunctional-requirements.html" class="nav-link">1.5 Nonfunctional Requirements</a></li>
+        <li class="nav-item"><a href="1.6-technology-constraints.html" class="nav-link">1.6 Technology Constraints</a></li>
+        <li class="nav-item"><a href="1.7-qos-constraints.html" class="nav-link">1.7 Quality of Service Constraints</a></li>
+        <li class="nav-item"><a href="1.8-why-categorize.html" class="nav-link">1.8 Why Categorize This Way?</a></li>
+        <li class="nav-item"><a href="1.9-system-vs-software.html" class="nav-link">1.9 System vs Software Reqs</a></li>
+        <li class="nav-item"><a href="1.10-derived-requirements.html" class="nav-link">1.10 Derived Requirements</a></li>
+        <li class="nav-item"><a href="1.11-activities-overview.html" class="nav-link">1.11 Activities Overview</a></li>
+      </ul>
+      <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border-color);">
+        <a href="../sections/01-fundamentals.html" style="font-size: 0.85rem; color: var(--text-muted);">← Back to Section 01</a>
+      </div>
+    </nav>
+
+    <main class="main-content">
+      
+      <div class="breadcrumb">
+        <a href="../../../index.html">SWEBOK v4.0</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../index.html">KA 01</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../sections/01-fundamentals.html">01. Fundamentals</a>
+        <span class="breadcrumb-separator">/</span>
+        <span style="color: var(--text-main); font-weight: 600;">1.4 Functional Requirements</span>
+      </div>
+
+      <div class="ref-card">
+        <div class="ref-card-header">
+          <span class="ref-card-title">⚡ Quick Reference Card</span>
+          <span style="font-size: 0.75rem; background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); padding: 2px 8px; border-radius: 4px;">Behavior & Policies</span>
+        </div>
+        <h2 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 8px;">Functional Requirements</h2>
+        <p style="font-size: 0.95rem; color: var(--text-main); line-height: 1.5; margin-bottom: 12px;">
+          Functional requirements specify <strong>observable behaviors</strong> that the software is to provide — specifically policies to be enforced and processes to be carried out.
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <span class="concept-pill" data-term="functional requirement">Observable Behavior</span>
+          <span class="concept-pill" data-term="bdd">BDD Scenarios</span>
+          <span class="concept-pill" data-term="atdd">ATDD Acceptance</span>
+        </div>
+      </div>
+
+      <article>
+        <h1 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 16px;">1.4 Functional Requirements</h1>
+
+        <div class="layer-box source">
+          <span class="layer-label">Canonical SWEBOK Text</span>
+          <p style="font-size: 0.95rem; margin-bottom: 10px;">
+            Functional requirements specify observable behaviors:
+          </p>
+          <ul style="margin-left: 20px; font-size: 0.9rem; margin-bottom: 12px;">
+            <li><strong>Banking Policy Examples:</strong> "An account shall always have at least one customer as its owner," and "the balance of an account shall never be negative."</li>
+            <li><strong>Banking Process Examples:</strong> Depositing money, withdrawing money, transferring money between accounts.</li>
+            <li><strong>Technical Protocol Examples (TCP/IP):</strong> "A Port shall exist with 0, 1, or many Connections, but a Connection shall exist on exactly one Port," connection states (<code>LISTEN</code>, <code>SYN_SENT</code>, <code>ESTABLISHED</code>, <code>CLOSING</code>), and TTL segment expiration handling.</li>
+          </ul>
+        </div>
+
+        <h3 style="font-size: 1.2rem; font-weight: 600; margin: 28px 0 12px 0;">The Perfect Technology Filter Test</h3>
+        <p style="margin-bottom: 16px; color: var(--text-muted);">
+          How do you prove a requirement is functional vs nonfunctional? SWEBOK cites McMenamin & Palmer's <strong>Perfect Technology Filter</strong> test:
+        </p>
+        <blockquote style="border-left: 3px solid var(--accent-emerald); padding-left: 16px; margin: 16px 0; background: rgba(16, 185, 129, 0.05); padding: 12px 16px; border-radius: 0 8px 8px 0;">
+          "Functional requirements are those that would still need to be stated even if a computer with infinite speed, unlimited memory, zero cost, and zero failures existed on which to construct the software."
+        </blockquote>
+
+        <div id="sidecar-content" style="margin-top: 32px;"></div>
+      </article>
+
+    </main>
+
+    <aside class="concept-panel">
+      <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--text-dim); margin-bottom: 12px;">Concept Connections</div>
+      <ul style="list-style: none; font-size: 0.85rem;">
+        <li style="margin-bottom: 8px;"><a href="1.5-nonfunctional-requirements.html">→ 1.5 Nonfunctional Reqs</a></li>
+        <li style="margin-bottom: 8px;"><a href="1.8-why-categorize.html">→ 1.8 Perfect Technology Filter</a></li>
+      </ul>
+    </aside>
+
+  </div>
+
+  <script src="../../../global.js"></script>
+</body>
+</html>

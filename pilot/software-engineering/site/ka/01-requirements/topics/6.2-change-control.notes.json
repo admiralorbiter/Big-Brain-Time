@@ -1,0 +1,18 @@
+{
+  "topicId": "6.2-change-control",
+  "fieldContext": [
+    {
+      "note": "Change control processes establish formal mechanisms to request changes, conduct impact analysis, authorize/reject proposals, notify stakeholders, and track closure.",
+      "source": "SWEBOK v4.0 Section 6.2"
+    }
+  ],
+  "personalNotes": [
+    "In Agile, change control happens implicitly through backlog reprioritization: a change request becomes a backlog item, accepted only when prioritized into a sprint."
+  ],
+  "externalLinks": [
+    {
+      "label": "KA 08 Software Configuration Management — Change Control",
+      "url": "../../08-scm/index.html"
+    }
+  ]
+}

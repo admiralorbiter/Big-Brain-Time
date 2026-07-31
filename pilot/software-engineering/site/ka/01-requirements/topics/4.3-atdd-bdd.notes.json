@@ -1,0 +1,18 @@
+{
+  "topicId": "4.3-atdd-bdd",
+  "fieldContext": [
+    {
+      "note": "ATDD & BDD eliminate ambiguity by expressing requirements in executable test language: Given <context>, When <stimulus>, Then <outcome>.",
+      "source": "SWEBOK v4.0 Section 4.3"
+    }
+  ],
+  "personalNotes": [
+    "ATDD/BDD test cases are unambiguous statements of requirement: modifying 'we expect the software to produce Y' to 'the software shall produce Y' converts a test case directly into a formal requirement."
+  ],
+  "externalLinks": [
+    {
+      "label": "KA 05 Software Testing — Acceptance Test Derivation",
+      "url": "../../05-testing/index.html"
+    }
+  ]
+}

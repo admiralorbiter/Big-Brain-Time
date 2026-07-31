@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4.3 Acceptance Criteria-Based Specifications — SWEBOK v4.0 Explorer</title>
+  <link rel="stylesheet" href="../../../global.css">
+</head>
+<body data-topic-id="4.3-atdd-bdd">
+
+  <header class="site-header">
+    <div class="brand">
+      <a href="../../../index.html" style="color: var(--text-main); text-decoration: none;">IEEE SWEBOK v4.0</a>
+      <span class="brand-badge">TOPIC 4.3</span>
+    </div>
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" class="search-input" placeholder="Search concepts..." />
+    </div>
+    <div style="font-size: 0.85rem; color: var(--text-muted);">
+      Software Requirements
+    </div>
+  </header>
+
+  <div class="layout-container">
+    
+    <nav class="sidebar-nav">
+      <div class="nav-section-title">04. Specification Subtopics</div>
+      <ul class="nav-list">
+        <li class="nav-item"><a href="4.1-unstructured-nl.html" class="nav-link">4.1 Unstructured Natural Lang</a></li>
+        <li class="nav-item"><a href="4.2-structured-nl.html" class="nav-link">4.2 Structured Natural Lang</a></li>
+        <li class="nav-item"><a href="4.3-atdd-bdd.html" class="nav-link active">4.3 ATDD & BDD</a></li>
+        <li class="nav-item"><a href="4.4-model-based.html" class="nav-link">4.4 Model-Based Spec</a></li>
+        <li class="nav-item"><a href="4.5-attributes.html" class="nav-link">4.5 Attributes & Planguage</a></li>
+        <li class="nav-item"><a href="4.6-incremental-vs-comprehensive.html" class="nav-link">4.6 Incremental vs Comprehensive</a></li>
+      </ul>
+      <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border-color);">
+        <a href="../sections/04-specification.html" style="font-size: 0.85rem; color: var(--text-muted);">← Back to Section 04 Overview</a>
+      </div>
+    </nav>
+
+    <main class="main-content">
+      
+      <div class="breadcrumb">
+        <a href="../../../index.html">SWEBOK v4.0</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../index.html">KA 01</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../sections/04-specification.html">04. Specification</a>
+        <span class="breadcrumb-separator">/</span>
+        <span style="color: var(--text-main); font-weight: 600;">4.3 ATDD & BDD</span>
+      </div>
+
+      <div class="ref-card">
+        <div class="ref-card-header">
+          <span class="ref-card-title">⚡ Quick Reference Card</span>
+          <span style="font-size: 0.75rem; background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); padding: 2px 8px; border-radius: 4px;">Executable Criteria</span>
+        </div>
+        <h2 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 8px;">Acceptance Criteria-Based Specification (ATDD & BDD)</h2>
+        <p style="font-size: 0.95rem; color: var(--text-main); line-height: 1.5; margin-bottom: 12px;">
+          Writing requirements using precise test case language before implementation code is produced. Includes <strong>ATDD</strong> (Acceptance Test-Driven Development) and <strong>BDD</strong> (Behavior-Driven Development: <code>Given - When - Then</code>).
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <span class="concept-pill" data-term="atdd">ATDD</span>
+          <span class="concept-pill" data-term="bdd">BDD</span>
+        </div>
+      </div>
+
+      <article>
+        <h1 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 16px;">4.3 Acceptance Criteria-Based Specifications</h1>
+
+        <div class="layer-box source">
+          <span class="layer-label">Canonical SWEBOK Text</span>
+          <p style="font-size: 0.95rem; margin-bottom: 10px;">
+            Acceptance criteria-based specifications directly solve the requirement ambiguity problem because natural languages are ambiguous, but test language is not.
+          </p>
+
+          <h4 style="margin: 14px 0 6px 0; color: var(--primary-glow);">1. ATDD 3-Step Process</h4>
+          <ol style="margin-left: 20px; font-size: 0.88rem; line-height: 1.6; margin-bottom: 12px;">
+            <li>Select a unit of functionality (e.g. User Story).</li>
+            <li>Engineers, domain experts, and QA meet <em>before design/construction</em> to agree on failing acceptance test cases.</li>
+            <li>Code is written/refactored until all agreed acceptance test cases pass cleanly.</li>
+          </ol>
+
+          <h4 style="margin: 14px 0 6px 0; color: var(--accent-emerald);">2. BDD Given-When-Then Format</h4>
+          <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid var(--border-color); padding: 14px; border-radius: 8px; font-family: var(--font-mono); font-size: 0.85rem;">
+            Scenario: ATM Cash Withdrawal<br>
+            <strong>Given</strong> account balance is $500 and card is valid,<br>
+            <strong>When</strong> Account Holder requests $100,<br>
+            <strong>Then</strong> ATM dispenses $100, account balance becomes $400, and card is returned.
+          </div>
+        </div>
+
+        <div id="sidecar-content" style="margin-top: 32px;"></div>
+      </article>
+
+    </main>
+
+    <aside class="concept-panel">
+      <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--text-dim); margin-bottom: 12px;">Concept Connections</div>
+      <ul style="list-style: none; font-size: 0.85rem;">
+        <li style="margin-bottom: 8px;"><a href="4.2-structured-nl.html">→ 4.2 User Stories</a></li>
+        <li style="margin-bottom: 8px;"><a href="../topics/3.1-basic-analysis.html">→ 3.1 Unambiguous Property</a></li>
+      </ul>
+    </aside>
+
+  </div>
+
+  <script src="../../../global.js"></script>
+</body>
+</html>

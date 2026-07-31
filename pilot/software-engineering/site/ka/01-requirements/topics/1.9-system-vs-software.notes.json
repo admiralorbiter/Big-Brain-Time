@@ -1,0 +1,18 @@
+{
+  "topicId": "1.9-system-vs-software",
+  "fieldContext": [
+    {
+      "note": "INCOSE defines a system as an interacting combination of hardware, software, firmware, people, facilities, and services. Software requirements apply specifically to the software elements within that system.",
+      "source": "INCOSE Systems Engineering Handbook / SWEBOK v4.0 Section 1.9"
+    }
+  ],
+  "personalNotes": [
+    "In embedded/CPS systems (like autonomous vehicles or medical devices), system requirements allocate to software vs hardware. In pure SaaS software, the software IS the system of interest."
+  ],
+  "externalLinks": [
+    {
+      "label": "Topic 1.10 Derived Requirements",
+      "url": "1.10-derived-requirements.html"
+    }
+  ]
+}

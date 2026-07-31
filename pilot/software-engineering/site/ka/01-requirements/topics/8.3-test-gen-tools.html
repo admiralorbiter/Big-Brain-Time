@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>8.3 Functional Test Case Generation Tools — SWEBOK v4.0 Explorer</title>
+  <link rel="stylesheet" href="../../../global.css">
+</head>
+<body data-topic-id="8.3-test-gen-tools">
+
+  <header class="site-header">
+    <div class="brand">
+      <a href="../../../index.html" style="color: var(--text-main); text-decoration: none;">IEEE SWEBOK v4.0</a>
+      <span class="brand-badge">TOPIC 8.3</span>
+    </div>
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" class="search-input" placeholder="Search concepts..." />
+    </div>
+    <div style="font-size: 0.85rem; color: var(--text-muted);">
+      Software Requirements
+    </div>
+  </header>
+
+  <div class="layout-container">
+    
+    <nav class="sidebar-nav">
+      <div class="nav-section-title">08. Tools Subtopics</div>
+      <ul class="nav-list">
+        <li class="nav-item"><a href="8.1-mgmt-tools.html" class="nav-link">8.1 Management Tools</a></li>
+        <li class="nav-item"><a href="8.2-modeling-tools.html" class="nav-link">8.2 Modeling Tools</a></li>
+        <li class="nav-item"><a href="8.3-test-gen-tools.html" class="nav-link active">8.3 Test Case Generation Tools</a></li>
+      </ul>
+      <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border-color);">
+        <a href="../sections/08-tools.html" style="font-size: 0.85rem; color: var(--text-muted);">← Back to Section 08 Overview</a>
+      </div>
+    </nav>
+
+    <main class="main-content">
+      
+      <div class="breadcrumb">
+        <a href="../../../index.html">SWEBOK v4.0</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../index.html">KA 01</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="../sections/08-tools.html">08. Tools</a>
+        <span class="breadcrumb-separator">/</span>
+        <span style="color: var(--text-main); font-weight: 600;">8.3 Test Gen Tools</span>
+      </div>
+
+      <div class="ref-card">
+        <div class="ref-card-header">
+          <span class="ref-card-title">⚡ Quick Reference Card</span>
+          <span style="font-size: 0.75rem; background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); padding: 2px 8px; border-radius: 4px;">Mechanical Derivation</span>
+        </div>
+        <h2 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 8px;">Functional Test Case Generation Tools</h2>
+        <p style="font-size: 0.95rem; color: var(--text-main); line-height: 1.5; margin-bottom: 12px;">
+          Tools that mechanically derive positive and negative test cases from formally defined requirements specifications (BDD scenarios, UML statechart transition matrices).
+        </p>
+      </div>
+
+      <article>
+        <h1 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 16px;">8.3 Functional Test Case Generation Tools</h1>
+
+        <div class="layer-box source">
+          <span class="layer-label">Canonical SWEBOK Text</span>
+          <p style="font-size: 0.95rem; margin-bottom: 10px;">
+            Mechanical test generation logic:
+          </p>
+
+          <ul style="margin-left: 20px; font-size: 0.9rem; line-height: 1.6; margin-bottom: 14px;">
+            <li><strong>BDD Conversion:</strong> Converting BDD Given-When-Then scenarios into automated test suites.</li>
+            <li><strong>State Model Derivation:</strong> Positive test cases are derived for each defined state transition; negative test cases are derived for state/event combinations that do not appear.</li>
+          </ul>
+
+          <p style="font-size: 0.88rem; color: var(--text-dim);">
+            In the general case, tools generate test case inputs. Determining expected output oracles often requires human domain expertise.
+          </p>
+        </div>
+
+        <div id="sidecar-content" style="margin-top: 32px;"></div>
+      </article>
+
+    </main>
+
+    <aside class="concept-panel">
+      <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--text-dim); margin-bottom: 12px;">Concept Connections</div>
+      <ul style="list-style: none; font-size: 0.85rem;">
+        <li style="margin-bottom: 8px;"><a href="../topics/4.3-atdd-bdd.html">→ 4.3 BDD Scenarios</a></li>
+        <li style="margin-bottom: 8px;"><a href="8.2-modeling-tools.html">→ 8.2 Modeling Tools</a></li>
+      </ul>
+    </aside>
+
+  </div>
+
+  <script src="../../../global.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "topicId": "3.4-conflict-resolution",
+  "fieldContext": [
+    {
+      "note": "Stakeholder conflicts should be resolved via consensus negotiation (Fisher & Ury 'Getting to Yes') or accommodated through Product Line Engineering (separating Invariant from Variant requirements).",
+      "source": "SWEBOK v4.0 Section 3.4"
+    }
+  ],
+  "personalNotes": [
+    "Product Line Engineering: Design to Invariants for shared requirements across stakeholders, and Design for Change (customization points) for variant requirements (e.g. Celsius vs Fahrenheit display)."
+  ],
+  "externalLinks": [
+    {
+      "label": "Fisher & Ury — Getting to Yes (Principled Negotiation)",
+      "url": "3.4-conflict-resolution.html"
+    }
+  ]
+}
